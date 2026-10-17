@@ -42,10 +42,10 @@
     }
   }
 
-  // The newest ticket feeds out of the dispenser slot once, on arrival.
+  // The last ticket in the visible line feeds out of the dispenser slot once, on arrival.
   async function feedNewest() {
-    const t = tickets.find((x) => "newest" in x.dataset);
-    if (!t || t.hidden || reduceMotion.matches) return;
+    const t = visible().at(-1);
+    if (!t || reduceMotion.matches) return;
     const box = t.getBoundingClientRect();
     const mouth = slotMouth.getBoundingClientRect();
     if (vertical.matches) {

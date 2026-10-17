@@ -21,7 +21,7 @@ OWN-WORLD: Turn-O-Matic dispenser red drenches the hero and close; white roll-pa
 
 STORY: Waiting rooms run on arrival order after a one-time triage snapshot; someone in the chairs can be getting worse while the line still has them third. Sourced facts show the scale. PrIAge is early and working on it. Visitor emails.
 
-FIRST VIEWPORT: Red ground. Nav row. Huge left-aligned white headline with one-line sub and a ticket-shaped "Show how they're doing" toggle. Bottom band is one machine: NOW SERVING board at left, five tickets with ticking wait times running right to a dispenser slot. Toggling flips every ticket to its back; 044 reads GETTING WORSE in stamp red while the board still says PLEASE BE SEATED.
+FIRST VIEWPORT: Red ground. Nav row. Huge left-aligned white headline with one-line sub and a ticket-shaped "Show how they're doing" toggle. Bottom band is one machine: NOW SERVING board at left, five tickets with ticking wait times running right to a dispenser slot. Toggling flips every ticket to its back; 044 reads GETTING WORSE in stamp red while the board still says PLEASE WAIT. The sub runs two lines, not one: the user asked the page to explain the problem (2026-10-17).
 
 FORM: Take a Number, my top-ranked grounded candidate (rank 1, chosen as pick over assigned rank 4); seed 88fcbeb9. Signature interaction: the paper flip reveal; motion grammar is paper: one feed-out on load, hard two-frame flips, ticking clocks, no easing flourishes.
 
