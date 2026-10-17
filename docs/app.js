@@ -218,7 +218,7 @@
       hand.setAttribute("transform", `rotate(${h * 30})`);
       const whole = Math.floor(h + 1e-6);
       hours.textContent = whole >= 12 ? "12+ hours" : `${whole} ${whole === 1 ? "hour" : "hours"}`;
-      num.classList.toggle("n-time", whole >= 2 && whole < 12);
+      num.classList.toggle("n-ink", whole >= 2 && whole < 12);
       if (whole < 2) { num.textContent = "2.5%"; txt.textContent = "died in the hospital after waiting under 2 hours for a bed"; }
       else if (whole < 12) { num.textContent = `${whole} hours`; txt.textContent = "of waiting; deaths generally rose as the wait went on"; }
       else { num.textContent = "4.5%"; txt.textContent = "died in the hospital after waiting 12 hours or more, against 2.5% for waits under 2 hours"; }
@@ -369,6 +369,11 @@
       requestAnimationFrame(() => { queued = false; sync(); });
     }, { passive: true });
     addEventListener("resize", sync);
+    // Tabbing to a link inside a card lines that card up, so snapping can't leave the link half off screen.
+    list.addEventListener("focusin", (e) => {
+      const card = e.target.closest(".card");
+      if (card) list.scrollTo({ left: card.offsetLeft - cards[0].offsetLeft, behavior: "auto" });
+    });
     sync();
   }
 
@@ -402,16 +407,4 @@
   addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  // On phones, a quiet bar keeps the ask in reach once the hero has scrolled away.
-  const bar = document.querySelector(".ask-bar");
-  const hero = document.querySelector(".hero");
-  const talk = document.querySelector("#talk");
-  const foot = document.querySelector(".sources");
-  if (bar && hero && talk && "IntersectionObserver" in window) {
-    let heroGone = false, talkShown = false, footShown = false;
-    const sync = () => bar.classList.toggle("show", heroGone && !talkShown && !footShown);
-    new IntersectionObserver(([e]) => { heroGone = !e.isIntersecting; sync(); }).observe(hero);
-    new IntersectionObserver(([e]) => { talkShown = e.isIntersecting; sync(); }).observe(talk);
-    if (foot) new IntersectionObserver(([e]) => { footShown = e.isIntersecting; sync(); }).observe(foot);
-  }
 })();

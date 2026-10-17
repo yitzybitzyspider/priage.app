@@ -7,25 +7,25 @@
   <meta name="description" content="Patients can wait for hours in the ER, before triage and after it, and it is hard for anyone to see who is getting worse. The numbers, the strain on the people who work there, and what PrIAge is working on.">
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
   <meta name="theme-color" content="#2b5d87">
-  <link rel="icon" href="favicon.svg?v=11" type="image/svg+xml">
+  <link rel="icon" href="favicon.svg?v=12" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://priage.app/">
   <meta property="og:title" content="PrIAge: the ER waiting room is a blind spot">
   <meta property="og:description" content="Patients can wait for hours in the ER, and it is hard for anyone to see who is getting worse. What happens while people wait, and what PrIAge is working on.">
-  <meta property="og:image" content="https://priage.app/og.png?v=11">
+  <meta property="og:image" content="https://priage.app/og.png?v=12">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="fonts/overpass.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/atkinson-next.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=11">
-  <script src="app.js?v=11" defer></script>
+  <link rel="stylesheet" href="styles.css?v=12">
+  <script src="app.js?v=12" defer></script>
 </head>
 <body>
-  <a class="skip" href="#story">Skip to the story</a>
+  <a class="skip" href="#top">Skip to content</a>
 
   <header class="top">
     <div class="wrap nav">
-      <a class="wordmark" href="#top"><img src="logo.svg?v=11" alt="PrIAge" width="120" height="43"></a>
+      <a class="wordmark" href="#top"><img src="logo.svg?v=12" alt="PrIAge" width="120" height="43"></a>
       <nav aria-label="Main">
         <ul>
           <li class="nav-quiet"><a href="#story">The story</a></li>
@@ -39,14 +39,8 @@
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
       <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <h1 id="hero-title">The ER waiting room is a blind spot.</h1>
-          <p class="lede">Patients can wait for hours in the ER, before triage and after it. Through the wait, it is hard for anyone to see who is getting worse.</p>
-          <p class="about"><b>PrIAge</b> plans to use AI to help improve outcomes for people waiting in the ER. We're early: this fall we're talking with ER staff, hospital leaders and patients.</p>
-          <a class="btn" href="#talk">Talk with us
-            <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
+        <h1 id="hero-title">The ER waiting room is a blind spot.</h1>
+        <p class="lede">Patients can wait for hours in the ER, before triage and after it. While they wait, it is hard for anyone to see who is getting worse.</p>
         <ul class="hero-stats">
           <li class="stat">
             <p class="stat-n">155 million</p>
@@ -62,17 +56,29 @@
               <rect class="beam" x="0" y="23.5" width="84" height="2.5"/>
             </svg>
             <p class="stat-n">About 1 in 3</p>
-            <p class="stat-t">patients who turned out to need life-saving care were not placed in the two most urgent triage levels</p>
-            <p class="stat-src">21 US hospitals, 2023<a class="ref" href="#src-3">[3]</a></p>
+            <p class="stat-t">patients who went on to need life-stabilizing treatment were not placed in the triage scale's two most urgent levels</p>
+            <p class="stat-src">21 emergency departments in one California health system, 2016 to 2020<a class="ref" href="#src-3">[3]</a></p>
           </li>
         </ul>
+        <p class="about"><b>PrIAge</b> plans to use AI to help improve outcomes for people waiting in the ER. We're early: this fall we're talking with ER staff, hospital leaders and patients.</p>
+        <a class="btn" href="#talk">Talk with us
+            <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
       </div>
     </section>
 
     <section class="story" id="story" aria-labelledby="story-title">
       <div class="wrap story-head">
         <h2 id="story-title">What happens while people wait.</h2>
-        <p>None of this is for lack of effort. ER nurses, doctors and hospital leaders work hard inside a system stretched past its limits.</p>
+        <p>We found no national count of patients who get worse while they wait. These numbers come closest. None of this is for lack of effort: ER teams work inside a system stretched past its limits.</p>
+        <div class="pager-wrap">
+          <p class="hint"><span class="hint-touch">Swipe for more.</span><span class="hint-mouse">Use the arrows, or scroll sideways.</span></p>
+          <div class="pager">
+            <button class="pager-btn" type="button" data-dir="-1" aria-label="Previous cards" aria-disabled="true"><svg aria-hidden="true" viewBox="0 0 20 20" width="20" height="20"><path d="M16 10H5m4.5-4.5L5 10l4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <p class="pager-count" aria-live="polite"><b id="pager-now">1</b> of 8</p>
+            <button class="pager-btn" type="button" data-dir="1" aria-label="Next cards"><svg aria-hidden="true" viewBox="0 0 20 20" width="20" height="20"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
       </div>
 
       <ol class="cards" tabindex="0" aria-label="What happens while people wait, in eight cards">
@@ -94,12 +100,12 @@
 
         <li class="card">
           <h3>Triage is a single snapshot.</h3>
-          <figure class="scene" data-scene="triage" data-marked="34" data-seed="2024" aria-label="100 chairs, each a patient who turned out to need life-saving care. 34 are red: not placed in the two most urgent triage levels.">
-            <p class="q">Triage sorts patients into five levels. Of 100 patients who turned out to need life-saving care, how many were not placed in the two most urgent levels?</p>
+          <figure class="scene" data-scene="triage" data-marked="34" data-seed="2024" aria-label="100 chairs, each a patient who went on to need life-stabilizing treatment. 34 are red: not placed in the two most urgent triage levels.">
+            <p class="q">Triage sorts patients into five levels. Of 100 patients who went on to need life-stabilizing treatment, how many were not placed in the two most urgent levels?</p>
             <div class="stage seats-field" aria-hidden="true"></div>
             <noscript><p class="noscript">The chairs need JavaScript; the number is below.</p></noscript>
             <div class="answer"><b class="n"><span id="triage-count">34</span> of 100</b><p>were not placed in the two most urgent levels. Each chair is one patient.</p></div>
-            <figcaption class="src">21 US hospitals, 5.3 million adult visits<span class="sep">·</span><a href="#src-3">Sax et al., 2023 [3]</a></figcaption>
+            <figcaption class="src">21 California emergency departments, 5.3 million adult visits, 2016 to 2020<span class="sep">·</span><a href="#src-3">Sax et al., 2023 [3]</a></figcaption>
           </figure>
         </li>
 
@@ -111,7 +117,7 @@
               <div class="sign"><svg viewBox="0 0 24 24"><path d="M4 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg><span>Seen by a doctor, then sent home</span></div>
               <div class="sign hot"><svg viewBox="0 0 24 24"><path d="M4 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg><span>Left without being seen</span></div>
             </div>
-            <div class="answer"><b class="n">2.59×</b><p>the odds of dying within 30 days for people who left without being seen, after adjusting for other factors</p></div>
+            <div class="answer"><b class="n">2.59 times</b><p>the odds of dying within 30 days for people who left without being seen, after adjusting for other factors</p></div>
             <figcaption class="src">10 US emergency departments, 1.5 million adult visits<span class="sep">·</span><a href="#src-4">Joseph et al., 2025 [4]</a></figcaption>
           </figure>
         </li>
@@ -179,28 +185,20 @@
                 </dl>
               </div>
             </div>
-            <div class="answer"><b class="n">+$863</b><p>a day for one stroke patient waiting in the ER, with 20 fewer minutes of nursing time</p></div>
+            <div class="answer"><b class="n n-ink">$863 more</b><p>a day for one stroke patient waiting in the ER, with 20 fewer minutes of nursing time</p></div>
             <figcaption class="src">One US stroke center<span class="sep">·</span><a href="#src-8">Canellas et al., 2024 [8]</a></figcaption>
           </figure>
         </li>
 
         <li class="card card-end">
-          <p class="end-big">The number that matters most is missing.</p>
-          <p class="end-small">We found no national count of patients who get worse while they wait in US emergency rooms. If you've seen it happen, as staff or as a patient, we'd like to hear from you.</p>
+          <p class="end-big">Have you seen someone get worse while they waited?</p>
+          <p class="end-small">As ER staff, as a patient or as family, we'd like to hear what you saw. It is the count we couldn't find.</p>
           <a class="btn btn-light" href="#talk">Talk with us
             <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </li>
       </ol>
 
-      <div class="wrap strip-foot">
-        <p class="hint"><span class="hint-touch">Swipe for more.</span><span class="hint-mouse">Use the arrows, or scroll sideways.</span></p>
-        <div class="pager">
-          <button class="pager-btn" type="button" data-dir="-1" aria-label="Previous cards" aria-disabled="true"><svg aria-hidden="true" viewBox="0 0 20 20" width="20" height="20"><path d="M16 10H5m4.5-4.5L5 10l4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <p class="pager-count" aria-hidden="true"><b id="pager-now">1</b> of 8</p>
-          <button class="pager-btn" type="button" data-dir="1" aria-label="Next cards"><svg aria-hidden="true" viewBox="0 0 20 20" width="20" height="20"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        </div>
-      </div>
     </section>
 
     <section class="talk" id="talk" aria-labelledby="talk-title">
@@ -208,12 +206,12 @@
         <div class="talk-copy">
           <h2 id="talk-title">Have you worked in an ER, or waited in one?</h2>
           <p>We're early, and learning from the people who know this best: ER nurses, doctors and hospital leaders, and patients and families. Advice and introductions are welcome too.</p>
-          <p class="promise">Calls take 20 to 30 minutes. We won't ask about specific patients or your hospital, it isn't a sales call, and we'll share what we learn.</p>
+          <p class="promise">Calls take 20 to 30 minutes. We won't ask for patient details or anything confidential about your hospital. It isn't a sales call, and we'll share what we learn.</p>
         </div>
         <div class="talk-action">
-          <a class="btn btn-light" href="mailto:hello@priage.app?subject=Hello%20from%20priage.app&amp;body=Hi%20PrIAge%20team%2C%0A%0AI%20am%20a%20(ER%20nurse%2C%20doctor%2C%20hospital%20leader%2C%20patient%20or%20family%20member%2C%20or%20something%20else)%3A%20%0A%0AGood%20times%20for%20a%2020%20to%2030%20minute%20call%3A%20%0A">Email hello@priage.app
+          <!--email_off--><a class="btn btn-light" href="mailto:hello@priage.app?subject=Hello%20from%20priage.app&amp;body=Hi%20PrIAge%20team%2C%0A%0AI%20am%20a%20(ER%20nurse%2C%20doctor%2C%20hospital%20leader%2C%20patient%20or%20family%20member%2C%20or%20something%20else)%3A%20%0A%0AGood%20times%20for%20a%2020%20to%2030%20minute%20call%3A%20%0A">Email hello@priage.app
             <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
+          </a><!--/email_off-->
           <button class="copy" type="button" data-copy="hello@priage.app"><svg aria-hidden="true" viewBox="0 0 20 20" width="16" height="16"><rect x="6.5" y="6.5" width="10" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M13.5 6.5V4a1.5 1.5 0 0 0-1.5-1.5H5A1.5 1.5 0 0 0 3.5 4v9A1.5 1.5 0 0 0 5 14.5h1.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span class="copy-label">Copy email</span></button>
           <p class="privacy">Please don't include personal medical details in your email.</p>
         </div>
@@ -224,11 +222,11 @@
       <div class="wrap">
         <div class="team-head">
           <h2 id="team-title">Who we are.</h2>
-          <p>Four MBA students at UC Berkeley's Haas School of Business: a physician, a hospital software lead, a startup founder and a systems engineer.</p>
+          <p>Four MBA students at UC Berkeley's Haas School of Business: a physician who led a frontline ER team, a hospital staffing product lead from Epic, a Y Combinator founder and an operations engineer.</p>
         </div>
         <ul class="people">
           <li class="person">
-            <img src="team/shion.jpg" alt="Shion Kiguchi" width="400" height="400" loading="lazy">
+            <span class="ph"><img src="team/shion.jpg" alt="Shion Kiguchi" width="400" height="400" loading="lazy"></span>
             <div>
               <h3>Shion Kiguchi, MD</h3>
               <p class="person-tag">Physician</p>
@@ -237,30 +235,30 @@
             </div>
           </li>
           <li class="person">
-            <img src="team/premi.jpg" alt="Premi Mohanavelu" width="400" height="400" loading="lazy">
+            <span class="ph"><img src="team/premi.jpg" alt="Premi Mohanavelu" width="400" height="400" loading="lazy"></span>
             <div>
               <h3>Premi Mohanavelu</h3>
               <p class="person-tag">Hospital software</p>
-              <p>Premi spent nearly four years at Epic, the health record company, most recently as Product Lead for Precision Staffing, its workforce tools for hospitals. Premi launched five workforce products in 18 months across 140+ health organizations and led rollouts for 100+ departments. B.S. in Computer Science, Georgia Tech.</p>
-              <a class="person-link" href="https://www.linkedin.com/in/prahathishree-mohanavelu/">LinkedIn</a>
+              <p>Premi spent nearly four years at Epic, the health record company, most recently as Product Lead for Precision Staffing, its workforce tools for hospitals. Premi launched five workforce products in 18 months across more than 140 health organizations and led rollouts for more than 100 departments. B.S. in Computer Science, Georgia Tech.</p>
+              <a class="person-link" href="https://www.linkedin.com/in/prahathishree-mohanavelu/" aria-label="Premi Mohanavelu on LinkedIn">LinkedIn</a>
             </div>
           </li>
           <li class="person">
-            <img src="team/jt.jpg" alt="José Tomás Fernández" width="400" height="400" loading="lazy">
+            <span class="ph"><img src="team/jt.jpg" alt="José Tomás Fernández" width="400" height="400" loading="lazy" class="zoom-in"></span>
             <div>
               <h3>José Tomás Fernández</h3>
               <p class="person-tag">Startup founder</p>
               <p>José Tomás co-founded Rendalo Maq, a Y Combinator company, and built it in Mexico as Country Manager, raising over $4 million. José Tomás also led global strategy and growth for groceries at Cornershop by Uber, and started a first company through Start-Up Chile.</p>
-              <a class="person-link" href="https://www.linkedin.com/in/jose-tomas-fernandez/">LinkedIn</a>
+              <a class="person-link" href="https://www.linkedin.com/in/jose-tomas-fernandez/" aria-label="José Tomás Fernández on LinkedIn">LinkedIn</a>
             </div>
           </li>
           <li class="person">
-            <img src="team/yitzy.jpg" alt="Yitzy Rosenberg" width="400" height="400" loading="lazy">
+            <span class="ph"><img src="team/yitzy.jpg" alt="Yitzy Rosenberg" width="400" height="400" loading="lazy"></span>
             <div>
               <h3>Yitzy Rosenberg</h3>
               <p class="person-tag">Systems engineer</p>
-              <p>Yitzy builds operations where none exist: rebuilding a near-shutdown startup's operations and growing its team from 3 to 20 in a year, co-founding Astrid, a health tech tool that automates the tracking a PMDD diagnosis requires, and managing a $350M+ resiliency portfolio for the largest water management agency in the US. M.Eng candidate in Operations Research, Berkeley; B.S. and M.Eng, Cornell.</p>
-              <a class="person-link" href="https://www.linkedin.com/in/yitzyrosenberg/">LinkedIn</a>
+              <p>Yitzy builds operations where none exist: rebuilding a near-shutdown startup's operations and growing its team from 3 to 20 in a year, co-founding Astrid, a health tech tool that automates the tracking a PMDD diagnosis requires, and managing a resiliency portfolio of more than $350 million for the largest water management agency in the US. MBA and M.Eng (Operations Research) candidate, Berkeley; B.S. and M.Eng, Cornell.</p>
+              <a class="person-link" href="https://www.linkedin.com/in/yitzyrosenberg/" aria-label="Yitzy Rosenberg on LinkedIn">LinkedIn</a>
             </div>
           </li>
         </ul>
@@ -272,15 +270,16 @@
     <div class="wrap">
       <details class="src-box" id="sources">
         <summary><h2 id="sources-title">Sources</h2><span class="src-box-note">Eight studies and reports, with the sentence behind each number</span></summary>
-        <p class="sources-note">Numbers on this page are quoted from these sentences. Where a number is worked out from one, the working is shown under it.</p>
+        <p class="sources-note">Each number is quoted from these sentences or worked out from them, as shown. Study sizes, places and years come from the same papers.</p>
         <ol>
           <li id="src-1">Cairns C, Ashman JJ, Kang K. Emergency Department Visit Rates by Selected Characteristics: United States, 2022. NCHS Data Brief No. 503. National Center for Health Statistics; 2024. <a href="https://www.cdc.gov/nchs/products/databriefs/db503.htm">cdc.gov</a>
             <q>In 2022, 155 million emergency department (ED) visits occurred in the United States.</q></li>
           <li id="src-2">Houston C, Sanchez LD, Fischer C, Volz K, Wolfe R. Waiting for triage: unmeasured time in patient flow. <i>Western Journal of Emergency Medicine</i>. 2015. <a href="https://doi.org/10.5811/westjem.2014.11.22824">doi:10.5811/westjem.2014.11.22824</a>
-            <q>When stratified by the number of new patients who arrived in the ED in the previous hour, the percentage of greeted patients who waited more than 10 minutes for triage was: 0-5 new patients - 12.4%; 6-10 new patients - 48.8%; 11-15 new patients - 64.4%; 16+ new patients - 68%.</q></li>
+            <q>When stratified by the number of new patients who arrived in the ED in the previous hour, the percentage of greeted patients who waited more than 10 minutes for triage was: 0-5 new patients - 12.4%; 6-10 new patients - 48.8%; 11-15 new patients - 64.4%; 16+ new patients - 68%.</q>
+            <span class="gloss">The drawing uses the nearest whole seats: 1 of 8, 6 of 12, 11 of 17 and 15 of 22.</span></li>
           <li id="src-3">Sax DR, Warton EM, Mark DG, et al. Evaluation of Version 4 of the Emergency Severity Index in US Emergency Departments for the Rate of Mistriage. <i>JAMA Network Open</i>. 2023;6(3):e233404. <a href="https://doi.org/10.1001/jamanetworkopen.2023.3404">doi:10.1001/jamanetworkopen.2023.3404</a>
             <q>The sensitivity of ESI to identify a patient with high-acuity illness (correctly assigning ESI I or II among patients who had a life-stabilizing intervention) was 65.9%.</q>
-            <span class="gloss">ESI is the five-level triage scale; ESI I and II are its two most urgent levels. 100 minus 65.9 is 34.1, shown as 34 of 100 and about 1 in 3.</span></li>
+            <span class="gloss">ESI is the five-level triage scale; ESI I and II are its two most urgent levels. 100 minus 65.9 is 34.1, shown as 34 of 100 and about 1 in 3. Adult visits from January 2016 to December 2020 at 21 Kaiser Permanente Northern California emergency departments.</span></li>
           <li id="src-4">Joseph JW, Bukhman AK, Baymon DE, et al. Mortality and Return Visit Frequency Among Emergency Department Patients Who Leave Without Being Seen at a Regional Health Care System. <i>Joint Commission Journal on Quality and Patient Safety</i>. 2025;51(7-8):466-473. <a href="https://doi.org/10.1016/j.jcjq.2025.02.008">doi:10.1016/j.jcjq.2025.02.008</a>
             <q>Independent of other clinical and demographic variables, LWBS was associated with more frequent returns within 72 hours (adjusted odds ratio [AOR] 2.56, 95% CI 2.50-2.62, p &lt; 0.001), 30-day ICU admission (AOR 1.35, 95% CI 1.27-1.66, p &lt; 0.001), and mortality within 30 days (AOR 2.59, 95% CI 1.90-3.53, p &lt;0.001).</q>
             <span class="gloss">LWBS means left without being seen. The comparison group is patients who were seen and sent home.</span></li>
@@ -298,13 +297,12 @@
         </ol>
       </details>
       <div class="foot">
-        <p>PrIAge is an early-stage project. Nothing on this page is medical advice. In an emergency, call your local emergency number.</p>
-        <p>© 2026 PrIAge<span class="sep">·</span>hello@priage.app</p>
+        <p>PrIAge is an early-stage project. Nothing on this page is medical advice. In an emergency, call 911.</p>
+        <p>© 2026 PrIAge<span class="sep">·</span><!--email_off--><a href="mailto:hello@priage.app">hello@priage.app</a><!--/email_off--></p>
       </div>
     </div>
   </footer>
 
-  <div class="ask-bar" aria-hidden="true"><a href="#talk" tabindex="-1">Talk with us</a></div>
   <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ad8cbd8f14274ec781d9ae9a99be34ba"}'></script>
 </body>
 </html>

@@ -318,3 +318,17 @@ A dual-agent critique scored v10 at 21 of 36. Fixes:
 - **Ask.** Band headline "Have you worked in an ER, or waited in one?" capped at 3.5rem (below the h1); the email opens with a two-line template (who you are, good times to talk).
 - **Share card.** og.png rebuilt from brand/build/og.html with the hero's two stats.
 
+## v12: critique round 2 (2026-10-17)
+
+Round 2 scored v11 at 24 of 36 (design) with no P0 defects in the evidence pass. Fixes:
+
+- **Hero.** One flat grid whose DOM order is the phone reading order (headline, lede, stats, PrIAge line, button), placed by grid areas on desktop so keyboard order matches what is seen. The red stat now reads "patients who went on to need life-stabilizing treatment were not placed in the triage scale's two most urgent levels", sourced to "21 emergency departments in one California health system, 2016 to 2020". From 600 to 899px the two stats sit side by side. The PrIAge line is the owner's vague AI sentence.
+- **Strip head.** The title takes its own row; under it, "We found no national count of patients who get worse while they wait. These numbers come closest." plus the no-blame sentence, with the arrows and hint on the same row (desktop) or their own row (phones), next to the cards rather than below them. The end card asks "Have you seen someone get worse while they waited?"
+- **Red is people, never money.** The ER bill's tag and amount are ink; the answer reads "$863 more" in ink (`.n-ink`). "2.59 times" in words.
+- **No phone ask bar.** The sticky header's button is always in reach; the bar duplicated it, covered content and fought the landscape layout.
+- **Keyboard.** Focusing a link inside a card lines that card up, so snapping can't strand it off screen.
+- **Hierarchy.** Story h2 up to 3.25rem, team h2 down to 2.5rem.
+- **Team.** Head line ties each person to the problem; plain numbers ("more than 140"); one photo zoomed 1.45x inside a clipped square to even out head sizes; LinkedIn links carry each name.
+- **Copy.** "While they wait"; the call promise no longer says "won't ask about your hospital"; footer says "call 911" and links the address; the mailto and footer address sit inside Cloudflare `email_off` so the ask works without its decoder.
+- **Sources.** Note says numbers are quoted or worked out, with sizes, places and years from the same papers; seat-count and study-years glosses; 74ch measure.
+
