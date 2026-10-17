@@ -31,6 +31,8 @@ After a one-time triage snapshot, patients can wait for hours while nobody sees 
 - Never imply reordering, ranking or skipping patients ("the changes ... and skipping people over has tons of implications").
 - Never blame nurses or hospitals; the system is overloaded.
 - No sensational or scary tone, and no playful devices around a life-and-death topic.
+- Focus on the US (confirmed 2026-10-17): lead with US data; strong non-US studies can appear as supporting numbers without highlighting the country, and the number always carries the emphasis over the study.
+- The ask (confirmed 2026-10-17): one simple invitation, no role picking; say what we're looking for (conversations, advice, introductions) and welcome general contact.
 - The page's jobs (confirmed 2026-10-17): land interviews; be the link in applications (accelerators, grants, programs); get into competitions; and tell people what PrIAge is working on. So readers include application reviewers and competition judges who skim for the problem, who is behind it, what the team is working toward, and how far along it is.
 - The big ask (confirmed 2026-10-17): talk to people and schedule time to learn about their problems. Audiences: ER nurses, ER doctors, hospital leaders (ED directors, nurse managers, quality and safety), and patients and families who have waited in an ER. For now booking is an email to hello@priage.app with a pre-filled note; a booking link may replace it later.
 - The first ticket-dispenser concept (v1) told the idea "almost too playfully"; the rebuild starts fresh visually. Only name, domain and contact carry over.

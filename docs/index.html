@@ -4,20 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PrIAge: the ER waiting room is a blind spot</title>
-  <meta name="description" content="Before triage and after it, it is hard to see who is getting worse in the ER waiting room. The sourced numbers, and what PrIAge is working on.">
+  <meta name="description" content="Before triage and after it, it is hard to see who is getting worse in the ER waiting room. The numbers, and what PrIAge is working on.">
   <meta name="theme-color" content="#2b5d87">
   <link rel="canonical" href="https://priage.app/">
   <link rel="icon" href="favicon.svg?v=3" type="image/svg+xml">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://priage.app/">
   <meta property="og:title" content="PrIAge: the ER waiting room is a blind spot">
-  <meta property="og:description" content="Sourced numbers on what happens while people wait for emergency care, and what PrIAge is working on.">
-  <meta property="og:image" content="https://priage.app/og.png?v=4">
+  <meta property="og:description" content="What happens while people wait for emergency care in the US, and what PrIAge is working on.">
+  <meta property="og:image" content="https://priage.app/og.png?v=5">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="fonts/overpass.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/atkinson-next.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=4">
-  <script src="app.js?v=4" defer></script>
+  <link rel="stylesheet" href="styles.css?v=5">
+  <script src="app.js?v=5" defer></script>
 </head>
 <body>
   <a class="skip" href="#numbers">Skip to the numbers</a>
@@ -38,7 +38,7 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="wrap">
         <h1 id="hero-title">The ER waiting room is a blind spot.</h1>
-        <p class="lede">In 2022, US emergency departments handled 155 million visits.<a class="ref" href="#src-2">[2]</a> Many patients wait just to be triaged, a wait that often isn't even measured.<a class="ref" href="#src-7">[7]</a> After triage, many wait again, sometimes for hours. Through both waits, it is hard for anyone to see who is getting worse.</p>
+        <p class="lede">In 2022, US emergency departments handled 155 million visits.<a class="ref" href="#src-1">[1]</a> Many patients wait just to be triaged, a wait that often isn't even measured.<a class="ref" href="#src-2">[2]</a> After triage, many wait again, sometimes for hours. Through both waits, it is hard for anyone to see who is getting worse.</p>
         <p class="about"><strong>PrIAge</strong> is working on ways to give ER nurses better information about patients while they wait. Nurses make the call. Right now we're talking with the people who do this work.</p>
         <div class="actions">
           <a class="btn" href="#talk">Talk with us
@@ -49,70 +49,87 @@
           </a>
         </div>
 
-        <figure class="seats" id="numbers" data-total="100" data-cols="25" data-cols-narrow="10" data-marked="21" data-seed="515" data-kind="missed"
-          aria-label="100 chairs, each one of the sickest walk-in patients. 21 are red: waited more than 15 minutes just to be triaged.">
-          <div class="seats-field"><noscript><p class="noscript">This chart needs JavaScript. Its numbers are written out beside it.</p></noscript></div>
-          <figcaption class="seats-cap">
+        <figure class="fig seats" id="numbers" data-total="100" data-cols="25" data-cols-narrow="10" data-marked="34" data-seed="2024" data-kind="missed"
+          aria-label="100 chairs, each a patient with high-acuity illness. 34 are red: not identified as high-acuity at triage.">
+          <div class="fig-panel seats-field"><noscript><p class="noscript">This chart needs JavaScript. Its numbers are written out beside it.</p></noscript></div>
+          <figcaption class="fig-cap">
             <div class="cap-main">
-              <p class="where">Canada&ensp;·&ensp;one emergency department&ensp;·&ensp;walk-in patients</p>
-              <p class="big">About 1 in 5</p>
-              <p class="what">of the sickest walk-in patients waited more than 15 minutes just to be triaged, longer than the 15 minutes in which guidelines say they should already have seen a doctor.</p>
-              <p class="legend"><span><i class="key"></i>One of the sickest walk-in patients</span><span><i class="key key-missed"></i>Waited over 15 minutes to be triaged</span></p>
+              <p class="big">About 34 in 100</p>
+              <p class="what">patients with high-acuity illness were not identified as high-acuity at triage.</p>
+              <p class="legend"><span><i class="key"></i>One high-acuity patient</span><span><i class="key key-missed"></i>Not identified as high-acuity</span></p>
             </div>
-            <blockquote class="clip">
-              <p>Of patients subsequently categorized as CTAS 1 or 2, 20.8% waited longer than the recommended time-to-physician of 15 minutes to be triaged.</p>
-              <cite>Betz et al., <a href="https://doi.org/10.1017/cem.2016.398">CJEM, 2017</a> <a class="ref" href="#src-6">[6]</a></cite>
-            </blockquote>
+            <div class="source">
+              <p class="where">United States&ensp;·&ensp;21 hospitals&ensp;·&ensp;5.3 million adult visits</p>
+              <p class="cite">Sax et al., <a href="https://doi.org/10.1001/jamanetworkopen.2023.3404">JAMA Network Open, 2023</a> <a class="ref" href="#src-3">[3]</a></p>
+              <details><summary>Source sentence</summary><blockquote>The sensitivity of ESI to identify a patient with high-acuity illness (correctly assigning ESI I or II among patients who had a life-stabilizing intervention) was 65.9%.</blockquote></details>
+            </div>
           </figcaption>
         </figure>
       </div>
     </section>
 
-    <section class="story" aria-labelledby="triage-title">
+    <section class="story" aria-labelledby="pre-title">
       <div class="wrap">
         <div class="story-head">
-          <h2 id="triage-title">Triage is one quick look, and it misses people.</h2>
-          <p>Triage nurses sort patients fast, with little to go on. Even the standard triage scale often doesn't flag the sickest patients as the sickest.<a class="ref" href="#src-3">[3]</a></p>
+          <h2 id="pre-title">Some wait just to be triaged.</h2>
+          <p>The wait before triage usually isn't counted in standard ER reporting. In one US emergency department, it grew sharply as the room got busier.<a class="ref" href="#src-2">[2]</a></p>
         </div>
-        <figure class="seats" data-total="100" data-cols="25" data-cols-narrow="10" data-marked="34" data-seed="2024" data-kind="missed"
-          aria-label="100 chairs, each a patient with high-acuity illness. 34 are red: not identified as high-acuity at triage.">
-          <div class="seats-field"><noscript><p class="noscript">This chart needs JavaScript. Its numbers are written out beside it.</p></noscript></div>
-          <figcaption class="seats-cap">
-            <div class="cap-main">
-              <p class="where">United States&ensp;·&ensp;21 hospitals&ensp;·&ensp;2016 to 2020</p>
-              <p class="big">About 34 in 100</p>
-              <p class="what">patients with high-acuity illness were not identified as high-acuity at triage, across 5.3 million adult emergency visits.</p>
-              <p class="legend"><span><i class="key"></i>One high-acuity patient</span><span><i class="key key-missed"></i>Not identified as high-acuity</span></p>
+        <figure class="fig chart">
+          <div class="fig-panel">
+            <div class="cols" role="img" aria-label="Share of waiting patients who waited more than 10 minutes for triage, by new arrivals in the previous hour: 0 to 5, 12 percent; 6 to 10, 49 percent; 11 to 15, 64 percent; 16 or more, 68 percent.">
+              <div class="col" style="--v:12.4"><span class="val">12%</span><span class="bar"></span><span class="lab">0 to 5</span></div>
+              <div class="col" style="--v:48.8"><span class="val">49%</span><span class="bar"></span><span class="lab">6 to 10</span></div>
+              <div class="col" style="--v:64.4"><span class="val">64%</span><span class="bar"></span><span class="lab">11 to 15</span></div>
+              <div class="col hot" style="--v:68"><span class="val">68%</span><span class="bar"></span><span class="lab">16 or more</span></div>
             </div>
-            <blockquote class="clip">
-              <p>The sensitivity of ESI to identify a patient with high-acuity illness (correctly assigning ESI I or II among patients who had a life-stabilizing intervention) was 65.9%.</p>
-              <cite>Sax et al., <a href="https://doi.org/10.1001/jamanetworkopen.2023.3404">JAMA Network Open, 2023</a> <a class="ref" href="#src-3">[3]</a></cite>
-            </blockquote>
+            <p class="axis">New patients who arrived in the hour before</p>
+          </div>
+          <figcaption class="fig-cap">
+            <div class="cap-main">
+              <p class="big">68%</p>
+              <p class="what">of patients who had to wait for triage waited more than 10 minutes when the ER was at its busiest.</p>
+            </div>
+            <div class="source">
+              <p class="where">United States&ensp;·&ensp;one academic emergency department</p>
+              <p class="cite">Houston et al., <a href="https://doi.org/10.5811/westjem.2014.11.22824">Western Journal of Emergency Medicine, 2015</a> <a class="ref" href="#src-2">[2]</a></p>
+              <details><summary>Source sentence</summary><blockquote>When stratified by the number of new patients who arrived in the ED in the previous hour, the percentage of greeted patients who waited more than 10 minutes for triage was: 0-5 new patients - 12.4%; 6-10 new patients - 48.8%; 11-15 new patients - 64.4%; 16+ new patients - 68%.</blockquote></details>
+            </div>
           </figcaption>
         </figure>
+        <div class="also">
+          <p class="also-num">1 in 5</p>
+          <div>
+            <p class="also-what">of the sickest walk-in patients waited more than 15 minutes just to be triaged, longer than guidelines allow before they should see a doctor.</p>
+            <p class="cite">Canadian emergency department&ensp;·&ensp;Betz et al., CJEM, 2017 <a class="ref" href="#src-7">[7]</a></p>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="story" aria-labelledby="leave-title">
       <div class="wrap">
         <div class="story-head">
-          <h2 id="leave-title">Some people give up and leave before being seen.</h2>
-          <p>When waits stretch, some patients walk out before a doctor sees them. In Ontario, Canada, what happened to them afterward has gotten worse.<a class="ref" href="#src-5">[5]</a></p>
+          <h2 id="leave-title">Some give up and leave before being seen.</h2>
+          <p>When waits stretch, some people walk out. Across 10 US emergency departments, those who left unseen were more likely to come back, to need intensive care, and to die within 30 days than people who were seen and sent home.<a class="ref" href="#src-4">[4]</a></p>
         </div>
-        <figure class="seats" data-total="1000" data-cols="50" data-cols-narrow="25" data-marked="34" data-seed="77" data-kind="missed" data-dense
-          aria-label="1,000 chairs, each an adult who left an emergency department without being seen. 34 are red: died or were hospitalized within 7 days.">
-          <div class="seats-field"><noscript><p class="noscript">This chart needs JavaScript. Its numbers are written out beside it.</p></noscript></div>
-          <figcaption class="seats-cap">
-            <div class="cap-main">
-              <p class="where">Ontario, Canada&ensp;·&ensp;adults&ensp;·&ensp;April 2022 to March 2023</p>
-              <p class="big">34 in 1,000</p>
-              <p class="what">adults who left an emergency department unseen died or were hospitalized within 7 days. In April 2014 to March 2020 it was 29 in 1,000.</p>
-              <p class="legend"><span><i class="key"></i>One person who left unseen</span><span><i class="key key-missed"></i>Died or hospitalized within 7 days</span></p>
+        <figure class="fig chart">
+          <div class="fig-panel">
+            <div class="ratio" role="img" aria-label="Adjusted odds of dying within 30 days: seen and sent home, 1; left without being seen, 2.59.">
+              <div class="r"><span class="lab">Seen and sent home</span><span class="track"><span class="bar" style="--w:1"></span></span><span class="val">1×</span></div>
+              <div class="r hot"><span class="lab">Left without being seen</span><span class="track"><span class="bar" style="--w:2.59"></span></span><span class="val">2.6×</span></div>
             </div>
-            <blockquote class="clip">
-              <p>The composite outcome of 7-day all-cause mortality or hospitalization was 3.4% in the recent period versus 2.9% in the baseline period</p>
-              <cite>McNaughton et al., <a href="https://doi.org/10.1002/emp2.13299">JACEP Open, 2024</a> <a class="ref" href="#src-5">[5]</a></cite>
-            </blockquote>
+            <p class="axis">Adjusted odds of dying within 30 days</p>
+          </div>
+          <figcaption class="fig-cap">
+            <div class="cap-main">
+              <p class="big">2.6×</p>
+              <p class="what">the odds of dying within 30 days for people who left without being seen, after adjusting for other factors.</p>
+            </div>
+            <div class="source">
+              <p class="where">United States&ensp;·&ensp;10 emergency departments&ensp;·&ensp;1.5 million adult visits</p>
+              <p class="cite">Joseph et al., <a href="https://doi.org/10.1016/j.jcjq.2025.02.008">Joint Commission Journal on Quality and Patient Safety, 2025</a> <a class="ref" href="#src-4">[4]</a></p>
+              <details><summary>Source sentence</summary><blockquote>Independent of other clinical and demographic variables, LWBS was associated with more frequent returns within 72 hours (adjusted odds ratio [AOR] 2.56, 95% CI 2.50-2.62, p &lt; 0.001), 30-day ICU admission (AOR 1.35, 95% CI 1.27-1.66, p &lt; 0.001), and mortality within 30 days (AOR 2.59, 95% CI 1.90-3.53, p &lt;0.001).</blockquote></details>
+            </div>
           </figcaption>
         </figure>
       </div>
@@ -122,74 +139,56 @@
       <div class="wrap">
         <div class="story-head">
           <h2 id="bed-title">Admitted, and still waiting for a bed.</h2>
-          <p>Patients who need a hospital bed often keep waiting in the emergency department. In England, after five hours, deaths within 30 days rose steadily with every extra hour of waiting, up to twelve.<a class="ref" href="#src-1">[1]</a></p>
+          <p>Patients who need a hospital bed often keep waiting in the emergency department. At one US hospital, the longer they waited, the more likely they were to die in the hospital.<a class="ref" href="#src-5">[5]</a></p>
         </div>
-        <figure class="seats" data-total="82" data-cols="41" data-cols-narrow="14" data-at="6" data-kind="lost" data-note="One extra death"
-          aria-label="82 chairs, each an admitted patient waiting in the emergency department for a hospital bed. One is empty, outlined in red.">
-          <div class="seats-field"><noscript><p class="noscript">This chart needs JavaScript. Its numbers are written out beside it.</p></noscript></div>
-          <figcaption class="seats-cap">
-            <div class="cap-main">
-              <p class="where">England&ensp;·&ensp;admitted patients&ensp;·&ensp;2016 to 2018</p>
-              <p class="big">1 in 82</p>
-              <p class="what">For every 82 admitted patients kept in the emergency department beyond 6 to 8 hours waiting for a bed, there was one extra death within 30 days.</p>
-              <p class="legend"><span><i class="key"></i>One admitted patient waiting for a bed</span><span><i class="key key-lost"></i>One extra death</span></p>
+        <figure class="fig chart">
+          <div class="fig-panel">
+            <div class="slope" role="img" aria-label="In-hospital mortality: 2.5 percent for patients who waited under 2 hours for a bed, 4.5 percent for those who waited 12 hours or more.">
+              <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <line class="grid" x1="0" y1="50" x2="100" y2="50"/>
+                <line class="rise" x1="10" y1="70" x2="90" y2="30"/>
+              </svg>
+              <i class="dot dot-a"></i><i class="dot dot-b"></i>
+              <span class="pt pt-a"><b>2.5%</b>waited under 2 hours</span>
+              <span class="pt pt-b"><b>4.5%</b>waited 12 hours or more</span>
             </div>
-            <blockquote class="clip">
-              <p>For every 82 admitted patients whose time to inpatient bed transfer is delayed beyond 6 to 8 hours from time of arrival at the ED, there is one extra death.</p>
-              <cite>Jones et al., <a href="https://doi.org/10.1136/emermed-2021-211572">Emergency Medicine Journal, 2022</a> <a class="ref" href="#src-1">[1]</a></cite>
-            </blockquote>
+            <p class="axis">Hours waiting in the ER after the decision to admit</p>
+          </div>
+          <figcaption class="fig-cap">
+            <div class="cap-main">
+              <p class="big">2.5% → 4.5%</p>
+              <p class="what">in-hospital deaths, from patients who waited under 2 hours for a bed to those who waited 12 hours or more.</p>
+            </div>
+            <div class="source">
+              <p class="where">United States&ensp;·&ensp;one academic hospital&ensp;·&ensp;41,256 admissions</p>
+              <p class="cite">Singer et al., <a href="https://doi.org/10.1111/j.1553-2712.2011.01236.x">Academic Emergency Medicine, 2011</a> <a class="ref" href="#src-5">[5]</a></p>
+              <details><summary>Source sentence</summary><blockquote>Mortality generally increased with increasing boarding time, from 2.5% in patients boarded less than 2 hours to 4.5% in patients boarding 12 hours or more.</blockquote></details>
+            </div>
           </figcaption>
         </figure>
+        <div class="also">
+          <p class="also-num">Almost 14,000</p>
+          <div>
+            <p class="also-what">excess deaths in a single year were associated with emergency waits of 12 hours or longer, across one national health system.</p>
+            <p class="cite">England, 2023&ensp;·&ensp;Royal College of Emergency Medicine, 2024 <a class="ref" href="#src-6">[6]</a></p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="story" aria-labelledby="long-title">
-      <div class="wrap">
-        <div class="story-head">
-          <h2 id="long-title">Across England, it adds up.</h2>
-          <p>England's emergency physicians estimated how many deaths were associated with the longest emergency department waits in 2023.<a class="ref" href="#src-4">[4]</a></p>
-        </div>
-        <figure class="seats" data-total="268" data-cols="34" data-cols-narrow="14" data-all="1" data-kind="lost"
-          aria-label="268 empty chairs outlined in red: one week of estimated excess deaths in England in 2023 associated with emergency department waits of 12 hours or longer.">
-          <div class="seats-field"><noscript><p class="noscript">This chart needs JavaScript. Its numbers are written out beside it.</p></noscript></div>
-          <figcaption class="seats-cap">
-            <div class="cap-main">
-              <p class="where">England&ensp;·&ensp;2023&ensp;·&ensp;an estimate</p>
-              <p class="big">268 a week</p>
-              <p class="what">estimated excess deaths associated with waits of 12 hours or longer, almost 14,000 for the year. Each empty seat stands for one estimated death in a single week.</p>
-            </div>
-            <blockquote class="clip">
-              <p>RCEM estimates that there were almost 14,000 associated excess deaths related to waits of 12 hours or longer in 2023 [...] more than 268 a week.</p>
-              <cite><a href="https://rcem.ac.uk/press-release/almost-300-deaths-a-week-in-2023-associated-with-long-ae-waits-despite-uec-recovery-plan/">Royal College of Emergency Medicine, 2024</a> <a class="ref" href="#src-4">[4]</a></cite>
-            </blockquote>
-          </figcaption>
-        </figure>
-      </div>
-    </section>
 
     <section class="talk" id="talk" aria-labelledby="talk-title">
       <div class="wrap talk-grid">
         <div class="talk-copy">
-          <h2 id="talk-title">Have you worked in an ER, or waited in one? We'd like to hear from you.</h2>
-          <ul class="promises" aria-label="What to expect">
-            <li>About 20 to 30 minutes, on your schedule</li>
-            <li>We won't ask about specific patients or name your hospital</li>
-            <li>Not a sales call: we're learning</li>
-            <li>We'll share what we learn with everyone who talks with us</li>
-          </ul>
+          <h2 id="talk-title">Talk with us.</h2>
+          <p>We're early and learning. We'd like to talk with ER nurses, doctors and hospital leaders, and with anyone who has waited in an ER. Advice, introductions and general questions are welcome too.</p>
+          <p class="promise">Calls take 20 to 30 minutes. We won't ask about specific patients or your hospital, it isn't a sales call, and we'll share what we learn.</p>
         </div>
         <div class="talk-action">
-          <p class="pick">Pick the one that fits, and your email opens with a short note.</p>
-          <ul class="roles">
-            <li><a class="role" href="mailto:hello@priage.app?subject=Talking%20with%20PrIAge&amp;body=Hi%20PrIAge%20team%2C%0A%0AI%27m%20an%20ER%20nurse%20and%20I%27m%20happy%20to%20talk.%0A%0AMy%20time%20zone%3A%20%0ATimes%20that%20work%20for%20me%3A%20%0A">I'm an ER nurse</a></li>
-            <li><a class="role" href="mailto:hello@priage.app?subject=Talking%20with%20PrIAge&amp;body=Hi%20PrIAge%20team%2C%0A%0AI%27m%20an%20ER%20doctor%20and%20I%27m%20happy%20to%20talk.%0A%0AMy%20time%20zone%3A%20%0ATimes%20that%20work%20for%20me%3A%20%0A">I'm an ER doctor</a></li>
-            <li><a class="role" href="mailto:hello@priage.app?subject=Talking%20with%20PrIAge&amp;body=Hi%20PrIAge%20team%2C%0A%0AI%20lead%20an%20emergency%20department%20or%20hospital%20team%20and%20I%27m%20happy%20to%20talk.%0A%0AMy%20time%20zone%3A%20%0ATimes%20that%20work%20for%20me%3A%20%0A">I lead an ED or hospital team</a></li>
-            <li><a class="role" href="mailto:hello@priage.app?subject=Talking%20with%20PrIAge&amp;body=Hi%20PrIAge%20team%2C%0A%0AI%27ve%20waited%20in%20an%20ER%20(or%20someone%20in%20my%20family%20has)%20and%20I%27m%20happy%20to%20talk.%0A%0AMy%20time%20zone%3A%20%0ATimes%20that%20work%20for%20me%3A%20%0A">I've waited in an ER, or my family has</a></li>
-          </ul>
-          <div class="mail-row">
-            <a class="mail-addr" href="mailto:hello@priage.app">hello@priage.app</a>
-            <button class="copy" type="button" data-copy="hello@priage.app"><svg aria-hidden="true" viewBox="0 0 20 20" width="16" height="16"><rect x="6.5" y="6.5" width="10" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M13.5 6.5V4a1.5 1.5 0 0 0-1.5-1.5H5A1.5 1.5 0 0 0 3.5 4v9A1.5 1.5 0 0 0 5 14.5h1.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span class="copy-label">Copy email</span></button>
-          </div>
+          <a class="btn btn-light" href="mailto:hello@priage.app?subject=Hello%20from%20priage.app">Email hello@priage.app
+            <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <button class="copy" type="button" data-copy="hello@priage.app"><svg aria-hidden="true" viewBox="0 0 20 20" width="16" height="16"><rect x="6.5" y="6.5" width="10" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M13.5 6.5V4a1.5 1.5 0 0 0-1.5-1.5H5A1.5 1.5 0 0 0 3.5 4v9A1.5 1.5 0 0 0 5 14.5h1.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span class="copy-label">Copy email</span></button>
           <p class="privacy">Please don't include personal medical details in your email.</p>
         </div>
       </div>
@@ -200,13 +199,13 @@
     <div class="wrap">
       <h2 id="sources-title">Sources</h2>
       <ol>
-        <li id="src-1">Jones S, Moulton C, Swift S, et al. Association between delays to patient admission from the emergency department and all-cause 30-day mortality. <i>Emergency Medicine Journal</i>. 2022;39(3):168-173. <a href="https://doi.org/10.1136/emermed-2021-211572">doi:10.1136/emermed-2021-211572</a></li>
-        <li id="src-2">Cairns C, Ashman JJ, Kang K. Emergency Department Visit Rates by Selected Characteristics: United States, 2022. NCHS Data Brief No. 503. National Center for Health Statistics; 2024. <a href="https://www.cdc.gov/nchs/products/databriefs/db503.htm">cdc.gov</a></li>
+        <li id="src-1">Cairns C, Ashman JJ, Kang K. Emergency Department Visit Rates by Selected Characteristics: United States, 2022. NCHS Data Brief No. 503. National Center for Health Statistics; 2024. <a href="https://www.cdc.gov/nchs/products/databriefs/db503.htm">cdc.gov</a></li>
+        <li id="src-2">Houston C, Sanchez LD, Fischer C, Volz K, Wolfe R. Waiting for triage: unmeasured time in patient flow. <i>Western Journal of Emergency Medicine</i>. 2015. <a href="https://doi.org/10.5811/westjem.2014.11.22824">doi:10.5811/westjem.2014.11.22824</a></li>
         <li id="src-3">Sax DR, Warton EM, Mark DG, et al. Evaluation of Version 4 of the Emergency Severity Index in US Emergency Departments for the Rate of Mistriage. <i>JAMA Network Open</i>. 2023;6(3):e233404. <a href="https://doi.org/10.1001/jamanetworkopen.2023.3404">doi:10.1001/jamanetworkopen.2023.3404</a></li>
-        <li id="src-4">Royal College of Emergency Medicine. Almost 300 deaths a week in 2023 associated with long A&amp;E waits despite UEC Recovery Plan. Press release, 1 April 2024. The release gives the 268 a week figure in its text. <a href="https://rcem.ac.uk/press-release/almost-300-deaths-a-week-in-2023-associated-with-long-ae-waits-despite-uec-recovery-plan/">rcem.ac.uk</a></li>
-        <li id="src-5">McNaughton CD, Austin PC, Chu A, et al. Turbulence in the system: higher rates of left-without-being-seen emergency department visits and associations with increased risks of adverse patient outcomes since 2020. <i>JACEP Open</i>. 2024. <a href="https://doi.org/10.1002/emp2.13299">doi:10.1002/emp2.13299</a></li>
-        <li id="src-6">Betz M, Stempien J, Trivedi S, Bryce R. A determination of emergency department pre-triage times in patients not arriving by ambulance compared to widely used guideline recommendations. <i>CJEM</i>. 2017. <a href="https://doi.org/10.1017/cem.2016.398">doi:10.1017/cem.2016.398</a></li>
-        <li id="src-7">Houston C, Sanchez LD, Fischer C, Volz K, Wolfe R. Waiting for triage: unmeasured time in patient flow. <i>Western Journal of Emergency Medicine</i>. 2015. <a href="https://doi.org/10.5811/westjem.2014.11.22824">doi:10.5811/westjem.2014.11.22824</a></li>
+        <li id="src-4">Joseph JW, Bukhman AK, Baymon DE, et al. Mortality and Return Visit Frequency Among Emergency Department Patients Who Leave Without Being Seen at a Regional Health Care System. <i>Joint Commission Journal on Quality and Patient Safety</i>. 2025;51(7-8):466-473. <a href="https://doi.org/10.1016/j.jcjq.2025.02.008">doi:10.1016/j.jcjq.2025.02.008</a></li>
+        <li id="src-5">Singer AJ, Thode HC, Viccellio P, Pines JM. The association between length of emergency department boarding and mortality. <i>Academic Emergency Medicine</i>. 2011. <a href="https://doi.org/10.1111/j.1553-2712.2011.01236.x">doi:10.1111/j.1553-2712.2011.01236.x</a></li>
+        <li id="src-6">Royal College of Emergency Medicine. Almost 300 deaths a week in 2023 associated with long A&amp;E waits despite UEC Recovery Plan. Press release, 1 April 2024. <a href="https://rcem.ac.uk/press-release/almost-300-deaths-a-week-in-2023-associated-with-long-ae-waits-despite-uec-recovery-plan/">rcem.ac.uk</a></li>
+        <li id="src-7">Betz M, Stempien J, Trivedi S, Bryce R. A determination of emergency department pre-triage times in patients not arriving by ambulance compared to widely used guideline recommendations. <i>CJEM</i>. 2017. <a href="https://doi.org/10.1017/cem.2016.398">doi:10.1017/cem.2016.398</a></li>
       </ol>
       <div class="foot">
         <p>PrIAge is an early-stage project. Nothing on this page is medical advice. In an emergency, call your local emergency number.</p>

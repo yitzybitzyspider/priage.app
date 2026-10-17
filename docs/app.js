@@ -112,6 +112,7 @@
   const figures = [...document.querySelectorAll(".seats")];
   figures.forEach(build);
   document.documentElement.classList.add("js");
+  const charts = [...document.querySelectorAll(".chart")];
 
   // Held frames: when a field comes into view its marked seats switch to red one after another.
   if (!reduceMotion.matches && "IntersectionObserver" in window) {
@@ -123,9 +124,10 @@
         io.unobserve(e.target);
       }
     }, { threshold: 0.2 });
-    figures.forEach((f) => io.observe(f));
+    document.documentElement.classList.add("animate-charts");
+    [...figures, ...charts].forEach((f) => io.observe(f));
     // printing should always show the finished figures
-    addEventListener("beforeprint", () => figures.forEach((f) => f.classList.add("in-view")));
+    addEventListener("beforeprint", () => [...figures, ...charts].forEach((f) => f.classList.add("in-view")));
   }
 
   let lastNarrow = narrow.matches;
