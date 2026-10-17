@@ -332,3 +332,14 @@ Round 2 scored v11 at 24 of 36 (design) with no P0 defects in the evidence pass.
 - **Copy.** "While they wait"; the call promise no longer says "won't ask about your hospital"; footer says "call 911" and links the address; the mailto and footer address sit inside Cloudflare `email_off` so the ask works without its decoder.
 - **Sources.** Note says numbers are quoted or worked out, with sizes, places and years from the same papers; seat-count and study-years glosses; 74ch measure.
 
+## v13: critique round 3 (2026-10-17)
+
+Round 3 scored v12 at 25 of 36 (design); the evidence pass found no P0 or P1 defects and confirmed every round-2 fix. Fixes:
+
+- **Hero stats as sentences.** Each stat is a lead-in, the number, then the rest: "US emergency departments handled / 155 million / visits in 2022." and "Of patients who went on to need life-stabilizing treatment, the five-level triage scale left / about 1 in 3 / out of its two most urgent levels." The group comes before the number and the scale, not a nurse, is the subject. The three-chair bench is gone. From 600 to 899px the two stats use subgrid so both numbers sit on one row.
+- **Beds card answers its own question.** "How full are US hospitals now?" with the paper's published occupancy, in ink: 63.9% before the pandemic animating to 75.3% after, as the 13 unstaffed windows turn red (the drawing matches: 51 of 80, then 51 of 67). The occupancy sentence is quoted in Sources.
+- **Phones.** Cards stretch to one height again (no bare band under short cards); the triage field packs its banks closer (row height 34 instead of 40); the room's subtitle reserves two lines so the card does not jump; team bios run full width under a photo-and-name row.
+- **Copy.** "In fall 2026" instead of "this fall"; card 1 asks "As the ER gets busier, how many people wait more than 10 minutes just to be triaged?"; "compared with 2.5%"; "per stroke patient"; the mailto body opens "About me (...)"; nav label "The numbers"; team head says "systems engineer" to match the tag; PMDD spelled out.
+- **Craft.** Red lockers get light vents so they differ by more than hue; Premi's photo is cropped toward the face; the cited-source highlight is a pale seat blue, not the red plate; the pager count is no longer announced on every snap; disabled-arrow outline darkened; Sources and the strip paragraph measure about 34em (roughly 75 characters).
+- **Share card.** Rebuilt with the stat sentences and a source line under each number.
+

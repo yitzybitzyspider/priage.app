@@ -141,7 +141,8 @@
     let marks = [], k = marked;
     const build = () => {
       const cols = narrow.matches ? 10 : 20;
-      const rows = Math.ceil(total / cols), rowH = CELL_H + 10;
+      // banks sit closer together on phones, where the field is ten rows tall
+      const rows = Math.ceil(total / cols), rowH = CELL_H + (narrow.matches ? 4 : 10);
       const w = cols * CELL_W + (cols - 1) * GAP;
       const hit = new Set(scatter(total, marked, seed));
       const svg = el("svg", { viewBox: `0 0 ${w} ${rows * rowH - 6}`, class: "seat-svg" });
@@ -221,7 +222,7 @@
       num.classList.toggle("n-ink", whole >= 2 && whole < 12);
       if (whole < 2) { num.textContent = "2.5%"; txt.textContent = "died in the hospital after waiting under 2 hours for a bed"; }
       else if (whole < 12) { num.textContent = `${whole} hours`; txt.textContent = "of waiting; deaths generally rose as the wait went on"; }
-      else { num.textContent = "4.5%"; txt.textContent = "died in the hospital after waiting 12 hours or more, against 2.5% for waits under 2 hours"; }
+      else { num.textContent = "4.5%"; txt.textContent = "died in the hospital after waiting 12 hours or more, compared with 2.5% for waits under 2 hours"; }
     };
     onView(clockScene, {
       start: () => show(0),
@@ -276,16 +277,22 @@
     order.forEach((w, n) => { role[w] = n < 51 ? "full" : n < 64 ? "cut" : "open"; });
     const cuts = order.slice(51, 64);
     const era = document.getElementById("ward-era");
+    const num = document.getElementById("ward-num"), txt = document.getElementById("ward-text");
+    // the drawing matches the published occupancy: 51 of 80 windows full before, 51 of 67 after
     const show = (closed) => {
       wins.forEach((g, i) => g.setAttribute("class", `w w-${role[i] === "cut" ? "open" : role[i]}`));
       cuts.slice(0, closed).forEach((i) => wins[i].setAttribute("class", "w w-closed"));
+      const after = closed === cuts.length;
       era.textContent = closed ? "After the pandemic" : "Before the pandemic";
+      num.textContent = after ? "75.3%" : "63.9%";
+      txt.textContent = after
+        ? "of staffed beds in use on an average day after the pandemic, up from 63.9% before it, as staffed beds fell from 802,000 to 674,000"
+        : "of staffed beds in use on an average day before the pandemic, 2009 to 2019";
     };
     onView(ward, {
-      // the red number counts the red windows, so it waits for them
-      start: () => { show(0); ward.classList.add("is-waiting"); },
-      play: async () => { await pause(1100); await run(1300, (t) => show(Math.round(t * cuts.length))); ward.classList.remove("is-waiting"); },
-      end: () => { ward.classList.remove("is-waiting"); show(cuts.length); },
+      start: () => show(0),
+      play: async () => { await pause(1100); await run(1300, (t) => show(Math.round(t * cuts.length))); },
+      end: () => show(cuts.length),
     });
   }
 

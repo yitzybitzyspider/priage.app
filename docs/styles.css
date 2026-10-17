@@ -110,8 +110,8 @@ p { text-wrap: pretty; }
   font-size: max(0.72em, 11px);
   line-height: 1;
   vertical-align: 0.45em;
-  padding: 8px 6px;
-  margin: -8px -6px -8px -4px;
+  padding: 8px 7px;
+  margin: -8px -7px -8px -5px;
   text-decoration: none;
   color: var(--seat-deep);
   font-weight: 700;
@@ -188,10 +188,11 @@ p { text-wrap: pretty; }
 .hero-stats { border-top: 2px solid var(--ink); }
 .stat { padding-block: 20px 22px; }
 .stat + .stat { border-top: 1px solid var(--rule); }
-.stat-bench { width: 78px; height: auto; margin-bottom: 12px; overflow: visible; }
-.stat-n { font-family: var(--sign); font-weight: 900; font-size: clamp(2.5rem, 1.8rem + 2.2vw, 3.625rem); line-height: 0.95; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+/* each stat reads as one sentence split around its number: who, how many, what happened */
+.stat-lead { max-width: 34ch; font-size: 1.0625rem; line-height: 1.4; }
+.stat-n { margin-top: 6px; font-family: var(--sign); font-weight: 900; font-size: clamp(2.5rem, 1.8rem + 2.2vw, 3.625rem); line-height: 0.95; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
 .stat-hot .stat-n { color: var(--mark-ink); }
-.stat-t { margin-top: 8px; max-width: 32ch; font-size: 1.0625rem; line-height: 1.45; }
+.stat-t { margin-top: 6px; max-width: 32ch; font-size: 1.0625rem; line-height: 1.4; }
 .stat-src { margin-top: 6px; font-size: 0.8125rem; color: var(--ink-soft); }
 
 /* ---------- The story: a strip of scenes that scrolls sideways ---------- */
@@ -202,7 +203,7 @@ p { text-wrap: pretty; }
 .story-head > p { grid-area: text; }
 .pager-wrap { grid-area: pager; }
 .story-head h2 { font-size: clamp(2.125rem, 1.4rem + 2.6vw, 3.25rem); line-height: 1.04; }
-.story-head > p { max-width: 62ch; }
+.story-head > p { max-width: 34em; }
 .pager-wrap { display: flex; align-items: center; justify-content: flex-end; gap: 14px; }
 
 .hint { font-size: 0.9375rem; color: var(--ink-soft); text-align: right; max-width: 14em; }
@@ -225,7 +226,7 @@ p { text-wrap: pretty; }
 }
 .pager-btn:hover { background: var(--seat-deep); }
 /* at an end the arrow stays focusable but reads as off: an outline, not a faded fill */
-.pager-btn[aria-disabled="true"] { background: transparent; color: #79848b; box-shadow: inset 0 0 0 1.5px #79848b; cursor: default; }
+.pager-btn[aria-disabled="true"] { background: transparent; color: #6b777e; box-shadow: inset 0 0 0 1.5px #6b777e; cursor: default; }
 
 .cards {
   display: flex;
@@ -376,7 +377,7 @@ p { text-wrap: pretty; }
 .l-door { fill: var(--seat); }
 .l-vent { fill: var(--seat-deep); }
 .l-marked .l-door { fill: var(--mark); }
-.l-marked .l-vent { fill: var(--mark-ink); }
+.l-marked .l-vent { fill: var(--mark-plate); }  /* light vents: a cue beyond hue */
 
 /* two bills for one day of care */
 .receipts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-content: center; }
@@ -433,6 +434,7 @@ p { text-wrap: pretty; }
 .person img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.06); }
 /* evens out head size: this photo is framed wider than the others */
 .person img.zoom-in { transform: scale(1.45); transform-origin: 52% 30%; }
+.person img.crop-left { transform: scale(1.18); transform-origin: 30% 40%; }
 .person h3 { font-size: clamp(1.25rem, 1.05rem + 0.6vw, 1.5rem); line-height: 1.15; }
 .person-tag { margin-top: 4px; font-family: var(--sign); font-weight: 800; font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--seat-deep); }
 .person p:not(.person-tag) { margin-top: 10px; font-size: 1rem; line-height: 1.55; max-width: 52ch; }
@@ -452,11 +454,11 @@ p { text-wrap: pretty; }
 .src-box[open] summary h2::after { background: linear-gradient(currentColor, currentColor) center / 100% 3px no-repeat; }
 .src-box-note { font-size: 0.9375rem; color: var(--ink-soft); }
 .src-box summary:hover .src-box-note { color: var(--ink); text-decoration: underline; }
-.sources-note { margin-top: 14px; font-size: 0.9375rem; color: var(--ink-soft); }
-.sources ol { margin-top: 22px; list-style: decimal; padding-left: 1.4em; display: grid; gap: 14px; font-size: 0.875rem; line-height: 1.5; max-width: 74ch; }
+.sources-note { margin-top: 14px; max-width: 40em; font-size: 0.9375rem; color: var(--ink-soft); }
+.sources ol { margin-top: 22px; list-style: decimal; padding-left: 1.4em; display: grid; gap: 14px; font-size: 0.875rem; line-height: 1.5; max-width: 34em; }
 .sources li { color: var(--ink-soft); padding-left: 4px; }
 .sources li::marker { font-family: var(--sign); font-weight: 800; color: var(--ink); }
-.sources li:target { color: var(--ink); background: var(--mark-plate); border-radius: 3px; }
+.sources li:target { color: var(--ink); background: #e8f0f7; box-shadow: 0 0 0 6px #e8f0f7; border-radius: 3px; }
 .sources q { display: block; margin-top: 4px; font-style: italic; color: var(--ink); }
 .sources .gloss { display: block; margin-top: 4px; }
 .foot {
@@ -469,6 +471,8 @@ p { text-wrap: pretty; }
 /* ---------- Medium widths ---------- */
 
 @media (max-width: 1023px) {
+  .hero { padding-bottom: 28px; }
+  .story-head { row-gap: 10px; }
   .talk-grid, .team-head { grid-template-columns: minmax(0, 1fr); align-items: start; }
   .story-head { grid-template-columns: minmax(0, 1fr); grid-template-areas: "title" "text" "pager"; }
   .pager-wrap { justify-content: space-between; }
@@ -480,7 +484,10 @@ p { text-wrap: pretty; }
   .hero-stats { margin-top: 24px; }
 }
 @media (min-width: 600px) and (max-width: 899px) {
-  .hero-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; }
+  .hero-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(4, auto); column-gap: 32px; }
+  /* subgrid lines the two numbers up on one row however long each lead-in runs */
+  .stat { display: grid; grid-row: span 4; grid-template-rows: subgrid; align-content: start; }
+  .stat-n { align-self: end; }
   .stat + .stat { border-top: 0; }
 }
 
@@ -495,12 +502,17 @@ p { text-wrap: pretty; }
   .btn { font-size: 1.0625rem; }
   .stat { padding-block: 16px 18px; }
   .stat-n { font-size: 2.375rem; }
-  /* one card at a time on a phone, so each keeps its own height */
-  .cards { align-items: flex-start; }
+  .room-sub { min-height: 2.9em; }
   .people { grid-template-columns: minmax(0, 1fr); }
-  .person { grid-template-columns: 88px minmax(0, 1fr); }
+  /* photo and name side by side, the bio full width beneath */
+  .person { grid-template-columns: 72px minmax(0, 1fr); column-gap: 14px; }
+  .person > div { display: contents; }
+  .person .ph { grid-row: 1 / span 2; }
+  .person h3 { grid-column: 2; align-self: end; }
+  .person-tag { grid-column: 2; align-self: start; }
+  .person p:not(.person-tag), .person-link { grid-column: 1 / -1; justify-self: start; }
   .ward-grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
-  .building { max-width: 320px; }
+  .building { max-width: 270px; }
   .ward-key { grid-template-columns: repeat(2, auto); justify-content: start; gap: 6px 16px; font-size: 0.8125rem; }
   .sign { padding: 14px 16px; gap: 12px; }
   .sign svg { width: 24px; height: 24px; }
