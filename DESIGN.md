@@ -253,3 +253,13 @@ Numbered list in Soft Ink at 0.9375rem, max 90ch, with Overpass 800 Chart Ink ma
 - **Don't** build the cause-page counter row or the health-tech split hero.
 - **Don't** use em dashes or en dashes anywhere in copy; use commas, colons, "to" for ranges, or a new sentence.
 - **Don't** add hard offset shadows, glows or stacked cards; depth stays at the two soft lifts.
+
+## Additions from the critique pass (2026-10-17)
+
+- **Seat glyph v2:** taller back (16 x 15), seat pan, and two legs per chair down to the beam, so an empty outlined seat reads as a chair, never a laptop. Phones use a solid chair silhouette in dense fields.
+- **Marked-seat plate:** every red "missed" seat sits on a pale red plate (#f4dcd8), a cue that survives grayscale and low vision. Scatter uses a seeded mulberry32 shuffle, so marked seats spread like people in a room.
+- **Place label:** a sentence-case Overpass line above each figure (place, group, years) so a reader always knows which country and population a number describes.
+- **Figure layout:** field across the top, number and legend left, verbatim source right; on phones the number and legend come first, then the field, then the source.
+- **Sticky signage strip:** the header stays at the top with a hairline once the page moves; on phones a "Talk with us" bar rises from the bottom after the hero and hides at the ask.
+- **The ask:** headline addressed to the visitor, a checked list of promises, four white role buttons (one-tap emails with the role and a time-zone prompt pre-filled), the address with a Copy button, and a privacy line.
+- **Citations:** superscript [n] markers link to the numbered sources, and a targeted source is highlighted on the pale red plate color.

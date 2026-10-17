@@ -19,9 +19,9 @@ THESIS: Statistics told in seats. The ER waiting room's joined rows of molded ch
 
 OWN-WORLD: Cool linoleum grey ground, hospital-blue molded seats on steel beams, fluorescent white panels, near-black ink, and one emergency-signage red reserved for the seats a figure is about. Overpass (wayfinding-sign lineage) for headings and numbers, Atkinson Hyperlegible Next for reading. Stark geometric seat glyphs, never soft or cute.
 
-STORY: Some of the sickest people in the ER are still in the waiting room. Scale, risk of long waits, people leaving unseen, and the pressure on triage staff, each shown in seats with its source sentence beside it. PrIAge is early and listening; visitors book a conversation.
+STORY: After triage, the ER waiting room is a blind spot. The page follows a visit: triage misses (hero), leaving unseen, admitted and still waiting for a bed, and the national toll in England, each in seats with its source sentence beside it. PrIAge states its goal (better information for ER nurses, nurses decide) and its stage (talking with the people who do this work); the ask is a one-tap email per role with promises, a copy button and a privacy note. It also serves applications and competitions.
 
-FIRST VIEWPORT: Left-aligned headline and two-line sub, "Talk with us" primary action, then a seat field of 82 chairs in two joined rows of 41 (10 columns on narrow screens) (admitted patients waiting for a bed); one seat in the first row is empty, outlined in red on a pale red plate and labeled "One extra death" directly on the field, with "1 in 82" and its source sentence beneath.
+FIRST VIEWPORT: Sticky signage strip; left-aligned headline "After triage, the ER waiting room is a blind spot.", lede with the 155 million scale and the blind spot, a goal and stage line, "Talk with us"; then the triage field of 100 chairs with 34 red on pale plates. On phones the number and legend come before the field.
 
 FORM: The Waiting Room, my top-ranked grounded candidate (rank 1, chosen as pick over assigned rank 4); seed b9fa80e1. Signature interaction: seats are visible by default; when a field comes into view its marked seats switch to red one after another in hard two-frame steps; reduced motion shows the final state. Scale (155 million) is a number beat, not a seat field, so one chair always means one patient.
 
