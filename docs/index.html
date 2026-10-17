@@ -7,18 +7,18 @@
   <meta name="description" content="Before triage and after it, it is hard to see who is getting worse in the ER waiting room. The numbers, the strain on the people who work there, and what PrIAge is working on.">
   <meta name="theme-color" content="#2b5d87">
   <link rel="canonical" href="https://priage.app/">
-  <link rel="icon" href="favicon.svg?v=7" type="image/svg+xml">
+  <link rel="icon" href="favicon.svg?v=8" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://priage.app/">
   <meta property="og:title" content="PrIAge: the ER waiting room is a blind spot">
   <meta property="og:description" content="What happens while people wait for emergency care in the US, and what PrIAge is working on.">
-  <meta property="og:image" content="https://priage.app/og.png?v=7">
+  <meta property="og:image" content="https://priage.app/og.png?v=8">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="fonts/overpass.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/atkinson-next.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=7">
-  <script src="app.js?v=7" defer></script>
+  <link rel="stylesheet" href="styles.css?v=8">
+  <script src="app.js?v=8" defer></script>
 </head>
 <body>
   <a class="skip" href="#numbers">Skip to the numbers</a>
@@ -26,7 +26,7 @@
   <header class="top">
     <div class="wrap">
       <nav class="nav" aria-label="Main">
-        <a class="wordmark" href="#top"><img src="logo.svg?v=7" alt="PrIAge" width="120" height="43"></a>
+        <a class="wordmark" href="#top"><img src="logo.svg?v=8" alt="PrIAge" width="120" height="43"></a>
         <ul>
           <li class="nav-numbers"><a href="#numbers">The numbers</a></li>
           <li class="nav-numbers"><a href="#team">Team</a></li>
@@ -51,13 +51,13 @@
           </a>
         </div>
 
-        <figure class="fig seats" id="numbers" data-total="100" data-cols="25" data-cols-narrow="10" data-marked="34" data-seed="2024" data-kind="missed"
+        <figure class="fig seats" id="numbers" data-cols="25" data-cols-narrow="10" data-marked="34" data-seed="2024"
           aria-label="100 chairs, each a patient with high-acuity illness. 34 are red: not identified as high-acuity at triage.">
-          <div class="fig-panel seats-field"><p class="room-sign" aria-hidden="true">Triage<svg viewBox="0 0 24 24"><path d="M4 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></p><noscript><p class="noscript">This chart needs JavaScript. Its numbers are written out beside it.</p></noscript>
-            <div class="lens" role="group" aria-label="Show the room">
-              <button type="button" data-lens="desk" aria-pressed="false">At the triage desk</button>
-              <button type="button" data-lens="real" aria-pressed="true">What was really there</button>
-            </div>
+          <div class="fig-panel seats-field">
+            <p class="scene-q">Of 100 patients who turned out to need life-saving care, how many did triage flag as high-acuity?</p>
+            <p class="room-sign" aria-hidden="true">Triage<svg viewBox="0 0 24 24"><path d="M4 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></p>
+            <noscript><p class="noscript">This scene needs JavaScript. Its numbers are written out beside it.</p></noscript>
+            <p class="scene-read"><b id="hero-count">34</b> of 100 were not flagged as high-acuity</p>
           </div>
           <figcaption class="fig-cap">
             <div class="cap-main">
@@ -83,17 +83,13 @@
         </div>
         <figure class="fig chart scene">
           <div class="fig-panel room-one">
+            <p class="scene-q">How long do people wait just to be triaged when the ER gets busy?</p>
             <div class="room-top">
               <div><p class="room-title" id="room-title">The busiest hours</p><p class="room-sub" id="room-sub">16 or more new arrivals in the past hour</p></div>
-              <p class="room-sign" aria-hidden="true">Triage<svg viewBox="0 0 24 24"><path d="M4 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></p>
+              <p class="room-steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></p>
             </div>
             <div class="room-field" aria-hidden="true"></div>
-            <p class="room-num" aria-live="polite"><b id="busy-pct">68%</b> <span id="busy-text">of people waiting for triage were still waiting after 10 minutes</span></p>
-            <label class="slider">
-              <span class="slider-label">How busy is the ER?</span>
-              <input type="range" id="busy" min="0" max="3" step="1" value="3" aria-valuetext="The busiest hours, 16 or more new arrivals">
-              <span class="ticks" aria-hidden="true"><span>Quiet</span><span>Filling up</span><span>Busy</span><span>Busiest</span></span>
-            </label>
+            <p class="room-num"><b id="busy-pct">68%</b> waited more than 10 minutes to be triaged</p>
           </div>
           <figcaption class="fig-cap">
             <div class="cap-main">
@@ -123,16 +119,12 @@
           <h2 id="leave-title">Some give up and leave before being seen.</h2>
           <p>When waits stretch, some people walk out. Across 10 US emergency departments, those who left unseen were more likely to come back, to need intensive care, and to die within 30 days than people who were seen and sent home.<a class="ref" href="#src-4">[4]</a></p>
         </div>
-        <figure class="fig chart">
+        <figure class="fig chart settle">
           <div class="fig-panel exits">
-            <div class="tabs" role="tablist" aria-label="Outcome">
-              <button type="button" role="tab" aria-selected="true" data-out="die">Died within 30 days</button>
-              <button type="button" role="tab" aria-selected="false" data-out="back">Came back within 72 hours</button>
-              <button type="button" role="tab" aria-selected="false" data-out="icu">Needed intensive care within 30 days</button>
-            </div>
+            <p class="scene-q">What happens to people who leave before a doctor sees them?</p>
             <div class="sign"><span class="sign-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></span><span class="sign-text">Seen by a doctor, then sent home</span><span class="sign-num">1×</span></div>
-            <div class="sign hot"><span class="sign-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></span><span class="sign-text">Left without being seen</span><span class="sign-num" id="exit-num" aria-live="polite">2.6×</span></div>
-            <p class="axis" id="exit-axis">The odds of dying within 30 days, adjusted for other factors</p>
+            <div class="sign hot"><span class="sign-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></span><span class="sign-text">Left without being seen</span><span class="sign-num">2.6×</span></div>
+            <p class="axis">The odds of dying within 30 days, adjusted for other factors</p>
           </div>
           <figcaption class="fig-cap">
             <div class="cap-main">
@@ -156,16 +148,14 @@
           <p>Patients who need a hospital bed often keep waiting in the emergency department. At one US hospital, the longer they waited, the more likely they were to die in the hospital.<a class="ref" href="#src-5">[5]</a></p>
         </div>
         <figure class="fig chart">
-          <div class="fig-panel clock-wrap">
-            <div class="clock"><svg class="clock-svg" viewBox="-120 -120 240 240" aria-hidden="true"></svg></div>
-            <div class="clock-notes">
-              <p class="clock-read" aria-live="polite"><b id="bed-pct">4.5%</b> <span id="bed-text">died in the hospital after waiting 12 hours or more for a bed</span></p>
-              <label class="slider">
-                <span class="slider-label">Hours waiting for a bed</span>
-                <input type="range" id="bed" min="0" max="12" step="1" value="12" aria-valuetext="12 hours or more">
-                <span class="ticks ticks-hours" aria-hidden="true"><span>0</span><span>2</span><span>6</span><span>12+</span></span>
-              </label>
-              <p class="axis">The study reports two points: 2.5% for waits under 2 hours and 4.5% for 12 hours or more. In between, deaths generally rose.</p>
+          <div class="fig-panel">
+            <p class="scene-q">Does it matter how long admitted patients wait in the ER for a bed?</p>
+            <div class="clock-wrap">
+              <div class="clock"><svg class="clock-svg" viewBox="-120 -120 240 240" aria-hidden="true"></svg></div>
+              <div class="clock-notes">
+                <p class="clock-read"><b id="bed-pct">4.5%</b> <span id="bed-text">died in the hospital after waiting 12 hours or more for a bed</span></p>
+                <p class="axis">The study reports two points: 2.5% for waits under 2 hours and 4.5% for 12 hours or more. In between, deaths generally rose.</p>
+              </div>
             </div>
           </div>
           <figcaption class="fig-cap">
@@ -204,15 +194,12 @@
         </div>
         <figure class="fig chart">
           <div class="fig-panel ward">
-            <div class="tabs" role="tablist" aria-label="Period">
-              <button type="button" role="tab" aria-selected="false" data-era="0">2009 to 2019</button>
-              <button type="button" role="tab" aria-selected="true" data-era="1">2023 to 2024</button>
-              <button type="button" role="tab" aria-selected="false" data-era="2">Around 2032, projected</button>
-            </div>
+            <p class="scene-q">Are there enough staffed hospital beds?</p>
             <div class="ward-grid">
               <div class="building" aria-hidden="true"></div>
               <div class="ward-notes">
-                <p class="ward-read" aria-live="polite"><b id="ward-pct">75.3% full</b> <span id="ward-text">674,000 staffed beds for about 510,000 patients a day</span></p>
+                <p class="room-title" id="ward-era">2023 to 2024</p>
+                <p class="ward-read"><b id="ward-pct">75.3% full</b> <span id="ward-text">674,000 staffed beds for the same 510,000 patients a day</span></p>
                 <ul class="ward-key">
                   <li><i class="win win-full"></i>A patient in a bed</li>
                   <li><i class="win"></i>An open bed</li>
@@ -252,25 +239,16 @@
         </div>
         <figure class="fig chart">
           <div class="fig-panel lockers">
-            <div class="locker-controls">
-              <div class="tabs" role="tablist" aria-label="Which nurses">
-                <button type="button" role="tab" aria-selected="true" data-who="left">Left a job</button>
-                <button type="button" role="tab" aria-selected="false" data-who="stay">Thinking about leaving</button>
-              </div>
-              <div class="lens" role="group" aria-label="Reason">
-                <button type="button" data-why="staff" aria-pressed="true">Not enough staff</button>
-                <button type="button" data-why="stress" aria-pressed="false">A stressful workplace</button>
-              </div>
-            </div>
+            <p class="scene-q">Why do nurses who burn out leave?</p>
             <div class="locker-field" aria-hidden="true"></div>
-            <p class="room-num" aria-live="polite"><b id="locker-pct">63.0%</b> <span id="locker-text">of those who left named inadequate staffing</span></p>
-            <p class="axis">100 staff lockers, each one nurse who burned out. Lockers left ajar, with no name card, belong to nurses who left.</p>
+            <p class="scene-read"><b id="locker-count">63</b> of 100 said there weren't enough staff</p>
+            <p class="axis">Each locker is one nurse who left a job because of burnout.</p>
           </div>
           <figcaption class="fig-cap">
             <div class="cap-main">
               <p class="big">63%</p>
               <p class="what">of nurses who left a job because of burnout said staffing was inadequate. Among nurses thinking about leaving, it was 60.9%.</p>
-              <p class="legend"><span><i class="key"></i>One nurse who burned out</span><span><i class="key key-missed"></i>Named the reason shown</span></p>
+              <p class="legend"><span><i class="key"></i>One nurse who left because of burnout</span><span><i class="key key-missed"></i>Said there weren't enough staff</span></p>
             </div>
             <div class="source">
               <p class="where">United States&ensp;·&ensp;national survey of 50,273 registered nurses</p>
@@ -295,32 +273,33 @@
           <h2 id="cost-title">The strain shows up on the bill.</h2>
           <p>At one US stroke center, a patient waiting in the ER for a bed cost more each day than the same patient upstairs, and got fewer minutes of nursing time. Each nurse who leaves costs a hospital tens of thousands of dollars to replace.<a class="ref" href="#src-12">[12]</a><a class="ref" href="#src-11">[11]</a></p>
         </div>
-        <figure class="fig chart">
+        <figure class="fig chart settle">
           <div class="fig-panel bills">
-            <div class="tabs" role="tablist" aria-label="Kind of bed">
-              <button type="button" role="tab" aria-selected="true" data-bed="ward">A regular hospital bed</button>
-              <button type="button" role="tab" aria-selected="false" data-bed="icu">An intensive care bed</button>
-            </div>
+            <p class="scene-q">What does one day of waiting in the ER for a bed cost?</p>
             <div class="receipts">
               <div class="receipt hot">
                 <p class="receipt-tag">In the ER</p>
-                <p class="receipt-head">Waiting in the ER for <span class="bed-kind">a regular bed</span></p>
+                <p class="receipt-head">Waiting in the ER for a bed</p>
                 <p class="receipt-sub">One day, one stroke patient</p>
                 <dl>
-                  <div><dt>Cost of care</dt><dd id="r-er-cost">$1,856</dd></div>
-                  <div><dt>Nursing time</dt><dd id="r-er-min">293 min</dd></div>
+                  <div><dt>Cost of care</dt><dd>$1,856</dd></div>
+                  <div><dt>Nursing time</dt><dd>293 min</dd></div>
                 </dl>
+                <div class="day-strip" aria-hidden="true"><span class="day-fill" style="--w: 20.3%"></span></div>
+                <p class="day-label">Nursing time in a 24-hour day</p>
               </div>
               <div class="receipt">
                 <p class="receipt-tag">Upstairs</p>
-                <p class="receipt-head">In <span class="bed-kind">a regular bed</span> upstairs</p>
+                <p class="receipt-head">In a hospital bed upstairs</p>
                 <p class="receipt-sub">One day, one stroke patient</p>
                 <dl>
-                  <div><dt>Cost of care</dt><dd id="r-in-cost">$993</dd></div>
-                  <div><dt>Nursing time</dt><dd id="r-in-min">313 min</dd></div>
+                  <div><dt>Cost of care</dt><dd>$993</dd></div>
+                  <div><dt>Nursing time</dt><dd>313 min</dd></div>
                 </dl>
+                <div class="day-strip" aria-hidden="true"><span class="day-fill" style="--w: 21.7%"></span></div>
+                <p class="day-label">Nursing time in a 24-hour day</p>
               </div>
-              <p class="bill-diff" aria-live="polite"><b id="bill-more">+$863</b> <span id="bill-text">more a day in the ER, with 20 fewer minutes of nursing time</span></p>
+              <p class="bill-diff"><b>+$863</b> more a day in the ER, with 20 fewer minutes of nursing time</p>
             </div>
             <p class="axis">Costs per patient per day, measured activity by activity at one US stroke center.</p>
           </div>

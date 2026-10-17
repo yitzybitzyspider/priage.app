@@ -198,37 +198,33 @@ p { text-wrap: pretty; }
 .chair .leg { fill: var(--seat-deep); }
 .chair-missed rect, .chair-missed path { fill: var(--mark); }
 .chair-missed .leg { fill: var(--mark-ink); }
-.chair-lost rect { fill: transparent; stroke: var(--mark); stroke-width: 2; }
-.chair-lost .leg { fill: var(--mark); stroke: transparent; }
-.seat-plate { fill: #f4dcd8; }
+.seat-plate { fill: #f4dcd8; transition: opacity 160ms steps(2, jump-none); }
 .beam { fill: var(--beam); }
+/* seats not yet revealed by the scroll */
+.chair-missed.off rect, .chair-missed.off path { fill: var(--seat); }
+.chair-missed.off .leg { fill: var(--seat-deep); }
+.seat-plate.off { opacity: 0; }
 
-.animate-seats .seats .chair-missed rect, .animate-seats .seats .chair-missed path,
-.animate-seats .seats .chair-lost rect { fill: var(--seat); stroke: transparent; }
-.animate-seats .seats .chair-missed .leg, .animate-seats .seats .chair-lost .leg { fill: var(--seat-deep); }
-.animate-seats .seats .seat-plate { opacity: 0; }
-.animate-seats .seats.in-view .chair-missed rect, .animate-seats .seats.in-view .chair-missed path {
-  fill: var(--mark);
-  transition: fill 120ms steps(2, jump-none);
-  transition-delay: calc(var(--i, 0) * 45ms + 300ms);
+/* ---------- Scenes: a question on top, the scene, a running answer ---------- */
+
+.scene-q {
+  max-width: 44ch;
+  margin-bottom: clamp(16px, 2vw, 24px);
+  font-family: var(--sign);
+  font-weight: 800;
+  font-size: clamp(1.125rem, 0.98rem + 0.6vw, 1.4375rem);
+  line-height: 1.25;
+  color: var(--ink);
 }
-.animate-seats .seats.in-view .chair-missed .leg { fill: var(--mark-ink); }
-.animate-seats .seats.in-view .seat-plate {
-  opacity: 1;
-  transition: opacity 120ms steps(2, jump-none);
-  transition-delay: calc(var(--i, 0) * 45ms + 300ms);
-}
-.animate-seats .seats.in-view .chair-lost rect {
-  fill: transparent;
-  stroke: var(--mark);
-  transition: fill 120ms steps(2, jump-none), stroke 120ms steps(2, jump-none);
-  transition-delay: calc(var(--i, 0) * 12ms + 300ms);
-}
-.animate-seats .seats.in-view .chair-lost .leg { fill: var(--mark); stroke: transparent; transition-delay: calc(var(--i, 0) * 12ms + 300ms); }
-.seat-note { fill: var(--mark-ink); font-family: var(--sign); font-weight: 800; font-size: 17px; letter-spacing: 0.01em; }
-.seat-note-line { stroke: var(--mark-ink); stroke-width: 1.5; }
-.animate-seats .seats .seat-note, .animate-seats .seats .seat-note-line { opacity: 0; }
-.animate-seats .seats.in-view .seat-note, .animate-seats .seats.in-view .seat-note-line { opacity: 1; transition: opacity 200ms ease-out 600ms; }
+.scene-read { margin-top: 18px; font-size: 1.0625rem; }
+.scene-read b { font-family: var(--sign); font-weight: 900; font-size: 1.75rem; color: var(--mark-ink); margin-right: 6px; font-variant-numeric: tabular-nums; display: inline-block; min-width: 1.6em; }
+/* the panel holds still under the header while the page scrolls through its track */
+.track { grid-area: field; }
+.track.stick > .fig-panel { position: sticky; }
+.room-steps { display: flex; gap: 5px; padding-top: 6px; }
+.room-steps i { width: 18px; height: 6px; border-radius: 3px; background: var(--rule); }
+.room-steps i.on { background: var(--seat); }
+
 
 .where { font-family: var(--sign); font-weight: 700; font-size: 0.9375rem; color: var(--ink); }
 .cite { margin-top: 4px; font-size: 0.9375rem; color: var(--ink-soft); }
@@ -261,7 +257,6 @@ p { text-wrap: pretty; }
 .legend span { display: inline-flex; align-items: center; gap: 8px; }
 .key { width: 14px; height: 14px; border-radius: 3px; background: var(--seat); flex: none; }
 .key-missed { background: var(--mark); box-shadow: 0 0 0 3px #f4dcd8; }
-.key-lost { background: transparent; box-shadow: inset 0 0 0 2px var(--mark); }
 
 /* ---------- Story scenes: each number told with an object from the room ---------- */
 
@@ -279,35 +274,17 @@ p { text-wrap: pretty; }
   font-family: var(--sign); font-weight: 800; font-size: 0.875rem; letter-spacing: 0.08em; text-transform: uppercase;
 }
 .room-sign svg { width: 16px; height: 16px; }
-.seats-field .room-sign { margin-bottom: 18px; }
 
-/* hero lens toggle */
-.lens { margin-top: 18px; display: inline-flex; padding: 4px; gap: 4px; border-radius: 8px; background: var(--floor); }
-.lens button, .tabs button {
-  border: 0; border-radius: 6px; padding: 9px 14px 8px; background: transparent; color: var(--ink);
-  font: 700 0.9375rem/1.1 var(--text); cursor: pointer;
-}
-.lens button[aria-pressed="true"], .tabs button[aria-selected="true"] { background: var(--seat); color: var(--on-seat); }
-.lens button:hover:not([aria-pressed="true"]), .tabs button:hover:not([aria-selected="true"]) { background: #d3d9da; }
-.fig.lens-desk .chair-missed rect, .fig.lens-desk .chair-missed path { fill: var(--seat) !important; transition-delay: 0s !important; }
-.fig.lens-desk .chair-missed .leg { fill: var(--seat-deep) !important; }
-.fig.lens-desk .seat-plate { opacity: 0 !important; transition-delay: 0s !important; }
 
 /* the waiting room that fills up */
 .room-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
 .room-title { font-family: var(--sign); font-weight: 800; font-size: clamp(1.25rem, 1rem + 0.8vw, 1.625rem); line-height: 1.1; }
 .room-sub { margin-top: 2px; font-size: 0.9375rem; color: var(--ink-soft); }
-.room-field .seat-svg { max-width: 760px; }
+.room-field .seat-svg { max-width: 500px; }
 .room-num { margin-top: 18px; font-size: 1.0625rem; max-width: 48ch; }
 .room-num b { font-family: var(--sign); font-weight: 900; font-size: 1.75rem; color: var(--mark-ink); margin-right: 6px; }
-.slider { display: grid; gap: 8px; margin-top: 20px; max-width: 520px; }
-.slider-label { font-family: var(--sign); font-weight: 800; font-size: 0.9375rem; }
-.slider input { width: 100%; accent-color: var(--seat); height: 28px; cursor: pointer; }
-.ticks { display: flex; justify-content: space-between; font-size: 0.8125rem; color: var(--ink-soft); }
-.ticks-hours span:nth-child(3) { margin-left: -12%; }
 
 /* two ways out */
-.tabs { display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 8px; background: var(--floor); width: fit-content; max-width: 100%; margin-bottom: 22px; }
 .sign {
   display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; align-items: center; gap: 16px;
   padding: 16px 20px; border-radius: 6px; background: var(--seat-deep); color: var(--on-seat);
@@ -335,7 +312,6 @@ p { text-wrap: pretty; }
 .clock-read b { display: block; font-family: var(--sign); font-weight: 900; font-size: clamp(2.25rem, 1.6rem + 2.2vw, 3.25rem); line-height: 1; color: var(--mark-ink); margin-bottom: 6px; }
 
 /* the hospital: one window per 10,000 staffed beds */
-.ward .tabs { margin-bottom: 18px; }
 .ward-grid { display: grid; grid-template-columns: minmax(260px, 470px) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
 .building-svg { width: 100%; height: auto; overflow: visible; }
 .b-body { fill: #fff; stroke: var(--ink); stroke-width: 3; }
@@ -366,25 +342,13 @@ p { text-wrap: pretty; }
 .win-closed { background: linear-gradient(to top right, transparent calc(50% - 1.2px), var(--mark) calc(50% - 1.2px), var(--mark) calc(50% + 1.2px), transparent calc(50% + 1.2px)), #f4dcd8; box-shadow: inset 0 0 0 2px var(--mark); }
 
 /* staff lockers */
-.locker-controls { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; margin-bottom: 22px; }
-.locker-controls .tabs, .locker-controls .lens { margin: 0; }
 .locker-svg { max-width: 820px; }
 .locker rect { transition: fill 140ms steps(2, jump-none), opacity 140ms steps(2, jump-none); }
 .l-inside { fill: #2c3337; }
-.l-door, .l-ajar { fill: var(--seat); stroke: var(--seat-deep); stroke-width: 1; }
 .l-vent { fill: var(--seat-deep); }
-.l-tag { fill: var(--on-seat); }
-.l-handle { fill: var(--seat-deep); }
-.l-ajar { opacity: 0; }
-/* a nurse who left: the door stands ajar and the name card is gone */
-.l-open .l-door, .l-open .l-tag, .l-open .l-handle { opacity: 0; }
-.l-open .l-ajar { opacity: 1; }
-.l-marked .l-door, .l-marked .l-ajar { fill: var(--mark); stroke: var(--mark-ink); }
-.l-marked .l-vent, .l-marked .l-handle { fill: var(--mark-ink); }
-.l-marked rect { transition-delay: calc(var(--i, 0) * 6ms); }
-.animate-charts .chart:not(.in-view) .l-marked .l-door, .animate-charts .chart:not(.in-view) .l-marked .l-ajar { fill: var(--seat); stroke: var(--seat-deep); }
-.animate-charts .chart:not(.in-view) .l-marked .l-vent, .animate-charts .chart:not(.in-view) .l-marked .l-handle { fill: var(--seat-deep); }
-.chart.in-view .l-marked rect { transition-delay: calc(var(--i, 0) * 6ms + 200ms); }
+.l-ajar { fill: var(--seat); stroke: var(--seat-deep); stroke-width: 1; }
+.l-marked .l-ajar { fill: var(--mark); stroke: var(--mark-ink); }
+.l-marked .l-vent { fill: var(--mark-ink); }
 
 /* two bills for one day of care */
 .receipts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(0, 0.8fr); gap: clamp(16px, 3vw, 36px); }
@@ -414,10 +378,10 @@ p { text-wrap: pretty; }
 .receipt.hot dd:first-of-type, .receipt.hot dl div:first-child dd { color: var(--mark-ink); }
 .receipt dl div + div dd { font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem); }
 .day-strip { margin-top: 18px; height: 12px; border-radius: 2px; background: var(--floor); box-shadow: inset 0 0 0 1px var(--rule); overflow: hidden; }
-.day-fill { display: block; height: 100%; width: 0; background: var(--seat); transition: width 420ms var(--ease-out); }
+.day-fill { display: block; height: 100%; width: var(--w); background: var(--seat); transition: width 600ms var(--ease-out) 200ms; }
+.animate-charts .settle:not(.in-view) .day-fill { width: 0; }
 .receipt.hot .day-fill { background: var(--mark); }
 .day-label { margin-top: 6px; font-size: 0.8125rem; color: var(--ink-soft); }
-.bills .tabs { margin-bottom: 22px; }
 
 /* ---------- A second number inside a section: quieter than the figure ---------- */
 
@@ -532,11 +496,15 @@ p { text-wrap: pretty; }
   .clock { max-width: 260px; }
   .sign { grid-template-columns: 40px minmax(0, 1fr) auto; gap: 12px; padding: 14px; }
   .sign-arrow { width: 40px; height: 40px; }
-  .tabs button, .lens button { font-size: 0.875rem; padding: 8px 10px 7px; }
   .also { grid-template-columns: minmax(0, 1fr); }
   .also-pair, .receipts, .people { grid-template-columns: minmax(0, 1fr); }
   .ward-grid { grid-template-columns: minmax(0, 1fr); }
-  .building { max-width: 360px; }
+  .building { max-width: 250px; }
+  .ward-grid { gap: 16px; }
+  .ward-key { margin-top: 12px; grid-template-columns: repeat(2, auto); justify-content: start; gap: 6px 16px; font-size: 0.875rem; }
+  .ward .axis { margin-top: 8px; }
+  .seats-field .seat-svg { max-width: 300px; }
+  .scene-read b, .room-num b { display: block; margin-bottom: 2px; }
   .receipt { padding: 18px 18px 30px; }
   .ask-bar {
     display: block;
@@ -563,17 +531,14 @@ p { text-wrap: pretty; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .btn, .role, .ask-bar { transition: none; }
 }
 
 @media print {
   .source details { display: block; }
   .top, .ask-bar, .actions, .skip { display: none !important; }
   .talk { background: none; color: var(--ink); }
-  .role { box-shadow: none; border: 1px solid var(--ink); }
-  .animate-seats .seats .chair-missed rect, .animate-seats .seats .chair-missed path { fill: var(--mark) !important; }
-  .animate-seats .seats .chair-lost rect { fill: transparent !important; stroke: var(--mark) !important; }
-  .animate-seats .seats .seat-plate, .animate-seats .seats .seat-note, .animate-seats .seats .seat-note-line { opacity: 1 !important; }
+  .track { height: auto !important; }
+  .track > .fig-panel { position: static !important; }
 }
 
 /* ---------- 404 ---------- */

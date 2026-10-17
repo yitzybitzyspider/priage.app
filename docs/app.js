@@ -1,8 +1,7 @@
-// PrIAge landing: seat fields. Every figure on the page is drawn as rows of
-// joined waiting-room chairs, one chair per patient.
+// PrIAge landing: scenes from the waiting room. Each scene answers one question and
+// plays forward as the page scrolls; nothing needs a click.
 (() => {
   const SVG = "http://www.w3.org/2000/svg";
-  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
   const narrow = matchMedia("(max-width: 759px)");
 
   // One chair, front view, in a 24 x 30 cell: tall back, seat pan, two legs to the beam.
@@ -14,13 +13,8 @@
     return node;
   }
 
-  function chair(x, y, kind, dense) {
+  function chair(x, y, kind) {
     const g = el("g", { class: `chair chair-${kind}`, transform: `translate(${x} ${y})` });
-    if (dense) {
-      // at phone scale a dense field uses a solid silhouette so it never reads as hatching
-      g.append(el("path", { d: "M5 1h14a2 2 0 0 1 2 2v11h2v8H1v-8h2V3a2 2 0 0 1 2-2z" }));
-      return g;
-    }
     g.append(
       el("rect", { x: 4, y: 0, width: 16, height: 15, rx: 2 }),
       el("rect", { x: 1.5, y: 16, width: 21, height: 4.5, rx: 1 }),
@@ -48,127 +42,121 @@
     return new Set(idx.slice(0, count));
   }
 
-  function build(fig) {
-    const total = Number(fig.dataset.total);
-    const marked = Number(fig.dataset.marked || 0);
-    const kind = fig.dataset.kind || "missed"; // "missed" fills red, "lost" leaves an empty outlined seat
-    const at = fig.dataset.at; // a single fixed seat index, otherwise scattered
-    const cols = Number((narrow.matches && fig.dataset.colsNarrow) || fig.dataset.cols || 20);
-    const rows = Math.ceil(total / cols);
-    const marks = at !== undefined ? new Set([Number(at)])
-      : fig.dataset.all ? new Set([...Array(total).keys()])
-      : scatter(total, marked, Number(fig.dataset.seed || 7));
-    const note = fig.dataset.note;
-    const dense = narrow.matches && "dense" in fig.dataset;
-    const plates = kind === "missed" || note; // a pale plate behind each marked seat: a cue that survives grayscale
-    const top = note ? 32 : 0; // headroom for a label over a single marked seat
-
-    const w = cols * CELL_W + (cols - 1) * GAP;
-    const rowH = CELL_H + 10;
-    const h = rows * rowH + top;
-    const svg = el("svg", { viewBox: `0 0 ${w} ${h}`, "aria-hidden": "true", class: "seat-svg" });
-    let order = 0;
-
-    for (let r = 0; r < rows; r++) {
-      const inRow = Math.min(cols, total - r * cols);
-      const row = el("g", { class: "row" });
-      const y = r * rowH + top;
-      // the steel beam that joins a bank of chairs, with floor legs at the ends and every fifth seat
-      row.append(el("rect", { class: "beam", x: 0, y: y + 23.5, width: inRow * CELL_W + (inRow - 1) * GAP, height: 2.5 }));
-      for (let c = 0; c <= inRow; c += 5) {
-        const legX = Math.min(c, inRow - 1) * (CELL_W + GAP) + (c === inRow ? CELL_W - 3 : 1.5);
-        row.append(el("rect", { class: "beam", x: legX, y: y + 25, width: 2, height: 5 }));
-      }
-      for (let c = 0; c < inRow; c++) {
-        const i = r * cols + c;
-        const x = c * (CELL_W + GAP);
-        const isMarked = marks.has(i);
-        if (isMarked && plates && !dense) {
-          const plate = el("rect", { class: "seat-plate", x: x - 2.5, y: y - 2.5, width: CELL_W + 5, height: 28.5, rx: 3 });
-          plate.style.setProperty("--i", order);
-          row.append(plate);
-        }
-        const seat = chair(x, y, isMarked ? kind : "plain", dense);
-        if (isMarked) seat.style.setProperty("--i", order++);
-        row.append(seat);
-      }
-      svg.append(row);
-    }
-
-    if (note && at !== undefined) {
-      // label the one seat the figure is about, directly on the field
-      const idx = Number(at);
-      const c = idx % cols;
-      const cx = c * (CELL_W + GAP) + CELL_W / 2;
-      svg.append(
-        el("line", { class: "seat-note-line", x1: cx, x2: cx, y1: 18, y2: Math.floor(idx / cols) * rowH + top - 4 }),
-        Object.assign(el("text", { class: "seat-note", x: cx - 2, y: 14, "text-anchor": cx > w * 0.6 ? "end" : "start" }), { textContent: note }),
-      );
-    }
-    fig.querySelector(".seat-svg")?.remove();
-    fig.querySelector(".seats-field").append(svg);
-  }
-
-  const figures = [...document.querySelectorAll(".seats")];
-  figures.forEach(build);
   document.documentElement.classList.add("js");
-  const charts = [...document.querySelectorAll(".chart")];
 
-  // Held frames: when a field comes into view its marked seats switch to red one after another.
-  if (!reduceMotion.matches && "IntersectionObserver" in window) {
-    document.documentElement.classList.add("animate-seats");
-    const io = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (!e.isIntersecting) continue;
-        e.target.classList.add("in-view");
-        io.unobserve(e.target);
-      }
-    }, { threshold: 0.2 });
-    document.documentElement.classList.add("animate-charts");
-    [...figures, ...charts].forEach((f) => io.observe(f));
-    // printing should always show the finished figures
-    addEventListener("beforeprint", () => [...figures, ...charts].forEach((f) => f.classList.add("in-view")));
-  }
+  // ---------- The scroll engine ----------
+  // A scene's panel sits in a taller track and sticks under the header while the page
+  // scrolls through the track; progress 0..1 drives the scene. Panels too tall to stick
+  // play while they pass through the middle of the screen instead.
+  const topBar = document.querySelector(".top");
+  const scenes = [];
+  const clamp = (v) => Math.min(1, Math.max(0, v));
 
-  let lastNarrow = narrow.matches;
-  addEventListener("resize", () => {
-    if (narrow.matches === lastNarrow) return;
-    lastNarrow = narrow.matches;
-    figures.forEach(build);
-  });
-
-  // Hero lens: what the triage desk sees versus what was really in the room.
-  for (const btn of document.querySelectorAll(".lens button")) {
-    btn.addEventListener("click", () => {
-      const fig = btn.closest(".fig");
-      const desk = btn.dataset.lens === "desk";
-      fig.classList.toggle("lens-desk", desk);
-      fig.classList.add("in-view");
-      for (const b of btn.parentElement.children) b.setAttribute("aria-pressed", String(b === btn));
-    });
-  }
-
-  const once = (elm, fn) => {
-    if (!elm || reduceMotion.matches || !("IntersectionObserver" in window)) return;
-    const o = new IntersectionObserver(([e]) => { if (e.isIntersecting) { o.disconnect(); fn(); } }, { threshold: 0.45 });
-    o.observe(elm);
+  const scene = (panel, span, render) => {
+    const track = document.createElement("div");
+    track.className = "track";
+    panel.before(track);
+    track.append(panel);
+    const s = { panel, track, span, render, last: -1, stick: false, top: 0, h: 0 };
+    scenes.push(s);
+    return s;
   };
 
-  // The waiting room filling up: drag from a quiet hour to the busiest.
-  const busy = document.getElementById("busy");
+  const tick = () => {
+    const vh = innerHeight, lead = vh * 0.1;
+    for (const s of scenes) {
+      const r = s.track.getBoundingClientRect();
+      // a held scene starts just before it settles under the header; a loose one as it nears mid-screen
+      const p = s.stick ? (s.top + lead - r.top) / (lead + s.span * vh) : (vh * 0.7 - r.top) / (vh * 0.5);
+      const q = clamp((clamp(p) - 0.05) / 0.85); // a short hold at both ends
+      if (Math.abs(q - s.last) < 0.002) continue;
+      s.last = q;
+      s.render(q);
+    }
+  };
+
+  const askBar = document.querySelector(".ask-bar");
+  const layout = () => {
+    const vh = innerHeight, top = (topBar ? topBar.offsetHeight : 0) + 14;
+    // on phones the floating ask bar covers the bottom of the screen
+    const below = askBar && getComputedStyle(askBar).display !== "none" ? askBar.offsetHeight + 20 : 12;
+    for (const s of scenes) {
+      const ph = s.panel.offsetHeight;
+      s.top = top;
+      s.stick = ph <= vh - top - below;
+      s.track.classList.toggle("stick", s.stick);
+      s.panel.style.top = s.stick ? `${top}px` : "";
+      const h = s.stick ? Math.round(ph + s.span * vh) : 0;
+      if (Math.abs(h - s.h) > 4) { s.h = h; s.track.style.height = h ? `${h}px` : ""; }
+      s.last = -1;
+    }
+    tick();
+  };
+
+  // ---------- Triage: 100 patients who needed life-saving care ----------
+  const triage = document.querySelector(".fig.seats");
+  if (triage) {
+    const total = 100, marked = Number(triage.dataset.marked), seed = Number(triage.dataset.seed);
+    const field = triage.querySelector(".seats-field");
+    const count = document.getElementById("hero-count");
+    let marks = [];
+    const build = () => {
+      const cols = Number(narrow.matches ? triage.dataset.colsNarrow : triage.dataset.cols);
+      const rows = Math.ceil(total / cols), rowH = CELL_H + 10;
+      const w = cols * CELL_W + (cols - 1) * GAP;
+      const hit = scatter(total, marked, seed);
+      const svg = el("svg", { viewBox: `0 0 ${w} ${rows * rowH}`, "aria-hidden": "true", class: "seat-svg" });
+      const found = [];
+      for (let r = 0; r < rows; r++) {
+        const inRow = Math.min(cols, total - r * cols), y = r * rowH;
+        // the steel beam that joins a bank of chairs, with floor legs at the ends and every fifth seat
+        svg.append(el("rect", { class: "beam", x: 0, y: y + 23.5, width: inRow * CELL_W + (inRow - 1) * GAP, height: 2.5 }));
+        for (let c = 0; c <= inRow; c += 5) {
+          const legX = Math.min(c, inRow - 1) * (CELL_W + GAP) + (c === inRow ? CELL_W - 3 : 1.5);
+          svg.append(el("rect", { class: "beam", x: legX, y: y + 25, width: 2, height: 5 }));
+        }
+        for (let c = 0; c < inRow; c++) {
+          const x = c * (CELL_W + GAP);
+          if (hit.has(r * cols + c)) {
+            // a pale plate behind each marked seat: a cue that survives grayscale
+            const plate = el("rect", { class: "seat-plate", x: x - 2.5, y: y - 2.5, width: CELL_W + 5, height: 28.5, rx: 3 });
+            const seat = chair(x, y, "missed");
+            svg.append(plate, seat);
+            found.push([plate, seat]);
+          } else {
+            svg.append(chair(x, y, "plain"));
+          }
+        }
+      }
+      // reveal in a scattered order, not left to right
+      marks = [...scatter(found.length, found.length, seed + 1)].map((i) => found[i]);
+      field.querySelector(".seat-svg")?.remove();
+      field.querySelector(".scene-read").before(svg);
+    };
+    build();
+    const s = scene(field, 0.9, (q) => {
+      const k = Math.round(q * marked);
+      marks.forEach(([plate, seat], j) => { plate.classList.toggle("off", j >= k); seat.classList.toggle("off", j >= k); });
+      count.textContent = k;
+    });
+    narrow.addEventListener("change", () => { build(); s.last = -1; tick(); });
+  }
+
+  // ---------- The wait before triage: the room fills up ----------
   const roomField = document.querySelector(".room-one .room-field");
-  if (busy && roomField) {
+  if (roomField) {
     const STEPS = [
       { occ: 5, red: 1, pct: "12%", title: "A quiet hour", sub: "0 to 5 new arrivals in the past hour" },
       { occ: 10, red: 5, pct: "49%", title: "Filling up", sub: "6 to 10 new arrivals in the past hour" },
       { occ: 15, red: 10, pct: "64%", title: "Busy", sub: "11 to 15 new arrivals in the past hour" },
       { occ: 20, red: 14, pct: "68%", title: "The busiest hours", sub: "16 or more new arrivals in the past hour" },
     ];
-    const COLS = 8, TOTAL = 24;
-    const order = [...scatter(TOTAL, TOTAL, 41)];      // the order people arrive and sit down
+    const TOTAL = 24;
+    const order = [...scatter(TOTAL, TOTAL, 41)]; // the order people arrive and sit down
     const seats = [];
+    let cur = 3;
     const buildRoom = () => {
-      const cols = narrow.matches ? 6 : COLS, rows = Math.ceil(TOTAL / cols);
+      const cols = narrow.matches ? 6 : 8, rows = Math.ceil(TOTAL / cols);
       const w = cols * CELL_W + (cols - 1) * GAP, rowH = CELL_H + 10;
       const svg = el("svg", { viewBox: `0 0 ${w} ${rows * rowH}`, class: "seat-svg" });
       seats.length = 0;
@@ -181,53 +169,23 @@
     };
     const show = (i) => {
       const st = STEPS[i];
-      const occupied = order.slice(0, st.occ);
-      seats.forEach((s, k) => s.setAttribute("class", "chair chair-empty"));
-      occupied.forEach((k, n) => seats[k].setAttribute("class", `chair ${n < st.red ? "chair-missed" : "chair-plain"}`));
+      cur = i;
+      seats.forEach((s) => s.setAttribute("class", "chair chair-empty"));
+      order.slice(0, st.occ).forEach((k, n) => seats[k].setAttribute("class", `chair ${n < st.red ? "chair-missed" : "chair-plain"}`));
       document.getElementById("busy-pct").textContent = st.pct;
       document.getElementById("room-title").textContent = st.title;
       document.getElementById("room-sub").textContent = st.sub;
-      busy.setAttribute("aria-valuetext", `${st.title}, ${st.sub}: ${st.pct} still waiting after 10 minutes`);
+      document.querySelectorAll(".room-steps i").forEach((d, k) => d.classList.toggle("on", k <= i));
     };
     buildRoom();
-    show(+busy.value);
-    let touched = false;
-    busy.addEventListener("input", () => { touched = true; show(+busy.value); });
-    narrow.addEventListener("change", () => { buildRoom(); show(+busy.value); });
-    once(roomField, () => {
-      let i = 0; busy.value = 0; show(0);
-      const t = setInterval(() => { if (touched || ++i > 3) return clearInterval(t); busy.value = i; show(i); }, 1100);
-    });
+    show(3);
+    const s = scene(roomField.closest(".fig-panel"), 1.4, (q) => show(Math.min(3, Math.floor(q * 4))));
+    narrow.addEventListener("change", () => { buildRoom(); show(cur); });
   }
 
-  // Two ways out: switch between the study's three outcomes.
-  const OUT = {
-    die: ["2.6×", "The odds of dying within 30 days, adjusted for other factors"],
-    back: ["2.6×", "The odds of coming back to the ER within 72 hours, adjusted for other factors"],
-    icu: ["1.4×", "The odds of needing intensive care within 30 days, adjusted for other factors"],
-  };
-  const tabs = [...document.querySelectorAll(".exits .tabs [role=tab]")];
-  const pick = (tab) => {
-    for (const t of tabs) { t.setAttribute("aria-selected", String(t === tab)); t.tabIndex = t === tab ? 0 : -1; }
-    const [num, axis] = OUT[tab.dataset.out];
-    document.getElementById("exit-num").textContent = num;
-    document.getElementById("exit-axis").textContent = axis;
-  };
-  tabs.forEach((t, i) => {
-    t.tabIndex = i === 0 ? 0 : -1;
-    t.addEventListener("click", () => pick(t));
-    t.addEventListener("keydown", (e) => {
-      const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
-      if (!d) return;
-      const next = tabs[(i + d + tabs.length) % tabs.length];
-      next.focus(); pick(next);
-    });
-  });
-
-  // The wall clock: hours waiting for a bed. The band thickens as the hand goes round.
-  const bed = document.getElementById("bed");
+  // ---------- Waiting for a bed: the wall clock runs as the page scrolls ----------
   const clock = document.querySelector(".clock-svg");
-  if (bed && clock) {
+  if (clock) {
     const R = 88;
     clock.append(el("circle", { class: "face", r: 114 }));
     for (let i = 0; i < 60; i++) {
@@ -251,45 +209,20 @@
       }
       return `M${outer.join(" L")} L${inner.reverse().join(" L")} Z`;
     };
+    const pct = document.getElementById("bed-pct"), txt = document.getElementById("bed-text");
     const showBed = (h) => {
       band.setAttribute("d", arc(h));
       hand.setAttribute("transform", `rotate(${h * 30})`);
-      const pct = document.getElementById("bed-pct"), txt = document.getElementById("bed-text");
-      if (h < 2) { pct.textContent = "2.5%"; txt.textContent = "died in the hospital after waiting under 2 hours for a bed"; }
-      else if (h < 12) { pct.textContent = "Rising"; txt.textContent = `at ${h} hours: deaths generally rose with each hour of waiting`; }
+      const whole = Math.floor(h);
+      if (whole < 2) { pct.textContent = "2.5%"; txt.textContent = "died in the hospital after waiting under 2 hours for a bed"; }
+      else if (whole < 12) { pct.textContent = `${whole} hours`; txt.textContent = "deaths generally rose with each hour of waiting"; }
       else { pct.textContent = "4.5%"; txt.textContent = "died in the hospital after waiting 12 hours or more for a bed"; }
-      bed.setAttribute("aria-valuetext", h >= 12 ? "12 hours or more" : `${h} hours`);
     };
-    showBed(+bed.value);
-    let touched = false;
-    bed.addEventListener("input", () => { touched = true; showBed(+bed.value); });
-    once(clock, () => {
-      let h = 0; bed.value = 0; showBed(0);
-      const t = setInterval(() => { if (touched || ++h > 12) return clearInterval(t); bed.value = h; showBed(h); }, 260);
-    });
+    showBed(12);
+    scene(clock.closest(".fig-panel"), 1.2, (q) => showBed(q * 12));
   }
 
-  // A small tablist helper: click and arrow keys, one selected at a time.
-  const tablist = (list, onPick) => {
-    const tabs = [...list.querySelectorAll("[role=tab]")];
-    const pick = (tab) => {
-      for (const t of tabs) { t.setAttribute("aria-selected", String(t === tab)); t.tabIndex = t === tab ? 0 : -1; }
-      onPick(tab);
-    };
-    tabs.forEach((t, i) => {
-      t.tabIndex = t.getAttribute("aria-selected") === "true" ? 0 : -1;
-      t.addEventListener("click", () => pick(t));
-      t.addEventListener("keydown", (e) => {
-        const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
-        if (!d) return;
-        const next = tabs[(i + d + tabs.length) % tabs.length];
-        next.focus(); pick(next);
-      });
-    });
-    return { tabs, pick };
-  };
-
-  // The hospital: each window is 10,000 staffed US beds. Beds lose their staff; patients stay.
+  // ---------- Beds: each window is 10,000 staffed US beds; beds lose their staff, patients stay ----------
   const building = document.querySelector(".ward .building");
   if (building) {
     const COLS = 10, FLOORS = 8, WW = 26, WH = 20, GX = 10, GY = 12, PAD = 18, SIGN = 44, GROUND = 58;
@@ -329,67 +262,48 @@
       }
     }
     building.append(svg);
+    // 51 patients in both periods; 13 of the 29 open beds lose their staff after the pandemic
     const order = [...scatter(80, 80, 66)];
     const role = new Array(80);
-    order.forEach((w, n) => {
-      role[w] = n < 51 ? "full" : n < 64 ? "cut" : n < 70 ? "later" : "open";
-    });
+    order.forEach((w, n) => { role[w] = n < 51 ? "full" : n < 64 ? "cut" : "open"; });
     const ERAS = [
-      { pct: "63.9% full", text: "802,000 staffed beds for about 510,000 patients a day" },
-      { pct: "75.3% full", text: "674,000 staffed beds for about 510,000 patients a day" },
-      { pct: "85% full", text: "projected for adult beds as the population ages, if staffed beds stay where they are" },
+      { era: "2009 to 2019", pct: "63.9% full", text: "802,000 staffed beds for about 510,000 patients a day" },
+      { era: "2023 to 2024", pct: "75.3% full", text: "674,000 staffed beds for the same 510,000 patients a day" },
     ];
     const showEra = (e) => {
-      wins.forEach((g, k) => {
-        const r = role[k];
-        const state = r === "full" ? "full" : r === "cut" ? (e === 0 ? "open" : "closed") : r === "later" ? (e === 2 ? "full" : "open") : "open";
-        g.setAttribute("class", `w w-${state}`);
-      });
+      wins.forEach((g, k) => g.setAttribute("class", `w w-${role[k] === "cut" ? (e ? "closed" : "open") : role[k]}`));
+      document.getElementById("ward-era").textContent = ERAS[e].era;
       document.getElementById("ward-pct").textContent = ERAS[e].pct;
       document.getElementById("ward-text").textContent = ERAS[e].text;
     };
-    let touched = false;
-    const { tabs: eraTabs, pick: pickEra } = tablist(document.querySelector(".ward [role=tablist]"), (t) => { showEra(+t.dataset.era); });
-    eraTabs.forEach((t) => t.addEventListener("click", () => { touched = true; }));
     showEra(1);
-    once(building, () => {
-      pickEra(eraTabs[0]);
-      setTimeout(() => { if (!touched) pickEra(eraTabs[1]); }, 1600);
-    });
+    scene(building.closest(".fig-panel"), 0.9, (q) => showEra(q < 0.5 ? 0 : 1));
   }
 
-  // Staff lockers: 100 nurses who burned out. Open lockers belong to nurses who left.
+  // ---------- Nurses: 100 who left a job because of burnout; red said staffing was inadequate ----------
   const lockerField = document.querySelector(".lockers .locker-field");
   if (lockerField) {
-    const DATA = {
-      left: { staff: [63, "63.0%", "of those who left named inadequate staffing"],
-              stress: [69, "68.6%", "of those who left named a stressful work environment"] },
-      stay: { staff: [61, "60.9%", "of those thinking about leaving named inadequate staffing"],
-              stress: [60, "59.5%", "of those thinking about leaving named a stressful work environment"] },
-    };
-    const ORDER = { staff: [...scatter(100, 100, 11)], stress: [...scatter(100, 100, 12)] };
-    let who = "left", why = "staff";
+    const MARKED = 63;
+    const order = [...scatter(100, 100, 11)];
+    const count = document.getElementById("locker-count");
     const LW = 20, LH = 44, BANK_GAP = 8;
-    const lockers = [];
+    let lockers = [], lastK = MARKED;
     const buildLockers = () => {
-      const cols = narrow.matches ? 10 : 25, rows = 100 / cols, per = 5;
-      const banks = cols / per;
-      const w = cols * LW + (banks - 1) * BANK_GAP, rowH = LH + 12;
+      const cols = narrow.matches ? 20 : 25, rows = 100 / cols, per = 5;
+      const w = cols * LW + (cols / per - 1) * BANK_GAP, rowH = LH + 12;
       const svg = el("svg", { viewBox: `0 0 ${w} ${rows * rowH}`, class: "seat-svg locker-svg" });
-      lockers.length = 0;
+      lockers = [];
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
           const x = c * LW + Math.floor(c / per) * BANK_GAP, y = r * rowH;
+          // a nurse who left: the door stands ajar and the name card is gone
           const g = el("g", { class: "locker", transform: `translate(${x} ${y})` });
           g.append(
             el("rect", { class: "l-inside", x: 0.5, y: 0, width: LW - 1, height: LH }),
-            el("rect", { class: "l-door", x: 0.5, y: 0, width: LW - 1, height: LH }),
             el("rect", { class: "l-ajar", x: 0.5, y: 0, width: LW - 7, height: LH }),
             el("rect", { class: "l-vent", x: 4, y: 5, width: LW - 12, height: 1.6 }),
             el("rect", { class: "l-vent", x: 4, y: 8.5, width: LW - 12, height: 1.6 }),
             el("rect", { class: "l-vent", x: 4, y: 12, width: LW - 12, height: 1.6 }),
-            el("rect", { class: "l-tag", x: 4, y: 18, width: LW - 8, height: 6, rx: 0.8 }),
-            el("rect", { class: "l-handle", x: LW - 6, y: 27, width: 2.2, height: 8, rx: 1 }),
           );
           svg.append(g); lockers.push(g);
         }
@@ -398,59 +312,51 @@
       }
       lockerField.replaceChildren(svg);
     };
-    const showLockers = () => {
-      const [n, pct, text] = DATA[who][why];
-      const marked = new Set(ORDER[why].slice(0, n));
-      lockers.forEach((g, k) => {
-        g.setAttribute("class", `locker ${who === "left" ? "l-open" : "l-closed"}${marked.has(k) ? " l-marked" : ""}`);
-        g.style.setProperty("--i", ORDER[why].indexOf(k));
-      });
-      document.getElementById("locker-pct").textContent = pct;
-      document.getElementById("locker-text").textContent = text;
+    const showLockers = (k) => {
+      lastK = k;
+      order.forEach((idx, j) => lockers[idx].classList.toggle("l-marked", j < k));
+      count.textContent = k;
     };
     buildLockers();
-    showLockers();
-    tablist(document.querySelector(".lockers [role=tablist]"), (t) => { who = t.dataset.who; showLockers(); });
-    for (const b of document.querySelectorAll(".lockers [data-why]")) {
-      b.addEventListener("click", () => {
-        why = b.dataset.why;
-        for (const o of b.parentElement.children) o.setAttribute("aria-pressed", String(o === b));
-        showLockers();
-      });
-    }
-    narrow.addEventListener("change", () => { buildLockers(); showLockers(); });
+    showLockers(MARKED);
+    scene(lockerField.closest(".fig-panel"), 0.9, (q) => showLockers(Math.round(q * MARKED)));
+    narrow.addEventListener("change", () => { buildLockers(); showLockers(lastK); });
   }
 
-  // Two bills for the same day of care: waiting in the ER for a bed, and in the bed.
-  const bills = document.querySelector(".bills");
-  if (bills) {
-    const BILL = {
-      ward: { kind: "a regular bed", er: ["$1,856", 293], in: ["$993", 313], more: "+$863" },
-      icu: { kind: "an intensive care bed", er: ["$2,267", 419], in: ["$2,165", 787], more: "+$102" },
-    };
-    for (const r of bills.querySelectorAll(".receipt")) {
-      const strip = document.createElement("div");
-      strip.className = "day-strip";
-      strip.setAttribute("aria-hidden", "true");
-      strip.innerHTML = '<span class="day-fill"></span>';
-      r.append(strip, Object.assign(document.createElement("p"), { className: "day-label", textContent: "Nursing time in a 24-hour day" }));
-    }
-    const [erR, inR] = bills.querySelectorAll(".receipt");
-    const showBill = (k) => {
-      const b = BILL[k];
-      for (const s of bills.querySelectorAll(".bed-kind")) s.textContent = b.kind;
-      document.getElementById("r-er-cost").textContent = b.er[0];
-      document.getElementById("r-in-cost").textContent = b.in[0];
-      document.getElementById("r-er-min").textContent = `${b.er[1]} min`;
-      document.getElementById("r-in-min").textContent = `${b.in[1]} min`;
-      erR.querySelector(".day-fill").style.width = `${(b.er[1] / 1440) * 100}%`;
-      inR.querySelector(".day-fill").style.width = `${(b.in[1] / 1440) * 100}%`;
-      document.getElementById("bill-more").textContent = b.more;
-      document.getElementById("bill-text").textContent = `more a day in the ER, with ${b.in[1] - b.er[1]} fewer minutes of nursing time`;
-    };
-    showBill("ward");
-    tablist(bills.querySelector("[role=tablist]"), (t) => showBill(t.dataset.bed));
+  // Scenes without steps (the exit signs, the two bills) settle in once, when they come into view.
+  const settled = [...document.querySelectorAll(".chart.settle")];
+  if ("IntersectionObserver" in window) {
+    document.documentElement.classList.add("animate-charts");
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) if (e.isIntersecting) { e.target.classList.add("in-view"); io.unobserve(e.target); }
+    }, { threshold: 0.3 });
+    settled.forEach((f) => io.observe(f));
   }
+
+  // Printing shows every scene finished.
+  addEventListener("beforeprint", () => {
+    settled.forEach((f) => f.classList.add("in-view"));
+    scenes.forEach((s) => s.render(1));
+  });
+
+  let queued = false;
+  addEventListener("scroll", () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(() => { queued = false; tick(); });
+  }, { passive: true });
+  addEventListener("resize", layout);
+  if ("ResizeObserver" in window) {
+    let pending = false;
+    const ro = new ResizeObserver(() => {
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(() => { pending = false; layout(); });
+    });
+    scenes.forEach((s) => ro.observe(s.panel));
+  }
+  layout();
+  document.fonts?.ready.then(layout);
 
   // Copy the address, for desktops with no mail app.
   for (const btn of document.querySelectorAll("[data-copy]")) {
