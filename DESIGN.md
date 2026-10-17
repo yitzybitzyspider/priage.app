@@ -189,11 +189,11 @@ An institutional, low-chroma room (grey floor, white panels, blue chairs) with o
 
 ## Layout
 
-A single left-aligned column inside a 1240px container with fluid gutters (gutter token). Each story section opens with a two-column head (headline left at 6fr, reading text right at 5fr, aligned to the bottom) above a full-width seat field, then a caption grid of 5fr (figure, what, legend) against 7fr (source quote). Sections are separated by a 1px hairline and generous vertical padding (section token); the talk band runs full bleed in Molded Seat Blue with a 7fr / 5fr grid.
+Since v10 the page is four beats, top to bottom: the problem (headline, lede, the PrIAge line, one "Talk with us" button), the story strip (eight scene cards that scroll sideways), the talk band, and the team, with the Sources list as the footer. Everything aligns to one left edge inside a 1240px container with fluid gutters; the story strip starts on that edge and bleeds off the right side of the screen so the next card always peeks in. The talk band runs full bleed in Molded Seat Blue with a 7fr / 5fr grid.
 
 Seat fields draw a 24 by 30 chair cell with a 4 unit gap, rows joined by a beam with legs every fifth seat. Column counts are chosen per figure so rows read as real banks of chairs (41, 25, 34, 50 on wide screens) and drop to 10 to 25 columns on phones; a dense field on phones switches each chair to a solid silhouette so it never reads as hatching.
 
-Breakpoints: at 1023px and below, story heads and the talk grid stack to one column; at 759px and below, the caption grid stacks, body type steps down, and the nav keeps only the talk action.
+Breakpoints: at 1023px and below, the talk grid and team head stack; at 759px and below, body type steps down, the nav keeps only the talk action, the strip's arrows hide (swipe is the control), each card keeps its own height, and a "Talk with us" bar rises from the bottom once the hero is gone.
 
 ## Elevation & Depth
 
@@ -216,7 +216,7 @@ Solid, sign-like and direct.
 - **Primary:** Molded Seat Blue with white Overpass 800 text, padding 15px 24px 14px, a trailing inline SVG arrow (18px, 2.2 stroke, round caps).
 - **Hover / Focus:** background shifts to Deep Seat Blue and the button rises 1px (160ms color, 200ms transform on cubic-bezier(0.16, 1, 0.3, 1)); pressed drops 1px; focus is a 3px Molded Seat Blue outline at 3px offset. Transitions are removed under reduced motion.
 - **Light:** on the blue band, white with Deep Seat Blue text, hover to a pale blue (#e8f0f7), focus outline in white.
-- **Text link action:** "See the numbers" style, Atkinson 600 with an inline SVG down arrow, underlined.
+- **Strip arrows:** 46px squared Seat Blue buttons either side of a "1 / 8" count in Overpass; disabled at the ends at 32% opacity. Desktop only.
 
 ### Navigation
 Wordmark left, links right. Links are Atkinson 600 at 1rem with the underline hidden until hover. The talk action is a compact blue button (padding 9px 16px 8px, 6px radius). On phones only the wordmark and the talk action remain.
@@ -224,21 +224,21 @@ Wordmark left, links right. Links are Atkinson 600 at 1rem with the underline hi
 ### Seat Field (signature)
 The unit of the system. A Fluorescent Panel plate (4px radius, Panel rest shadow) holding an SVG bank of chairs: plain seats in Molded Seat Blue, marked seats filled Exit Sign Red, lost seats as empty chairs outlined in Exit Sign Red. A single named seat gets a Red Plate behind it and an Overpass 800 label in Signage Red Ink with a 1.5px leader line, placed directly on the field. Marked seats are chosen by a deterministic scatter so they read as people spread through a room. When the field enters view, marked seats switch to red one after another in 120ms two-step frames (45ms stagger for fills, 12ms for large outlined sets, 300ms initial hold), then the label fades in; reduced motion shows the final state.
 
-### Figure Caption
-Under every field: the Figure number, a one-sentence plain-language "what" line, and a legend of 14px keys (blue for one patient, red fill or red outline for the counted state). Beside it, the Source Clip: the published sentence in curly quotes under a 2px Chart Ink rule, followed by a Soft Ink citation with a link to the paper and a bracketed source number.
+### Scene Card (v10)
+A Fluorescent Panel card (6px radius, Panel rest lift), 560px wide on desktop and the screen width less 28px on phones, snapping to its left edge. Top to bottom: the point as an Overpass 800 headline, the question the scene answers in Soft Ink, the scene centered in the card's spare height, the answer (one Figure number in Signage Red Ink beside a short label, under a Hairline), and one Soft Ink source line (place and size, authors, journal, [n]). The red number is the legend: it names the red seats, so scenes carry no separate key unless they have more than one state to explain (the hospital). The turn card is the one exception: Seat Deep, no scene, one sentence.
 
 ### Talk Band
 Full-bleed Molded Seat Blue section with a large headline, a short invitation, an audience list in Overpass 700 with 9px On Seat Mist square bullets, and the light button with the plain email address beneath.
 
 ### Source List
-Numbered list in Soft Ink at 0.9375rem, max 90ch, with Overpass 800 Chart Ink markers; each entry is a full citation with a DOI or source link. The footer sits under a Hairline.
+Numbered list in Soft Ink at 0.875rem, max 86ch, with Overpass 800 Chart Ink markers; each entry is a full citation with a DOI or source link, followed by the verbatim source sentence in italic Chart Ink. This is where every number's published sentence lives since v10; the cards carry only the citation. The footer sits under a Hairline.
 
 ## Do's and Don'ts
 
 ### Do:
 - **Do** draw every patient figure as a seat field where one chair is exactly one patient; show the full denominator.
 - **Do** use a number beat (Figure type, no field) when a count is too large to draw at one chair per patient.
-- **Do** place the verbatim published source sentence, in quotes, beside every number, with a linked citation and an entry in the Source List.
+- **Do** give every number a linked citation on its card and its verbatim published sentence in the Source List.
 - **Do** keep red to the seats a figure is about, the number that counts them, and the label that names them.
 - **Do** set headings, figures, buttons and seat labels in Overpass, and every reading sentence in Atkinson Hyperlegible Next.
 - **Do** write in a sober, plain, factual tone: name the problem, never a villain; the system is overloaded.
@@ -281,7 +281,7 @@ Each number is told with an object from the waiting room, not a generic chart, a
 - **Staff lockers (nurses).** 100 lockers in banks of five on a steel bench rail, Seat doors with vents, a white name card and a handle. A nurse who left: door ajar, interior showing, no name card. Red doors are the nurses who named the selected reason. Two controls: a tablist for who (left, thinking about leaving) and a pressed-button group for why (staffing, stressful workplace).
 - **Two bills (cost).** Flat white receipts with a zigzag torn edge (CSS mask), a wayfinding plate (IN THE ER in Mark, UPSTAIRS in Seat Deep), cost and nursing minutes as Overpass 900 numbers, and a 24-hour strip showing nursing time. A third column carries the live difference (+$863 a day, 20 fewer minutes; ICU +$102, 368 fewer). No thick top borders; no shadows inside panels.
 - **Big numbers that run long** ("802,000 → 674,000") use `.big-long`, one step smaller than `.big`.
-- **Team.** Two-column list, 2px Ink rule above each person, a square photo (4px radius, color softened to saturate 0.8: never grayscale, which reads as a memorial on this topic), name in Overpass 800, a one-word background tag in Seat Deep caps, a short bio, and one link.
+- **Team.** Two-column list, 2px Ink rule above each person, a square photo (4px radius; black and white since v10 at the owner's request, superseding the earlier soft-color rule), name in Overpass 800, a one-word background tag in Seat Deep caps, a short bio, and one link.
 
 ## Scroll-driven scenes (2026-10-17, v8)
 
@@ -291,3 +291,30 @@ Each number is told with an object from the waiting room, not a generic chart, a
 - **Static scenes.** The exit signs and the two bills have no steps; the bills' nursing-time strips fill once on view.
 - **One point per scene.** Exit signs show death within 30 days only; the hospital shows before and after the pandemic only; the lockers show one reason; the bills show a regular bed only.
 - **Separators.** The dot between source details is a drawn circle (`.sep`), because Overpass's middle dot sits off-center.
+
+## v10: problem, strip, ask, team (2026-10-17)
+
+Supersedes the v7 chapter layout and the v8 scroll-driven scenes.
+
+- **Structure.** "It's just the main problem, then call to action, then team." Details live one swipe away in the strip, never as more vertical sections. Page height dropped from about 17,300px to 4,200px on desktop and from 19,900px to 6,300px on phones.
+- **The strip.** Eight cards in visit order: the wait to be triaged, triage as a snapshot, leaving unseen, waiting for a bed, the turn card ("None of this is for lack of effort."), staffed beds, nurses, the bill. Native horizontal scroll with mandatory start snapping, `scroll-padding` set to the page edge, a thin Seat Blue scrollbar, arrows and a count on desktop, swipe on phones and trackpads. The list is focusable so arrow keys scroll it.
+- **Play once, in view.** No pinned tracks. Each scene rests on its final state; with motion allowed it rewinds to its start and plays forward on a timer the first time 60% of it is on screen. Room: four busyness steps about a second apart. Triage seats and lockers: count up over 1.7s with an ease-out. Clock: hand sweeps 12 hours in 3.2s. Hospital: holds "before" for 1.1s, then 13 windows lose their staff one by one. Exit signs and bills are static. A count that would read "0 of 100" stays hidden until it starts counting. Reduced motion and print show final states.
+- **One number per card, said once.** The secondary numbers (1 in 5 pre-triage in Canada, almost 14,000 excess deaths in England, 88.9% of hospital-months, 17.6% turnover, $60,090 per nurse, $17 million in California) were cut. Eight sources remain.
+- **Text digits.** Reading text takes its digits from Overpass through a `unicode-range` face ("Text Digits") because Atkinson's slashed zero read as "1Ø minutes".
+- **No crawlers, US only.** `noindex` meta, a robots.txt that admits only link-preview bots, and Cloudflare (proxied DNS, a WAF rule blocking every country but US, PR, GU, VI, AS and MP, and its AI-bot block). See PRODUCT.md.
+
+## v11: critique round 1 (2026-10-17)
+
+A dual-agent critique scored v10 at 21 of 36. Fixes:
+
+- **Hero.** Two columns from 900px up: headline, one-sentence lede, the PrIAge line in ink with the stage ("We're early: this fall..."), one button; beside it two stats under a 2px ink rule, "155 million" in ink and "About 1 in 3" in Signage Red Ink under a three-chair bench with the first chair red. Below 900px the stats sit between the lede and the PrIAge line.
+- **Plain words.** "High-acuity" is gone; the triage card and hero say "not placed in the two most urgent triage levels" (ESI I or II of five), which puts the miss on the scale, not on nurses.
+- **Strip.** Titled "What happens while people wait.", with "None of this is for lack of effort." as its subhead (the turn card is gone). It ends on a Seat Deep card, "The number that matters most is missing.", stating that we found no national count of patients who get worse while waiting, with a "Talk with us" button. Arrows and an "N of 8" count sit under the strip at every width; one press moves by the cards that fit; at an end the arrow is aria-disabled (outlined, still focusable) instead of disabled. The hint reads "Use the arrows, or scroll sideways." for fine pointers and "Swipe for more." for touch.
+- **One red meaning.** A red number always counts the red marks in its scene: the hospital answer is 128,000 fewer staffed beds (the red windows), and it stays hidden until they turn red. Exit signs lost their numbers and arrow tiles; the 2.59x answer sits in the answer row like every other card.
+- **Published values.** The room shows 12.4%, 48.8%, 64.4% and 68% with seat counts that match (1 of 8, 6 of 12, 11 of 17, 15 of 22) and a three-state key. Odds are 2.59x as published. "About the same 510,000". Worked-out numbers carry their arithmetic under the quote in Sources.
+- **Sources.** One folded `details` block in the footer with a drawn plus; citation links open it. Card citations are one link each ("Houston et al., 2015 [2]") to the list.
+- **Scene craft.** Lockers are plain closed doors; the clock has no numerals and counts hours in its lower face; the room lost its step pills; empty-seat outlines and window frames darkened to #7f8a91 and #79848b for 3:1.
+- **Targets and phones.** Every link and button is at least 44px tall or padded to a 24px hit area; phones reserve 88px under the page and scroll-padding so the fixed ask bar never hides a focused link; the bar hides at the footer and on landscape phones. Scenes play once 85% of their width and 60% of the smaller of their height or the screen are visible, so tall scenes play on short screens.
+- **Ask.** Band headline "Have you worked in an ER, or waited in one?" capped at 3.5rem (below the h1); the email opens with a two-line template (who you are, good times to talk).
+- **Share card.** og.png rebuilt from brand/build/og.html with the hero's two stats.
+

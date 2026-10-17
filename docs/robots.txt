@@ -1,4 +1,15 @@
-User-agent: *
+# priage.app is not for search engines or scrapers.
+# The only bots allowed are the ones that draw a link preview when someone shares the address.
+User-agent: LinkedInBot
+User-agent: Slackbot
+User-agent: Slackbot-LinkExpanding
+User-agent: Twitterbot
+User-agent: facebookexternalhit
+User-agent: Facebot
+User-agent: WhatsApp
+User-agent: TelegramBot
+User-agent: Discordbot
 Allow: /
 
-Sitemap: https://priage.app/sitemap.xml
+User-agent: *
+Disallow: /

@@ -37,6 +37,7 @@ After a one-time triage snapshot, patients can wait for hours while nobody sees 
 - The page's jobs (confirmed 2026-10-17): land interviews; be the link in applications (accelerators, grants, programs); get into competitions; and tell people what PrIAge is working on. So readers include application reviewers and competition judges who skim for the problem, who is behind it, what the team is working toward, and how far along it is.
 - The big ask (confirmed 2026-10-17): talk to people and schedule time to learn about their problems. Audiences: ER nurses, ER doctors, hospital leaders (ED directors, nurse managers, quality and safety), and patients and families who have waited in an ER. For now booking is an email to hello@priage.app with a pre-filled note; a booking link may replace it later.
 - The first ticket-dispenser concept (v1) told the idea "almost too playfully"; the rebuild starts fresh visually. Only name, domain and contact carry over.
+- Page shape (confirmed 2026-10-17, v10): "it's just the main problem, then call to action, and then team." The supporting numbers sit in a strip readers scroll left and right through ("scroll left and right to learn more"), not in more sections.
 
 ## Capabilities and Constraints
 
@@ -44,11 +45,12 @@ After a one-time triage snapshot, patients can wait for hours while nobody sees 
 - Do not publish the approaches being explored (confirmed 2026-10-17: "I don't know if we should share what we're exploring yet, just what the problem we're looking to solve").
 - Earlier internal prototypes were throwaway tests, not the product; never describe them publicly.
 - Contact: hello@priage.app, forwarded to the owner's Gmail via Cloudflare Email Routing.
+- Audience access (confirmed 2026-10-17): US visitors only and no scraping. Cloudflare proxies priage.app and blocks every country except the US and its territories (US, PR, GU, VI, AS, MP); its AI-bot block is on for search, agent and training bots; the page carries `noindex`; robots.txt admits only link-preview bots (LinkedIn, Slack, X, Facebook, WhatsApp, Telegram, Discord) so shared links still show a card. Trade-off accepted: reviewers, judges and teammates outside the US cannot open the site, and the GitHub repo stays public, so its source is readable from anywhere.
 
 ## Brand Commitments
 
 - Name is spelled **PrIAge** (capital P, lowercase r, capital I, capital A, lowercase g, lowercase e). Never "PreAge" or "PRIAGE". The domain is lowercase priage.app.
-- The team is public (changed 2026-10-17 at the user's request): Shion Kiguchi, MD; Premi Mohanavelu; José Tomás Fernández; Yitzy Rosenberg, all MBA students at UC Berkeley Haas. Bios describe backgrounds, not PrIAge titles (roles are still being set).
+- The team is public (changed 2026-10-17 at the user's request): Shion Kiguchi, MD; Premi Mohanavelu; José Tomás Fernández; Yitzy Rosenberg, all MBA students at UC Berkeley Haas. Bios describe backgrounds, not PrIAge titles (roles are still being set). Team photos are shown in black and white (owner's request, 2026-10-17).
 
 ## Evidence on Hand
 

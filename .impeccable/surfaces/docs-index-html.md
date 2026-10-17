@@ -9,7 +9,7 @@ related_targets: []
 
 Mode: Persuade. Visitors: ER nurses, ER doctors, hospital leaders, patients and families who have waited in an ER, plus classmates and judges. Success: they grasp how big and how severe the waiting-room problem is from sourced numbers, and they email hello@priage.app to set up a conversation (the big ask).
 
-Constraints: the problem's story only, no solution or mechanism; never imply reordering or skipping patients; never blame nurses or hospitals; not sensational, not playful; every number sourced and quoted as published; no names.
+Constraints: the problem's story only, no solution or mechanism; never imply reordering or skipping patients; never blame nurses or hospitals; not sensational, not playful; every number sourced and quoted as published; team public, photos black and white; US visitors only, no indexing or scraping.
 
 Unresolved: a booking link may replace the email later.
 
@@ -26,3 +26,8 @@ FIRST VIEWPORT: Sticky signage strip; left-aligned headline "The ER waiting room
 FORM: The Waiting Room, my top-ranked grounded candidate (rank 1, chosen as pick over assigned rank 4); seed b9fa80e1. Signature interaction: seats are visible by default; when a field comes into view its marked seats switch to red one after another in hard two-frame steps; reduced motion shows the final state. Scale (155 million) is a number beat, not a seat field, so one chair always means one patient.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+
+## v10 (2026-10-17)
+
+STORY now: the problem (first viewport), then a sideways strip of eight scene cards in visit order (wait to be triaged, triage snapshot, leaving unseen, waiting for a bed, the turn, staffed beds, nurses, the bill), then the talk band, then the team, then Sources. One number per card, each scene plays once when it comes into view. Supersedes the vertical chapter story above.
+

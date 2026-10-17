@@ -4,32 +4,32 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PrIAge: the ER waiting room is a blind spot</title>
-  <meta name="description" content="Before triage and after it, it is hard to see who is getting worse in the ER waiting room. The numbers, the strain on the people who work there, and what PrIAge is working on.">
+  <meta name="description" content="Patients can wait for hours in the ER, before triage and after it, and it is hard for anyone to see who is getting worse. The numbers, the strain on the people who work there, and what PrIAge is working on.">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
   <meta name="theme-color" content="#2b5d87">
-  <link rel="canonical" href="https://priage.app/">
-  <link rel="icon" href="favicon.svg?v=9" type="image/svg+xml">
+  <link rel="icon" href="favicon.svg?v=11" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://priage.app/">
   <meta property="og:title" content="PrIAge: the ER waiting room is a blind spot">
-  <meta property="og:description" content="What happens while people wait for emergency care in the US, and what PrIAge is working on.">
-  <meta property="og:image" content="https://priage.app/og.png?v=9">
+  <meta property="og:description" content="Patients can wait for hours in the ER, and it is hard for anyone to see who is getting worse. What happens while people wait, and what PrIAge is working on.">
+  <meta property="og:image" content="https://priage.app/og.png?v=11">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="fonts/overpass.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/atkinson-next.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=9">
-  <script src="app.js?v=9" defer></script>
+  <link rel="stylesheet" href="styles.css?v=11">
+  <script src="app.js?v=11" defer></script>
 </head>
 <body>
-  <a class="skip" href="#numbers">Skip to the numbers</a>
+  <a class="skip" href="#story">Skip to the story</a>
 
   <header class="top">
-    <div class="wrap">
-      <nav class="nav" aria-label="Main">
-        <a class="wordmark" href="#top"><img src="logo.svg?v=9" alt="PrIAge" width="120" height="43"></a>
+    <div class="wrap nav">
+      <a class="wordmark" href="#top"><img src="logo.svg?v=11" alt="PrIAge" width="120" height="43"></a>
+      <nav aria-label="Main">
         <ul>
-          <li class="nav-numbers"><a href="#numbers">The numbers</a></li>
-          <li class="nav-numbers"><a href="#team">Team</a></li>
+          <li class="nav-quiet"><a href="#story">The story</a></li>
+          <li class="nav-quiet"><a href="#team">Team</a></li>
           <li><a class="nav-talk" href="#talk">Talk with us</a></li>
         </ul>
       </nav>
@@ -38,305 +38,191 @@
 
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="wrap">
-        <h1 id="hero-title">The ER waiting room is a blind spot.</h1>
-        <p class="lede">In 2022, US emergency departments handled 155 million visits.<a class="ref" href="#src-1">[1]</a> Many patients wait just to be triaged, a wait that often isn't even measured.<a class="ref" href="#src-2">[2]</a> After triage, many wait again, sometimes for hours. Through both waits, it is hard for anyone to see who is getting worse.</p>
-        <p class="about"><strong>PrIAge</strong> is working on ways to give ER nurses better information about patients while they wait. Nurses make the call. Right now we're talking with the people who do this work.</p>
-        <div class="actions">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <h1 id="hero-title">The ER waiting room is a blind spot.</h1>
+          <p class="lede">Patients can wait for hours in the ER, before triage and after it. Through the wait, it is hard for anyone to see who is getting worse.</p>
+          <p class="about"><b>PrIAge</b> is working on better information for ER nurses about patients while they wait. Nurses make the call. We're early: this fall we're talking with ER staff, hospital leaders and patients.</p>
           <a class="btn" href="#talk">Talk with us
             <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a class="more" href="#numbers">See the numbers
-            <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M10 4v11m-4.5-4.5L10 15l4.5-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
         </div>
-
-        <figure class="fig seats" id="numbers" data-cols="25" data-cols-narrow="10" data-marked="34" data-seed="2024"
-          aria-label="100 chairs, each a patient with high-acuity illness. 34 are red: not identified as high-acuity at triage.">
-          <div class="fig-panel seats-field">
-            <p class="scene-q">Of 100 patients who turned out to need life-saving care, how many did triage flag as high-acuity?</p>
-            <p class="room-sign" aria-hidden="true">Triage<svg viewBox="0 0 24 24"><path d="M4 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></p>
-            <noscript><p class="noscript">This scene needs JavaScript. Its numbers are written out beside it.</p></noscript>
-            <p class="scene-read"><b id="hero-count">34</b> of 100 were not flagged as high-acuity</p>
-          </div>
-          <figcaption class="fig-cap">
-            <div class="cap-main">
-              <p class="big">About 34 in 100</p>
-              <p class="what">patients with high-acuity illness were not identified as high-acuity at triage.</p>
-              <p class="legend"><span><i class="key"></i>One high-acuity patient</span><span><i class="key key-missed"></i>Not identified as high-acuity</span></p>
-            </div>
-            <div class="source">
-              <p class="where">United States<span class="sep">·</span>21 hospitals<span class="sep">·</span>5.3 million adult visits</p>
-              <p class="cite">Sax et al., <a href="https://doi.org/10.1001/jamanetworkopen.2023.3404">JAMA Network Open, 2023</a> <a class="ref" href="#src-3">[3]</a></p>
-              <details><summary>Source sentence</summary><blockquote>The sensitivity of ESI to identify a patient with high-acuity illness (correctly assigning ESI I or II among patients who had a life-stabilizing intervention) was 65.9%.</blockquote></details>
-            </div>
-          </figcaption>
-        </figure>
+        <ul class="hero-stats">
+          <li class="stat">
+            <p class="stat-n">155 million</p>
+            <p class="stat-t">visits to US emergency departments in 2022</p>
+            <p class="stat-src">CDC, 2024<a class="ref" href="#src-1">[1]</a></p>
+          </li>
+          <li class="stat stat-hot">
+            <svg class="stat-bench" viewBox="-3 -3 90 34" aria-hidden="true">
+              <rect class="seat-plate" x="-2.5" y="-2.5" width="29" height="28.5" rx="3"/>
+              <g class="chair chair-missed"><rect x="4" y="0" width="16" height="15" rx="2"/><rect x="1.5" y="16" width="21" height="4.5" rx="1"/><rect class="leg" x="4.5" y="20.5" width="2" height="3"/><rect class="leg" x="17.5" y="20.5" width="2" height="3"/></g>
+              <g class="chair" transform="translate(30 0)"><rect x="4" y="0" width="16" height="15" rx="2"/><rect x="1.5" y="16" width="21" height="4.5" rx="1"/><rect class="leg" x="4.5" y="20.5" width="2" height="3"/><rect class="leg" x="17.5" y="20.5" width="2" height="3"/></g>
+              <g class="chair" transform="translate(60 0)"><rect x="4" y="0" width="16" height="15" rx="2"/><rect x="1.5" y="16" width="21" height="4.5" rx="1"/><rect class="leg" x="4.5" y="20.5" width="2" height="3"/><rect class="leg" x="17.5" y="20.5" width="2" height="3"/></g>
+              <rect class="beam" x="0" y="23.5" width="84" height="2.5"/>
+            </svg>
+            <p class="stat-n">About 1 in 3</p>
+            <p class="stat-t">patients who turned out to need life-saving care were not placed in the two most urgent triage levels</p>
+            <p class="stat-src">21 US hospitals, 2023<a class="ref" href="#src-3">[3]</a></p>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <section class="story" aria-labelledby="pre-title">
-      <div class="wrap">
-        <div class="story-head">
-          <h2 id="pre-title">Some wait just to be triaged.</h2>
-          <p>The wait before triage usually isn't counted in standard ER reporting. In one US emergency department, it grew sharply as the room got busier.<a class="ref" href="#src-2">[2]</a></p>
-        </div>
-        <figure class="fig chart scene">
-          <div class="fig-panel room-one">
-            <p class="scene-q">How long do people wait just to be triaged when the ER gets busy?</p>
-            <div class="room-top">
-              <div><p class="room-title" id="room-title">The busiest hours</p><p class="room-sub" id="room-sub">16 or more new arrivals in the past hour</p></div>
-              <p class="room-steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></p>
-            </div>
-            <div class="room-field" aria-hidden="true"></div>
-            <p class="room-num"><b id="busy-pct">68%</b> waited more than 10 minutes to be triaged</p>
-          </div>
-          <figcaption class="fig-cap">
-            <div class="cap-main">
-              <p class="big">68%</p>
-              <p class="what">of patients who had to wait for triage waited more than 10 minutes when the ER was at its busiest.</p>
-            </div>
-            <div class="source">
-              <p class="where">United States<span class="sep">·</span>one academic emergency department</p>
-              <p class="cite">Houston et al., <a href="https://doi.org/10.5811/westjem.2014.11.22824">Western Journal of Emergency Medicine, 2015</a> <a class="ref" href="#src-2">[2]</a></p>
-              <details><summary>Source sentence</summary><blockquote>When stratified by the number of new patients who arrived in the ED in the previous hour, the percentage of greeted patients who waited more than 10 minutes for triage was: 0-5 new patients - 12.4%; 6-10 new patients - 48.8%; 11-15 new patients - 64.4%; 16+ new patients - 68%.</blockquote></details>
-            </div>
-          </figcaption>
-        </figure>
-        <div class="also">
-          <p class="also-num">1 in 5</p>
-          <div>
-            <p class="also-what">of the sickest walk-in patients waited more than 15 minutes just to be triaged, longer than guidelines allow before they should see a doctor.</p>
-            <p class="cite">Canadian emergency department<span class="sep">·</span>Betz et al., CJEM, 2017 <a class="ref" href="#src-7">[7]</a></p>
-          </div>
-        </div>
+    <section class="story" id="story" aria-labelledby="story-title">
+      <div class="wrap story-head">
+        <h2 id="story-title">What happens while people wait.</h2>
+        <p>None of this is for lack of effort. ER nurses, doctors and hospital leaders work hard inside a system stretched past its limits.</p>
       </div>
-    </section>
 
-    <section class="story" aria-labelledby="leave-title">
-      <div class="wrap">
-        <div class="story-head">
-          <h2 id="leave-title">Some give up and leave before being seen.</h2>
-          <p>When waits stretch, some people walk out. Across 10 US emergency departments, those who left unseen were more likely to come back, to need intensive care, and to die within 30 days than people who were seen and sent home.<a class="ref" href="#src-4">[4]</a></p>
-        </div>
-        <figure class="fig chart settle">
-          <div class="fig-panel exits">
-            <p class="scene-q">What happens to people who leave before a doctor sees them?</p>
-            <div class="sign"><span class="sign-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></span><span class="sign-text">Seen by a doctor, then sent home</span><span class="sign-num">1×</span></div>
-            <div class="sign hot"><span class="sign-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></span><span class="sign-text">Left without being seen</span><span class="sign-num">2.6×</span></div>
-            <p class="axis">The odds of dying within 30 days, adjusted for other factors</p>
-          </div>
-          <figcaption class="fig-cap">
-            <div class="cap-main">
-              <p class="big">2.6×</p>
-              <p class="what">the odds of dying within 30 days for people who left without being seen, after adjusting for other factors.</p>
-            </div>
-            <div class="source">
-              <p class="where">United States<span class="sep">·</span>10 emergency departments<span class="sep">·</span>1.5 million adult visits</p>
-              <p class="cite">Joseph et al., <a href="https://doi.org/10.1016/j.jcjq.2025.02.008">Joint Commission Journal on Quality and Patient Safety, 2025</a> <a class="ref" href="#src-4">[4]</a></p>
-              <details><summary>Source sentence</summary><blockquote>Independent of other clinical and demographic variables, LWBS was associated with more frequent returns within 72 hours (adjusted odds ratio [AOR] 2.56, 95% CI 2.50-2.62, p &lt; 0.001), 30-day ICU admission (AOR 1.35, 95% CI 1.27-1.66, p &lt; 0.001), and mortality within 30 days (AOR 2.59, 95% CI 1.90-3.53, p &lt;0.001).</blockquote></details>
-            </div>
-          </figcaption>
-        </figure>
-      </div>
-    </section>
+      <ol class="cards" tabindex="0" aria-label="What happens while people wait, in eight cards">
 
-    <section class="story" aria-labelledby="bed-title">
-      <div class="wrap">
-        <div class="story-head">
-          <h2 id="bed-title">Admitted, and still waiting for a bed.</h2>
-          <p>Patients who need a hospital bed often keep waiting in the emergency department. At one US hospital, the longer they waited, the more likely they were to die in the hospital.<a class="ref" href="#src-5">[5]</a></p>
-        </div>
-        <figure class="fig chart">
-          <div class="fig-panel">
-            <p class="scene-q">Does it matter how long admitted patients wait in the ER for a bed?</p>
-            <div class="clock-wrap">
-              <div class="clock"><svg class="clock-svg" viewBox="-120 -120 240 240" aria-hidden="true"></svg></div>
-              <div class="clock-notes">
-                <p class="clock-read"><b id="bed-pct">4.5%</b> <span id="bed-text">died in the hospital after waiting 12 hours or more for a bed</span></p>
-                <p class="axis">The study reports two points: 2.5% for waits under 2 hours and 4.5% for 12 hours or more. In between, deaths generally rose.</p>
-              </div>
+        <li class="card">
+          <h3>First, a wait just to be triaged.</h3>
+          <figure class="scene" data-scene="room" aria-label="A waiting room of 24 seats fills as more patients arrive. In the busiest hours, 68% waited more than 10 minutes to be triaged.">
+            <p class="q">How long do people wait to be triaged when the ER gets busy?</p>
+            <div class="stage">
+              <p class="room-title" id="room-title">The busiest hours</p>
+              <p class="room-sub" id="room-sub">16 or more new arrivals in the past hour</p>
+              <div class="room-field" aria-hidden="true"></div>
+              <p class="key-line" aria-hidden="true"><span><i class="k k-red"></i>Waited over 10 minutes</span><span><i class="k"></i>10 minutes or less</span><span><i class="k k-empty"></i>Empty seat</span></p>
             </div>
-          </div>
-          <figcaption class="fig-cap">
-            <div class="cap-main">
-              <p class="big">2.5% → 4.5%</p>
-              <p class="what">in-hospital deaths, from patients who waited under 2 hours for a bed to those who waited 12 hours or more.</p>
-            </div>
-            <div class="source">
-              <p class="where">United States<span class="sep">·</span>one academic hospital<span class="sep">·</span>41,256 admissions</p>
-              <p class="cite">Singer et al., <a href="https://doi.org/10.1111/j.1553-2712.2011.01236.x">Academic Emergency Medicine, 2011</a> <a class="ref" href="#src-5">[5]</a></p>
-              <details><summary>Source sentence</summary><blockquote>Mortality generally increased with increasing boarding time, from 2.5% in patients boarded less than 2 hours to 4.5% in patients boarding 12 hours or more.</blockquote></details>
-            </div>
-          </figcaption>
-        </figure>
-        <div class="also">
-          <p class="also-num">Almost 14,000</p>
-          <div>
-            <p class="also-what">excess deaths in a single year were associated with emergency waits of 12 hours or longer, across one national health system.</p>
-            <p class="cite">England, 2023<span class="sep">·</span>Royal College of Emergency Medicine, 2024 <a class="ref" href="#src-6">[6]</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
+            <div class="answer"><b class="n" id="busy-pct">68%</b><p>waited more than 10 minutes to be triaged</p></div>
+            <figcaption class="src">One US emergency department<span class="sep">·</span><a href="#src-2">Houston et al., 2015 [2]</a></figcaption>
+          </figure>
+        </li>
 
-    <section class="turn" aria-label="Why it keeps happening">
-      <div class="wrap">
-        <p>None of this is for lack of effort. ER nurses, doctors and hospital leaders work hard inside a system running past its limits: fewer beds, fewer staff, and patients who keep coming.</p>
-      </div>
-    </section>
+        <li class="card">
+          <h3>Triage is a single snapshot.</h3>
+          <figure class="scene" data-scene="triage" data-marked="34" data-seed="2024" aria-label="100 chairs, each a patient who turned out to need life-saving care. 34 are red: not placed in the two most urgent triage levels.">
+            <p class="q">Triage sorts patients into five levels. Of 100 patients who turned out to need life-saving care, how many were not placed in the two most urgent levels?</p>
+            <div class="stage seats-field" aria-hidden="true"></div>
+            <noscript><p class="noscript">The chairs need JavaScript; the number is below.</p></noscript>
+            <div class="answer"><b class="n"><span id="triage-count">34</span> of 100</b><p>were not placed in the two most urgent levels. Each chair is one patient.</p></div>
+            <figcaption class="src">21 US hospitals, 5.3 million adult visits<span class="sep">·</span><a href="#src-3">Sax et al., 2023 [3]</a></figcaption>
+          </figure>
+        </li>
 
-    <section class="story" id="system" aria-labelledby="beds-title">
-      <div class="wrap">
-        <div class="story-head">
-          <h2 id="beds-title">Fewer beds, and they're fuller.</h2>
-          <p>Since the pandemic, US hospitals have been able to staff far fewer beds, while about as many patients need one each day. When a hospital passes 85% full, admitted patients wait in the ER for hours, however hard everyone works to free a bed.<a class="ref" href="#src-8">[8]</a><a class="ref" href="#src-9">[9]</a></p>
-        </div>
-        <figure class="fig chart">
-          <div class="fig-panel ward">
-            <p class="scene-q">Are there enough staffed hospital beds?</p>
-            <div class="ward-grid">
+        <li class="card">
+          <h3>Some leave before a doctor sees them.</h3>
+          <figure class="scene" data-scene="exits" aria-label="Two exit signs: seen by a doctor, then sent home; and left without being seen, in red. People who left had 2.59 times the odds of dying within 30 days.">
+            <p class="q">How do they do afterward, compared with people who were seen and sent home?</p>
+            <div class="stage exits" aria-hidden="true">
+              <div class="sign"><svg viewBox="0 0 24 24"><path d="M4 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg><span>Seen by a doctor, then sent home</span></div>
+              <div class="sign hot"><svg viewBox="0 0 24 24"><path d="M4 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg><span>Left without being seen</span></div>
+            </div>
+            <div class="answer"><b class="n">2.59×</b><p>the odds of dying within 30 days for people who left without being seen, after adjusting for other factors</p></div>
+            <figcaption class="src">10 US emergency departments, 1.5 million adult visits<span class="sep">·</span><a href="#src-4">Joseph et al., 2025 [4]</a></figcaption>
+          </figure>
+        </li>
+
+        <li class="card">
+          <h3>Admitted, and still waiting for a bed.</h3>
+          <figure class="scene" data-scene="clock" aria-label="A wall clock runs from 0 to 12 hours. In-hospital deaths: 2.5% for waits under 2 hours, 4.5% for waits of 12 hours or more.">
+            <p class="q">Does it matter how long admitted patients wait in the ER for a bed?</p>
+            <div class="stage clock-stage">
+              <svg class="clock-svg" viewBox="-120 -120 240 240" aria-hidden="true"></svg>
+            </div>
+            <div class="answer"><b class="n" id="bed-pct">4.5%</b><p id="bed-text">died in the hospital after waiting 12 hours or more, against 2.5% for waits under 2 hours</p></div>
+            <figcaption class="src">One US hospital, 41,256 admissions<span class="sep">·</span><a href="#src-5">Singer et al., 2011 [5]</a></figcaption>
+          </figure>
+        </li>
+
+        <li class="card">
+          <h3>Fewer staffed beds, for about as many patients.</h3>
+          <figure class="scene" data-scene="ward" aria-label="A hospital with 80 windows, each about 10,000 beds. 51 hold a patient before and after the pandemic. After it, 13 windows have no staff.">
+            <p class="q">Are there enough staffed hospital beds?</p>
+            <div class="stage ward-grid">
               <div class="building" aria-hidden="true"></div>
-              <div class="ward-notes">
-                <p class="room-title" id="ward-era">2023 to 2024</p>
-                <p class="ward-read"><b id="ward-pct">75.3% full</b> <span id="ward-text">674,000 staffed beds for the same 510,000 patients a day</span></p>
+              <div class="ward-side">
+                <p class="room-title" id="ward-era">After the pandemic</p>
                 <ul class="ward-key">
                   <li><i class="win win-full"></i>A patient in a bed</li>
                   <li><i class="win"></i>An open bed</li>
-                  <li><i class="win win-closed"></i>A bed there is no staff for</li>
+                  <li><i class="win win-closed"></i>No staff for this bed</li>
                 </ul>
-                <p class="axis">Each window is 10,000 staffed beds across the US.</p>
+                <p class="ward-unit">Each window is about 10,000 beds.</p>
               </div>
             </div>
-          </div>
-          <figcaption class="fig-cap">
-            <div class="cap-main">
-              <p class="big big-long">802,000 → 674,000</p>
-              <p class="what">staffed US hospital beds, before the pandemic and after it, while about 510,000 patients filled them each day.</p>
-            </div>
-            <div class="source">
-              <p class="where">United States<span class="sep">·</span>national hospital data, 2009 to 2024</p>
-              <p class="cite">Leuchter et al., <a href="https://doi.org/10.1001/jamanetworkopen.2024.60645">JAMA Network Open, 2025</a> <a class="ref" href="#src-8">[8]</a></p>
-              <details><summary>Source sentence</summary><blockquote>The number of staffed hospital beds declined from a prepandemic steady state of 802 000 (2009-2019 mean) to a post-PHE steady state of 674 000, whereas the mean daily census steady state remained at approximately 510 000</blockquote></details>
-            </div>
-          </figcaption>
-        </figure>
-        <div class="also">
-          <p class="also-num">88.9%</p>
-          <div>
-            <p class="also-what">of the months a hospital ran above 85% full, admitted patients waited in its ER longer than the 4-hour standard.</p>
-            <p class="cite">US hospitals, 2020 to 2021<span class="sep">·</span>Janke et al., JAMA Network Open, 2022 <a class="ref" href="#src-9">[9]</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
+            <div class="answer"><b class="n">128,000</b><p>fewer staffed US beds than before the pandemic (802,000 then, 674,000 after), for about the same 510,000 patients a day</p></div>
+            <figcaption class="src">US national hospital data, 2009 to 2024<span class="sep">·</span><a href="#src-6">Leuchter et al., 2025 [6]</a></figcaption>
+          </figure>
+        </li>
 
-    <section class="story" aria-labelledby="staff-title">
-      <div class="wrap">
-        <div class="story-head">
-          <h2 id="staff-title">The people watching the room are stretched thin.</h2>
-          <p>ER nurses keep an eye on the waiting room while caring for everyone already inside. Nearly a third of US nurses who left a job named burnout as a reason, and most of those said there weren't enough staff.<a class="ref" href="#src-10">[10]</a></p>
-        </div>
-        <figure class="fig chart">
-          <div class="fig-panel lockers">
-            <p class="scene-q">Why do nurses who burn out leave?</p>
-            <div class="locker-field" aria-hidden="true"></div>
-            <p class="scene-read"><b id="locker-count">63</b> of 100 said there weren't enough staff</p>
-            <p class="axis">Each locker is one nurse who left a job because of burnout.</p>
-          </div>
-          <figcaption class="fig-cap">
-            <div class="cap-main">
-              <p class="big">63%</p>
-              <p class="what">of nurses who left a job because of burnout said staffing was inadequate. Among nurses thinking about leaving, it was 60.9%.</p>
-              <p class="legend"><span><i class="key"></i>One nurse who left because of burnout</span><span><i class="key key-missed"></i>Said there weren't enough staff</span></p>
-            </div>
-            <div class="source">
-              <p class="where">United States<span class="sep">·</span>national survey of 50,273 registered nurses</p>
-              <p class="cite">Shah et al., <a href="https://doi.org/10.1001/jamanetworkopen.2020.36469">JAMA Network Open, 2021</a> <a class="ref" href="#src-10">[10]</a></p>
-              <details><summary>Source sentence</summary><blockquote>Respondents who reported leaving or considering leaving their job owing to burnout reported a stressful work environment (68.6% and 59.5%, respectively) and inadequate staffing (63.0% and 60.9%, respectively).</blockquote></details>
-            </div>
-          </figcaption>
-        </figure>
-        <div class="also">
-          <p class="also-num">17.6%</p>
-          <div>
-            <p class="also-what">of hospital nurses leave in a year, with emergency nurses among those leaving most often.</p>
-            <p class="cite">US hospitals, 2025<span class="sep">·</span>NSI National Health Care Retention &amp; RN Staffing Report, 2026 <a class="ref" href="#src-11">[11]</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <li class="card">
+          <h3>Nurses are stretched thin.</h3>
+          <figure class="scene" data-scene="lockers" aria-label="100 staff lockers, each a nurse who left a job because of burnout. 63 are red: said staffing was inadequate.">
+            <p class="q">Of 100 nurses who left a job because of burnout, how many said staffing was inadequate?</p>
+            <div class="stage locker-field" aria-hidden="true"></div>
+            <div class="answer"><b class="n"><span id="locker-count">63</span> of 100</b><p>said staffing was inadequate. Each locker is one nurse.</p></div>
+            <figcaption class="src">Survey of 50,273 US registered nurses<span class="sep">·</span><a href="#src-7">Shah et al., 2021 [7]</a></figcaption>
+          </figure>
+        </li>
 
-    <section class="story" aria-labelledby="cost-title">
-      <div class="wrap">
-        <div class="story-head">
-          <h2 id="cost-title">The strain shows up on the bill.</h2>
-          <p>At one US stroke center, a patient waiting in the ER for a bed cost more each day than the same patient upstairs, and got fewer minutes of nursing time. Each nurse who leaves costs a hospital tens of thousands of dollars to replace.<a class="ref" href="#src-12">[12]</a><a class="ref" href="#src-11">[11]</a></p>
-        </div>
-        <figure class="fig chart settle">
-          <div class="fig-panel bills">
-            <p class="scene-q">What does one day of waiting in the ER for a bed cost?</p>
-            <div class="receipts">
+        <li class="card">
+          <h3>Waiting for a bed costs more, too.</h3>
+          <figure class="scene" data-scene="bills" aria-label="Two bills for one day of care for a stroke patient. Waiting in the ER for a bed: $1,856 and 293 minutes of nursing time. In a bed upstairs: $993 and 313 minutes.">
+            <p class="q">What does one day of waiting in the ER for a bed cost, against a day in the bed?</p>
+            <div class="stage receipts" aria-hidden="true">
               <div class="receipt hot">
                 <p class="receipt-tag">In the ER</p>
-                <p class="receipt-head">Waiting in the ER for a bed</p>
-                <p class="receipt-sub">One day, one stroke patient</p>
                 <dl>
                   <div><dt>Cost of care</dt><dd>$1,856</dd></div>
                   <div><dt>Nursing time</dt><dd>293 min</dd></div>
                 </dl>
-                <div class="day-strip" aria-hidden="true"><span class="day-fill" style="--w: 20.3%"></span></div>
-                <p class="day-label">Nursing time in a 24-hour day</p>
               </div>
               <div class="receipt">
                 <p class="receipt-tag">Upstairs</p>
-                <p class="receipt-head">In a hospital bed upstairs</p>
-                <p class="receipt-sub">One day, one stroke patient</p>
                 <dl>
                   <div><dt>Cost of care</dt><dd>$993</dd></div>
                   <div><dt>Nursing time</dt><dd>313 min</dd></div>
                 </dl>
-                <div class="day-strip" aria-hidden="true"><span class="day-fill" style="--w: 21.7%"></span></div>
-                <p class="day-label">Nursing time in a 24-hour day</p>
               </div>
-              <p class="bill-diff"><b>+$863</b> more a day in the ER, with 20 fewer minutes of nursing time</p>
             </div>
-            <p class="axis">Costs per patient per day, measured activity by activity at one US stroke center.</p>
-          </div>
-          <figcaption class="fig-cap">
-            <div class="cap-main">
-              <p class="big">$1,856 vs $993</p>
-              <p class="what">for one day of care for a stroke patient waiting in the ER for a bed, versus one day in that bed.</p>
-            </div>
-            <div class="source">
-              <p class="where">United States<span class="sep">·</span>one academic stroke center</p>
-              <p class="cite">Canellas et al., <a href="https://doi.org/10.1016/j.annemergmed.2024.04.012">Annals of Emergency Medicine, 2024</a> <a class="ref" href="#src-12">[12]</a></p>
-              <details><summary>Source sentence</summary><blockquote>The total daily cost per patient with acute stroke was US$1856, for med/surg boarding versus US$993 for med/surg inpatient care and US$2267, for ICU boarding versus US$2165, for ICU inpatient care.</blockquote></details>
-            </div>
-          </figcaption>
-        </figure>
-        <div class="also-pair">
-          <div class="also">
-            <p class="also-num">$60,090</p>
-            <div>
-              <p class="also-what">to replace one bedside nurse who leaves. The average hospital loses $4.2 million to $6.2 million this way.</p>
-              <p class="cite">US hospitals, 2025<span class="sep">·</span>NSI, 2026 <a class="ref" href="#src-11">[11]</a></p>
-            </div>
-          </div>
-          <div class="also">
-            <p class="also-num">$17 million</p>
-            <div>
-              <p class="also-what">in extra hospital costs in one year, along with 300 extra deaths, tied to the most crowded ER days in one state.</p>
-              <p class="cite">California, 187 hospitals<span class="sep">·</span>Sun et al., Annals of Emergency Medicine, 2013 <a class="ref" href="#src-13">[13]</a></p>
-            </div>
-          </div>
+            <div class="answer"><b class="n">+$863</b><p>a day for one stroke patient waiting in the ER, with 20 fewer minutes of nursing time</p></div>
+            <figcaption class="src">One US stroke center<span class="sep">·</span><a href="#src-8">Canellas et al., 2024 [8]</a></figcaption>
+          </figure>
+        </li>
+
+        <li class="card card-end">
+          <p class="end-big">The number that matters most is missing.</p>
+          <p class="end-small">We found no national count of patients who get worse while they wait in US emergency rooms. If you've seen it happen, as staff or as a patient, we'd like to hear from you.</p>
+          <a class="btn btn-light" href="#talk">Talk with us
+            <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </li>
+      </ol>
+
+      <div class="wrap strip-foot">
+        <p class="hint"><span class="hint-touch">Swipe for more.</span><span class="hint-mouse">Use the arrows, or scroll sideways.</span></p>
+        <div class="pager">
+          <button class="pager-btn" type="button" data-dir="-1" aria-label="Previous cards" aria-disabled="true"><svg aria-hidden="true" viewBox="0 0 20 20" width="20" height="20"><path d="M16 10H5m4.5-4.5L5 10l4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <p class="pager-count" aria-hidden="true"><b id="pager-now">1</b> of 8</p>
+          <button class="pager-btn" type="button" data-dir="1" aria-label="Next cards"><svg aria-hidden="true" viewBox="0 0 20 20" width="20" height="20"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="talk" id="talk" aria-labelledby="talk-title">
+      <div class="wrap talk-grid">
+        <div class="talk-copy">
+          <h2 id="talk-title">Have you worked in an ER, or waited in one?</h2>
+          <p>We're early, and learning from the people who know this best: ER nurses, doctors and hospital leaders, and patients and families. Advice and introductions are welcome too.</p>
+          <p class="promise">Calls take 20 to 30 minutes. We won't ask about specific patients or your hospital, it isn't a sales call, and we'll share what we learn.</p>
+        </div>
+        <div class="talk-action">
+          <a class="btn btn-light" href="mailto:hello@priage.app?subject=Hello%20from%20priage.app&amp;body=Hi%20PrIAge%20team%2C%0A%0AI%20am%20a%20(ER%20nurse%2C%20doctor%2C%20hospital%20leader%2C%20patient%20or%20family%20member%2C%20or%20something%20else)%3A%20%0A%0AGood%20times%20for%20a%2020%20to%2030%20minute%20call%3A%20%0A">Email hello@priage.app
+            <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <button class="copy" type="button" data-copy="hello@priage.app"><svg aria-hidden="true" viewBox="0 0 20 20" width="16" height="16"><rect x="6.5" y="6.5" width="10" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M13.5 6.5V4a1.5 1.5 0 0 0-1.5-1.5H5A1.5 1.5 0 0 0 3.5 4v9A1.5 1.5 0 0 0 5 14.5h1.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span class="copy-label">Copy email</span></button>
+          <p class="privacy">Please don't include personal medical details in your email.</p>
         </div>
       </div>
     </section>
 
     <section class="team" id="team" aria-labelledby="team-title">
       <div class="wrap">
-        <div class="story-head">
+        <div class="team-head">
           <h2 id="team-title">Who we are.</h2>
           <p>Four MBA students at UC Berkeley's Haas School of Business: a physician, a hospital software lead, a startup founder and a systems engineer.</p>
         </div>
@@ -373,54 +259,47 @@
             <div>
               <h3>Yitzy Rosenberg</h3>
               <p class="person-tag">Systems engineer</p>
-              <p>Yitzy builds operations where none exist. Rebuilt a near-shutdown startup's operations and grew its team from 3 to 20 in a year, co-founded Astrid, a health tech tool that automates the tracking a PMDD diagnosis requires, and managed a $350M+ resiliency portfolio for the largest water management agency in the US. M.Eng candidate in Operations Research, Berkeley; B.S. and M.Eng, Cornell.</p>
+              <p>Yitzy builds operations where none exist: rebuilding a near-shutdown startup's operations and growing its team from 3 to 20 in a year, co-founding Astrid, a health tech tool that automates the tracking a PMDD diagnosis requires, and managing a $350M+ resiliency portfolio for the largest water management agency in the US. M.Eng candidate in Operations Research, Berkeley; B.S. and M.Eng, Cornell.</p>
               <a class="person-link" href="https://www.linkedin.com/in/yitzyrosenberg/">LinkedIn</a>
             </div>
           </li>
         </ul>
       </div>
     </section>
-
-
-    <section class="talk" id="talk" aria-labelledby="talk-title">
-      <div class="wrap talk-grid">
-        <div class="talk-copy">
-          <h2 id="talk-title">Talk with us.</h2>
-          <p>We're early and learning. We'd like to talk with ER nurses, doctors and hospital leaders, and with anyone who has waited in an ER. Advice, introductions and general questions are welcome too.</p>
-          <p class="promise">Calls take 20 to 30 minutes. We won't ask about specific patients or your hospital, it isn't a sales call, and we'll share what we learn.</p>
-        </div>
-        <div class="talk-action">
-          <a class="btn btn-light" href="mailto:hello@priage.app?subject=Hello%20from%20priage.app">Email hello@priage.app
-            <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <button class="copy" type="button" data-copy="hello@priage.app"><svg aria-hidden="true" viewBox="0 0 20 20" width="16" height="16"><rect x="6.5" y="6.5" width="10" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M13.5 6.5V4a1.5 1.5 0 0 0-1.5-1.5H5A1.5 1.5 0 0 0 3.5 4v9A1.5 1.5 0 0 0 5 14.5h1.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span class="copy-label">Copy email</span></button>
-          <p class="privacy">Please don't include personal medical details in your email.</p>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="sources" aria-labelledby="sources-title">
     <div class="wrap">
-      <h2 id="sources-title">Sources</h2>
-      <ol>
-        <li id="src-1">Cairns C, Ashman JJ, Kang K. Emergency Department Visit Rates by Selected Characteristics: United States, 2022. NCHS Data Brief No. 503. National Center for Health Statistics; 2024. <a href="https://www.cdc.gov/nchs/products/databriefs/db503.htm">cdc.gov</a></li>
-        <li id="src-2">Houston C, Sanchez LD, Fischer C, Volz K, Wolfe R. Waiting for triage: unmeasured time in patient flow. <i>Western Journal of Emergency Medicine</i>. 2015. <a href="https://doi.org/10.5811/westjem.2014.11.22824">doi:10.5811/westjem.2014.11.22824</a></li>
-        <li id="src-3">Sax DR, Warton EM, Mark DG, et al. Evaluation of Version 4 of the Emergency Severity Index in US Emergency Departments for the Rate of Mistriage. <i>JAMA Network Open</i>. 2023;6(3):e233404. <a href="https://doi.org/10.1001/jamanetworkopen.2023.3404">doi:10.1001/jamanetworkopen.2023.3404</a></li>
-        <li id="src-4">Joseph JW, Bukhman AK, Baymon DE, et al. Mortality and Return Visit Frequency Among Emergency Department Patients Who Leave Without Being Seen at a Regional Health Care System. <i>Joint Commission Journal on Quality and Patient Safety</i>. 2025;51(7-8):466-473. <a href="https://doi.org/10.1016/j.jcjq.2025.02.008">doi:10.1016/j.jcjq.2025.02.008</a></li>
-        <li id="src-5">Singer AJ, Thode HC, Viccellio P, Pines JM. The association between length of emergency department boarding and mortality. <i>Academic Emergency Medicine</i>. 2011. <a href="https://doi.org/10.1111/j.1553-2712.2011.01236.x">doi:10.1111/j.1553-2712.2011.01236.x</a></li>
-        <li id="src-6">Royal College of Emergency Medicine. Almost 300 deaths a week in 2023 associated with long A&amp;E waits despite UEC Recovery Plan. Press release, 1 April 2024. <a href="https://rcem.ac.uk/press-release/almost-300-deaths-a-week-in-2023-associated-with-long-ae-waits-despite-uec-recovery-plan/">rcem.ac.uk</a></li>
-        <li id="src-7">Betz M, Stempien J, Trivedi S, Bryce R. A determination of emergency department pre-triage times in patients not arriving by ambulance compared to widely used guideline recommendations. <i>CJEM</i>. 2017. <a href="https://doi.org/10.1017/cem.2016.398">doi:10.1017/cem.2016.398</a></li>
-        <li id="src-8">Leuchter RK, Delarmente BA, Vangala S, Tsugawa Y, Sarkisian CA. Health Care Staffing Shortages and Potential National Hospital Bed Shortage. <i>JAMA Network Open</i>. 2025;8(2):e2460645. <a href="https://doi.org/10.1001/jamanetworkopen.2024.60645">doi:10.1001/jamanetworkopen.2024.60645</a></li>
-        <li id="src-9">Janke AT, Melnick ER, Venkatesh AK. Hospital Occupancy and Emergency Department Boarding During the COVID-19 Pandemic. <i>JAMA Network Open</i>. 2022;5(9):e2233964. <a href="https://doi.org/10.1001/jamanetworkopen.2022.33964">doi:10.1001/jamanetworkopen.2022.33964</a></li>
-        <li id="src-10">Shah MK, Gandrakota N, Cimiotti JP, Ghose N, Moore M, Ali MK. Prevalence of and Factors Associated With Nurse Burnout in the US. <i>JAMA Network Open</i>. 2021;4(2):e2036469. <a href="https://doi.org/10.1001/jamanetworkopen.2020.36469">doi:10.1001/jamanetworkopen.2020.36469</a></li>
-        <li id="src-11">NSI Nursing Solutions. 2026 NSI National Health Care Retention &amp; RN Staffing Report. 2026. <a href="https://www.nsinursingsolutions.com/documents/library/nsi_national_health_care_retention_report.pdf">nsinursingsolutions.com</a></li>
-        <li id="src-12">Canellas MM, Jewell M, Edwards JL, Olivier D, Jun-O'Connell AH, Reznek MA. Measurement of Cost of Boarding in the Emergency Department Using Time-Driven Activity-Based Costing. <i>Annals of Emergency Medicine</i>. 2024;84(4):376-385. <a href="https://doi.org/10.1016/j.annemergmed.2024.04.012">doi:10.1016/j.annemergmed.2024.04.012</a></li>
-        <li id="src-13">Sun BC, Hsia RY, Weiss RE, et al. Effect of emergency department crowding on outcomes of admitted patients. <i>Annals of Emergency Medicine</i>. 2013;61(6):605-611. <a href="https://doi.org/10.1016/j.annemergmed.2012.10.026">doi:10.1016/j.annemergmed.2012.10.026</a></li>
-      </ol>
+      <details class="src-box" id="sources">
+        <summary><h2 id="sources-title">Sources</h2><span class="src-box-note">Eight studies and reports, with the sentence behind each number</span></summary>
+        <p class="sources-note">Numbers on this page are quoted from these sentences. Where a number is worked out from one, the working is shown under it.</p>
+        <ol>
+          <li id="src-1">Cairns C, Ashman JJ, Kang K. Emergency Department Visit Rates by Selected Characteristics: United States, 2022. NCHS Data Brief No. 503. National Center for Health Statistics; 2024. <a href="https://www.cdc.gov/nchs/products/databriefs/db503.htm">cdc.gov</a>
+            <q>In 2022, 155 million emergency department (ED) visits occurred in the United States.</q></li>
+          <li id="src-2">Houston C, Sanchez LD, Fischer C, Volz K, Wolfe R. Waiting for triage: unmeasured time in patient flow. <i>Western Journal of Emergency Medicine</i>. 2015. <a href="https://doi.org/10.5811/westjem.2014.11.22824">doi:10.5811/westjem.2014.11.22824</a>
+            <q>When stratified by the number of new patients who arrived in the ED in the previous hour, the percentage of greeted patients who waited more than 10 minutes for triage was: 0-5 new patients - 12.4%; 6-10 new patients - 48.8%; 11-15 new patients - 64.4%; 16+ new patients - 68%.</q></li>
+          <li id="src-3">Sax DR, Warton EM, Mark DG, et al. Evaluation of Version 4 of the Emergency Severity Index in US Emergency Departments for the Rate of Mistriage. <i>JAMA Network Open</i>. 2023;6(3):e233404. <a href="https://doi.org/10.1001/jamanetworkopen.2023.3404">doi:10.1001/jamanetworkopen.2023.3404</a>
+            <q>The sensitivity of ESI to identify a patient with high-acuity illness (correctly assigning ESI I or II among patients who had a life-stabilizing intervention) was 65.9%.</q>
+            <span class="gloss">ESI is the five-level triage scale; ESI I and II are its two most urgent levels. 100 minus 65.9 is 34.1, shown as 34 of 100 and about 1 in 3.</span></li>
+          <li id="src-4">Joseph JW, Bukhman AK, Baymon DE, et al. Mortality and Return Visit Frequency Among Emergency Department Patients Who Leave Without Being Seen at a Regional Health Care System. <i>Joint Commission Journal on Quality and Patient Safety</i>. 2025;51(7-8):466-473. <a href="https://doi.org/10.1016/j.jcjq.2025.02.008">doi:10.1016/j.jcjq.2025.02.008</a>
+            <q>Independent of other clinical and demographic variables, LWBS was associated with more frequent returns within 72 hours (adjusted odds ratio [AOR] 2.56, 95% CI 2.50-2.62, p &lt; 0.001), 30-day ICU admission (AOR 1.35, 95% CI 1.27-1.66, p &lt; 0.001), and mortality within 30 days (AOR 2.59, 95% CI 1.90-3.53, p &lt;0.001).</q>
+            <span class="gloss">LWBS means left without being seen. The comparison group is patients who were seen and sent home.</span></li>
+          <li id="src-5">Singer AJ, Thode HC, Viccellio P, Pines JM. The association between length of emergency department boarding and mortality. <i>Academic Emergency Medicine</i>. 2011. <a href="https://doi.org/10.1111/j.1553-2712.2011.01236.x">doi:10.1111/j.1553-2712.2011.01236.x</a>
+            <q>Mortality generally increased with increasing boarding time, from 2.5% in patients boarded less than 2 hours to 4.5% in patients boarding 12 hours or more.</q></li>
+          <li id="src-6">Leuchter RK, Delarmente BA, Vangala S, Tsugawa Y, Sarkisian CA. Health Care Staffing Shortages and Potential National Hospital Bed Shortage. <i>JAMA Network Open</i>. 2025;8(2):e2460645. <a href="https://doi.org/10.1001/jamanetworkopen.2024.60645">doi:10.1001/jamanetworkopen.2024.60645</a>
+            <q>The number of staffed hospital beds declined from a prepandemic steady state of 802 000 (2009-2019 mean) to a post-PHE steady state of 674 000, whereas the mean daily census steady state remained at approximately 510 000</q>
+            <span class="gloss">802,000 minus 674,000 is 128,000.</span></li>
+          <li id="src-7">Shah MK, Gandrakota N, Cimiotti JP, Ghose N, Moore M, Ali MK. Prevalence of and Factors Associated With Nurse Burnout in the US. <i>JAMA Network Open</i>. 2021;4(2):e2036469. <a href="https://doi.org/10.1001/jamanetworkopen.2020.36469">doi:10.1001/jamanetworkopen.2020.36469</a>
+            <q>Respondents who reported leaving or considering leaving their job owing to burnout reported a stressful work environment (68.6% and 59.5%, respectively) and inadequate staffing (63.0% and 60.9%, respectively).</q></li>
+          <li id="src-8">Canellas MM, Jewell M, Edwards JL, Olivier D, Jun-O'Connell AH, Reznek MA. Measurement of Cost of Boarding in the Emergency Department Using Time-Driven Activity-Based Costing. <i>Annals of Emergency Medicine</i>. 2024;84(4):376-385. <a href="https://doi.org/10.1016/j.annemergmed.2024.04.012">doi:10.1016/j.annemergmed.2024.04.012</a>
+            <q>The total daily cost per patient with acute stroke was US$1856, for med/surg boarding versus US$993 for med/surg inpatient care</q>
+            <q>ED nurses spent 293 min/d (mean) caring for each med/surg boarder; inpatient nurses spent 313 min/d for each med/surg inpatient.</q>
+            <span class="gloss">$1,856 minus $993 is $863; 313 minus 293 is 20 minutes.</span></li>
+        </ol>
+      </details>
       <div class="foot">
         <p>PrIAge is an early-stage project. Nothing on this page is medical advice. In an emergency, call your local emergency number.</p>
-        <p>© 2026 PrIAge · priage.app</p>
+        <p>© 2026 PrIAge<span class="sep">·</span>hello@priage.app</p>
       </div>
     </div>
   </footer>

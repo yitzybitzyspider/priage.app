@@ -1,0 +1,58 @@
+<!doctype html>
+<!-- Share card for priage.app (og.png, 1200 x 630). Render with:
+     Chrome --headless --screenshot=docs/og.png --window-size=1200,630 --hide-scrollbars brand/build/og.html -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: "Overpass"; src: url("../../docs/fonts/overpass.woff2") format("woff2"); font-weight: 100 900; }
+  @font-face { font-family: "Text Digits"; src: url("../../docs/fonts/overpass.woff2") format("woff2"); font-weight: 100 900; unicode-range: U+0030-0039; }
+  @font-face { font-family: "Atkinson Hyperlegible Next"; src: url("../../docs/fonts/atkinson-next.woff2") format("woff2"); font-weight: 200 800; }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    background: #e1e5e4; color: #1a1d1f;
+    font-family: "Text Digits", "Atkinson Hyperlegible Next", sans-serif;
+    display: grid; grid-template-columns: 600px 1fr; gap: 64px; padding: 56px 64px; box-sizing: border-box;
+  }
+  .left { display: flex; flex-direction: column; }
+  .logo { height: 52px; width: auto; align-self: flex-start; }
+  h1 { margin: 44px 0 0; font: 800 74px/1.02 "Overpass", sans-serif; letter-spacing: -0.015em; text-wrap: balance; }
+  .url { margin-top: auto; font: 800 26px/1 "Overpass", sans-serif; color: #2b5d87; }
+  .stats { align-self: center; border-top: 3px solid #1a1d1f; }
+  .stat { padding: 22px 0 24px; }
+  .stat + .stat { border-top: 1px solid #c5cccd; }
+  .n { font: 900 62px/0.95 "Overpass", sans-serif; letter-spacing: -0.02em; }
+  .hot .n { color: #a5291f; }
+  .t { margin-top: 10px; font-size: 22px; line-height: 1.35; max-width: 420px; text-wrap: balance; }
+  .nb { white-space: nowrap; }
+  .bench { width: 96px; height: auto; margin-bottom: 14px; overflow: visible; display: block; }
+  .chair rect { fill: #2b5d87; } .chair .leg { fill: #1f4566; }
+  .missed rect { fill: #c4372b; } .missed .leg { fill: #a5291f; }
+  .plate { fill: #f4dcd8; } .beam { fill: #8b969d; }
+</style>
+</head>
+<body>
+  <div class="left">
+    <img class="logo" src="../../docs/logo.svg" alt="PrIAge">
+    <h1>The ER waiting room is a blind spot.</h1>
+    <p class="url">priage.app</p>
+  </div>
+  <div class="stats">
+    <div class="stat">
+      <div class="n">155 million</div>
+      <div class="t">visits to US emergency departments in 2022</div>
+    </div>
+    <div class="stat hot">
+      <svg class="bench" viewBox="-3 -3 90 34">
+        <rect class="plate" x="-2.5" y="-2.5" width="29" height="28.5" rx="3"/>
+        <g class="chair missed"><rect x="4" y="0" width="16" height="15" rx="2"/><rect x="1.5" y="16" width="21" height="4.5" rx="1"/><rect class="leg" x="4.5" y="20.5" width="2" height="3"/><rect class="leg" x="17.5" y="20.5" width="2" height="3"/></g>
+        <g class="chair" transform="translate(30 0)"><rect x="4" y="0" width="16" height="15" rx="2"/><rect x="1.5" y="16" width="21" height="4.5" rx="1"/><rect class="leg" x="4.5" y="20.5" width="2" height="3"/><rect class="leg" x="17.5" y="20.5" width="2" height="3"/></g>
+        <g class="chair" transform="translate(60 0)"><rect x="4" y="0" width="16" height="15" rx="2"/><rect x="1.5" y="16" width="21" height="4.5" rx="1"/><rect class="leg" x="4.5" y="20.5" width="2" height="3"/><rect class="leg" x="17.5" y="20.5" width="2" height="3"/></g>
+        <rect class="beam" x="0" y="23.5" width="84" height="2.5"/>
+      </svg>
+      <div class="n">About 1 in 3</div>
+      <div class="t">patients who turned out to need <span class="nb">life-saving</span> care were not placed in the two most urgent triage levels</div>
+    </div>
+  </div>
+</body>
+</html>
