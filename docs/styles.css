@@ -235,24 +235,7 @@ p { text-wrap: pretty; }
 .story-head p + p { margin-top: 16px; }
 .story .seats, .story .scale { margin-top: clamp(36px, 4vw, 56px); }
 
-.facts {
-  margin-top: clamp(40px, 5vw, 64px);
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 36px clamp(24px, 3.5vw, 56px);
-}
-.fact { padding-top: 18px; border-top: 2px solid var(--ink); }
-.fact .num {
-  font-family: var(--sign);
-  font-weight: 900;
-  font-size: clamp(2.5rem, 1.7rem + 2.6vw, 3.75rem);
-  line-height: 1;
-  letter-spacing: -0.02em;
-  font-variant-numeric: tabular-nums;
-}
 .scale .big { color: var(--ink); }
-.fact p { margin-top: 10px; font-size: 1.0625rem; max-width: 34ch; }
-.fact cite { display: block; margin-top: 10px; font-style: normal; font-size: 0.875rem; color: var(--ink-soft); }
 
 /* ---------- Talk with us: the blue band ---------- */
 
