@@ -163,7 +163,7 @@ p { text-wrap: pretty; }
 h1 {
   font-size: clamp(3rem, 1.2rem + 6vw, 6rem);
   font-weight: 900;
-  line-height: 0.97;
+  line-height: 1.05;
   letter-spacing: -0.012em;
   max-width: 13em;
 }
@@ -276,7 +276,6 @@ h1 {
 .rail {
   position: relative;
   display: flex;
-  justify-content: space-between;
   gap: var(--ticket-gap);
   align-items: flex-end;
   min-height: var(--ticket-h);
@@ -330,8 +329,9 @@ h1 {
 
 .ticket {
   position: relative;
-  flex: 0 0 var(--ticket-w);
-  width: var(--ticket-w);
+  flex: 1 1 var(--ticket-w);
+  min-width: var(--ticket-w);
+  max-width: 190px;
   height: var(--ticket-h);
   filter: drop-shadow(0 8px 10px rgb(74 6 17 / 0.32));
 }
@@ -633,7 +633,9 @@ h1 {
   .back .t-cond { align-self: center; translate: 0 -8px; }
   .back .t-seen { translate: 0 2px; }
 
-  .slot { min-height: 0; grid-template-columns: 1fr; grid-template-rows: 18px auto; gap: 10px; }
+  .ticket { min-width: 0; max-width: none; }
+  .slot { position: relative; z-index: 1; margin-top: -26px; min-height: 0; grid-template-columns: 1fr; grid-template-rows: 22px auto; gap: 10px; }
+  .slot-mouth { border-radius: 6px 6px 11px 11px; }
   .slot-mouth { box-shadow: inset 0 4px 8px rgb(0 0 0 / 0.55); }
   .slot-decal { writing-mode: horizontal-tb; transform: none; font-size: 1.125rem; }
 
