@@ -5,3 +5,4 @@ node_modules/
 .impeccable/questions/
 .impeccable/direction-payload.json
 .impeccable/build/
+.impeccable/direction-payload*.json

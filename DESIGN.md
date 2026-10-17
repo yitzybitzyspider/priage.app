@@ -273,3 +273,12 @@ Each number is told with an object from the waiting room, not a generic chart, a
 - **Leaving unseen:** two hospital wayfinding signs for the two ways out, with tabs for the study's three outcomes (died within 30 days, came back within 72 hours, needed intensive care).
 - **Waiting for a bed:** a wall clock whose red band thickens as an hours slider moves the hand; it states only the two published points and says "Rising" in between, so no value is invented.
 - **Signage language:** seat-deep plates with white Overpass caps and a squared arrow; the alarm plate is signage red.
+
+## System chapters and team (2026-10-17, v7)
+
+- **The turn.** A full-width Seat Deep band between the patient chapters and the system chapters carries one sentence in Overpass 700 that takes blame off people: "None of this is for lack of effort." It is the only band that is not an ask.
+- **The hospital (capacity).** A white building with an ink outline, a blue H sign on a pole, an EMERGENCY plate over the doors, and 80 windows (one per 10,000 staffed US beds). Window states: a patient in a bed (Seat fill, white patient and blanket), an open bed (Floor fill, Beam bed), a bed with no staff (Plate fill, Mark outline and diagonal). Tabs step through 2009 to 2019, 2023 to 2024, and the 2032 projection; the same 51 patients stay put while 13 windows lose their staff.
+- **Staff lockers (nurses).** 100 lockers in banks of five on a steel bench rail, Seat doors with vents, a white name card and a handle. A nurse who left: door ajar, interior showing, no name card. Red doors are the nurses who named the selected reason. Two controls: a tablist for who (left, thinking about leaving) and a pressed-button group for why (staffing, stressful workplace).
+- **Two bills (cost).** Flat white receipts with a zigzag torn edge (CSS mask), a wayfinding plate (IN THE ER in Mark, UPSTAIRS in Seat Deep), cost and nursing minutes as Overpass 900 numbers, and a 24-hour strip showing nursing time. A third column carries the live difference (+$863 a day, 20 fewer minutes; ICU +$102, 368 fewer). No thick top borders; no shadows inside panels.
+- **Big numbers that run long** ("802,000 → 674,000") use `.big-long`, one step smaller than `.big`.
+- **Team.** Two-column list, 2px Ink rule above each person, a square photo (4px radius, color softened to saturate 0.8: never grayscale, which reads as a memorial on this topic), name in Overpass 800, a one-word background tag in Seat Deep caps, a short bio, and one link.

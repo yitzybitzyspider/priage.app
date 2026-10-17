@@ -30,6 +30,7 @@ After a one-time triage snapshot, patients can wait for hours while nobody sees 
 - Proof is sourced statistics only (journals, health agencies). Research notes: `research/problem-stats.md`.
 - Never imply reordering, ranking or skipping patients ("the changes ... and skipping people over has tons of implications").
 - Never blame nurses or hospitals; the system is overloaded.
+- Validate the people in the system (confirmed 2026-10-17): nurse fatigue and staffing, hospital capacity, and dollar costs are part of the story, told so that nurses and administrators feel seen, never blamed.
 - No sensational or scary tone, and no playful devices around a life-and-death topic.
 - Focus on the US (confirmed 2026-10-17): lead with US data; strong non-US studies can appear as supporting numbers without highlighting the country, and the number always carries the emphasis over the study.
 - The ask (confirmed 2026-10-17): one simple invitation, no role picking; say what we're looking for (conversations, advice, introductions) and welcome general contact.
@@ -47,7 +48,7 @@ After a one-time triage snapshot, patients can wait for hours while nobody sees 
 ## Brand Commitments
 
 - Name is spelled **PrIAge** (capital P, lowercase r, capital I, capital A, lowercase g, lowercase e). Never "PreAge" or "PRIAGE". The domain is lowercase priage.app.
-- Brand only on public surfaces: no founder or team names (confirmed 2026-10-17).
+- The team is public (changed 2026-10-17 at the user's request): Shion Kiguchi, MD; Premi Mohanavelu; José Tomás Fernández; Yitzy Rosenberg, all MBA students at UC Berkeley Haas. Bios describe backgrounds, not PrIAge titles (roles are still being set).
 
 ## Evidence on Hand
 
@@ -56,7 +57,7 @@ Verified public facts about the problem (checked 2026-10-17):
 - Sax DR et al. "Evaluation of Version 4 of the Emergency Severity Index in US Emergency Departments for the Rate of Mistriage." JAMA Netw Open. 2023;6(3):e233404. doi:10.1001/jamanetworkopen.2023.3404. In 5,315,176 adult ED encounters: mistriage 32.2%; undertriage 3.3% (176,131); sensitivity of ESI to identify high-acuity illness 65.9%.
 - Royal College of Emergency Medicine press release, 1 April 2024: "almost 14,000 associated excess deaths related to waits of 12 hours or longer in 2023", "more than 268 a week"; 65% of 12-hour waiters were awaiting admission. https://rcem.ac.uk/press-release/almost-300-deaths-a-week-in-2023-associated-with-long-ae-waits-despite-uec-recovery-plan/
 
-Absent, never fabricate: product results, accuracy numbers, pilots, hospital partners, testimonials, clearances, team names. Any patient shown on a public surface is synthetic and labeled.
+Absent, never fabricate: product results, accuracy numbers, pilots, hospital partners, testimonials, clearances, PrIAge job titles. Any patient shown on a public surface is synthetic and labeled.
 
 ## Product Principles
 

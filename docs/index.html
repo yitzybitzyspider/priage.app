@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PrIAge: the ER waiting room is a blind spot</title>
-  <meta name="description" content="Before triage and after it, it is hard to see who is getting worse in the ER waiting room. The numbers, and what PrIAge is working on.">
+  <meta name="description" content="Before triage and after it, it is hard to see who is getting worse in the ER waiting room. The numbers, the strain on the people who work there, and what PrIAge is working on.">
   <meta name="theme-color" content="#2b5d87">
   <link rel="canonical" href="https://priage.app/">
-  <link rel="icon" href="favicon.svg?v=6" type="image/svg+xml">
+  <link rel="icon" href="favicon.svg?v=7" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://priage.app/">
   <meta property="og:title" content="PrIAge: the ER waiting room is a blind spot">
   <meta property="og:description" content="What happens while people wait for emergency care in the US, and what PrIAge is working on.">
-  <meta property="og:image" content="https://priage.app/og.png?v=6">
+  <meta property="og:image" content="https://priage.app/og.png?v=7">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="fonts/overpass.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/atkinson-next.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=6">
-  <script src="app.js?v=6" defer></script>
+  <link rel="stylesheet" href="styles.css?v=7">
+  <script src="app.js?v=7" defer></script>
 </head>
 <body>
   <a class="skip" href="#numbers">Skip to the numbers</a>
@@ -26,9 +26,10 @@
   <header class="top">
     <div class="wrap">
       <nav class="nav" aria-label="Main">
-        <a class="wordmark" href="#top"><img src="logo.svg?v=6" alt="PrIAge" width="120" height="43"></a>
+        <a class="wordmark" href="#top"><img src="logo.svg?v=7" alt="PrIAge" width="120" height="43"></a>
         <ul>
           <li class="nav-numbers"><a href="#numbers">The numbers</a></li>
+          <li class="nav-numbers"><a href="#team">Team</a></li>
           <li><a class="nav-talk" href="#talk">Talk with us</a></li>
         </ul>
       </nav>
@@ -189,6 +190,218 @@
       </div>
     </section>
 
+    <section class="turn" aria-label="Why it keeps happening">
+      <div class="wrap">
+        <p>None of this is for lack of effort. ER nurses, doctors and hospital leaders work hard inside a system running past its limits: fewer beds, fewer staff, and patients who keep coming.</p>
+      </div>
+    </section>
+
+    <section class="story" id="system" aria-labelledby="beds-title">
+      <div class="wrap">
+        <div class="story-head">
+          <h2 id="beds-title">Fewer beds, and they're fuller.</h2>
+          <p>Since the pandemic, US hospitals have been able to staff far fewer beds, while about as many patients need one each day. When a hospital passes 85% full, admitted patients wait in the ER for hours, however hard everyone works to free a bed.<a class="ref" href="#src-8">[8]</a><a class="ref" href="#src-9">[9]</a></p>
+        </div>
+        <figure class="fig chart">
+          <div class="fig-panel ward">
+            <div class="tabs" role="tablist" aria-label="Period">
+              <button type="button" role="tab" aria-selected="false" data-era="0">2009 to 2019</button>
+              <button type="button" role="tab" aria-selected="true" data-era="1">2023 to 2024</button>
+              <button type="button" role="tab" aria-selected="false" data-era="2">Around 2032, projected</button>
+            </div>
+            <div class="ward-grid">
+              <div class="building" aria-hidden="true"></div>
+              <div class="ward-notes">
+                <p class="ward-read" aria-live="polite"><b id="ward-pct">75.3% full</b> <span id="ward-text">674,000 staffed beds for about 510,000 patients a day</span></p>
+                <ul class="ward-key">
+                  <li><i class="win win-full"></i>A patient in a bed</li>
+                  <li><i class="win"></i>An open bed</li>
+                  <li><i class="win win-closed"></i>A bed there is no staff for</li>
+                </ul>
+                <p class="axis">Each window is 10,000 staffed beds across the US.</p>
+              </div>
+            </div>
+          </div>
+          <figcaption class="fig-cap">
+            <div class="cap-main">
+              <p class="big big-long">802,000 → 674,000</p>
+              <p class="what">staffed US hospital beds, before the pandemic and after it, while about 510,000 patients filled them each day.</p>
+            </div>
+            <div class="source">
+              <p class="where">United States&ensp;·&ensp;national hospital data, 2009 to 2024</p>
+              <p class="cite">Leuchter et al., <a href="https://doi.org/10.1001/jamanetworkopen.2024.60645">JAMA Network Open, 2025</a> <a class="ref" href="#src-8">[8]</a></p>
+              <details><summary>Source sentence</summary><blockquote>The number of staffed hospital beds declined from a prepandemic steady state of 802 000 (2009-2019 mean) to a post-PHE steady state of 674 000, whereas the mean daily census steady state remained at approximately 510 000</blockquote></details>
+            </div>
+          </figcaption>
+        </figure>
+        <div class="also">
+          <p class="also-num">88.9%</p>
+          <div>
+            <p class="also-what">of the months a hospital ran above 85% full, admitted patients waited in its ER longer than the 4-hour standard.</p>
+            <p class="cite">US hospitals, 2020 to 2021&ensp;·&ensp;Janke et al., JAMA Network Open, 2022 <a class="ref" href="#src-9">[9]</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="story" aria-labelledby="staff-title">
+      <div class="wrap">
+        <div class="story-head">
+          <h2 id="staff-title">The people watching the room are stretched thin.</h2>
+          <p>ER nurses keep an eye on the waiting room while caring for everyone already inside. Nearly a third of US nurses who left a job named burnout as a reason, and most of those said there weren't enough staff.<a class="ref" href="#src-10">[10]</a></p>
+        </div>
+        <figure class="fig chart">
+          <div class="fig-panel lockers">
+            <div class="locker-controls">
+              <div class="tabs" role="tablist" aria-label="Which nurses">
+                <button type="button" role="tab" aria-selected="true" data-who="left">Left a job</button>
+                <button type="button" role="tab" aria-selected="false" data-who="stay">Thinking about leaving</button>
+              </div>
+              <div class="lens" role="group" aria-label="Reason">
+                <button type="button" data-why="staff" aria-pressed="true">Not enough staff</button>
+                <button type="button" data-why="stress" aria-pressed="false">A stressful workplace</button>
+              </div>
+            </div>
+            <div class="locker-field" aria-hidden="true"></div>
+            <p class="room-num" aria-live="polite"><b id="locker-pct">63.0%</b> <span id="locker-text">of those who left named inadequate staffing</span></p>
+            <p class="axis">100 staff lockers, each one nurse who burned out. Lockers left ajar, with no name card, belong to nurses who left.</p>
+          </div>
+          <figcaption class="fig-cap">
+            <div class="cap-main">
+              <p class="big">63%</p>
+              <p class="what">of nurses who left a job because of burnout said staffing was inadequate. Among nurses thinking about leaving, it was 60.9%.</p>
+              <p class="legend"><span><i class="key"></i>One nurse who burned out</span><span><i class="key key-missed"></i>Named the reason shown</span></p>
+            </div>
+            <div class="source">
+              <p class="where">United States&ensp;·&ensp;national survey of 50,273 registered nurses</p>
+              <p class="cite">Shah et al., <a href="https://doi.org/10.1001/jamanetworkopen.2020.36469">JAMA Network Open, 2021</a> <a class="ref" href="#src-10">[10]</a></p>
+              <details><summary>Source sentence</summary><blockquote>Respondents who reported leaving or considering leaving their job owing to burnout reported a stressful work environment (68.6% and 59.5%, respectively) and inadequate staffing (63.0% and 60.9%, respectively).</blockquote></details>
+            </div>
+          </figcaption>
+        </figure>
+        <div class="also">
+          <p class="also-num">17.6%</p>
+          <div>
+            <p class="also-what">of hospital nurses leave in a year, with emergency nurses among those leaving most often.</p>
+            <p class="cite">US hospitals, 2025&ensp;·&ensp;NSI National Health Care Retention &amp; RN Staffing Report, 2026 <a class="ref" href="#src-11">[11]</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="story" aria-labelledby="cost-title">
+      <div class="wrap">
+        <div class="story-head">
+          <h2 id="cost-title">The strain shows up on the bill.</h2>
+          <p>At one US stroke center, a patient waiting in the ER for a bed cost more each day than the same patient upstairs, and got fewer minutes of nursing time. Each nurse who leaves costs a hospital tens of thousands of dollars to replace.<a class="ref" href="#src-12">[12]</a><a class="ref" href="#src-11">[11]</a></p>
+        </div>
+        <figure class="fig chart">
+          <div class="fig-panel bills">
+            <div class="tabs" role="tablist" aria-label="Kind of bed">
+              <button type="button" role="tab" aria-selected="true" data-bed="ward">A regular hospital bed</button>
+              <button type="button" role="tab" aria-selected="false" data-bed="icu">An intensive care bed</button>
+            </div>
+            <div class="receipts">
+              <div class="receipt hot">
+                <p class="receipt-tag">In the ER</p>
+                <p class="receipt-head">Waiting in the ER for <span class="bed-kind">a regular bed</span></p>
+                <p class="receipt-sub">One day, one stroke patient</p>
+                <dl>
+                  <div><dt>Cost of care</dt><dd id="r-er-cost">$1,856</dd></div>
+                  <div><dt>Nursing time</dt><dd id="r-er-min">293 min</dd></div>
+                </dl>
+              </div>
+              <div class="receipt">
+                <p class="receipt-tag">Upstairs</p>
+                <p class="receipt-head">In <span class="bed-kind">a regular bed</span> upstairs</p>
+                <p class="receipt-sub">One day, one stroke patient</p>
+                <dl>
+                  <div><dt>Cost of care</dt><dd id="r-in-cost">$993</dd></div>
+                  <div><dt>Nursing time</dt><dd id="r-in-min">313 min</dd></div>
+                </dl>
+              </div>
+              <p class="bill-diff" aria-live="polite"><b id="bill-more">+$863</b> <span id="bill-text">more a day in the ER, with 20 fewer minutes of nursing time</span></p>
+            </div>
+            <p class="axis">Costs per patient per day, measured activity by activity at one US stroke center.</p>
+          </div>
+          <figcaption class="fig-cap">
+            <div class="cap-main">
+              <p class="big">$1,856 vs $993</p>
+              <p class="what">for one day of care for a stroke patient waiting in the ER for a bed, versus one day in that bed.</p>
+            </div>
+            <div class="source">
+              <p class="where">United States&ensp;·&ensp;one academic stroke center</p>
+              <p class="cite">Canellas et al., <a href="https://doi.org/10.1016/j.annemergmed.2024.04.012">Annals of Emergency Medicine, 2024</a> <a class="ref" href="#src-12">[12]</a></p>
+              <details><summary>Source sentence</summary><blockquote>The total daily cost per patient with acute stroke was US$1856, for med/surg boarding versus US$993 for med/surg inpatient care and US$2267, for ICU boarding versus US$2165, for ICU inpatient care.</blockquote></details>
+            </div>
+          </figcaption>
+        </figure>
+        <div class="also-pair">
+          <div class="also">
+            <p class="also-num">$60,090</p>
+            <div>
+              <p class="also-what">to replace one bedside nurse who leaves. The average hospital loses $4.2 million to $6.2 million this way.</p>
+              <p class="cite">US hospitals, 2025&ensp;·&ensp;NSI, 2026 <a class="ref" href="#src-11">[11]</a></p>
+            </div>
+          </div>
+          <div class="also">
+            <p class="also-num">$17 million</p>
+            <div>
+              <p class="also-what">in extra hospital costs in one year, along with 300 extra deaths, tied to the most crowded ER days in one state.</p>
+              <p class="cite">California, 187 hospitals&ensp;·&ensp;Sun et al., Annals of Emergency Medicine, 2013 <a class="ref" href="#src-13">[13]</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="team" id="team" aria-labelledby="team-title">
+      <div class="wrap">
+        <div class="story-head">
+          <h2 id="team-title">Who we are.</h2>
+          <p>Four MBA students at UC Berkeley's Haas School of Business: a physician, a hospital software lead, a startup founder and a systems engineer.</p>
+        </div>
+        <ul class="people">
+          <li class="person">
+            <img src="team/shion.jpg" alt="Shion Kiguchi" width="400" height="400" loading="lazy">
+            <div>
+              <h3>Shion Kiguchi, MD</h3>
+              <p class="person-tag">Physician</p>
+              <p>Shion practiced medicine and surgery in Japan for six years. As a junior resident she led a 15-person frontline ER team for a region of 110,000 people, then trained in plastic and reconstructive surgery. At Pfizer Japan she directed seven global clinical trials as Japan Clinical Lead.</p>
+              <a class="person-link" href="https://shion-kiguchi.com/">shion-kiguchi.com</a>
+            </div>
+          </li>
+          <li class="person">
+            <img src="team/premi.jpg" alt="Premi Mohanavelu" width="400" height="400" loading="lazy">
+            <div>
+              <h3>Premi Mohanavelu</h3>
+              <p class="person-tag">Hospital software</p>
+              <p>Premi spent nearly four years at Epic, the health record company, most recently as Product Lead for Precision Staffing, its workforce tools for hospitals. Premi launched five workforce products in 18 months across 140+ health organizations and led rollouts for 100+ departments. B.S. in Computer Science, Georgia Tech.</p>
+              <a class="person-link" href="https://www.linkedin.com/in/prahathishree-mohanavelu/">LinkedIn</a>
+            </div>
+          </li>
+          <li class="person">
+            <img src="team/jt.jpg" alt="José Tomás Fernández" width="400" height="400" loading="lazy">
+            <div>
+              <h3>José Tomás Fernández</h3>
+              <p class="person-tag">Startup founder</p>
+              <p>José Tomás co-founded Rendalo Maq, a Y Combinator company, and built it in Mexico as Country Manager, raising over $4 million. José Tomás also led global strategy and growth for groceries at Cornershop by Uber, and started a first company through Start-Up Chile.</p>
+              <a class="person-link" href="https://www.linkedin.com/in/jose-tomas-fernandez/">LinkedIn</a>
+            </div>
+          </li>
+          <li class="person">
+            <img src="team/yitzy.jpg" alt="Yitzy Rosenberg" width="400" height="400" loading="lazy">
+            <div>
+              <h3>Yitzy Rosenberg</h3>
+              <p class="person-tag">Systems engineer</p>
+              <p>Yitzy builds operations where none exist. Rebuilt a near-shutdown startup's operations and grew its team from 3 to 20 in a year, co-founded Astrid, a health tech tool that automates the tracking a PMDD diagnosis requires, and managed a $350M+ resiliency portfolio for the largest water management agency in the US. M.Eng candidate in Operations Research, Berkeley; B.S. and M.Eng, Cornell.</p>
+              <a class="person-link" href="https://www.linkedin.com/in/yitzyrosenberg/">LinkedIn</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
 
     <section class="talk" id="talk" aria-labelledby="talk-title">
       <div class="wrap talk-grid">
@@ -219,6 +432,12 @@
         <li id="src-5">Singer AJ, Thode HC, Viccellio P, Pines JM. The association between length of emergency department boarding and mortality. <i>Academic Emergency Medicine</i>. 2011. <a href="https://doi.org/10.1111/j.1553-2712.2011.01236.x">doi:10.1111/j.1553-2712.2011.01236.x</a></li>
         <li id="src-6">Royal College of Emergency Medicine. Almost 300 deaths a week in 2023 associated with long A&amp;E waits despite UEC Recovery Plan. Press release, 1 April 2024. <a href="https://rcem.ac.uk/press-release/almost-300-deaths-a-week-in-2023-associated-with-long-ae-waits-despite-uec-recovery-plan/">rcem.ac.uk</a></li>
         <li id="src-7">Betz M, Stempien J, Trivedi S, Bryce R. A determination of emergency department pre-triage times in patients not arriving by ambulance compared to widely used guideline recommendations. <i>CJEM</i>. 2017. <a href="https://doi.org/10.1017/cem.2016.398">doi:10.1017/cem.2016.398</a></li>
+        <li id="src-8">Leuchter RK, Delarmente BA, Vangala S, Tsugawa Y, Sarkisian CA. Health Care Staffing Shortages and Potential National Hospital Bed Shortage. <i>JAMA Network Open</i>. 2025;8(2):e2460645. <a href="https://doi.org/10.1001/jamanetworkopen.2024.60645">doi:10.1001/jamanetworkopen.2024.60645</a></li>
+        <li id="src-9">Janke AT, Melnick ER, Venkatesh AK. Hospital Occupancy and Emergency Department Boarding During the COVID-19 Pandemic. <i>JAMA Network Open</i>. 2022;5(9):e2233964. <a href="https://doi.org/10.1001/jamanetworkopen.2022.33964">doi:10.1001/jamanetworkopen.2022.33964</a></li>
+        <li id="src-10">Shah MK, Gandrakota N, Cimiotti JP, Ghose N, Moore M, Ali MK. Prevalence of and Factors Associated With Nurse Burnout in the US. <i>JAMA Network Open</i>. 2021;4(2):e2036469. <a href="https://doi.org/10.1001/jamanetworkopen.2020.36469">doi:10.1001/jamanetworkopen.2020.36469</a></li>
+        <li id="src-11">NSI Nursing Solutions. 2026 NSI National Health Care Retention &amp; RN Staffing Report. 2026. <a href="https://www.nsinursingsolutions.com/documents/library/nsi_national_health_care_retention_report.pdf">nsinursingsolutions.com</a></li>
+        <li id="src-12">Canellas MM, Jewell M, Edwards JL, Olivier D, Jun-O'Connell AH, Reznek MA. Measurement of Cost of Boarding in the Emergency Department Using Time-Driven Activity-Based Costing. <i>Annals of Emergency Medicine</i>. 2024;84(4):376-385. <a href="https://doi.org/10.1016/j.annemergmed.2024.04.012">doi:10.1016/j.annemergmed.2024.04.012</a></li>
+        <li id="src-13">Sun BC, Hsia RY, Weiss RE, et al. Effect of emergency department crowding on outcomes of admitted patients. <i>Annals of Emergency Medicine</i>. 2013;61(6):605-611. <a href="https://doi.org/10.1016/j.annemergmed.2012.10.026">doi:10.1016/j.annemergmed.2012.10.026</a></li>
       </ol>
       <div class="foot">
         <p>PrIAge is an early-stage project. Nothing on this page is medical advice. In an emergency, call your local emergency number.</p>

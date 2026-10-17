@@ -206,7 +206,7 @@
     back: ["2.6×", "The odds of coming back to the ER within 72 hours, adjusted for other factors"],
     icu: ["1.4×", "The odds of needing intensive care within 30 days, adjusted for other factors"],
   };
-  const tabs = [...document.querySelectorAll(".tabs [role=tab]")];
+  const tabs = [...document.querySelectorAll(".exits .tabs [role=tab]")];
   const pick = (tab) => {
     for (const t of tabs) { t.setAttribute("aria-selected", String(t === tab)); t.tabIndex = t === tab ? 0 : -1; }
     const [num, axis] = OUT[tab.dataset.out];
@@ -267,6 +267,189 @@
       let h = 0; bed.value = 0; showBed(0);
       const t = setInterval(() => { if (touched || ++h > 12) return clearInterval(t); bed.value = h; showBed(h); }, 260);
     });
+  }
+
+  // A small tablist helper: click and arrow keys, one selected at a time.
+  const tablist = (list, onPick) => {
+    const tabs = [...list.querySelectorAll("[role=tab]")];
+    const pick = (tab) => {
+      for (const t of tabs) { t.setAttribute("aria-selected", String(t === tab)); t.tabIndex = t === tab ? 0 : -1; }
+      onPick(tab);
+    };
+    tabs.forEach((t, i) => {
+      t.tabIndex = t.getAttribute("aria-selected") === "true" ? 0 : -1;
+      t.addEventListener("click", () => pick(t));
+      t.addEventListener("keydown", (e) => {
+        const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+        if (!d) return;
+        const next = tabs[(i + d + tabs.length) % tabs.length];
+        next.focus(); pick(next);
+      });
+    });
+    return { tabs, pick };
+  };
+
+  // The hospital: each window is 10,000 staffed US beds. Beds lose their staff; patients stay.
+  const building = document.querySelector(".ward .building");
+  if (building) {
+    const COLS = 10, FLOORS = 8, WW = 26, WH = 20, GX = 10, GY = 12, PAD = 18, SIGN = 44, GROUND = 58;
+    const W = PAD * 2 + COLS * WW + (COLS - 1) * GX;
+    const bodyH = PAD * 2 + FLOORS * WH + (FLOORS - 1) * GY;
+    const H = SIGN + bodyH + GROUND;
+    const svg = el("svg", { viewBox: `-4 0 ${W + 8} ${H + 4}`, class: "building-svg" });
+    svg.append(
+      el("rect", { class: "b-pole", x: W / 2 - 2, y: 30, width: 4, height: SIGN - 30 }),
+      el("rect", { class: "b-sign", x: W / 2 - 17, y: 0, width: 34, height: 34, rx: 4 }),
+      Object.assign(el("text", { class: "b-sign-h", x: W / 2, y: 26, "text-anchor": "middle" }), { textContent: "H" }),
+      el("rect", { class: "b-body", x: 0, y: SIGN, width: W, height: bodyH + GROUND, rx: 2 }),
+      el("rect", { class: "b-ground", x: 0, y: SIGN + bodyH, width: W, height: 3 }),
+    );
+    // the ER entrance at street level
+    const doorW = 86, dx = W / 2 - doorW / 2, gy = SIGN + bodyH;
+    svg.append(
+      el("rect", { class: "b-plate", x: dx - 22, y: gy + 9, width: doorW + 44, height: 16, rx: 2 }),
+      Object.assign(el("text", { class: "b-plate-t", x: W / 2, y: gy + 21.5, "text-anchor": "middle" }), { textContent: "EMERGENCY" }),
+      el("rect", { class: "b-door", x: dx, y: gy + 30, width: doorW / 2 - 2, height: GROUND - 30 }),
+      el("rect", { class: "b-door", x: W / 2 + 2, y: gy + 30, width: doorW / 2 - 2, height: GROUND - 30 }),
+    );
+    const wins = [];
+    for (let f = 0; f < FLOORS; f++) {
+      for (let c = 0; c < COLS; c++) {
+        const x = PAD + c * (WW + GX), y = SIGN + PAD + f * (WH + GY);
+        const g = el("g", { class: "w w-open", transform: `translate(${x} ${y})` });
+        g.append(
+          el("rect", { class: "w-frame", x: 0, y: 0, width: WW, height: WH, rx: 1.5 }),
+          el("rect", { class: "w-bed", x: 4, y: 12.5, width: 18, height: 3.5, rx: 1 }),
+          el("rect", { class: "w-bed", x: 3, y: 8.5, width: 2.5, height: 9 }),
+          el("circle", { class: "w-head", cx: 8.6, cy: 10.4, r: 2.3 }),
+          el("rect", { class: "w-blanket", x: 11, y: 9.4, width: 11, height: 3.6, rx: 1.4 }),
+          el("line", { class: "w-x", x1: 3, y1: WH - 3, x2: WW - 3, y2: 3 }),
+        );
+        svg.append(g); wins.push(g);
+      }
+    }
+    building.append(svg);
+    const order = [...scatter(80, 80, 66)];
+    const role = new Array(80);
+    order.forEach((w, n) => {
+      role[w] = n < 51 ? "full" : n < 64 ? "cut" : n < 70 ? "later" : "open";
+    });
+    const ERAS = [
+      { pct: "63.9% full", text: "802,000 staffed beds for about 510,000 patients a day" },
+      { pct: "75.3% full", text: "674,000 staffed beds for about 510,000 patients a day" },
+      { pct: "85% full", text: "projected for adult beds as the population ages, if staffed beds stay where they are" },
+    ];
+    const showEra = (e) => {
+      wins.forEach((g, k) => {
+        const r = role[k];
+        const state = r === "full" ? "full" : r === "cut" ? (e === 0 ? "open" : "closed") : r === "later" ? (e === 2 ? "full" : "open") : "open";
+        g.setAttribute("class", `w w-${state}`);
+      });
+      document.getElementById("ward-pct").textContent = ERAS[e].pct;
+      document.getElementById("ward-text").textContent = ERAS[e].text;
+    };
+    let touched = false;
+    const { tabs: eraTabs, pick: pickEra } = tablist(document.querySelector(".ward [role=tablist]"), (t) => { showEra(+t.dataset.era); });
+    eraTabs.forEach((t) => t.addEventListener("click", () => { touched = true; }));
+    showEra(1);
+    once(building, () => {
+      pickEra(eraTabs[0]);
+      setTimeout(() => { if (!touched) pickEra(eraTabs[1]); }, 1600);
+    });
+  }
+
+  // Staff lockers: 100 nurses who burned out. Open lockers belong to nurses who left.
+  const lockerField = document.querySelector(".lockers .locker-field");
+  if (lockerField) {
+    const DATA = {
+      left: { staff: [63, "63.0%", "of those who left named inadequate staffing"],
+              stress: [69, "68.6%", "of those who left named a stressful work environment"] },
+      stay: { staff: [61, "60.9%", "of those thinking about leaving named inadequate staffing"],
+              stress: [60, "59.5%", "of those thinking about leaving named a stressful work environment"] },
+    };
+    const ORDER = { staff: [...scatter(100, 100, 11)], stress: [...scatter(100, 100, 12)] };
+    let who = "left", why = "staff";
+    const LW = 20, LH = 44, BANK_GAP = 8;
+    const lockers = [];
+    const buildLockers = () => {
+      const cols = narrow.matches ? 10 : 25, rows = 100 / cols, per = 5;
+      const banks = cols / per;
+      const w = cols * LW + (banks - 1) * BANK_GAP, rowH = LH + 12;
+      const svg = el("svg", { viewBox: `0 0 ${w} ${rows * rowH}`, class: "seat-svg locker-svg" });
+      lockers.length = 0;
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const x = c * LW + Math.floor(c / per) * BANK_GAP, y = r * rowH;
+          const g = el("g", { class: "locker", transform: `translate(${x} ${y})` });
+          g.append(
+            el("rect", { class: "l-inside", x: 0.5, y: 0, width: LW - 1, height: LH }),
+            el("rect", { class: "l-door", x: 0.5, y: 0, width: LW - 1, height: LH }),
+            el("rect", { class: "l-ajar", x: 0.5, y: 0, width: LW - 7, height: LH }),
+            el("rect", { class: "l-vent", x: 4, y: 5, width: LW - 12, height: 1.6 }),
+            el("rect", { class: "l-vent", x: 4, y: 8.5, width: LW - 12, height: 1.6 }),
+            el("rect", { class: "l-vent", x: 4, y: 12, width: LW - 12, height: 1.6 }),
+            el("rect", { class: "l-tag", x: 4, y: 18, width: LW - 8, height: 6, rx: 0.8 }),
+            el("rect", { class: "l-handle", x: LW - 6, y: 27, width: 2.2, height: 8, rx: 1 }),
+          );
+          svg.append(g); lockers.push(g);
+        }
+        // the bench in front of each row
+        svg.append(el("rect", { class: "beam", x: 0, y: r * rowH + LH + 4, width: w, height: 2.5 }));
+      }
+      lockerField.replaceChildren(svg);
+    };
+    const showLockers = () => {
+      const [n, pct, text] = DATA[who][why];
+      const marked = new Set(ORDER[why].slice(0, n));
+      lockers.forEach((g, k) => {
+        g.setAttribute("class", `locker ${who === "left" ? "l-open" : "l-closed"}${marked.has(k) ? " l-marked" : ""}`);
+        g.style.setProperty("--i", ORDER[why].indexOf(k));
+      });
+      document.getElementById("locker-pct").textContent = pct;
+      document.getElementById("locker-text").textContent = text;
+    };
+    buildLockers();
+    showLockers();
+    tablist(document.querySelector(".lockers [role=tablist]"), (t) => { who = t.dataset.who; showLockers(); });
+    for (const b of document.querySelectorAll(".lockers [data-why]")) {
+      b.addEventListener("click", () => {
+        why = b.dataset.why;
+        for (const o of b.parentElement.children) o.setAttribute("aria-pressed", String(o === b));
+        showLockers();
+      });
+    }
+    narrow.addEventListener("change", () => { buildLockers(); showLockers(); });
+  }
+
+  // Two bills for the same day of care: waiting in the ER for a bed, and in the bed.
+  const bills = document.querySelector(".bills");
+  if (bills) {
+    const BILL = {
+      ward: { kind: "a regular bed", er: ["$1,856", 293], in: ["$993", 313], more: "+$863" },
+      icu: { kind: "an intensive care bed", er: ["$2,267", 419], in: ["$2,165", 787], more: "+$102" },
+    };
+    for (const r of bills.querySelectorAll(".receipt")) {
+      const strip = document.createElement("div");
+      strip.className = "day-strip";
+      strip.setAttribute("aria-hidden", "true");
+      strip.innerHTML = '<span class="day-fill"></span>';
+      r.append(strip, Object.assign(document.createElement("p"), { className: "day-label", textContent: "Nursing time in a 24-hour day" }));
+    }
+    const [erR, inR] = bills.querySelectorAll(".receipt");
+    const showBill = (k) => {
+      const b = BILL[k];
+      for (const s of bills.querySelectorAll(".bed-kind")) s.textContent = b.kind;
+      document.getElementById("r-er-cost").textContent = b.er[0];
+      document.getElementById("r-in-cost").textContent = b.in[0];
+      document.getElementById("r-er-min").textContent = `${b.er[1]} min`;
+      document.getElementById("r-in-min").textContent = `${b.in[1]} min`;
+      erR.querySelector(".day-fill").style.width = `${(b.er[1] / 1440) * 100}%`;
+      inR.querySelector(".day-fill").style.width = `${(b.in[1] / 1440) * 100}%`;
+      document.getElementById("bill-more").textContent = b.more;
+      document.getElementById("bill-text").textContent = `more a day in the ER, with ${b.in[1] - b.er[1]} fewer minutes of nursing time`;
+    };
+    showBill("ward");
+    tablist(bills.querySelector("[role=tablist]"), (t) => showBill(t.dataset.bed));
   }
 
   // Copy the address, for desktops with no mail app.
