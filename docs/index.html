@@ -13,12 +13,12 @@
   <meta property="og:url" content="https://priage.app/">
   <meta property="og:title" content="PrIAge: the ER waiting room is a blind spot">
   <meta property="og:description" content="What happens while people wait for emergency care in the US, and what PrIAge is working on.">
-  <meta property="og:image" content="https://priage.app/og.png?v=5">
+  <meta property="og:image" content="https://priage.app/og.png?v=6">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="fonts/overpass.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/atkinson-next.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=5">
-  <script src="app.js?v=5" defer></script>
+  <link rel="stylesheet" href="styles.css?v=6">
+  <script src="app.js?v=6" defer></script>
 </head>
 <body>
   <a class="skip" href="#numbers">Skip to the numbers</a>
@@ -52,7 +52,12 @@
 
         <figure class="fig seats" id="numbers" data-total="100" data-cols="25" data-cols-narrow="10" data-marked="34" data-seed="2024" data-kind="missed"
           aria-label="100 chairs, each a patient with high-acuity illness. 34 are red: not identified as high-acuity at triage.">
-          <div class="fig-panel seats-field"><noscript><p class="noscript">This chart needs JavaScript. Its numbers are written out beside it.</p></noscript></div>
+          <div class="fig-panel seats-field"><p class="room-sign" aria-hidden="true">Triage<svg viewBox="0 0 24 24"><path d="M4 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></p><noscript><p class="noscript">This chart needs JavaScript. Its numbers are written out beside it.</p></noscript>
+            <div class="lens" role="group" aria-label="Show the room">
+              <button type="button" data-lens="desk" aria-pressed="false">At the triage desk</button>
+              <button type="button" data-lens="real" aria-pressed="true">What was really there</button>
+            </div>
+          </div>
           <figcaption class="fig-cap">
             <div class="cap-main">
               <p class="big">About 34 in 100</p>
@@ -75,15 +80,19 @@
           <h2 id="pre-title">Some wait just to be triaged.</h2>
           <p>The wait before triage usually isn't counted in standard ER reporting. In one US emergency department, it grew sharply as the room got busier.<a class="ref" href="#src-2">[2]</a></p>
         </div>
-        <figure class="fig chart">
-          <div class="fig-panel">
-            <div class="cols" role="img" aria-label="Share of waiting patients who waited more than 10 minutes for triage, by new arrivals in the previous hour: 0 to 5, 12 percent; 6 to 10, 49 percent; 11 to 15, 64 percent; 16 or more, 68 percent.">
-              <div class="col" style="--v:12.4"><span class="val">12%</span><span class="bar"></span><span class="lab">0 to 5</span></div>
-              <div class="col" style="--v:48.8"><span class="val">49%</span><span class="bar"></span><span class="lab">6 to 10</span></div>
-              <div class="col" style="--v:64.4"><span class="val">64%</span><span class="bar"></span><span class="lab">11 to 15</span></div>
-              <div class="col hot" style="--v:68"><span class="val">68%</span><span class="bar"></span><span class="lab">16 or more</span></div>
+        <figure class="fig chart scene">
+          <div class="fig-panel room-one">
+            <div class="room-top">
+              <div><p class="room-title" id="room-title">The busiest hours</p><p class="room-sub" id="room-sub">16 or more new arrivals in the past hour</p></div>
+              <p class="room-sign" aria-hidden="true">Triage<svg viewBox="0 0 24 24"><path d="M4 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></p>
             </div>
-            <p class="axis">New patients who arrived in the hour before</p>
+            <div class="room-field" aria-hidden="true"></div>
+            <p class="room-num" aria-live="polite"><b id="busy-pct">68%</b> <span id="busy-text">of people waiting for triage were still waiting after 10 minutes</span></p>
+            <label class="slider">
+              <span class="slider-label">How busy is the ER?</span>
+              <input type="range" id="busy" min="0" max="3" step="1" value="3" aria-valuetext="The busiest hours, 16 or more new arrivals">
+              <span class="ticks" aria-hidden="true"><span>Quiet</span><span>Filling up</span><span>Busy</span><span>Busiest</span></span>
+            </label>
           </div>
           <figcaption class="fig-cap">
             <div class="cap-main">
@@ -114,12 +123,15 @@
           <p>When waits stretch, some people walk out. Across 10 US emergency departments, those who left unseen were more likely to come back, to need intensive care, and to die within 30 days than people who were seen and sent home.<a class="ref" href="#src-4">[4]</a></p>
         </div>
         <figure class="fig chart">
-          <div class="fig-panel">
-            <div class="ratio" role="img" aria-label="Adjusted odds of dying within 30 days: seen and sent home, 1; left without being seen, 2.59.">
-              <div class="r"><span class="lab">Seen and sent home</span><span class="track"><span class="bar" style="--w:1"></span></span><span class="val">1×</span></div>
-              <div class="r hot"><span class="lab">Left without being seen</span><span class="track"><span class="bar" style="--w:2.59"></span></span><span class="val">2.6×</span></div>
+          <div class="fig-panel exits">
+            <div class="tabs" role="tablist" aria-label="Outcome">
+              <button type="button" role="tab" aria-selected="true" data-out="die">Died within 30 days</button>
+              <button type="button" role="tab" aria-selected="false" data-out="back">Came back within 72 hours</button>
+              <button type="button" role="tab" aria-selected="false" data-out="icu">Needed intensive care within 30 days</button>
             </div>
-            <p class="axis">Adjusted odds of dying within 30 days</p>
+            <div class="sign"><span class="sign-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></span><span class="sign-text">Seen by a doctor, then sent home</span><span class="sign-num">1×</span></div>
+            <div class="sign hot"><span class="sign-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></span><span class="sign-text">Left without being seen</span><span class="sign-num" id="exit-num" aria-live="polite">2.6×</span></div>
+            <p class="axis" id="exit-axis">The odds of dying within 30 days, adjusted for other factors</p>
           </div>
           <figcaption class="fig-cap">
             <div class="cap-main">
@@ -143,17 +155,17 @@
           <p>Patients who need a hospital bed often keep waiting in the emergency department. At one US hospital, the longer they waited, the more likely they were to die in the hospital.<a class="ref" href="#src-5">[5]</a></p>
         </div>
         <figure class="fig chart">
-          <div class="fig-panel">
-            <div class="slope" role="img" aria-label="In-hospital mortality: 2.5 percent for patients who waited under 2 hours for a bed, 4.5 percent for those who waited 12 hours or more.">
-              <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                <line class="grid" x1="0" y1="50" x2="100" y2="50"/>
-                <line class="rise" x1="10" y1="70" x2="90" y2="30"/>
-              </svg>
-              <i class="dot dot-a"></i><i class="dot dot-b"></i>
-              <span class="pt pt-a"><b>2.5%</b>waited under 2 hours</span>
-              <span class="pt pt-b"><b>4.5%</b>waited 12 hours or more</span>
+          <div class="fig-panel clock-wrap">
+            <div class="clock"><svg class="clock-svg" viewBox="-120 -120 240 240" aria-hidden="true"></svg></div>
+            <div class="clock-notes">
+              <p class="clock-read" aria-live="polite"><b id="bed-pct">4.5%</b> <span id="bed-text">died in the hospital after waiting 12 hours or more for a bed</span></p>
+              <label class="slider">
+                <span class="slider-label">Hours waiting for a bed</span>
+                <input type="range" id="bed" min="0" max="12" step="1" value="12" aria-valuetext="12 hours or more">
+                <span class="ticks ticks-hours" aria-hidden="true"><span>0</span><span>2</span><span>6</span><span>12+</span></span>
+              </label>
+              <p class="axis">The study reports two points: 2.5% for waits under 2 hours and 4.5% for 12 hours or more. In between, deaths generally rose.</p>
             </div>
-            <p class="axis">Hours waiting in the ER after the decision to admit</p>
           </div>
           <figcaption class="fig-cap">
             <div class="cap-main">

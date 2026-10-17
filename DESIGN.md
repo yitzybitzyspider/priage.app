@@ -263,3 +263,13 @@ Numbered list in Soft Ink at 0.9375rem, max 90ch, with Overpass 800 Chart Ink ma
 - **Sticky signage strip:** the header stays at the top with a hairline once the page moves; on phones a "Talk with us" bar rises from the bottom after the hero and hides at the ask.
 - **The ask:** headline addressed to the visitor, a checked list of promises, four white role buttons (one-tap emails with the role and a time-zone prompt pre-filled), the address with a Copy button, and a privacy line.
 - **Citations:** superscript [n] markers link to the numbered sources, and a targeted source is highlighted on the pale red plate color.
+
+## Story scenes (2026-10-17)
+
+Each number is told with an object from the waiting room, not a generic chart, and each can be explored:
+
+- **Triage (opening):** the seat field under a TRIAGE sign, with a toggle between "At the triage desk" (every seat looks the same) and "What was really there" (the missed patients turn red). The blind spot, made literal.
+- **The wait to be triaged:** one waiting room that fills as a "How busy is the ER?" slider moves from a quiet hour to the busiest; earlier arrivals still waiting after 10 minutes turn red. Plays once on its own when scrolled into view.
+- **Leaving unseen:** two hospital wayfinding signs for the two ways out, with tabs for the study's three outcomes (died within 30 days, came back within 72 hours, needed intensive care).
+- **Waiting for a bed:** a wall clock whose red band thickens as an hours slider moves the hand; it states only the two published points and says "Rising" in between, so no value is invented.
+- **Signage language:** seat-deep plates with white Overpass caps and a squared arrow; the alarm plate is signage red.

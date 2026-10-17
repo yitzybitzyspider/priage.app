@@ -262,51 +262,76 @@ p { text-wrap: pretty; }
 .key-missed { background: var(--mark); box-shadow: 0 0 0 3px #f4dcd8; }
 .key-lost { background: transparent; box-shadow: inset 0 0 0 2px var(--mark); }
 
-/* ---------- Charts: each number gets the form that fits it ---------- */
+/* ---------- Story scenes: each number told with an object from the room ---------- */
 
-.fig-panel.chart-pad, .chart .fig-panel { padding: clamp(22px, 3vw, 40px) clamp(18px, 3vw, 40px) clamp(18px, 2.4vw, 28px); }
+.chart .fig-panel { padding: clamp(22px, 3vw, 40px) clamp(18px, 3vw, 40px) clamp(20px, 2.6vw, 32px); }
 .axis { margin-top: 14px; font-size: 0.9375rem; color: var(--ink-soft); }
+.chair-empty rect { fill: transparent; stroke: #b9c2c6; stroke-width: 1.6; }
+.chair-empty .leg { fill: #b9c2c6; stroke: transparent; }
+.chair rect, .chair path { transition: fill 160ms steps(2, jump-none), stroke 160ms steps(2, jump-none); }
 
-.cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(12px, 3vw, 40px); align-items: end; height: clamp(200px, 26vw, 300px); }
-.col { display: grid; grid-template-rows: auto 1fr auto; height: 100%; align-items: end; justify-items: stretch; gap: 8px; }
-.col .val { font-family: var(--sign); font-weight: 800; font-size: clamp(1.125rem, 0.9rem + 0.8vw, 1.5rem); text-align: center; align-self: end; }
-.col .bar { display: block; height: calc(var(--v) * 1%); min-height: 4px; background: var(--seat); border-radius: 3px 3px 0 0; transform-origin: bottom; }
-.col .lab { font-family: var(--sign); font-weight: 700; font-size: 0.9375rem; text-align: center; color: var(--ink-soft); border-top: 2px solid var(--beam); padding-top: 8px; }
-.col.hot .bar { background: var(--mark); }
-.col.hot .val { color: var(--mark-ink); }
+/* hospital wayfinding: plates in seat blue, white Overpass, a squared arrow */
+.room-sign {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 12px 6px; border-radius: 4px;
+  background: var(--seat-deep); color: var(--on-seat);
+  font-family: var(--sign); font-weight: 800; font-size: 0.875rem; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.room-sign svg { width: 16px; height: 16px; }
+.seats-field .room-sign { margin-bottom: 18px; }
 
-.ratio { display: grid; gap: 18px; }
-.ratio .r { display: grid; grid-template-columns: minmax(150px, 14rem) minmax(0, 1fr) 4.5rem; align-items: center; gap: 16px; }
-.ratio .lab { font-family: var(--sign); font-weight: 700; font-size: 1.0625rem; }
-.ratio .track { display: block; height: 30px; }
-.ratio .bar { display: block; height: 100%; width: calc(var(--w) / 2.59 * 100%); background: var(--seat); border-radius: 0 4px 4px 0; transform-origin: left; }
-.ratio .val { font-family: var(--sign); font-weight: 900; font-size: 1.5rem; }
-.ratio .hot .bar { background: var(--mark); }
-.ratio .hot .val { color: var(--mark-ink); }
+/* hero lens toggle */
+.lens { margin-top: 18px; display: inline-flex; padding: 4px; gap: 4px; border-radius: 8px; background: var(--floor); }
+.lens button, .tabs button {
+  border: 0; border-radius: 6px; padding: 9px 14px 8px; background: transparent; color: var(--ink);
+  font: 700 0.9375rem/1.1 var(--text); cursor: pointer;
+}
+.lens button[aria-pressed="true"], .tabs button[aria-selected="true"] { background: var(--seat); color: var(--on-seat); }
+.lens button:hover:not([aria-pressed="true"]), .tabs button:hover:not([aria-selected="true"]) { background: #d3d9da; }
+.fig.lens-desk .chair-missed rect, .fig.lens-desk .chair-missed path { fill: var(--seat) !important; transition-delay: 0s !important; }
+.fig.lens-desk .chair-missed .leg { fill: var(--seat-deep) !important; }
+.fig.lens-desk .seat-plate { opacity: 0 !important; transition-delay: 0s !important; }
 
-.slope { position: relative; height: clamp(220px, 24vw, 300px); }
-.slope svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-.slope .grid { stroke: var(--rule); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
-.slope .rise { stroke: var(--mark); stroke-width: 5; stroke-linecap: round; vector-effect: non-scaling-stroke; }
-.slope .dot { position: absolute; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 50%; background: var(--seat); box-shadow: 0 0 0 4px var(--panel); }
-.slope .dot-a { left: 10%; top: 70%; }
-.slope .dot-b { left: 90%; top: 30%; width: 26px; height: 26px; margin: -13px 0 0 -13px; background: var(--mark); }
-.slope .pt { position: absolute; display: grid; font-size: 0.9375rem; color: var(--ink-soft); line-height: 1.25; }
-.slope .pt b { font-family: var(--sign); font-weight: 900; font-size: clamp(1.5rem, 1.1rem + 1.2vw, 2.125rem); color: var(--ink); }
-.slope .pt-a { left: 10%; top: calc(70% + 18px); }
-.slope .pt-b { right: 10%; bottom: calc(70% + 20px); text-align: right; }
-.slope .pt-b b { color: var(--mark-ink); }
+/* the waiting room that fills up */
+.room-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+.room-title { font-family: var(--sign); font-weight: 800; font-size: clamp(1.25rem, 1rem + 0.8vw, 1.625rem); line-height: 1.1; }
+.room-sub { margin-top: 2px; font-size: 0.9375rem; color: var(--ink-soft); }
+.room-field .seat-svg { max-width: 760px; }
+.room-num { margin-top: 18px; font-size: 1.0625rem; max-width: 48ch; }
+.room-num b { font-family: var(--sign); font-weight: 900; font-size: 1.75rem; color: var(--mark-ink); margin-right: 6px; }
+.slider { display: grid; gap: 8px; margin-top: 20px; max-width: 520px; }
+.slider-label { font-family: var(--sign); font-weight: 800; font-size: 0.9375rem; }
+.slider input { width: 100%; accent-color: var(--seat); height: 28px; cursor: pointer; }
+.ticks { display: flex; justify-content: space-between; font-size: 0.8125rem; color: var(--ink-soft); }
+.ticks-hours span:nth-child(3) { margin-left: -12%; }
 
-.animate-charts .chart .col .bar { transform: scaleY(0.03); }
-.animate-charts .chart.in-view .col .bar { transform: none; transition: transform 700ms var(--ease-out); }
-.animate-charts .chart .col:nth-child(2) .bar { transition-delay: 90ms; }
-.animate-charts .chart .col:nth-child(3) .bar { transition-delay: 180ms; }
-.animate-charts .chart .col:nth-child(4) .bar { transition-delay: 270ms; }
-.animate-charts .chart .ratio .bar { transform: scaleX(0.03); }
-.animate-charts .chart.in-view .ratio .bar { transform: none; transition: transform 800ms var(--ease-out); }
-.animate-charts .chart.in-view .ratio .r + .r .bar { transition-delay: 150ms; }
-.animate-charts .chart .slope svg { clip-path: inset(0 100% 0 0); }
-.animate-charts .chart.in-view .slope svg { clip-path: inset(0 0 0 0); transition: clip-path 900ms var(--ease-out) 150ms; }
+/* two ways out */
+.tabs { display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 8px; background: var(--floor); width: fit-content; max-width: 100%; margin-bottom: 22px; }
+.sign {
+  display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; align-items: center; gap: 16px;
+  padding: 16px 20px; border-radius: 6px; background: var(--seat-deep); color: var(--on-seat);
+  box-shadow: inset 0 0 0 3px rgb(255 255 255 / 0.14);
+}
+.sign + .sign { margin-top: 12px; }
+.sign-arrow { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 4px; background: var(--on-seat); color: var(--seat-deep); }
+.sign-arrow svg { width: 30px; height: 30px; }
+.sign-text { font-family: var(--sign); font-weight: 800; font-size: clamp(1.125rem, 0.95rem + 0.7vw, 1.5rem); line-height: 1.15; }
+.sign-num { font-family: var(--sign); font-weight: 900; font-size: clamp(2rem, 1.4rem + 2vw, 3rem); line-height: 1; font-variant-numeric: tabular-nums; }
+.sign.hot { background: var(--mark); }
+.sign.hot .sign-arrow { color: var(--mark-ink); }
+
+/* the wall clock */
+.clock-wrap { display: grid; grid-template-columns: minmax(200px, 300px) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+.clock-svg { width: 100%; height: auto; display: block; overflow: visible; }
+.clock-svg .face { fill: #fff; stroke: var(--ink); stroke-width: 6; }
+.clock-svg .tick { stroke: var(--beam); stroke-width: 2; }
+.clock-svg .tick-h { stroke: var(--ink); stroke-width: 4; }
+.clock-svg .num { font-family: var(--sign); font-weight: 900; font-size: 18px; fill: var(--ink); }
+.clock-svg .band { fill: var(--mark); opacity: 0.92; }
+.clock-svg .hand { stroke: var(--ink); stroke-width: 6; stroke-linecap: round; transition: transform 240ms var(--ease-out); }
+.clock-svg .pin { fill: var(--ink); }
+.clock-read { font-size: 1.0625rem; max-width: 40ch; }
+.clock-read b { display: block; font-family: var(--sign); font-weight: 900; font-size: clamp(2.25rem, 1.6rem + 2.2vw, 3.25rem); line-height: 1; color: var(--mark-ink); margin-bottom: 6px; }
 
 /* ---------- A second number inside a section: quieter than the figure ---------- */
 
@@ -397,10 +422,11 @@ p { text-wrap: pretty; }
   .btn { font-size: 1.0625rem; }
   /* the number and its legend come before the field, so meaning lands first */
   .fig { grid-template-columns: minmax(0, 1fr); grid-template-areas: "main" "field" "source"; gap: 20px; }
-  .ratio .r { grid-template-columns: minmax(0, 1fr) 3.5rem; }
-  .ratio .lab { grid-column: 1 / -1; font-size: 1rem; }
-  .ratio .track { grid-column: 1; }
-  .col .lab { font-size: 0.8125rem; }
+  .clock-wrap { grid-template-columns: minmax(0, 1fr); }
+  .clock { max-width: 260px; }
+  .sign { grid-template-columns: 40px minmax(0, 1fr) auto; gap: 12px; padding: 14px; }
+  .sign-arrow { width: 40px; height: 40px; }
+  .tabs button, .lens button { font-size: 0.875rem; padding: 8px 10px 7px; }
   .also { grid-template-columns: minmax(0, 1fr); }
   .ask-bar {
     display: block;
@@ -431,8 +457,6 @@ p { text-wrap: pretty; }
 }
 
 @media print {
-  .animate-charts .chart .col .bar, .animate-charts .chart .ratio .bar { transform: none !important; }
-  .animate-charts .chart .slope svg { clip-path: none !important; }
   .source details { display: block; }
   .top, .ask-bar, .actions, .skip { display: none !important; }
   .talk { background: none; color: var(--ink); }

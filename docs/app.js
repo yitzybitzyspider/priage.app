@@ -137,6 +137,138 @@
     figures.forEach(build);
   });
 
+  // Hero lens: what the triage desk sees versus what was really in the room.
+  for (const btn of document.querySelectorAll(".lens button")) {
+    btn.addEventListener("click", () => {
+      const fig = btn.closest(".fig");
+      const desk = btn.dataset.lens === "desk";
+      fig.classList.toggle("lens-desk", desk);
+      fig.classList.add("in-view");
+      for (const b of btn.parentElement.children) b.setAttribute("aria-pressed", String(b === btn));
+    });
+  }
+
+  const once = (elm, fn) => {
+    if (!elm || reduceMotion.matches || !("IntersectionObserver" in window)) return;
+    const o = new IntersectionObserver(([e]) => { if (e.isIntersecting) { o.disconnect(); fn(); } }, { threshold: 0.45 });
+    o.observe(elm);
+  };
+
+  // The waiting room filling up: drag from a quiet hour to the busiest.
+  const busy = document.getElementById("busy");
+  const roomField = document.querySelector(".room-one .room-field");
+  if (busy && roomField) {
+    const STEPS = [
+      { occ: 5, red: 1, pct: "12%", title: "A quiet hour", sub: "0 to 5 new arrivals in the past hour" },
+      { occ: 10, red: 5, pct: "49%", title: "Filling up", sub: "6 to 10 new arrivals in the past hour" },
+      { occ: 15, red: 10, pct: "64%", title: "Busy", sub: "11 to 15 new arrivals in the past hour" },
+      { occ: 20, red: 14, pct: "68%", title: "The busiest hours", sub: "16 or more new arrivals in the past hour" },
+    ];
+    const COLS = 8, TOTAL = 24;
+    const order = [...scatter(TOTAL, TOTAL, 41)];      // the order people arrive and sit down
+    const seats = [];
+    const buildRoom = () => {
+      const cols = narrow.matches ? 6 : COLS, rows = Math.ceil(TOTAL / cols);
+      const w = cols * CELL_W + (cols - 1) * GAP, rowH = CELL_H + 10;
+      const svg = el("svg", { viewBox: `0 0 ${w} ${rows * rowH}`, class: "seat-svg" });
+      seats.length = 0;
+      for (let r = 0; r < rows; r++) {
+        const n = Math.min(cols, TOTAL - r * cols), y = r * rowH;
+        svg.append(el("rect", { class: "beam", x: 0, y: y + 23.5, width: n * CELL_W + (n - 1) * GAP, height: 2.5 }));
+        for (let c = 0; c < n; c++) { const s = chair(c * (CELL_W + GAP), y, "empty"); svg.append(s); seats.push(s); }
+      }
+      roomField.replaceChildren(svg);
+    };
+    const show = (i) => {
+      const st = STEPS[i];
+      const occupied = order.slice(0, st.occ);
+      seats.forEach((s, k) => s.setAttribute("class", "chair chair-empty"));
+      occupied.forEach((k, n) => seats[k].setAttribute("class", `chair ${n < st.red ? "chair-missed" : "chair-plain"}`));
+      document.getElementById("busy-pct").textContent = st.pct;
+      document.getElementById("room-title").textContent = st.title;
+      document.getElementById("room-sub").textContent = st.sub;
+      busy.setAttribute("aria-valuetext", `${st.title}, ${st.sub}: ${st.pct} still waiting after 10 minutes`);
+    };
+    buildRoom();
+    show(+busy.value);
+    let touched = false;
+    busy.addEventListener("input", () => { touched = true; show(+busy.value); });
+    narrow.addEventListener("change", () => { buildRoom(); show(+busy.value); });
+    once(roomField, () => {
+      let i = 0; busy.value = 0; show(0);
+      const t = setInterval(() => { if (touched || ++i > 3) return clearInterval(t); busy.value = i; show(i); }, 1100);
+    });
+  }
+
+  // Two ways out: switch between the study's three outcomes.
+  const OUT = {
+    die: ["2.6×", "The odds of dying within 30 days, adjusted for other factors"],
+    back: ["2.6×", "The odds of coming back to the ER within 72 hours, adjusted for other factors"],
+    icu: ["1.4×", "The odds of needing intensive care within 30 days, adjusted for other factors"],
+  };
+  const tabs = [...document.querySelectorAll(".tabs [role=tab]")];
+  const pick = (tab) => {
+    for (const t of tabs) { t.setAttribute("aria-selected", String(t === tab)); t.tabIndex = t === tab ? 0 : -1; }
+    const [num, axis] = OUT[tab.dataset.out];
+    document.getElementById("exit-num").textContent = num;
+    document.getElementById("exit-axis").textContent = axis;
+  };
+  tabs.forEach((t, i) => {
+    t.tabIndex = i === 0 ? 0 : -1;
+    t.addEventListener("click", () => pick(t));
+    t.addEventListener("keydown", (e) => {
+      const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (!d) return;
+      const next = tabs[(i + d + tabs.length) % tabs.length];
+      next.focus(); pick(next);
+    });
+  });
+
+  // The wall clock: hours waiting for a bed. The band thickens as the hand goes round.
+  const bed = document.getElementById("bed");
+  const clock = document.querySelector(".clock-svg");
+  if (bed && clock) {
+    const R = 88;
+    clock.append(el("circle", { class: "face", r: 114 }));
+    for (let i = 0; i < 60; i++) {
+      const a = (i / 60) * Math.PI * 2, big = i % 5 === 0, r1 = big ? 93 : 99;
+      clock.append(el("line", { class: big ? "tick tick-h" : "tick", x1: Math.sin(a) * r1, y1: -Math.cos(a) * r1, x2: Math.sin(a) * 106, y2: -Math.cos(a) * 106 }));
+    }
+    for (const [n, a] of [[12, 0], [3, 90], [6, 180], [9, 270]]) {
+      const t = el("text", { class: "num", x: Math.sin(a * Math.PI / 180) * 50, y: -Math.cos(a * Math.PI / 180) * 50 + 7, "text-anchor": "middle" });
+      t.textContent = n; clock.append(t);
+    }
+    const band = el("path", { class: "band" }); clock.append(band);
+    const hand = el("line", { class: "hand", x1: 0, y1: 8, x2: 0, y2: -40 }); clock.append(hand);
+    clock.append(el("circle", { class: "pin", r: 6 }));
+    const arc = (h) => {
+      if (h <= 0) return "";
+      const steps = Math.max(2, Math.round(h * 8)), outer = [], inner = [];
+      for (let k = 0; k <= steps; k++) {
+        const hh = (h * k) / steps, a = (hh / 12) * Math.PI * 2, th = 4 + (hh / 12) * 18;
+        outer.push(`${(Math.sin(a) * R).toFixed(2)} ${(-Math.cos(a) * R).toFixed(2)}`);
+        inner.push(`${(Math.sin(a) * (R - th)).toFixed(2)} ${(-Math.cos(a) * (R - th)).toFixed(2)}`);
+      }
+      return `M${outer.join(" L")} L${inner.reverse().join(" L")} Z`;
+    };
+    const showBed = (h) => {
+      band.setAttribute("d", arc(h));
+      hand.setAttribute("transform", `rotate(${h * 30})`);
+      const pct = document.getElementById("bed-pct"), txt = document.getElementById("bed-text");
+      if (h < 2) { pct.textContent = "2.5%"; txt.textContent = "died in the hospital after waiting under 2 hours for a bed"; }
+      else if (h < 12) { pct.textContent = "Rising"; txt.textContent = `at ${h} hours: deaths generally rose with each hour of waiting`; }
+      else { pct.textContent = "4.5%"; txt.textContent = "died in the hospital after waiting 12 hours or more for a bed"; }
+      bed.setAttribute("aria-valuetext", h >= 12 ? "12 hours or more" : `${h} hours`);
+    };
+    showBed(+bed.value);
+    let touched = false;
+    bed.addEventListener("input", () => { touched = true; showBed(+bed.value); });
+    once(clock, () => {
+      let h = 0; bed.value = 0; showBed(0);
+      const t = setInterval(() => { if (touched || ++h > 12) return clearInterval(t); bed.value = h; showBed(h); }, 260);
+    });
+  }
+
   // Copy the address, for desktops with no mail app.
   for (const btn of document.querySelectorAll("[data-copy]")) {
     const label = btn.querySelector(".copy-label");
