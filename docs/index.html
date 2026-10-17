@@ -3,225 +3,203 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PrIAge: some patients can't wait their turn</title>
-  <meta name="description" content="Patients can get sicker in an emergency waiting room without anyone noticing. PrIAge is working on it.">
-  <meta name="theme-color" content="#c8102e">
+  <title>PrIAge: when the wait is the danger</title>
+  <meta name="description" content="People can get sicker while they wait for emergency care. The numbers on how big that problem is, and an invitation to talk with PrIAge.">
+  <meta name="theme-color" content="#2b5d87">
   <link rel="canonical" href="https://priage.app/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://priage.app/">
-  <meta property="og:title" content="PrIAge: some patients can't wait their turn">
-  <meta property="og:description" content="Patients can get worse in emergency waiting rooms without anyone noticing. PrIAge is working on it.">
+  <meta property="og:title" content="PrIAge: in the emergency room, the wait itself can be dangerous">
+  <meta property="og:description" content="Sourced numbers on what happens while people wait for emergency care. We're early, and we're listening.">
   <meta property="og:image" content="https://priage.app/og.png">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preload" href="fonts/big-shoulders.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/overpass.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/atkinson-next.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
 </head>
 <body>
-  <a class="skip" href="#problem">Skip to content</a>
+  <a class="skip" href="#numbers">Skip to the numbers</a>
 
-  <header class="hero" id="top">
+  <header class="top">
     <div class="wrap">
       <nav class="nav" aria-label="Main">
         <a class="wordmark" href="#top" aria-label="PrIAge home">PrIAge</a>
         <ul>
-          <li><a href="#problem">The problem</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li class="nav-numbers"><a href="#numbers">The numbers</a></li>
+          <li><a class="nav-talk" href="#talk">Talk with us</a></li>
         </ul>
       </nav>
-
-      <div class="pitch">
-        <h1>Some patients can't wait their turn.</h1>
-        <p class="lede">Patients can get sicker in an emergency waiting room without anyone noticing. Some don't survive the wait. PrIAge is working on that.</p>
-        <div class="actions">
-          <span class="take-wrap"><button class="take" type="button" id="reveal" aria-pressed="false" aria-controls="rail">
-            <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path d="M4 6.5h16v3.2a2.3 2.3 0 0 0 0 4.6v3.2H4v-3.2a2.3 2.3 0 0 0 0-4.6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12h6m-2.5-2.5L15 12l-2.5 2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span id="reveal-label">Show how they're doing</span>
-          </button></span>
-          <a class="more" href="#problem">Why it matters
-            <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M10 4v11m-4.5-4.5L10 15l4.5-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <section class="machine" aria-label="An emergency waiting line, illustrated">
-        <div class="board" aria-hidden="true">
-          <div class="board-row">
-            <span class="board-label">NOW<br>SERVING</span>
-            <span class="seg seg-big"><span class="ghost">888</span><span class="lit">041</span></span>
-          </div>
-          <div class="board-row board-next">
-            <span class="board-label">NEXT</span>
-            <span class="seg seg-big"><span class="ghost">888</span><span class="lit">042</span></span>
-          </div>
-          <div class="board-msg"><span class="ghost">~~~~~~~~~~~~~~~~~~</span><span class="lit">PLEASE!WAIT</span></div>
-        </div>
-
-        <ol class="rail" id="rail" aria-label="Waiting line, front of the line first">
-          <li class="ticket" data-arrived="485">
-            <div class="paper">
-              <div class="side front">
-                <span class="t-brand">PrIAge · ED</span>
-                <span class="t-num">042</span>
-                <dl class="t-rows">
-                  <div><dt>In</dt><dd>8:05</dd></div>
-                  <div><dt>Triaged</dt><dd>8:14</dd></div>
-                  <div><dt>Waiting</dt><dd class="t-wait">2h 59m</dd></div>
-                </dl>
-                <p class="t-status">1st in line</p>
-              </div>
-              <div class="side back" hidden>
-                <span class="t-brand">042 · RIGHT NOW</span>
-                <p class="t-cond">Sprained ankle</p>
-                <p class="t-seen">Last checked 8:14</p>
-                <p class="t-trend">Stable</p>
-              </div>
-            </div>
-          </li>
-          <li class="ticket" data-arrived="511">
-            <div class="paper">
-              <div class="side front">
-                <span class="t-brand">PrIAge · ED</span>
-                <span class="t-num">043</span>
-                <dl class="t-rows">
-                  <div><dt>In</dt><dd>8:31</dd></div>
-                  <div><dt>Triaged</dt><dd>8:40</dd></div>
-                  <div><dt>Waiting</dt><dd class="t-wait">2h 33m</dd></div>
-                </dl>
-                <p class="t-status">2nd in line</p>
-              </div>
-              <div class="side back" hidden>
-                <span class="t-brand">043 · RIGHT NOW</span>
-                <p class="t-cond">Fever and cough</p>
-                <p class="t-seen">Last checked 8:40</p>
-                <p class="t-trend">Stable</p>
-              </div>
-            </div>
-          </li>
-          <li class="ticket" data-arrived="537" data-worse>
-            <div class="paper">
-              <div class="side front">
-                <span class="t-brand">PrIAge · ED</span>
-                <span class="t-num">044</span>
-                <dl class="t-rows">
-                  <div><dt>In</dt><dd>8:57</dd></div>
-                  <div><dt>Triaged</dt><dd>9:06</dd></div>
-                  <div><dt>Waiting</dt><dd class="t-wait">2h 07m</dd></div>
-                </dl>
-                <p class="t-status">3rd in line</p>
-              </div>
-              <div class="side back" hidden>
-                <span class="t-brand">044 · RIGHT NOW</span>
-                <p class="t-cond">Chest pain</p>
-                <p class="t-seen">Last checked 9:06</p>
-                <p class="t-trend">Getting worse</p>
-              </div>
-            </div>
-          </li>
-          <li class="ticket" data-arrived="562">
-            <div class="paper">
-              <div class="side front">
-                <span class="t-brand">PrIAge · ED</span>
-                <span class="t-num">045</span>
-                <dl class="t-rows">
-                  <div><dt>In</dt><dd>9:22</dd></div>
-                  <div><dt>Triaged</dt><dd>9:31</dd></div>
-                  <div><dt>Waiting</dt><dd class="t-wait">1h 42m</dd></div>
-                </dl>
-                <p class="t-status">4th in line</p>
-              </div>
-              <div class="side back" hidden>
-                <span class="t-brand">045 · RIGHT NOW</span>
-                <p class="t-cond">Cut hand</p>
-                <p class="t-seen">Last checked 9:31</p>
-                <p class="t-trend">Stable</p>
-              </div>
-            </div>
-          </li>
-          <li class="ticket" data-arrived="660" data-newest>
-            <div class="paper">
-              <div class="side front">
-                <span class="t-brand">PrIAge · ED</span>
-                <span class="t-num">046</span>
-                <dl class="t-rows">
-                  <div><dt>In</dt><dd>11:00</dd></div>
-                  <div><dt>Triaged</dt><dd class="t-pending">not yet</dd></div>
-                  <div><dt>Waiting</dt><dd class="t-wait">0h 04m</dd></div>
-                </dl>
-                <p class="t-status">5th in line</p>
-              </div>
-              <div class="side back" hidden>
-                <span class="t-brand">046 · RIGHT NOW</span>
-                <p class="t-cond">Migraine</p>
-                <p class="t-seen">Not checked yet</p>
-                <p class="t-trend">Stable</p>
-              </div>
-            </div>
-          </li>
-        </ol>
-
-        <div class="slot" aria-hidden="true">
-          <span class="slot-mouth"></span>
-          <span class="slot-decal">TAKE A NUMBER</span>
-        </div>
-      </section>
-      <p class="demo-note" id="note" aria-live="polite">Illustration with synthetic patients.</p>
     </div>
   </header>
 
-  <main>
-    <section class="problem" id="problem" aria-labelledby="problem-title">
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
       <div class="wrap">
-        <div class="problem-grid">
-          <div class="problem-copy">
-            <h2 id="problem-title">The waiting room is a blind spot.</h2>
-            <p>Triage is a snapshot: a few questions and a set of vitals at the door. It sorts patients once. After that they wait, sometimes for hours, and within their triage level the line mostly runs on arrival order.</p>
-            <p>If someone gets worse in the chairs, the line doesn't know. Unless someone happens to notice, nothing changes until they collapse or their name is called.</p>
-          </div>
+        <h1 id="hero-title">In the emergency room, the wait itself can be dangerous.</h1>
+        <p class="lede">People wait in the emergency department to be seen, and often again for a hospital bed. The research says the waiting itself carries risk. Here is how big that problem is.</p>
+        <div class="actions">
+          <a class="btn" href="#talk">Talk with us
+            <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="more" href="#numbers">See the numbers
+            <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M10 4v11m-4.5-4.5L10 15l4.5-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
 
-          <div class="track" role="img" aria-label="A timeline of an emergency visit: arrive, triage, then a long wait where nobody is watching and a patient can get worse, then finally being seen.">
-            <div class="line">
-              <span class="stop"><b>Arrive</b></span>
-              <span class="stop"><b>Triage</b><i>one snapshot</i></span>
-              <span class="span-wait"><b>Wait</b><i>nobody is watching</i><em class="worse">gets worse here</em></span>
-              <span class="stop"><b>Seen</b><i>hours later</i></span>
+        <figure class="seats" data-total="82" data-cols="41" data-cols-narrow="10" data-at="6" data-kind="lost" data-note="One extra death"
+          aria-label="82 chairs, each an admitted patient waiting in the emergency department for a hospital bed. One is empty, outlined in red.">
+          <div class="seats-field"></div>
+          <figcaption class="seats-cap">
+            <div>
+              <p class="big">1 in 82</p>
+              <p class="what">In England, for every 82 admitted patients kept in the emergency department beyond 6 to 8 hours waiting for a bed, there was one extra death within 30 days.</p>
+              <p class="legend"><span><i class="key"></i>One admitted patient waiting for a bed</span><span><i class="key key-lost"></i>One extra death</span></p>
             </div>
-          </div>
-        </div>
-
-        <div class="facts">
-          <figure class="fact">
-            <blockquote><p>In a study of 5.3 million adult US emergency visits, standard triage identified only <strong>65.9% of patients with high-acuity illness</strong>.</p></blockquote>
-            <figcaption>Sax et al., <a href="https://doi.org/10.1001/jamanetworkopen.2023.3404"><cite>JAMA Network Open</cite>, 2023</a></figcaption>
-          </figure>
-          <figure class="fact">
-            <blockquote><p>In England, emergency waits of 12 hours or more were associated with <strong>almost 14,000 excess deaths</strong> in 2023.</p></blockquote>
-            <figcaption><a href="https://rcem.ac.uk/press-release/almost-300-deaths-a-week-in-2023-associated-with-long-ae-waits-despite-uec-recovery-plan/">Royal College of Emergency Medicine, 2024</a></figcaption>
-          </figure>
-        </div>
+            <blockquote class="clip">
+              <p>For every 82 admitted patients whose time to inpatient bed transfer is delayed beyond 6 to 8 hours from time of arrival at the ED, there is one extra death.</p>
+              <cite>Jones et al., <a href="https://doi.org/10.1136/emermed-2021-211572">Emergency Medicine Journal, 2022</a> [1]</cite>
+            </blockquote>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="mission" aria-labelledby="mission-title">
+    <section class="story" id="numbers" aria-labelledby="scale-title">
       <div class="wrap">
-        <h2 id="mission-title">Nobody should get sicker in a waiting room <span>without someone noticing.</span></h2>
-        <p>PrIAge is early, and working on it. If you work in an emergency department, or have waited in one, we'd like to hear from you.</p>
+        <div class="story-head">
+          <h2 id="scale-title">Emergency rooms are where millions of people start their care.</h2>
+          <p>In the United States alone, emergency departments handled 155 million visits in 2022. Each one is a person who came in needing help.</p>
+        </div>
+        <figure class="scale">
+          <figcaption class="seats-cap">
+            <div>
+              <p class="big">155 million</p>
+              <p class="what">US emergency department visits in 2022.</p>
+            </div>
+            <blockquote class="clip">
+              <p>In 2022, 155 million emergency department (ED) visits occurred in the United States.</p>
+              <cite>Cairns, Ashman and Kang, <a href="https://www.cdc.gov/nchs/products/databriefs/db503.htm">NCHS Data Brief No. 503, 2024</a> [2]</cite>
+            </blockquote>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="story" aria-labelledby="triage-title">
+      <div class="wrap">
+        <div class="story-head">
+          <h2 id="triage-title">Triage is a quick snapshot, and the standard scale misses people.</h2>
+          <div>
+            <p>At the door, patients are sorted quickly, with only what can be seen and asked.</p>
+            <p>In a study of 5.3 million adult emergency visits, the standard triage scale correctly flagged about two thirds of patients with high-acuity illness.</p>
+          </div>
+        </div>
+        <figure class="seats" data-total="100" data-cols="25" data-cols-narrow="10" data-marked="34" data-seed="11" data-kind="missed"
+          aria-label="100 chairs, each a patient with high-acuity illness. 34 are red.">
+          <div class="seats-field"></div>
+          <figcaption class="seats-cap">
+            <div>
+              <p class="big">About 34 in 100</p>
+              <p class="what">high-acuity patients were not identified as high-acuity by the standard triage scale.</p>
+              <p class="legend"><span><i class="key"></i>One high-acuity patient</span><span><i class="key key-missed"></i>Not identified as high-acuity</span></p>
+            </div>
+            <blockquote class="clip">
+              <p>The sensitivity of ESI to identify a patient with high-acuity illness (correctly assigning ESI I or II among patients who had a life-stabilizing intervention) was 65.9%.</p>
+              <cite>Sax et al., <a href="https://doi.org/10.1001/jamanetworkopen.2023.3404">JAMA Network Open, 2023</a> [3]</cite>
+            </blockquote>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="story" aria-labelledby="long-title">
+      <div class="wrap">
+        <div class="story-head">
+          <h2 id="long-title">The longer the wait, the higher the risk.</h2>
+          <div>
+            <p>Researchers followed 5.2 million admitted patients in England. After five hours in the emergency department, deaths within 30 days rose steadily with every additional hour, up to twelve.</p>
+            <p>England's emergency physicians estimate what that meant across 2023.</p>
+          </div>
+        </div>
+        <figure class="seats" data-total="268" data-cols="34" data-cols-narrow="14" data-all="1" data-kind="lost"
+          aria-label="268 empty chairs outlined in red: one week of excess deaths in England in 2023 associated with emergency department waits of 12 hours or longer.">
+          <div class="seats-field"></div>
+          <figcaption class="seats-cap">
+            <div>
+              <p class="big">268 a week</p>
+              <p class="what">More than 268 excess deaths a week in England in 2023 were associated with waits of 12 hours or longer, almost 14,000 for the year. Each empty seat is one death.</p>
+            </div>
+            <blockquote class="clip">
+              <p>RCEM estimates that there were almost 14,000 associated excess deaths related to waits of 12 hours or longer in 2023</p>
+              <cite><a href="https://rcem.ac.uk/press-release/almost-300-deaths-a-week-in-2023-associated-with-long-ae-waits-despite-uec-recovery-plan/">Royal College of Emergency Medicine, 2024</a> [4]</cite>
+            </blockquote>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="story" aria-labelledby="leave-title">
+      <div class="wrap">
+        <div class="story-head">
+          <h2 id="leave-title">Some people give up and leave before being seen.</h2>
+          <p>When waits stretch, some patients walk out before a doctor sees them. In Ontario, Canada, the monthly share leaving unseen topped its earlier high of 4.0% in 15 of the 36 months from April 2020, and outcomes after leaving got worse.</p>
+        </div>
+        <figure class="seats" data-total="1000" data-cols="50" data-cols-narrow="25" data-marked="34" data-seed="23" data-kind="missed" data-dense="1"
+          aria-label="1,000 chairs, each an adult in Ontario who left an emergency department without being seen. 34 are red.">
+          <div class="seats-field"></div>
+          <figcaption class="seats-cap">
+            <div>
+              <p class="big">34 in 1,000</p>
+              <p class="what">adults in Ontario who left an emergency department unseen in April 2022 to March 2023 died or were hospitalized within 7 days. In April 2014 to March 2020 it was 29 in 1,000.</p>
+              <p class="legend"><span><i class="key"></i>One person who left unseen</span><span><i class="key key-missed"></i>Died or hospitalized within 7 days</span></p>
+            </div>
+            <blockquote class="clip">
+              <p>The composite outcome of 7-day all-cause mortality or hospitalization was 3.4% in the recent period versus 2.9% in the baseline period</p>
+              <cite>McNaughton et al., <a href="https://doi.org/10.1002/emp2.13299">JACEP Open, 2024</a> [5]</cite>
+            </blockquote>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="talk" id="talk" aria-labelledby="talk-title">
+      <div class="wrap talk-grid">
+        <div>
+          <h2 id="talk-title">We're early, and we're listening.</h2>
+          <p>PrIAge is a small team studying this problem first. If you work in an emergency department, run one, or have waited in one, we'd like to hear what you've seen.</p>
+          <ul class="who" aria-label="Who we'd like to talk to">
+            <li>ER nurses</li>
+            <li>ER doctors</li>
+            <li>Hospital leaders</li>
+            <li>Patients and families</li>
+          </ul>
+        </div>
+        <div class="talk-action">
+          <a class="btn btn-light" href="mailto:hello@priage.app?subject=Talking%20with%20PrIAge&amp;body=Hi%20PrIAge%20team%2C%0A%0AI%27m%20a%20(nurse%20%2F%20doctor%20%2F%20hospital%20leader%20%2F%20patient%20or%20family%20member)%20and%20I%27m%20happy%20to%20talk.%0A%0ATimes%20that%20work%20for%20me%3A%0A%0A">Email us to set up a call
+            <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <p class="talk-mail">Or write to <a href="mailto:hello@priage.app">hello@priage.app</a></p>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="close" id="contact" aria-labelledby="contact-title">
-    <div class="wrap close-grid">
-      <h2 id="contact-title">Questions? Take a number.</h2>
-      <a class="mail-ticket" href="mailto:hello@priage.app">
-        <span class="mail-top">PrIAge · contact</span>
-        <span class="mail-addr">hello@priage.app</span>
-        <span class="mail-foot">Ideas, questions, or your waiting room story</span>
-      </a>
-      <p class="status">PrIAge is an early-stage project. Nothing on this page is a medical device or a medical service, and the patients shown are synthetic. In an emergency, call 911.</p>
-      <p class="legal">© 2026 PrIAge · priage.app</p>
+  <footer class="sources" aria-labelledby="sources-title">
+    <div class="wrap">
+      <h2 id="sources-title">Sources</h2>
+      <ol>
+        <li>Jones S, Moulton C, Swift S, et al. Association between delays to patient admission from the emergency department and all-cause 30-day mortality. <i>Emergency Medicine Journal</i>. 2022;39(3):168-173. <a href="https://doi.org/10.1136/emermed-2021-211572">doi:10.1136/emermed-2021-211572</a></li>
+        <li>Cairns C, Ashman JJ, Kang K. Emergency Department Visit Rates by Selected Characteristics: United States, 2022. NCHS Data Brief No. 503. National Center for Health Statistics; 2024. <a href="https://www.cdc.gov/nchs/products/databriefs/db503.htm">cdc.gov</a></li>
+        <li>Sax DR, Warton EM, Mark DG, et al. Evaluation of Version 4 of the Emergency Severity Index in US Emergency Departments for the Rate of Mistriage. <i>JAMA Network Open</i>. 2023;6(3):e233404. <a href="https://doi.org/10.1001/jamanetworkopen.2023.3404">doi:10.1001/jamanetworkopen.2023.3404</a></li>
+        <li>Royal College of Emergency Medicine. Almost 300 deaths a week in 2023 associated with long A&amp;E waits despite UEC Recovery Plan. Press release, 1 April 2024. <a href="https://rcem.ac.uk/press-release/almost-300-deaths-a-week-in-2023-associated-with-long-ae-waits-despite-uec-recovery-plan/">rcem.ac.uk</a></li>
+        <li>McNaughton CD, Austin PC, Chu A, et al. Turbulence in the system: higher rates of left-without-being-seen emergency department visits and associations with increased risks of adverse patient outcomes since 2020. <i>JACEP Open</i>. 2024. <a href="https://doi.org/10.1002/emp2.13299">doi:10.1002/emp2.13299</a></li>
+      </ol>
+      <div class="foot">
+        <p>PrIAge is an early-stage project. Nothing on this page is medical advice. In an emergency, call 911.</p>
+        <p>© 2026 PrIAge · priage.app</p>
+      </div>
     </div>
   </footer>
 </body>

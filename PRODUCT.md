@@ -22,7 +22,17 @@ Prevent unnecessary deaths and unnoticed deterioration in emergency waiting room
 
 ## Positioning
 
-The waiting room runs on arrival order and a one-time triage snapshot; nobody watches how patients are doing while they wait. PrIAge exists to close that blind spot. No mechanism is claimed.
+After a one-time triage snapshot, patients can wait for hours while nobody sees how they are doing. PrIAge exists to give nurses more information so they can make their own calls; nurses decide, always. No mechanism is claimed.
+
+## Public Story (confirmed 2026-10-17)
+
+- Tell the problem's story without presenting a solution yet: how big, how severe, how important.
+- Proof is sourced statistics only (journals, health agencies). Research notes: `research/problem-stats.md`.
+- Never imply reordering, ranking or skipping patients ("the changes ... and skipping people over has tons of implications").
+- Never blame nurses or hospitals; the system is overloaded.
+- No sensational or scary tone, and no playful devices around a life-and-death topic.
+- The big ask (confirmed 2026-10-17): talk to people and schedule time to learn about their problems. Audiences: ER nurses, ER doctors, hospital leaders (ED directors, nurse managers, quality and safety), and patients and families who have waited in an ER. For now booking is an email to hello@priage.app with a pre-filled note; a booking link may replace it later.
+- The first ticket-dispenser concept (v1) told the idea "almost too playfully"; the rebuild starts fresh visually. Only name, domain and contact carry over.
 
 ## Capabilities and Constraints
 
