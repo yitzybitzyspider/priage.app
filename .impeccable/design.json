@@ -1,0 +1,402 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-17T18:06:12+00:00",
+  "title": "Design System: PrIAge",
+  "extensions": {
+    "colorMeta": {
+      "seat": {
+        "role": "primary",
+        "displayName": "Molded Seat Blue",
+        "canonical": "#2b5d87",
+        "tonalRamp": [
+          "#12283a",
+          "#204565",
+          "#2e638f",
+          "#3b80ba",
+          "#649ece",
+          "#93bbdd",
+          "#c1d8eb",
+          "#ecf3f9"
+        ]
+      },
+      "seat-deep": {
+        "role": "primary",
+        "displayName": "Deep Seat Blue",
+        "canonical": "#1f4566",
+        "tonalRamp": [
+          "#12283b",
+          "#1f4566",
+          "#2c6291",
+          "#397fbc",
+          "#639dcf",
+          "#91bade",
+          "#c0d8ec",
+          "#ebf3f9"
+        ]
+      },
+      "mark": {
+        "role": "secondary",
+        "displayName": "Exit Sign Red",
+        "canonical": "#c4372b",
+        "tonalRamp": [
+          "#3f120e",
+          "#6d1f18",
+          "#9b2b22",
+          "#c9382c",
+          "#da6258",
+          "#e5918a",
+          "#f0c0bc",
+          "#faebea"
+        ]
+      },
+      "mark-ink": {
+        "role": "secondary",
+        "displayName": "Signage Red Ink",
+        "canonical": "#a5291f",
+        "tonalRamp": [
+          "#40100c",
+          "#701c15",
+          "#9f271e",
+          "#ce3327",
+          "#df5e53",
+          "#e88e87",
+          "#f2beba",
+          "#fbebea"
+        ]
+      },
+      "mark-plate": {
+        "role": "secondary",
+        "displayName": "Red Plate",
+        "canonical": "#f4dcd8",
+        "tonalRamp": [
+          "#3c1711",
+          "#67281d",
+          "#93392a",
+          "#bf4936",
+          "#d27060",
+          "#e09b90",
+          "#edc6bf",
+          "#f9edeb"
+        ]
+      },
+      "floor": {
+        "role": "neutral",
+        "displayName": "Linoleum Grey",
+        "canonical": "#e1e5e4",
+        "tonalRamp": [
+          "#242928",
+          "#3e4745",
+          "#586562",
+          "#72837f",
+          "#92a09d",
+          "#b2bdba",
+          "#d3d9d8",
+          "#f1f3f3"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Fluorescent Panel",
+        "canonical": "#f7f8f7",
+        "tonalRamp": [
+          "#242924",
+          "#3e473e",
+          "#586558",
+          "#728372",
+          "#92a092",
+          "#b3bcb3",
+          "#d3d9d3",
+          "#f1f3f1"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Chart Ink",
+        "canonical": "#1a1d1f",
+        "tonalRamp": [
+          "#23272a",
+          "#3c4348",
+          "#566067",
+          "#707d85",
+          "#909ba2",
+          "#b1b9be",
+          "#d3d7da",
+          "#f1f2f3"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#485056",
+        "tonalRamp": [
+          "#23272a",
+          "#3c4348",
+          "#566067",
+          "#707c85",
+          "#909aa2",
+          "#b1b9be",
+          "#d3d7da",
+          "#f1f2f3"
+        ]
+      },
+      "beam": {
+        "role": "neutral",
+        "displayName": "Steel Beam",
+        "canonical": "#8b969d",
+        "tonalRamp": [
+          "#232729",
+          "#3d4448",
+          "#566066",
+          "#707d85",
+          "#909ba2",
+          "#b2b9be",
+          "#d3d7da",
+          "#f1f2f3"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#c5cccd",
+        "tonalRamp": [
+          "#232829",
+          "#3d4647",
+          "#576465",
+          "#718183",
+          "#919fa1",
+          "#b2bcbd",
+          "#d3d8d9",
+          "#f1f3f3"
+        ]
+      },
+      "on-seat": {
+        "role": "neutral",
+        "displayName": "On Seat White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#262626",
+          "#424242",
+          "#5e5e5e",
+          "#7a7a7a",
+          "#999999",
+          "#b8b8b8",
+          "#d6d6d6",
+          "#f2f2f2"
+        ]
+      },
+      "on-seat-soft": {
+        "role": "neutral",
+        "displayName": "On Seat Mist",
+        "canonical": "#d9e6f1",
+        "tonalRamp": [
+          "#152838",
+          "#244561",
+          "#33628a",
+          "#427fb3",
+          "#6a9dc8",
+          "#97bad9",
+          "#c3d8e9",
+          "#ecf3f8"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The single page headline."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "One per story section; larger cut on the talk band, smaller on Sources."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "The large number under each seat field, ratio or count in words."
+      },
+      "wordmark": {
+        "displayName": "Wordmark",
+        "purpose": "The PrIAge name, set as type."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Hero sub, max 54ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading text, max 50ch in story heads."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "The plain-language what line and the source quote."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Citations, legends, source list, footer."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Overpass 800 on every button."
+      }
+    },
+    "shadows": [
+      {
+        "name": "panel-rest",
+        "value": "0 1px 0 #c5cccd, 0 24px 40px -30px rgb(26 29 31 / 0.35)",
+        "purpose": "Seat field panels only."
+      },
+      {
+        "name": "button-lift",
+        "value": "0 10px 20px -12px rgb(31 69 102 / 0.7)",
+        "purpose": "Primary blue button."
+      },
+      {
+        "name": "light-button-lift",
+        "value": "0 14px 26px -14px rgb(0 0 0 / 0.5)",
+        "purpose": "White button on the blue band."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Button lift transform (200ms)."
+      },
+      {
+        "name": "seat-step",
+        "value": "120ms steps(2, jump-none)",
+        "purpose": "Marked seats switch to red in hard two-frame steps; 300ms initial hold, 45ms stagger per filled seat, 12ms per outlined seat in large sets."
+      },
+      {
+        "name": "seat-label-fade",
+        "value": "200ms ease-out 600ms",
+        "purpose": "On-field seat label appears after the seats mark."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "final state",
+        "purpose": "Under prefers-reduced-motion every field renders marked, with no transitions or smooth scroll."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "medium",
+        "value": "1023px"
+      },
+      {
+        "name": "phone",
+        "value": "759px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Molded Seat Blue action with trailing arrow; the page's main call to talk.",
+      "html": "<a class=\"ds-btn\" href=\"#\">Talk with us <svg aria-hidden=\"true\" viewBox=\"0 0 20 20\" width=\"18\" height=\"18\"><path d=\"M4 10h11m-4.5-4.5L15 10l-4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a>",
+      "css": ":host{--floor:#e1e5e4;--panel:#f7f8f7;--ink:#1a1d1f;--ink-soft:#485056;--seat:#2b5d87;--seat-deep:#1f4566;--beam:#8b969d;--rule:#c5cccd;--mark:#c4372b;--mark-ink:#a5291f;--on-seat:#fff;--on-seat-soft:#d9e6f1;--sign:'Overpass','Helvetica Neue',Arial,sans-serif;--text:'Atkinson Hyperlegible Next',system-ui,sans-serif;}.ds-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px 14px;border-radius:6px;background:var(--seat,#2b5d87);color:var(--on-seat,#fff);font-family:var(--sign);font-weight:800;font-size:1.1875rem;line-height:1;text-decoration:none;box-shadow:0 10px 20px -12px rgb(31 69 102 / 0.7);transition:background-color 160ms ease,transform 200ms cubic-bezier(0.16,1,0.3,1);}.ds-btn:hover{background:var(--seat-deep,#1f4566);transform:translateY(-1px);}.ds-btn:active{transform:translateY(1px);}.ds-btn:focus-visible{outline:3px solid var(--seat,#2b5d87);outline-offset:3px;}"
+    },
+    {
+      "name": "Light Button",
+      "kind": "button",
+      "refersTo": "button-light",
+      "description": "White button used only on the blue talk band.",
+      "html": "<div class=\"ds-band-mini\"><a class=\"ds-btn ds-btn-light\" href=\"#\">Email us to set up a call <svg aria-hidden=\"true\" viewBox=\"0 0 20 20\" width=\"18\" height=\"18\"><path d=\"M4 10h11m-4.5-4.5L15 10l-4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a></div>",
+      "css": ":host{--floor:#e1e5e4;--panel:#f7f8f7;--ink:#1a1d1f;--ink-soft:#485056;--seat:#2b5d87;--seat-deep:#1f4566;--beam:#8b969d;--rule:#c5cccd;--mark:#c4372b;--mark-ink:#a5291f;--on-seat:#fff;--on-seat-soft:#d9e6f1;--sign:'Overpass','Helvetica Neue',Arial,sans-serif;--text:'Atkinson Hyperlegible Next',system-ui,sans-serif;}.ds-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px 14px;border-radius:6px;background:var(--seat,#2b5d87);color:var(--on-seat,#fff);font-family:var(--sign);font-weight:800;font-size:1.1875rem;line-height:1;text-decoration:none;box-shadow:0 10px 20px -12px rgb(31 69 102 / 0.7);transition:background-color 160ms ease,transform 200ms cubic-bezier(0.16,1,0.3,1);}.ds-btn:hover{background:var(--seat-deep,#1f4566);transform:translateY(-1px);}.ds-btn:active{transform:translateY(1px);}.ds-btn:focus-visible{outline:3px solid var(--seat,#2b5d87);outline-offset:3px;}.ds-band-mini{background:var(--seat);padding:32px;}.ds-btn-light{background:var(--on-seat);color:var(--seat-deep);box-shadow:0 14px 26px -14px rgb(0 0 0 / 0.5);}.ds-btn-light:hover{background:#e8f0f7;}.ds-btn-light:focus-visible{outline-color:var(--on-seat);}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav-talk",
+      "description": "Overpass wordmark left; plain link and compact blue talk action right.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-wordmark\" href=\"#\">PrIAge</a><ul><li><a href=\"#\">The numbers</a></li><li><a class=\"ds-nav-talk\" href=\"#\">Talk with us</a></li></ul></nav>",
+      "css": ":host{--floor:#e1e5e4;--panel:#f7f8f7;--ink:#1a1d1f;--ink-soft:#485056;--seat:#2b5d87;--seat-deep:#1f4566;--beam:#8b969d;--rule:#c5cccd;--mark:#c4372b;--mark-ink:#a5291f;--on-seat:#fff;--on-seat-soft:#d9e6f1;--sign:'Overpass','Helvetica Neue',Arial,sans-serif;--text:'Atkinson Hyperlegible Next',system-ui,sans-serif;}.ds-nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 24px;background:var(--floor);color:var(--ink);font-family:var(--text);}.ds-wordmark{font-family:var(--sign);font-weight:900;font-size:1.75rem;line-height:1;letter-spacing:-0.01em;text-decoration:none;color:inherit;}.ds-nav ul{display:flex;align-items:center;gap:32px;margin:0;padding:0;list-style:none;}.ds-nav ul a{color:inherit;font-weight:600;font-size:1rem;text-decoration-thickness:2px;text-underline-offset:0.2em;text-decoration-color:transparent;}.ds-nav ul a:hover{text-decoration-color:currentColor;}.ds-nav .ds-nav-talk{padding:9px 16px 8px;border-radius:6px;background:var(--seat);color:var(--on-seat);}.ds-nav .ds-nav-talk:hover{background:var(--seat-deep);}.ds-nav a:focus-visible{outline:3px solid var(--seat);outline-offset:3px;border-radius:3px;}"
+    },
+    {
+      "name": "Seat Field",
+      "kind": "custom",
+      "refersTo": "seat-field",
+      "description": "Signature unit: one chair per patient on a steel beam, red only for the counted seats.",
+      "html": "<div class=\"ds-field\"><svg viewBox=\"0 -2 556 34\" width=\"100%\"><rect x=\"0\" y=\"23\" width=\"556\" height=\"2.5\" fill=\"#8b969d\"/><rect x=\"1.5\" y=\"24\" width=\"2\" height=\"6\" fill=\"#8b969d\"/><rect x=\"141.5\" y=\"24\" width=\"2\" height=\"6\" fill=\"#8b969d\"/><rect x=\"281.5\" y=\"24\" width=\"2\" height=\"6\" fill=\"#8b969d\"/><rect x=\"421.5\" y=\"24\" width=\"2\" height=\"6\" fill=\"#8b969d\"/><rect x=\"553\" y=\"24\" width=\"2\" height=\"6\" fill=\"#8b969d\"/><g transform=\"translate(0 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(28 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(56 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(84 0)\" fill=\"#c4372b\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(112 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(140 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(168 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(196 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(224 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(252 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(280 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(308 0)\" fill=\"#c4372b\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(336 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(364 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(392 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(420 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(448 0)\" fill=\"#c4372b\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(476 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(504 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(532 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g></svg></div>",
+      "css": ":host{--floor:#e1e5e4;--panel:#f7f8f7;--ink:#1a1d1f;--ink-soft:#485056;--seat:#2b5d87;--seat-deep:#1f4566;--beam:#8b969d;--rule:#c5cccd;--mark:#c4372b;--mark-ink:#a5291f;--on-seat:#fff;--on-seat-soft:#d9e6f1;--sign:'Overpass','Helvetica Neue',Arial,sans-serif;--text:'Atkinson Hyperlegible Next',system-ui,sans-serif;}.ds-field{padding:24px;background:var(--panel);border-radius:4px;box-shadow:0 1px 0 var(--rule),0 24px 40px -30px rgb(26 29 31 / 0.35);}.ds-field svg{display:block;overflow:visible;}"
+    },
+    {
+      "name": "Named Seat",
+      "kind": "custom",
+      "refersTo": "seat-field",
+      "description": "A single lost seat: empty chair outlined in red on a pale red plate, labeled directly on the field.",
+      "html": "<div class=\"ds-field\"><svg viewBox=\"0 -34 332 66\" width=\"100%\"><rect x=\"165\" y=\"-3\" width=\"30\" height=\"28\" rx=\"3\" fill=\"#f4dcd8\"/><rect x=\"0\" y=\"23\" width=\"332\" height=\"2.5\" fill=\"#8b969d\"/><rect x=\"1.5\" y=\"24\" width=\"2\" height=\"6\" fill=\"#8b969d\"/><rect x=\"141.5\" y=\"24\" width=\"2\" height=\"6\" fill=\"#8b969d\"/><rect x=\"281.5\" y=\"24\" width=\"2\" height=\"6\" fill=\"#8b969d\"/><g transform=\"translate(0 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(28 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(56 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(84 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(112 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(140 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(168 0)\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\" fill=\"none\" stroke=\"#c4372b\" stroke-width=\"2.2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\" fill=\"none\" stroke=\"#c4372b\" stroke-width=\"2.2\"/></g><g transform=\"translate(196 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(224 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(252 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(280 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><g transform=\"translate(308 0)\" fill=\"#2b5d87\"><rect x=\"3\" y=\"1\" width=\"18\" height=\"14\" rx=\"2\"/><rect x=\"1.5\" y=\"16.5\" width=\"21\" height=\"5\" rx=\"1\"/></g><line x1=\"180\" x2=\"180\" y1=\"-14\" y2=\"-5\" stroke=\"#a5291f\" stroke-width=\"1.5\"/><text x=\"178\" y=\"-18\" fill=\"#a5291f\" font-family=\"Overpass, sans-serif\" font-weight=\"800\" font-size=\"17\">One extra death</text></svg></div>",
+      "css": ":host{--floor:#e1e5e4;--panel:#f7f8f7;--ink:#1a1d1f;--ink-soft:#485056;--seat:#2b5d87;--seat-deep:#1f4566;--beam:#8b969d;--rule:#c5cccd;--mark:#c4372b;--mark-ink:#a5291f;--on-seat:#fff;--on-seat-soft:#d9e6f1;--sign:'Overpass','Helvetica Neue',Arial,sans-serif;--text:'Atkinson Hyperlegible Next',system-ui,sans-serif;}.ds-field{padding:24px;background:var(--panel);border-radius:4px;box-shadow:0 1px 0 var(--rule),0 24px 40px -30px rgb(26 29 31 / 0.35);}.ds-field svg{display:block;overflow:visible;}"
+    },
+    {
+      "name": "Figure Caption",
+      "kind": "card",
+      "refersTo": "figure-number",
+      "description": "Figure number, plain what line and legend beside the verbatim source quote.",
+      "html": "<div class=\"ds-cap\"><div><p class=\"ds-big\">1 in 82</p><p class=\"ds-what\">For every 82 admitted patients kept beyond 6 to 8 hours waiting for a bed, there was one extra death within 30 days.</p><p class=\"ds-legend\"><span><i class=\"ds-key\"></i>One admitted patient</span><span><i class=\"ds-key ds-key-lost\"></i>One extra death</span></p></div><blockquote class=\"ds-clip\"><p>For every 82 admitted patients whose time to inpatient bed transfer is delayed beyond 6 to 8 hours from time of arrival at the ED, there is one extra death.</p><cite>Jones et al., <a href=\"#\">Emergency Medicine Journal, 2022</a> [1]</cite></blockquote></div>",
+      "css": ":host{--floor:#e1e5e4;--panel:#f7f8f7;--ink:#1a1d1f;--ink-soft:#485056;--seat:#2b5d87;--seat-deep:#1f4566;--beam:#8b969d;--rule:#c5cccd;--mark:#c4372b;--mark-ink:#a5291f;--on-seat:#fff;--on-seat-soft:#d9e6f1;--sign:'Overpass','Helvetica Neue',Arial,sans-serif;--text:'Atkinson Hyperlegible Next',system-ui,sans-serif;}.ds-cap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:20px 48px;align-items:start;padding:24px;background:var(--floor);color:var(--ink);font-family:var(--text);}.ds-cap p,.ds-cap blockquote{margin:0;}.ds-big{font-family:var(--sign);font-weight:900;font-size:clamp(3rem,1.8rem + 4vw,5.25rem);line-height:0.95;letter-spacing:-0.02em;color:var(--mark-ink);font-variant-numeric:tabular-nums;}.ds-what{margin-top:12px;font-size:1.0625rem;line-height:1.6;max-width:40ch;}.ds-legend{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 22px;font-size:0.9375rem;color:var(--ink-soft);}.ds-legend span{display:inline-flex;align-items:center;gap:8px;}.ds-key{width:14px;height:14px;border-radius:3px;background:var(--seat);}.ds-key-lost{background:transparent;box-shadow:inset 0 0 0 2px var(--mark);}.ds-clip{padding-top:16px;border-top:2px solid var(--ink);font-size:1.0625rem;line-height:1.55;}.ds-clip p::before{content:'\\201C';}.ds-clip p::after{content:'\\201D';}.ds-clip cite{display:block;margin-top:10px;font-style:normal;font-size:0.9375rem;color:var(--ink-soft);}.ds-clip a{color:inherit;text-decoration-thickness:2px;text-underline-offset:0.2em;}.ds-clip a:hover{text-decoration-thickness:3px;}"
+    },
+    {
+      "name": "Talk Band",
+      "kind": "card",
+      "refersTo": "talk-band",
+      "description": "Full-bleed blue invitation with audience list and light button.",
+      "html": "<section class=\"ds-talk\"><h2>We're early, and we're listening.</h2><ul class=\"ds-who\"><li>ER nurses</li><li>ER doctors</li><li>Hospital leaders</li><li>Patients and families</li></ul></section>",
+      "css": ":host{--floor:#e1e5e4;--panel:#f7f8f7;--ink:#1a1d1f;--ink-soft:#485056;--seat:#2b5d87;--seat-deep:#1f4566;--beam:#8b969d;--rule:#c5cccd;--mark:#c4372b;--mark-ink:#a5291f;--on-seat:#fff;--on-seat-soft:#d9e6f1;--sign:'Overpass','Helvetica Neue',Arial,sans-serif;--text:'Atkinson Hyperlegible Next',system-ui,sans-serif;}.ds-talk{background:var(--seat);color:var(--on-seat);padding:56px 32px;}.ds-talk h2{margin:0;font-family:var(--sign);font-weight:800;letter-spacing:-0.015em;font-size:clamp(2.5rem,1.4rem + 3.8vw,4.75rem);line-height:1.02;max-width:14ch;}.ds-who{margin:28px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:10px 26px;font-family:var(--sign);font-weight:700;font-size:1.0625rem;}.ds-who li{display:inline-flex;align-items:center;gap:10px;}.ds-who li::before{content:'';width:9px;height:9px;border-radius:2px;background:var(--on-seat-soft);}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Waiting Room",
+    "overview": "Every figure is told in seats. The emergency department waiting room, with its joined rows of molded chairs bolted to a steel beam, is the unit of measure for the whole system: one chair is one patient, always. The page is the room itself: a cool linoleum grey floor, fluorescent white panels that hold the seat fields, hospital-blue chairs, near-black ink, and a single emergency-signage red that touches only the seats a figure is about.\n\nThe mood is sober, plain and institutional, the way good hospital wayfinding is plain. Headings and numbers speak in Overpass, a face from the highway-sign lineage; reading text is Atkinson Hyperlegible Next, built for legibility. Density is calm: generous section rhythm, wide seat fields, and a short caption block under each field that pairs the large number with its verbatim source sentence. Nothing decorates; every mark on the page either counts a person or cites where the count came from.\n\nThe system rejects playful devices around a life-and-death topic (an earlier ticket-dispenser concept was rejected for exactly that), the cause-page counter row, and the health-tech split hero.",
+    "keyCharacteristics": [
+      "One chair equals one patient on every seat field; scale numbers too large for chairs are a type beat, never a field.",
+      "Red appears only on the seats a figure is about, on the figure number that counts them, and on the label that names them.",
+      "Every number stands next to its source sentence, quoted as published, with a citation.",
+      "Two faces with fixed jobs: Overpass signs and counts, Atkinson reads.",
+      "Stark geometric chair glyphs on steel beams, never soft, cute or illustrated.",
+      "Motion is held frames: marked seats switch to red one after another in hard two-frame steps; reduced motion shows the final state."
+    ],
+    "rules": [
+      {
+        "name": "The Signage Red Rule",
+        "body": "Red is reserved for the seats a figure is about, the number that counts them, and the label that names them. It never decorates a heading, a button, a link or a section.",
+        "section": "colors"
+      },
+      {
+        "name": "The Room Palette Rule",
+        "body": "Every other surface takes its color from the room: floor, panel, seat, beam, ink. A new color must be something you would find in an ER waiting room.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two-Face Rule",
+        "body": "Overpass is for signs and numbers (headings, figures, buttons, seat labels, list markers); Atkinson Hyperlegible Next is for anything a person reads as a sentence. Do not swap them.",
+        "section": "typography"
+      },
+      {
+        "name": "The Plain Number Rule",
+        "body": "Figures use tabular numerals and words a person would say aloud (\"268 a week\"), never abbreviations or decorative digit styles.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "**Do** draw every patient figure as a seat field where one chair is exactly one patient; show the full denominator.",
+      "**Do** use a number beat (Figure type, no field) when a count is too large to draw at one chair per patient.",
+      "**Do** place the verbatim published source sentence, in quotes, beside every number, with a linked citation and an entry in the Source List.",
+      "**Do** keep red to the seats a figure is about, the number that counts them, and the label that names them.",
+      "**Do** set headings, figures, buttons and seat labels in Overpass, and every reading sentence in Atkinson Hyperlegible Next.",
+      "**Do** write in a sober, plain, factual tone: name the problem, never a villain; the system is overloaded.",
+      "**Do** honor reduced motion by showing every field in its final state.",
+      "**Do** meet WCAG 2.2 AA: red text uses Signage Red Ink, never Exit Sign Red."
+    ],
+    "donts": [
+      "**Don't** publish a statistic without a journal or health-agency source, and don't round, restate or strengthen a published figure beyond what the source sentence says.",
+      "**Don't** let a chair stand for anything other than one patient (no \"each chair is 1,000 people\").",
+      "**Don't** use red for headings, buttons, links, section backgrounds or emphasis.",
+      "**Don't** add playful devices: no mascots, tickets, counters, confetti, cute or rounded-blob chair glyphs, or jokey copy.",
+      "**Don't** build the cause-page counter row or the health-tech split hero.",
+      "**Don't** use em dashes or en dashes anywhere in copy; use commas, colons, \"to\" for ranges, or a new sentence.",
+      "**Don't** add hard offset shadows, glows or stacked cards; depth stays at the two soft lifts."
+    ]
+  }
+}
