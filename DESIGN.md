@@ -282,3 +282,12 @@ Each number is told with an object from the waiting room, not a generic chart, a
 - **Two bills (cost).** Flat white receipts with a zigzag torn edge (CSS mask), a wayfinding plate (IN THE ER in Mark, UPSTAIRS in Seat Deep), cost and nursing minutes as Overpass 900 numbers, and a 24-hour strip showing nursing time. A third column carries the live difference (+$863 a day, 20 fewer minutes; ICU +$102, 368 fewer). No thick top borders; no shadows inside panels.
 - **Big numbers that run long** ("802,000 → 674,000") use `.big-long`, one step smaller than `.big`.
 - **Team.** Two-column list, 2px Ink rule above each person, a square photo (4px radius, color softened to saturate 0.8: never grayscale, which reads as a memorial on this topic), name in Overpass 800, a one-word background tag in Seat Deep caps, a short bio, and one link.
+
+## Scroll-driven scenes (2026-10-17, v8)
+
+- **No controls.** No buttons, tabs, toggles or sliders anywhere. The scroll is the only input.
+- **Question first.** Every scene panel opens with `.scene-q`, one plain question in Overpass 800 that the scene answers. Running answers sit below the scene (`.scene-read`, `.room-num`, `.clock-read`, `.ward-read`).
+- **Held scenes.** A scene that shows change (triage seats, the filling room, the clock, the hospital, the lockers) sits in a `.track` taller than the panel; the panel is `position: sticky` under the header and the scene plays from 0 to 1 across the track (`span` in viewport heights, a short hold at each end). If the panel is taller than the screen minus the header and the phone ask bar, it does not stick and plays as it passes mid-screen instead.
+- **Static scenes.** The exit signs and the two bills have no steps; the bills' nursing-time strips fill once on view.
+- **One point per scene.** Exit signs show death within 30 days only; the hospital shows before and after the pandemic only; the lockers show one reason; the bills show a regular bed only.
+- **Separators.** The dot between source details is a drawn circle (`.sep`), because Overpass's middle dot sits off-center.
