@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PrIAge logo options</title>
+<style>
+@font-face { font-family: "Overpass"; src: url("../docs/fonts/overpass.woff2") format("woff2"); font-weight: 100 900; }
+@font-face { font-family: "Atkinson"; src: url("../docs/fonts/atkinson-next.woff2") format("woff2"); font-weight: 200 800; }
+:root { --floor:#e1e5e4; --panel:#f7f8f7; --ink:#1a1d1f; --soft:#485056; --seat:#2b5d87; --deep:#1f4566; --pale:#a9c1d6; --beam:#8b969d; }
+* { box-sizing: border-box; margin: 0; }
+body { background: var(--floor); color: var(--ink); font-family: Atkinson, system-ui, sans-serif; padding: 40px 24px 64px; }
+h1 { font: 800 28px/1.1 Overpass; margin-bottom: 6px; }
+.intro { color: var(--soft); margin-bottom: 28px; max-width: 70ch; }
+.grid { display: grid; gap: 24px; max-width: 1100px; }
+.opt { background: var(--panel); border-radius: 6px; padding: 28px; box-shadow: 0 1px 0 #c5cccd; }
+.opt h2 { font: 800 18px/1 Overpass; margin-bottom: 4px; }
+.opt p.why { color: var(--soft); font-size: 15px; margin-bottom: 22px; max-width: 75ch; }
+.row { display: flex; flex-wrap: wrap; gap: 28px; align-items: center; }
+.tile { padding: 22px 26px; border-radius: 6px; display: flex; align-items: center; }
+.on-floor { background: var(--floor); }
+.on-blue { background: var(--seat); }
+.on-white { background: #fff; box-shadow: inset 0 0 0 1px #d8dddd; }
+.sizes { display: flex; gap: 14px; align-items: flex-end; }
+.wm { font-family: Overpass; font-weight: 900; letter-spacing: -0.01em; line-height: 1; }
+.wm .ia { color: var(--seat); }
+.on-blue .wm, .on-blue .wm .ia { color: #fff; }
+.on-blue .wm .ia { color: #cfe0ee; }
+</style>
+</head>
+<body>
+<h1>PrIAge logo options</h1>
+<p class="intro">All three fix the "Prlage" misread by giving the capital I serifs, and set "IA" in seat blue so the name reads as Pr + IA + ge. None uses red: on the site, red only marks the patients a figure is about.</p>
+<div class="grid">
+
+<section class="opt">
+  <h2>A. The seat</h2>
+  <p class="why">One waiting-room chair, the unit of every figure on the site, in a blue tile: tall back, seat, legs, so it reads as a chair even at 16 pixels. Simple, works as an app icon and favicon.</p>
+  <div class="row">
+    <div class="tile on-floor"><svg width="240" height="56" viewBox="0 0 240 56" aria-label="PrIAge logo A">
+      <rect x="0" y="0" width="56" height="56" rx="12" fill="#2b5d87"/><rect x="18" y="6" width="20" height="25" rx="3" fill="#fff"/><rect x="12.5" y="33" width="31" height="6" rx="1.5" fill="#fff"/><rect x="15.5" y="39" width="3.5" height="10" rx="1" fill="#cfe0ee"/><rect x="37" y="39" width="3.5" height="10" rx="1" fill="#cfe0ee"/>
+      <g class="wordmark" data-x="70" data-y="41" data-size="36" data-ink="#1a1d1f" data-ia="#2b5d87"></g>
+    </svg></div>
+    <div class="tile on-blue"><svg width="240" height="56" viewBox="0 0 240 56">
+      <rect x="0" y="0" width="56" height="56" rx="12" fill="#fff"/><rect x="18" y="6" width="20" height="25" rx="3" fill="#2b5d87"/><rect x="12.5" y="33" width="31" height="6" rx="1.5" fill="#2b5d87"/><rect x="15.5" y="39" width="3.5" height="10" rx="1" fill="#1f4566"/><rect x="37" y="39" width="3.5" height="10" rx="1" fill="#1f4566"/>
+      <g class="wordmark" data-x="70" data-y="41" data-size="36" data-ink="#fff" data-ia="#cfe0ee"></g>
+    </svg></div>
+    <div class="sizes">
+      <svg width="64" height="64" viewBox="0 0 56 56"><rect width="56" height="56" rx="12" fill="#2b5d87"/><rect x="18" y="6" width="20" height="25" rx="3" fill="#fff"/><rect x="12.5" y="33" width="31" height="6" rx="1.5" fill="#fff"/><rect x="15.5" y="39" width="3.5" height="10" rx="1" fill="#cfe0ee"/><rect x="37" y="39" width="3.5" height="10" rx="1" fill="#cfe0ee"/></svg>
+      <svg width="32" height="32" viewBox="0 0 56 56"><rect width="56" height="56" rx="12" fill="#2b5d87"/><rect x="18" y="6" width="20" height="25" rx="3" fill="#fff"/><rect x="12.5" y="33" width="31" height="6" rx="1.5" fill="#fff"/><rect x="15.5" y="39" width="3.5" height="10" rx="1" fill="#cfe0ee"/><rect x="37" y="39" width="3.5" height="10" rx="1" fill="#cfe0ee"/></svg>
+      <svg width="16" height="16" viewBox="0 0 56 56"><rect width="56" height="56" rx="12" fill="#2b5d87"/><rect x="18" y="6" width="20" height="25" rx="3" fill="#fff"/><rect x="12.5" y="33" width="31" height="6" rx="1.5" fill="#fff"/><rect x="15.5" y="39" width="3.5" height="10" rx="1" fill="#cfe0ee"/><rect x="37" y="39" width="3.5" height="10" rx="1" fill="#cfe0ee"/></svg>
+    </div>
+  </div>
+</section>
+
+<section class="opt">
+  <h2>B. The row</h2>
+  <p class="why">Three joined chairs on a beam. The middle one is a paler blue: the person who is hard to see. Tells the problem in one glance, without saying how you'll solve it.</p>
+  <div class="row">
+    <div class="tile on-floor"><svg width="300" height="56" viewBox="0 0 300 56" aria-label="PrIAge logo B">
+      <g fill="#2b5d87"><rect x="2" y="12" width="20" height="18" rx="2.5"/><rect x="0" y="32" width="24" height="5.5" rx="1.2"/></g>
+      <g fill="#a9c1d6"><rect x="32" y="12" width="20" height="18" rx="2.5"/><rect x="30" y="32" width="24" height="5.5" rx="1.2"/></g>
+      <g fill="#2b5d87"><rect x="62" y="12" width="20" height="18" rx="2.5"/><rect x="60" y="32" width="24" height="5.5" rx="1.2"/></g>
+      <rect x="0" y="41" width="84" height="3" rx="1.5" fill="#8b969d"/><rect x="3" y="44" width="3" height="7" fill="#8b969d"/><rect x="78" y="44" width="3" height="7" fill="#8b969d"/>
+      <g class="wordmark" data-x="100" data-y="41" data-size="36" data-ink="#1a1d1f" data-ia="#2b5d87"></g>
+    </svg></div>
+    <div class="tile on-blue"><svg width="300" height="56" viewBox="0 0 300 56">
+      <g fill="#fff"><rect x="2" y="12" width="20" height="18" rx="2.5"/><rect x="0" y="32" width="24" height="5.5" rx="1.2"/></g>
+      <g fill="#6f93b3"><rect x="32" y="12" width="20" height="18" rx="2.5"/><rect x="30" y="32" width="24" height="5.5" rx="1.2"/></g>
+      <g fill="#fff"><rect x="62" y="12" width="20" height="18" rx="2.5"/><rect x="60" y="32" width="24" height="5.5" rx="1.2"/></g>
+      <rect x="0" y="41" width="84" height="3" rx="1.5" fill="#cfe0ee"/><rect x="3" y="44" width="3" height="7" fill="#cfe0ee"/><rect x="78" y="44" width="3" height="7" fill="#cfe0ee"/>
+      <g class="wordmark" data-x="100" data-y="41" data-size="36" data-ink="#fff" data-ia="#cfe0ee"></g>
+    </svg></div>
+    <div class="sizes">
+      <svg width="64" height="64" viewBox="0 0 56 56"><rect width="56" height="56" rx="12" fill="#2b5d87"/><g fill="#fff"><rect x="6" y="17" width="11" height="10" rx="1.5"/><rect x="5" y="28" width="13" height="3.5" rx="1"/><rect x="39" y="17" width="11" height="10" rx="1.5"/><rect x="38" y="28" width="13" height="3.5" rx="1"/></g><g fill="#7ea2c2"><rect x="22.5" y="17" width="11" height="10" rx="1.5"/><rect x="21.5" y="28" width="13" height="3.5" rx="1"/></g><rect x="5" y="34" width="46" height="2.5" rx="1.2" fill="#cfe0ee"/></svg>
+      <svg width="32" height="32" viewBox="0 0 56 56"><rect width="56" height="56" rx="12" fill="#2b5d87"/><g fill="#fff"><rect x="6" y="17" width="11" height="10" rx="1.5"/><rect x="5" y="28" width="13" height="3.5" rx="1"/><rect x="39" y="17" width="11" height="10" rx="1.5"/><rect x="38" y="28" width="13" height="3.5" rx="1"/></g><g fill="#7ea2c2"><rect x="22.5" y="17" width="11" height="10" rx="1.5"/><rect x="21.5" y="28" width="13" height="3.5" rx="1"/></g><rect x="5" y="34" width="46" height="2.5" rx="1.2" fill="#cfe0ee"/></svg>
+    </div>
+  </div>
+</section>
+
+<section class="opt">
+  <h2>C. Wordmark only</h2>
+  <p class="why">No symbol: the name does the work. Serifed capital I, "IA" in seat blue, set like hospital wayfinding. Quietest and most flexible; weakest as an app icon.</p>
+  <div class="row">
+    <div class="tile on-floor"><svg width="220" height="56" viewBox="0 0 220 56" aria-label="PrIAge logo C"><g class="wordmark" data-x="0" data-y="42" data-size="46" data-ink="#1a1d1f" data-ia="#2b5d87"></g></svg></div>
+    <div class="tile on-blue"><svg width="220" height="56" viewBox="0 0 220 56"><g class="wordmark" data-x="0" data-y="42" data-size="46" data-ink="#fff" data-ia="#cfe0ee"></g></svg></div>
+    <div class="sizes"><svg width="64" height="64" viewBox="0 0 56 56"><rect width="56" height="56" rx="12" fill="#2b5d87"/><g class="wordmark icon-ia" data-x="0" data-y="37" data-size="26" data-ink="#fff" data-ia="#fff" data-only-ia="1"></g></svg></div>
+  </div>
+</section>
+
+</div>
+
+<script>
+// Draw "PrIAge" with a serifed capital I so it can never read as "Prlage".
+document.fonts.ready.then(() => {
+  const NS = "http://www.w3.org/2000/svg";
+  for (const g of document.querySelectorAll(".wordmark")) {
+    const x = +g.dataset.x, y = +g.dataset.y, s = +g.dataset.size, ink = g.dataset.ink, ia = g.dataset.ia;
+    const t = (str, fill, at) => {
+      const e = document.createElementNS(NS, "text");
+      e.setAttribute("x", at); e.setAttribute("y", y); e.setAttribute("fill", fill);
+      e.setAttribute("font-family", "Overpass"); e.setAttribute("font-weight", "900"); e.setAttribute("font-size", s);
+      e.textContent = str; g.append(e); return e.getComputedTextLength();
+    };
+    const only = g.dataset.onlyIa;
+    const pr = only ? 0 : t("Pr", ink, x);
+    const cap = s * 0.705, stem = s * 0.158, serif = s * 0.4, bar = s * 0.11, gap = s * 0.06;
+    const ix = only ? 11 : x + pr + gap, top = y - cap;
+    const I = document.createElementNS(NS, "path");
+    const cx = ix + serif / 2;
+    I.setAttribute("d", `M${ix} ${top}h${serif}v${bar}h${-(serif - stem) / 2}v${cap - 2 * bar}h${(serif - stem) / 2}v${bar}h${-serif}v${-bar}h${(serif - stem) / 2}v${-(cap - 2 * bar)}h${-(serif - stem) / 2}z`);
+    I.setAttribute("fill", ia); g.append(I);
+    const a = t("A", ia, ix + serif + gap * 0.6);
+    if (!only) t("ge", ink, ix + serif + gap * 0.6 + a);
+  }
+});
+</script>
+</body>
+</html>

@@ -4,20 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PrIAge: the ER waiting room is a blind spot</title>
-  <meta name="description" content="After triage, it is hard to see who is getting worse in the ER waiting room. The sourced numbers, and what PrIAge is working on.">
+  <meta name="description" content="Before triage and after it, it is hard to see who is getting worse in the ER waiting room. The sourced numbers, and what PrIAge is working on.">
   <meta name="theme-color" content="#2b5d87">
   <link rel="canonical" href="https://priage.app/">
   <link rel="icon" href="favicon.svg?v=3" type="image/svg+xml">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://priage.app/">
-  <meta property="og:title" content="PrIAge: after triage, the waiting room is a blind spot">
+  <meta property="og:title" content="PrIAge: the ER waiting room is a blind spot">
   <meta property="og:description" content="Sourced numbers on what happens while people wait for emergency care, and what PrIAge is working on.">
-  <meta property="og:image" content="https://priage.app/og.png?v=3">
+  <meta property="og:image" content="https://priage.app/og.png?v=4">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="fonts/overpass.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/atkinson-next.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=3">
-  <script src="app.js?v=3" defer></script>
+  <link rel="stylesheet" href="styles.css?v=4">
+  <script src="app.js?v=4" defer></script>
 </head>
 <body>
   <a class="skip" href="#numbers">Skip to the numbers</a>
@@ -37,8 +37,8 @@
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
       <div class="wrap">
-        <h1 id="hero-title">After triage, the ER waiting room is a blind spot.</h1>
-        <p class="lede">In 2022, US emergency departments handled 155 million visits.<a class="ref" href="#src-2">[2]</a> Most begin with triage, a quick check at the door. Then patients wait, sometimes for hours, and it is hard for anyone to see who is getting worse.</p>
+        <h1 id="hero-title">The ER waiting room is a blind spot.</h1>
+        <p class="lede">In 2022, US emergency departments handled 155 million visits.<a class="ref" href="#src-2">[2]</a> Many patients wait just to be triaged, a wait that often isn't even measured.<a class="ref" href="#src-7">[7]</a> After triage, many wait again, sometimes for hours. Through both waits, it is hard for anyone to see who is getting worse.</p>
         <p class="about"><strong>PrIAge</strong> is working on ways to give ER nurses better information about patients while they wait. Nurses make the call. Right now we're talking with the people who do this work.</p>
         <div class="actions">
           <a class="btn" href="#talk">Talk with us
@@ -49,14 +49,39 @@
           </a>
         </div>
 
-        <figure class="seats" id="numbers" data-total="100" data-cols="25" data-cols-narrow="10" data-marked="34" data-seed="2024" data-kind="missed"
+        <figure class="seats" id="numbers" data-total="100" data-cols="25" data-cols-narrow="10" data-marked="21" data-seed="515" data-kind="missed"
+          aria-label="100 chairs, each one of the sickest walk-in patients. 21 are red: waited more than 15 minutes just to be triaged.">
+          <div class="seats-field"><noscript><p class="noscript">This chart needs JavaScript. Its numbers are written out beside it.</p></noscript></div>
+          <figcaption class="seats-cap">
+            <div class="cap-main">
+              <p class="where">Canada&ensp;·&ensp;one emergency department&ensp;·&ensp;walk-in patients</p>
+              <p class="big">About 1 in 5</p>
+              <p class="what">of the sickest walk-in patients waited more than 15 minutes just to be triaged, longer than the 15 minutes in which guidelines say they should already have seen a doctor.</p>
+              <p class="legend"><span><i class="key"></i>One of the sickest walk-in patients</span><span><i class="key key-missed"></i>Waited over 15 minutes to be triaged</span></p>
+            </div>
+            <blockquote class="clip">
+              <p>Of patients subsequently categorized as CTAS 1 or 2, 20.8% waited longer than the recommended time-to-physician of 15 minutes to be triaged.</p>
+              <cite>Betz et al., <a href="https://doi.org/10.1017/cem.2016.398">CJEM, 2017</a> <a class="ref" href="#src-6">[6]</a></cite>
+            </blockquote>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="story" aria-labelledby="triage-title">
+      <div class="wrap">
+        <div class="story-head">
+          <h2 id="triage-title">Triage is one quick look, and it misses people.</h2>
+          <p>Triage nurses sort patients fast, with little to go on. Even the standard triage scale often doesn't flag the sickest patients as the sickest.<a class="ref" href="#src-3">[3]</a></p>
+        </div>
+        <figure class="seats" data-total="100" data-cols="25" data-cols-narrow="10" data-marked="34" data-seed="2024" data-kind="missed"
           aria-label="100 chairs, each a patient with high-acuity illness. 34 are red: not identified as high-acuity at triage.">
           <div class="seats-field"><noscript><p class="noscript">This chart needs JavaScript. Its numbers are written out beside it.</p></noscript></div>
           <figcaption class="seats-cap">
             <div class="cap-main">
               <p class="where">United States&ensp;·&ensp;21 hospitals&ensp;·&ensp;2016 to 2020</p>
               <p class="big">About 34 in 100</p>
-              <p class="what">patients with high-acuity illness were not identified as high-acuity at triage, across 5.3 million adult emergency visits. Triage is a hard call, made fast, with little to go on.</p>
+              <p class="what">patients with high-acuity illness were not identified as high-acuity at triage, across 5.3 million adult emergency visits.</p>
               <p class="legend"><span><i class="key"></i>One high-acuity patient</span><span><i class="key key-missed"></i>Not identified as high-acuity</span></p>
             </div>
             <blockquote class="clip">
@@ -180,6 +205,8 @@
         <li id="src-3">Sax DR, Warton EM, Mark DG, et al. Evaluation of Version 4 of the Emergency Severity Index in US Emergency Departments for the Rate of Mistriage. <i>JAMA Network Open</i>. 2023;6(3):e233404. <a href="https://doi.org/10.1001/jamanetworkopen.2023.3404">doi:10.1001/jamanetworkopen.2023.3404</a></li>
         <li id="src-4">Royal College of Emergency Medicine. Almost 300 deaths a week in 2023 associated with long A&amp;E waits despite UEC Recovery Plan. Press release, 1 April 2024. The release gives the 268 a week figure in its text. <a href="https://rcem.ac.uk/press-release/almost-300-deaths-a-week-in-2023-associated-with-long-ae-waits-despite-uec-recovery-plan/">rcem.ac.uk</a></li>
         <li id="src-5">McNaughton CD, Austin PC, Chu A, et al. Turbulence in the system: higher rates of left-without-being-seen emergency department visits and associations with increased risks of adverse patient outcomes since 2020. <i>JACEP Open</i>. 2024. <a href="https://doi.org/10.1002/emp2.13299">doi:10.1002/emp2.13299</a></li>
+        <li id="src-6">Betz M, Stempien J, Trivedi S, Bryce R. A determination of emergency department pre-triage times in patients not arriving by ambulance compared to widely used guideline recommendations. <i>CJEM</i>. 2017. <a href="https://doi.org/10.1017/cem.2016.398">doi:10.1017/cem.2016.398</a></li>
+        <li id="src-7">Houston C, Sanchez LD, Fischer C, Volz K, Wolfe R. Waiting for triage: unmeasured time in patient flow. <i>Western Journal of Emergency Medicine</i>. 2015. <a href="https://doi.org/10.5811/westjem.2014.11.22824">doi:10.5811/westjem.2014.11.22824</a></li>
       </ol>
       <div class="foot">
         <p>PrIAge is an early-stage project. Nothing on this page is medical advice. In an emergency, call your local emergency number.</p>
