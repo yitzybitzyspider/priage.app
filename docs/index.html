@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PrIAge: some patients can't wait their turn</title>
+  <meta name="description" content="Emergency waiting rooms run on arrival order, and patients can get worse in the chairs without anyone noticing. PrIAge is working on it.">
+  <meta name="theme-color" content="#c8102e">
+  <link rel="canonical" href="https://priage.app/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://priage.app/">
+  <meta property="og:title" content="PrIAge: some patients can't wait their turn">
+  <meta property="og:description" content="Patients can get worse in emergency waiting rooms without anyone noticing. PrIAge is working on it.">
+  <meta property="og:image" content="https://priage.app/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="fonts/big-shoulders.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/atkinson-next.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#problem">Skip to content</a>
+
+  <header class="hero" id="top">
+    <div class="wrap">
+      <nav class="nav" aria-label="Main">
+        <a class="wordmark" href="#top" aria-label="PrIAge home">PrIAge</a>
+        <ul>
+          <li><a href="#problem">The problem</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="pitch">
+        <h1>Some patients can't wait their turn.</h1>
+        <p class="lede">Emergency waiting rooms run on arrival order. Patients can get sicker in the chairs without anyone noticing, and some don't survive the wait. PrIAge is working on that.</p>
+        <div class="actions">
+          <span class="take-wrap"><button class="take" type="button" id="reveal" aria-pressed="false" aria-controls="rail">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path d="M4 6.5h16v3.2a2.3 2.3 0 0 0 0 4.6v3.2H4v-3.2a2.3 2.3 0 0 0 0-4.6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12h6m-2.5-2.5L15 12l-2.5 2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span id="reveal-label">Show how they're doing</span>
+          </button></span>
+          <a class="more" href="#problem">Why it matters
+            <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M10 4v11m-4.5-4.5L10 15l4.5-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <section class="machine" aria-label="An emergency waiting line, illustrated">
+        <div class="board" aria-hidden="true">
+          <div class="board-row">
+            <span class="board-label">NOW<br>SERVING</span>
+            <span class="seg seg-big"><span class="ghost">888</span><span class="lit">041</span></span>
+          </div>
+          <div class="board-row board-next">
+            <span class="board-label">NEXT</span>
+            <span class="seg seg-big"><span class="ghost">888</span><span class="lit">042</span></span>
+          </div>
+          <div class="board-msg"><span class="ghost">~~~~~~~~~~~~~~~~~~</span><span class="lit">PLEASE WAIT</span></div>
+        </div>
+
+        <ol class="rail" id="rail" aria-label="Waiting line, front of the line first">
+          <li class="ticket" data-arrived="485">
+            <div class="paper">
+              <div class="side front">
+                <span class="t-brand">PRIAGE · ED</span>
+                <span class="t-num">042</span>
+                <dl class="t-rows">
+                  <div><dt>In</dt><dd>8:05</dd></div>
+                  <div><dt>Triaged</dt><dd>8:14</dd></div>
+                  <div><dt>Waiting</dt><dd class="t-wait">2h 59m</dd></div>
+                </dl>
+                <p class="t-status">1st in line</p>
+              </div>
+              <div class="side back" hidden>
+                <span class="t-brand">042 · RIGHT NOW</span>
+                <p class="t-cond">Sprained ankle</p>
+                <p class="t-seen">Last checked 8:14</p>
+                <p class="t-trend">Stable</p>
+              </div>
+            </div>
+          </li>
+          <li class="ticket" data-arrived="511">
+            <div class="paper">
+              <div class="side front">
+                <span class="t-brand">PRIAGE · ED</span>
+                <span class="t-num">043</span>
+                <dl class="t-rows">
+                  <div><dt>In</dt><dd>8:31</dd></div>
+                  <div><dt>Triaged</dt><dd>8:40</dd></div>
+                  <div><dt>Waiting</dt><dd class="t-wait">2h 33m</dd></div>
+                </dl>
+                <p class="t-status">2nd in line</p>
+              </div>
+              <div class="side back" hidden>
+                <span class="t-brand">043 · RIGHT NOW</span>
+                <p class="t-cond">Fever and cough</p>
+                <p class="t-seen">Last checked 8:40</p>
+                <p class="t-trend">Stable</p>
+              </div>
+            </div>
+          </li>
+          <li class="ticket" data-arrived="537" data-worse>
+            <div class="paper">
+              <div class="side front">
+                <span class="t-brand">PRIAGE · ED</span>
+                <span class="t-num">044</span>
+                <dl class="t-rows">
+                  <div><dt>In</dt><dd>8:57</dd></div>
+                  <div><dt>Triaged</dt><dd>9:06</dd></div>
+                  <div><dt>Waiting</dt><dd class="t-wait">2h 07m</dd></div>
+                </dl>
+                <p class="t-status">3rd in line</p>
+              </div>
+              <div class="side back" hidden>
+                <span class="t-brand">044 · RIGHT NOW</span>
+                <p class="t-cond">Chest pain</p>
+                <p class="t-seen">Last checked 9:06</p>
+                <p class="t-trend">Getting worse</p>
+              </div>
+            </div>
+          </li>
+          <li class="ticket" data-arrived="562">
+            <div class="paper">
+              <div class="side front">
+                <span class="t-brand">PRIAGE · ED</span>
+                <span class="t-num">045</span>
+                <dl class="t-rows">
+                  <div><dt>In</dt><dd>9:22</dd></div>
+                  <div><dt>Triaged</dt><dd>9:31</dd></div>
+                  <div><dt>Waiting</dt><dd class="t-wait">1h 42m</dd></div>
+                </dl>
+                <p class="t-status">4th in line</p>
+              </div>
+              <div class="side back" hidden>
+                <span class="t-brand">045 · RIGHT NOW</span>
+                <p class="t-cond">Cut hand</p>
+                <p class="t-seen">Last checked 9:31</p>
+                <p class="t-trend">Stable</p>
+              </div>
+            </div>
+          </li>
+          <li class="ticket" data-arrived="660" data-newest>
+            <div class="paper">
+              <div class="side front">
+                <span class="t-brand">PRIAGE · ED</span>
+                <span class="t-num">046</span>
+                <dl class="t-rows">
+                  <div><dt>In</dt><dd>11:00</dd></div>
+                  <div><dt>Triaged</dt><dd class="t-pending">not yet</dd></div>
+                  <div><dt>Waiting</dt><dd class="t-wait">0h 04m</dd></div>
+                </dl>
+                <p class="t-status">5th in line</p>
+              </div>
+              <div class="side back" hidden>
+                <span class="t-brand">046 · RIGHT NOW</span>
+                <p class="t-cond">Migraine</p>
+                <p class="t-seen">Not checked yet</p>
+                <p class="t-trend">Stable</p>
+              </div>
+            </div>
+          </li>
+        </ol>
+
+        <div class="slot" aria-hidden="true">
+          <span class="slot-mouth"></span>
+          <span class="slot-decal">TAKE A NUMBER</span>
+        </div>
+      </section>
+      <p class="demo-note" id="note" aria-live="polite">Illustration with synthetic patients.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="problem" id="problem" aria-labelledby="problem-title">
+      <div class="wrap">
+        <div class="problem-grid">
+          <div class="problem-copy">
+            <h2 id="problem-title">The waiting room is a blind spot.</h2>
+            <p>Triage is a snapshot: a few questions and a set of vitals at the door. Then patients wait, sometimes for hours, in order of arrival.</p>
+            <p>If someone gets worse in the chairs, the line doesn't know. Unless someone happens to notice, nothing changes until they collapse or their name is called.</p>
+          </div>
+
+          <div class="track" role="img" aria-label="A timeline of an emergency visit: arrive, triage, then a long wait where nobody is watching and a patient can get worse, then finally being seen.">
+            <div class="line">
+              <span class="stop"><b>Arrive</b></span>
+              <span class="stop"><b>Triage</b><i>one snapshot</i></span>
+              <span class="span-wait"><b>Wait</b><i>nobody is watching</i><em class="worse">gets worse here</em></span>
+              <span class="stop"><b>Seen</b><i>hours later</i></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="facts">
+          <figure class="fact">
+            <blockquote><p>In a study of 5.3 million US emergency visits, standard triage identified only <strong>66% of patients with high-acuity illness</strong>.</p></blockquote>
+            <figcaption>Sax et al., <a href="https://doi.org/10.1001/jamanetworkopen.2023.3404"><cite>JAMA Network Open</cite>, 2023</a></figcaption>
+          </figure>
+          <figure class="fact">
+            <blockquote><p>In England, emergency waits of 12 hours or more were associated with <strong>almost 14,000 excess deaths</strong> in 2023.</p></blockquote>
+            <figcaption><a href="https://rcem.ac.uk/press-release/almost-300-deaths-a-week-in-2023-associated-with-long-ae-waits-despite-uec-recovery-plan/">Royal College of Emergency Medicine, 2024</a></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="mission" aria-labelledby="mission-title">
+      <div class="wrap">
+        <h2 id="mission-title">Nobody should get sicker in a waiting room <span>without someone noticing.</span></h2>
+        <p>PrIAge is early, and working on it. If you work in an emergency department, or have waited in one, we'd like to hear from you.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="close" id="contact" aria-labelledby="contact-title">
+    <div class="wrap close-grid">
+      <h2 id="contact-title">Questions? Take a number.</h2>
+      <a class="mail-ticket" href="mailto:hello@priage.app">
+        <span class="mail-top">PRIAGE · CONTACT</span>
+        <span class="mail-addr">hello@priage.app</span>
+        <span class="mail-foot">Ideas, questions, or your waiting room story</span>
+      </a>
+      <p class="status">PrIAge is an early-stage project. Nothing on this page is a medical device or a medical service, and the patients shown are synthetic. In an emergency, call 911.</p>
+      <p class="legal">© 2026 PrIAge · priage.app</p>
+    </div>
+  </footer>
+</body>
+</html>
