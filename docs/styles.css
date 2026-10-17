@@ -108,14 +108,8 @@ p { text-wrap: pretty; }
   .top { background: rgb(225 229 228 / 0.82); backdrop-filter: blur(8px); }
 }
 .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-.wordmark {
-  font-family: var(--sign);
-  font-weight: 900;
-  font-size: 1.75rem;
-  line-height: 1;
-  letter-spacing: -0.01em;
-  text-decoration: none;
-}
+.wordmark { display: block; line-height: 0; text-decoration: none; }
+.wordmark img { display: block; height: 40px; width: auto; }
 .nav ul { display: flex; align-items: center; gap: clamp(14px, 2.4vw, 32px); }
 .nav ul a { font-weight: 600; font-size: 1rem; text-decoration-color: transparent; }
 .nav ul a:hover { text-decoration-color: currentColor; }
@@ -396,7 +390,7 @@ p { text-wrap: pretty; }
 
 @media (max-width: 759px) {
   body { font-size: 1.0625rem; }
-  .wordmark { font-size: 1.5rem; }
+  .wordmark img { height: 34px; }
   .nav ul { gap: 14px; }
   .nav ul li.nav-numbers { display: none; }
   .nav .nav-talk { padding: 8px 12px 7px; font-size: 0.9375rem; }

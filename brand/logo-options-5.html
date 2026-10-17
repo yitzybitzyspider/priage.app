@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PrIAge logo, round 5</title>
+<style>
+@font-face { font-family: "Overpass"; src: url("../docs/fonts/overpass.woff2") format("woff2"); font-weight: 100 900; }
+@font-face { font-family: "Atkinson"; src: url("../docs/fonts/atkinson-next.woff2") format("woff2"); font-weight: 200 800; }
+* { box-sizing: border-box; margin: 0; }
+body { background: #e1e5e4; color: #1a1d1f; font-family: Atkinson, system-ui, sans-serif; padding: 40px 24px 64px; }
+h1 { font: 800 28px/1.1 Overpass; margin-bottom: 6px; }
+.intro { color: #485056; margin-bottom: 28px; max-width: 82ch; }
+.grid { display: grid; gap: 24px; max-width: 1180px; }
+.opt { background: #f7f8f7; border-radius: 6px; padding: 28px; box-shadow: 0 1px 0 #c5cccd; }
+.opt h2 { font: 800 18px/1 Overpass; margin-bottom: 4px; }
+.opt p.why { color: #485056; font-size: 15px; margin-bottom: 22px; max-width: 84ch; }
+.row { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
+.tile { padding: 26px 30px; border-radius: 6px; }
+.on-floor { background: #e1e5e4; } .on-blue { background: #2b5d87; } .on-white { background: #fff; box-shadow: inset 0 0 0 1px #d8dddd; }
+.sizes { display: flex; gap: 16px; align-items: flex-end; }
+</style>
+</head>
+<body>
+<h1>PrIAge logo, round 5: the AI carries the heartbeat</h1>
+<p class="intro">One idea, refined. The name already holds the story (Pr + IA + ge, with AI hidden as IA), so the mark is the name itself. The I and the A are set in blue, and the A's right leg carries on below the line as a single heartbeat before settling flat. Flat line: waiting. The beat: someone noticing. The A keeps its crossbar, so it still reads as PrIAge.</p>
+<div class="grid">
+  <section class="opt">
+    <h2>R1. The wordmark</h2>
+    <p class="why">The everyday logo: site header, documents, applications. The beat lives inside the name, so it never needs a separate icon next to it.</p>
+    <div class="row">
+      <div class="tile on-floor"><svg class="logo" data-variant="mark" data-size="72" data-ink="#1a1d1f" data-ia="#2b5d87" data-tag="Better information for the people making the call" width="600" height="160"></svg></div>
+      <div class="tile on-blue"><svg class="logo" data-variant="mark" data-size="44" data-ink="#ffffff" data-ia="#cfe0ee" width="300" height="84"></svg></div>
+      <div class="tile on-white"><svg class="logo" data-variant="mark" data-size="44" data-ink="#1a1d1f" data-ia="#1a1d1f" width="300" height="84"></svg></div>
+      <div class="tile on-white"><svg class="logo" data-variant="mark" data-size="22" data-ink="#1a1d1f" data-ia="#2b5d87" width="150" height="44"></svg></div>
+    </div>
+  </section>
+  <section class="opt">
+    <h2>Small sizes (favicon, app icon, profile picture)</h2>
+    <p class="why">Where the name can't be read, the icon is the I and A alone; at 16 pixels, just the beating A. Still the name, not a generic heartbeat.</p>
+    <div class="row sizes">
+      <svg class="icon" width="96" height="96"></svg><svg class="icon" width="48" height="48"></svg><svg class="icon" width="32" height="32"></svg><svg class="icon" width="16" height="16"></svg>
+      <svg class="icon round" width="96" height="96"></svg>
+    </div>
+  </section>
+</div>
+<script>
+const NS = "http://www.w3.org/2000/svg";
+const mk = (n, a) => { const el = document.createElementNS(NS, n); for (const k in a) el.setAttribute(k, a[k]); return el; };
+
+// Builds the IA unit at baseline y=base: serifed I, a connecting baseline stroke, the A with crossbar,
+// and the A's right leg carrying through into one beat below the line. Returns the x where it ends.
+function ia(svg, x, base, s, color, opts = {}) {
+  const stem = s * 0.158, cap = s * 0.705, bar = s * 0.11, serif = opts.noI ? -s * 0.045 : s * 0.4;
+  const top = base - cap;
+  if (!opts.noI) svg.append(mk("path", { fill: color, d: `M${x} ${top}h${serif}v${bar}h${-(serif - stem) / 2}v${cap - 2 * bar}h${(serif - stem) / 2}v${bar}h${-serif}v${-bar}h${(serif - stem) / 2}v${-(cap - 2 * bar)}h${-(serif - stem) / 2}z` }));
+  const iEnd = x + serif;
+  const link = s * 0.045;                    // letter space between I and A
+  const aL = iEnd + link, w = s * 0.6, apexX = aL + w / 2, aR = aL + w;
+  // A legs (stroke centered so the outer foot edges sit at aL and aR)
+  svg.append(mk("path", { d: `M${aL + stem * 0.45} ${base} L${apexX} ${top + stem * 0.2} L${aR - stem * 0.45} ${base}`, fill: "none", stroke: color, "stroke-width": stem, "stroke-linejoin": "miter", "stroke-miterlimit": 8 }));
+  // crossbar
+  const cb = base - cap * 0.36;
+  svg.append(mk("rect", { x: aL + w * 0.24, y: cb - bar * 0.45, width: w * 0.52, height: bar * 0.9, fill: color }));
+  // the beat: the right leg carries on below the line, snaps back up, and settles flat
+  const dx = s * 0.1, dip = s * 0.26, beatW = bar * 1.05;
+  const legEndX = aR - stem * 0.45;
+  const slope = (base - (top + stem * 0.2)) / (legEndX - apexX);
+  const p1x = legEndX + dip / slope, p1y = base + dip;
+  const p2x = p1x + dx * 0.9, p2y = base - bar / 2;
+  const tail = opts.tail ?? s * 0.16;
+  svg.append(mk("path", { d: `M${legEndX - 0.01} ${base - 0.5} L${p1x} ${p1y} L${p2x} ${p2y} H${p2x + tail}`, fill: "none", stroke: color, "stroke-width": beatW, "stroke-linejoin": "miter", "stroke-miterlimit": 10, "stroke-linecap": "butt" }));
+  return p2x + tail;
+}
+
+function drawLogo(svg) {
+  const s = +svg.dataset.size, ink = svg.dataset.ink, iaColor = svg.dataset.ia, v = svg.dataset.variant;
+  const x0 = 4, base = s * 0.98;
+  const text = (str, at, fill) => { const t = mk("text", { x: at, y: base, fill, "font-family": "Overpass", "font-weight": 900, "font-size": s }); t.textContent = str; svg.append(t); return t.getComputedTextLength(); };
+  let x = x0 + text("Pr", x0, ink) + s * 0.05;
+  const traceEnd = v === "trace" ? +svg.getAttribute("width") - 8 : null;
+  const iaEnd = ia(svg, x, base, s, iaColor, { tail: s * 0.12 });
+  const gX = iaEnd + s * 0.03;
+  const geW = text("ge", gX, ink);
+  if (traceEnd) {
+    const bar = s * 0.11;
+    svg.append(mk("rect", { x: gX + geW + s * 0.06, y: base - bar * 1.05, width: traceEnd - (gX + geW + s * 0.06), height: bar * 1.05, fill: iaColor }));
+  }
+  if (svg.dataset.tag) {
+    const t = mk("text", { x: x0 + 2, y: base + s * 0.74, fill: "#485056", "font-family": "Atkinson", "font-weight": 600, "font-size": s * 0.24 });
+    t.textContent = svg.dataset.tag; svg.append(t);
+  }
+}
+
+function drawIcon(svg) {
+  const W = +svg.getAttribute("width");
+  svg.setAttribute("viewBox", "0 0 100 100");
+  if (svg.classList.contains("round")) svg.append(mk("circle", { cx: 50, cy: 50, r: 50, fill: "#2b5d87" }));
+  else svg.append(mk("rect", { width: 100, height: 100, rx: 22, fill: "#2b5d87" }));
+  if (W <= 16) { ia(svg, 14, 66, 92, "#ffffff", { tail: 8, noI: true }); return; }
+  const s = W <= 32 ? 58 : 54;
+  ia(svg, (100 - s * 1.24) / 2, 58 + (s - 54) * 0.2, s, "#ffffff", { tail: s * 0.12 });
+}
+
+document.fonts.ready.then(() => {
+  document.querySelectorAll("svg.logo").forEach(drawLogo);
+  document.querySelectorAll("svg.icon").forEach(drawIcon);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face { font-family: "Overpass"; src: url("../../docs/fonts/overpass.woff2") format("woff2"); font-weight: 100 900; }
+@font-face { font-family: "Atkinson"; src: url("../../docs/fonts/atkinson-next.woff2") format("woff2"); font-weight: 200 800; }
+body { margin: 0; background: #fff; }
+svg { display: block; margin: 10px; }
+</style></head>
+<body>
+<svg id="logo" width="1000" height="300" data-ink="#1a1d1f" data-ia="#2b5d87"></svg>
+<svg id="tagline" width="1000" height="360" data-ink="#1a1d1f" data-ia="#2b5d87" data-tag="Better information for the people making the call" data-tagcolor="#485056"></svg>
+<script>
+const NS = "http://www.w3.org/2000/svg";
+const mk = (n, a) => { const el = document.createElementNS(NS, n); for (const k in a) el.setAttribute(k, a[k]); return el; };
+// The PrIAge mark (R1): serifed I, and an A whose right leg carries on below the line as one heartbeat.
+function ia(g, x, base, s, color) {
+  const stem = s * 0.158, cap = s * 0.705, bar = s * 0.11, serif = s * 0.4, top = base - cap;
+  g.append(mk("path", { class: "ia", fill: color, d: `M${x} ${top}h${serif}v${bar}h${-(serif - stem) / 2}v${cap - 2 * bar}h${(serif - stem) / 2}v${bar}h${-serif}v${-bar}h${(serif - stem) / 2}v${-(cap - 2 * bar)}h${-(serif - stem) / 2}z` }));
+  const aL = x + serif + s * 0.045, w = s * 0.6, apexX = aL + w / 2, aR = aL + w;
+  const L = aL + stem * 0.45, R = aR - stem * 0.45, apexY = top + stem * 0.2;
+  // one continuous stroke: left leg up, right leg down through the line into the beat, back up, settle flat
+  const slope = (base - apexY) / (R - apexX), dip = s * 0.24;
+  const p1x = R + dip / slope, p1y = base + dip, p2x = p1x + s * 0.085, p2y = base - stem / 2, tail = s * 0.1;
+  g.append(mk("path", { class: "ia", d: `M${L} ${base} L${apexX} ${apexY} L${p1x} ${p1y} L${p2x} ${p2y} H${p2x + tail}`, fill: "none", stroke: color, "stroke-width": stem, "stroke-linejoin": "miter", "stroke-miterlimit": 8, "stroke-linecap": "butt" }));
+  const cb = base - cap * 0.36;
+  g.append(mk("rect", { class: "ia", x: aL + w * 0.24, y: cb - bar * 0.45, width: w * 0.52, height: bar * 0.9, fill: color }));
+  return p2x + tail;
+}
+function draw(svg) {
+  const s = 200, base = 200, x0 = 20, ink = svg.dataset.ink, iac = svg.dataset.ia;
+  const g = mk("g", {}); svg.append(g);
+  const text = (str, at, fill, family, weight, size, y) => { const t = mk("text", { x: at, y, fill, "font-family": family, "font-weight": weight, "font-size": size, class: "txt" }); t.textContent = str; g.append(t); return t.getComputedTextLength(); };
+  let x = x0 + text("Pr", x0, ink, "Overpass", 900, s, base) + s * 0.05;
+  const end = ia(g, x, base, s, iac);
+  text("ge", end + s * 0.03, ink, "Overpass", 900, s, base);
+  if (svg.dataset.tag) text(svg.dataset.tag, x0 + 4, svg.dataset.tagcolor, "Atkinson", 600, s * 0.24, base + s * 0.74);
+}
+document.fonts.ready.then(() => {
+  for (const svg of document.querySelectorAll("svg")) draw(svg);
+  const out = {};
+  for (const svg of document.querySelectorAll("svg")) {
+    const g = svg.querySelector("g");
+    const bb = g.getBBox();
+    const shapes = [...g.children].filter(e => e.tagName !== "text").map(e => e.outerHTML);
+    const texts = [...g.querySelectorAll("text")].map(t => ({
+      family: t.getAttribute("font-family"), weight: +t.getAttribute("font-weight"), size: +t.getAttribute("font-size"),
+      fill: t.getAttribute("fill"), y: +t.getAttribute("y"),
+      glyphs: [...t.textContent].map((ch, i) => ({ ch, x: t.getStartPositionOfChar(i).x }))
+    }));
+    out[svg.id] = { bbox: { x: bb.x, y: bb.y, w: bb.width, h: bb.height }, shapes, texts };
+  }
+  document.title = "READY";
+  window.__export = out;
+});
+</script>
+</body></html>

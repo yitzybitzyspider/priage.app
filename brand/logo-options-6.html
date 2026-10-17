@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PrIAge logo, round 6</title>
+<style>
+@font-face { font-family: "Overpass"; src: url("../docs/fonts/overpass.woff2") format("woff2"); font-weight: 100 900; }
+@font-face { font-family: "Atkinson"; src: url("../docs/fonts/atkinson-next.woff2") format("woff2"); font-weight: 200 800; }
+* { box-sizing: border-box; margin: 0; }
+body { background: #e1e5e4; color: #1a1d1f; font-family: Atkinson, system-ui, sans-serif; padding: 40px 24px 64px; }
+h1 { font: 800 28px/1.1 Overpass; margin-bottom: 6px; }
+.intro { color: #485056; margin-bottom: 28px; max-width: 82ch; }
+.grid { display: grid; gap: 24px; max-width: 1180px; }
+.opt { background: #f7f8f7; border-radius: 6px; padding: 28px; box-shadow: 0 1px 0 #c5cccd; }
+.opt h2 { font: 800 18px/1 Overpass; margin-bottom: 4px; }
+.opt p.why { color: #485056; font-size: 15px; margin-bottom: 22px; max-width: 84ch; }
+.row { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
+.tile { padding: 26px 30px; border-radius: 6px; }
+.on-floor { background: #e1e5e4; } .on-blue { background: #2b5d87; } .on-white { background: #fff; box-shadow: inset 0 0 0 1px #d8dddd; }
+.sizes { display: flex; gap: 16px; align-items: flex-end; }
+</style>
+</head>
+<body>
+<h1>PrIAge logo, round 6: the beat inside the A</h1>
+<p class="intro">Same idea, two refinements. S1 moves the heartbeat inside the A: its crossbar becomes a single beat, so nothing hangs below the line and the A still reads as an A. S2 keeps round 5's beat below the line, made smaller and tucked closer.</p>
+<div class="grid">
+  <section class="opt">
+    <h2>S1. The crossbar is a heartbeat</h2>
+    <p class="why">The beat sits at the heart of the AI, contained in the letter. Set at a slightly lighter weight (800, and 700 in the second tile) so the A has room for the beat. Calm at a glance, a small discovery on a second look.</p>
+    <div class="row">
+      <div class="tile on-floor"><svg class="logo" data-v="cross" data-wt="800" data-size="84" data-ink="#1a1d1f" data-ia="#2b5d87" data-tag="Better information for the people making the call" width="600" height="160"></svg></div>
+      <div class="tile on-blue"><svg class="logo" data-v="cross" data-wt="800" data-size="48" data-ink="#ffffff" data-ia="#cfe0ee" width="300" height="80"></svg></div>
+      <div class="tile on-white"><svg class="logo" data-v="cross" data-wt="800" data-size="48" data-ink="#1a1d1f" data-ia="#1a1d1f" width="300" height="80"></svg></div>
+      <div class="tile on-floor"><svg class="logo" data-v="cross" data-wt="700" data-size="84" data-ink="#1a1d1f" data-ia="#2b5d87" width="600" height="110"></svg></div>
+      <div class="tile on-white"><svg class="logo" data-v="cross" data-wt="800" data-size="24" data-ink="#1a1d1f" data-ia="#2b5d87" width="150" height="44"></svg></div>
+    </div>
+    <div class="row sizes" style="margin-top:20px">
+      <svg class="icon" data-v="cross" width="96" height="96"></svg><svg class="icon" data-v="cross" width="48" height="48"></svg><svg class="icon" data-v="cross" width="32" height="32"></svg><svg class="icon" data-v="cross" width="16" height="16"></svg>
+    </div>
+  </section>
+  <section class="opt">
+    <h2>S2. The beat below the line, tidied</h2>
+    <p class="why">Round 5, with a shallower beat that tucks under the A instead of hanging into the next letter.</p>
+    <div class="row">
+      <div class="tile on-floor"><svg class="logo" data-v="below" data-size="84" data-ink="#1a1d1f" data-ia="#2b5d87" data-tag="Better information for the people making the call" width="600" height="170"></svg></div>
+      <div class="tile on-blue"><svg class="logo" data-v="below" data-size="48" data-ink="#ffffff" data-ia="#cfe0ee" width="300" height="84"></svg></div>
+    </div>
+    <div class="row sizes" style="margin-top:20px">
+      <svg class="icon" data-v="below" width="96" height="96"></svg><svg class="icon" data-v="below" width="48" height="48"></svg><svg class="icon" data-v="below" width="32" height="32"></svg>
+    </div>
+  </section>
+</div>
+<script>
+const NS = "http://www.w3.org/2000/svg";
+const mk = (n, a) => { const el = document.createElementNS(NS, n); for (const k in a) el.setAttribute(k, a[k]); return el; };
+
+function drawI(svg, x, base, s, color, wt = 900) {
+  const k = wt >= 900 ? 1 : wt >= 800 ? 0.86 : 0.74;
+  const stem = s * 0.158 * k, cap = s * 0.705, bar = s * 0.11 * k, serif = s * 0.38, top = base - cap;
+  svg.append(mk("path", { fill: color, d: `M${x} ${top}h${serif}v${bar}h${-(serif - stem) / 2}v${cap - 2 * bar}h${(serif - stem) / 2}v${bar}h${-serif}v${-bar}h${(serif - stem) / 2}v${-(cap - 2 * bar)}h${-(serif - stem) / 2}z` }));
+  return x + serif;
+}
+
+// The A: two legs meeting at a point. S1 replaces the crossbar with one beat; S2 drops a shallow beat below the line.
+function drawA(svg, x, base, s, color, v, wt = 900) {
+  const k = wt >= 900 ? 1 : wt >= 800 ? 0.86 : 0.74;
+  const stem = s * 0.158 * k, cap = s * 0.705, bar = s * 0.11 * k, top = base - cap;
+  const w = v === "cross" ? s * 0.86 : s * 0.62;
+  const L = x + stem * 0.45, R = x + w - stem * 0.45, apexX = x + w / 2, apexY = top + stem * 0.2;
+  svg.append(mk("path", { d: `M${L} ${base} L${apexX} ${apexY} L${R} ${base}`, fill: "none", stroke: color, "stroke-width": stem, "stroke-linejoin": "miter", "stroke-miterlimit": 8 }));
+  const legX = (side, y) => { const t = (base - y) / (base - apexY); return side < 0 ? L + (apexX - L) * t : R - (R - apexX) * t; };
+  if (v === "cross") {
+    const cb = base - cap * 0.27;                      // crossbar height
+    const xl = legX(-1, cb) + stem * 0.35, xr = legX(1, cb) - stem * 0.35;
+    const span = xr - xl, up = cap * 0.3, dn = cap * 0.12, lw = bar * 0.7;
+    const d = `M${xl} ${cb} H${xl + span * 0.32} L${xl + span * 0.45} ${cb - up} L${xl + span * 0.57} ${cb + dn} L${xl + span * 0.66} ${cb} H${xr}`;
+    svg.append(mk("path", { d, fill: "none", stroke: color, "stroke-width": lw, "stroke-linejoin": "miter", "stroke-miterlimit": 10, "stroke-linecap": "butt" }));
+    return x + w;
+  }
+  // below: crossbar plus a shallow beat that tucks under the right foot
+  const cb = base - cap * 0.36;
+  svg.append(mk("rect", { x: x + w * 0.24, y: cb - bar * 0.45, width: w * 0.52, height: bar * 0.9, fill: color }));
+  const dip = s * 0.17, lw = bar * 1.0;
+  const slope = (base - apexY) / (R - apexX);
+  const p1x = R + dip / slope, p1y = base + dip, p2x = p1x + s * 0.07;
+  svg.append(mk("path", { d: `M${R - 0.01} ${base - 0.5} L${p1x} ${p1y} L${p2x} ${base - lw / 2} H${p2x + s * 0.06}`, fill: "none", stroke: color, "stroke-width": lw, "stroke-linejoin": "miter", "stroke-miterlimit": 10 }));
+  return p2x + s * 0.06;
+}
+
+function drawLogo(svg) {
+  const s = +svg.dataset.size, ink = svg.dataset.ink, ia = svg.dataset.ia, v = svg.dataset.v, wt = +(svg.dataset.wt || 900);
+  const x0 = 4, base = s * 0.92;
+  const text = (str, at, fill) => { const t = mk("text", { x: at, y: base, fill, "font-family": "Overpass", "font-weight": wt, "font-size": s }); t.textContent = str; svg.append(t); return t.getComputedTextLength(); };
+  let x = x0 + text("Pr", x0, ink) + s * 0.045;
+  x = drawI(svg, x, base, s, ia, wt) + s * 0.05;
+  x = drawA(svg, x, base, s, ia, v, wt) + s * (v === "cross" ? 0.035 : 0.02);
+  text("ge", x, ink);
+  if (svg.dataset.tag) {
+    const t = mk("text", { x: x0 + 2, y: base + s * (v === "below" ? 0.66 : 0.52), fill: "#485056", "font-family": "Atkinson", "font-weight": 600, "font-size": s * 0.21 });
+    t.textContent = svg.dataset.tag; svg.append(t);
+  }
+}
+
+function drawIcon(svg) {
+  const W = +svg.getAttribute("width"), v = svg.dataset.v;
+  svg.setAttribute("viewBox", "0 0 100 100");
+  svg.append(mk("rect", { width: 100, height: 100, rx: 22, fill: "#2b5d87" }));
+  const wt = v === "cross" ? 800 : 900;
+  if (W <= 16) { drawA(svg, 8, 82, 100, "#ffffff", v, wt); return; }
+  const s = 60, iw = s * 0.38 + s * 0.05 + (v === "cross" ? s * 0.86 : s * 0.62);
+  const x = (100 - iw) / 2;
+  const after = drawI(svg, x, 70, s, "#ffffff", wt) + s * 0.05;
+  drawA(svg, after, 70, s, "#ffffff", v, wt);
+}
+
+document.fonts.ready.then(() => {
+  document.querySelectorAll("svg.logo").forEach(drawLogo);
+  document.querySelectorAll("svg.icon").forEach(drawIcon);
+});
+</script>
+</body>
+</html>
