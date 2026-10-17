@@ -227,6 +227,7 @@ p { text-wrap: pretty; }
 
 
 .where { font-family: var(--sign); font-weight: 700; font-size: 0.9375rem; color: var(--ink); }
+.sep { display: inline-block; width: 0.22em; height: 0.22em; border-radius: 50%; background: currentColor; vertical-align: 0.24em; margin: 0 0.5em; font-size: inherit; color: inherit; overflow: hidden; text-indent: -9em; }
 .cite { margin-top: 4px; font-size: 0.9375rem; color: var(--ink-soft); }
 .source details { margin-top: 10px; font-size: 0.9375rem; color: var(--ink-soft); }
 .source summary { cursor: pointer; font-weight: 700; color: var(--seat-deep); width: fit-content; }

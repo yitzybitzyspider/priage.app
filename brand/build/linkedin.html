@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PrIAge LinkedIn kit</title>
+<style>
+  @font-face { font-family: "Overpass"; src: url("../../docs/fonts/overpass.woff2") format("woff2"); font-weight: 100 900; }
+  @font-face { font-family: "Atkinson Hyperlegible Next"; src: url("../../docs/fonts/atkinson-next.woff2") format("woff2"); font-weight: 200 800; }
+  :root { --floor: #e1e5e4; --ink: #1a1d1f; --ink-soft: #485056; --seat: #2b5d87; --seat-deep: #1f4566; --beam: #8b969d; --mark: #c4372b; --mark-ink: #a5291f; --plate: #f4dcd8; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: #777; }
+  .art { position: relative; overflow: hidden; background: var(--floor); font-family: "Atkinson Hyperlegible Next", sans-serif; color: var(--ink); }
+  .tag { font-family: "Overpass", sans-serif; font-weight: 800; letter-spacing: -0.015em; line-height: 1.04; }
+  .meta { font-family: "Overpass", sans-serif; font-weight: 700; color: var(--seat-deep); letter-spacing: 0.01em; }
+  .bank { position: absolute; }
+  .bank svg { display: block; width: 100%; height: auto; }
+
+  /* company page cover, 1128 x 191: the logo overlaps the bottom left */
+  #company { width: 1128px; height: 191px; }
+  #company .tag { position: absolute; left: 44px; top: 34px; font-size: 34px; width: 470px; }
+  #company .meta { position: absolute; left: 44px; top: 118px; font-size: 15px; display: none; }
+  #company .bank { right: 40px; bottom: 22px; width: 560px; }
+
+  /* personal profile background, 1584 x 396: the photo covers the bottom left */
+  #personal { width: 1584px; height: 396px; }
+  /* everything sits right of x = 400 so the round photo never covers it */
+  #personal .logo { position: absolute; left: 420px; top: 46px; width: 210px; }
+  #personal .tag { position: absolute; left: 420px; top: 140px; font-size: 46px; width: 760px; }
+  #personal .meta { position: absolute; left: 422px; top: 256px; font-size: 21px; }
+  #personal .bank { right: 64px; bottom: 34px; width: 640px; }
+  .sep { display: inline-block; width: 0.22em; height: 0.22em; border-radius: 50%; background: currentColor; vertical-align: 0.24em; margin: 0 0.5em; font-size: inherit; color: inherit; overflow: hidden; text-indent: -9em; }
+
+  /* square logos, 400 x 400 */
+  .sq { width: 400px; height: 400px; display: grid; place-items: center; }
+  #logo-icon { background: var(--seat); }
+  #logo-icon img { width: 400px; height: 400px; }
+  #logo-word { background: #fff; }
+  #logo-word img { width: 300px; height: auto; }
+</style>
+</head>
+<body>
+  <div class="art" id="company">
+    <p class="tag">Better information for the people making the call.</p>
+    <p class="meta">priage.app</p>
+    <div class="bank" data-chairs="14" data-red="9"></div>
+  </div>
+  <div class="art" id="personal">
+    <img class="logo" src="../priage-logo.svg" alt="">
+    <p class="tag">Better information for the people making the call.</p>
+    <p class="meta">priage.app<span class="sep">·</span>hello@priage.app</p>
+    <div class="bank" data-chairs="15" data-red="10"></div>
+  </div>
+  <div class="sq" id="logo-icon"><img src="../priage-icon-square.svg" alt=""></div>
+  <div class="sq" id="logo-word"><img src="../priage-logo.svg" alt=""></div>
+<script>
+  // A bank of joined waiting-room chairs, the same glyph as the site: one chair is one patient.
+  const NS = "http://www.w3.org/2000/svg";
+  const mk = (n, a) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); return e; };
+  for (const bank of document.querySelectorAll(".bank")) {
+    const n = +bank.dataset.chairs, red = +bank.dataset.red, W = 24, G = 4;
+    const w = n * W + (n - 1) * G;
+    const svg = mk("svg", { viewBox: `-3 -3 ${w + 6} 36` });
+    svg.append(mk("rect", { x: 0, y: 23.5, width: w, height: 2.5, fill: "#8b969d" }));
+    for (let c = 0; c <= n; c += 5) {
+      const x = Math.min(c, n - 1) * (W + G) + (c === n ? W - 3 : 1.5);
+      svg.append(mk("rect", { x, y: 25, width: 2, height: 5, fill: "#8b969d" }));
+    }
+    for (let c = 0; c < n; c++) {
+      const x = c * (W + G), hot = c === red;
+      if (hot) svg.append(mk("rect", { x: x - 2.5, y: -2.5, width: W + 5, height: 28.5, rx: 3, fill: "#f4dcd8" }));
+      const g = mk("g", { transform: `translate(${x} 0)`, fill: hot ? "#c4372b" : "#2b5d87" });
+      g.append(mk("rect", { x: 4, y: 0, width: 16, height: 15, rx: 2 }), mk("rect", { x: 1.5, y: 16, width: 21, height: 4.5, rx: 1 }));
+      const legs = hot ? "#a5291f" : "#1f4566";
+      g.append(mk("rect", { x: 4.5, y: 20.5, width: 2, height: 3, fill: legs }), mk("rect", { x: 17.5, y: 20.5, width: 2, height: 3, fill: legs }));
+      svg.append(g);
+    }
+    bank.append(svg);
+  }
+</script>
+</body>
+</html>
