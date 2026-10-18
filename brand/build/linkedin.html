@@ -10,24 +10,26 @@
   * { box-sizing: border-box; margin: 0; }
   body { background: #777; }
   .art { position: relative; overflow: hidden; background: var(--floor); font-family: "Atkinson Hyperlegible Next", sans-serif; color: var(--ink); }
-  .tag { font-family: "Overpass", sans-serif; font-weight: 800; letter-spacing: -0.015em; line-height: 1.04; }
+  .tag { font-family: "Overpass", sans-serif; font-weight: 800; letter-spacing: -0.02em; line-height: 1.04; }
+  .tag .setup { display: block; color: var(--ink-soft); }
+  .tag .turn { display: block; }
   .meta { font-family: "Overpass", sans-serif; font-weight: 700; color: var(--seat-deep); letter-spacing: 0.01em; }
   .bank { position: absolute; }
   .bank svg { display: block; width: 100%; height: auto; }
 
   /* company page cover, 1128 x 191: the logo overlaps the bottom left */
   #company { width: 1128px; height: 191px; }
-  #company .tag { position: absolute; left: 44px; top: 34px; font-size: 34px; width: 470px; }
+  #company .tag { position: absolute; left: 44px; top: 30px; font-size: 29px; width: 640px; }
   #company .meta { position: absolute; left: 44px; top: 118px; font-size: 15px; display: none; }
-  #company .bank { right: 40px; bottom: 22px; width: 560px; }
+  #company .bank { right: 40px; bottom: 22px; width: 400px; }
 
   /* personal profile background, 1584 x 396: the photo covers the bottom left */
   #personal { width: 1584px; height: 396px; }
   /* everything sits right of x = 400 so the round photo never covers it */
-  #personal .logo { position: absolute; left: 420px; top: 46px; width: 210px; }
-  #personal .tag { position: absolute; left: 420px; top: 140px; font-size: 46px; width: 760px; }
-  #personal .meta { position: absolute; left: 422px; top: 256px; font-size: 21px; }
-  #personal .bank { right: 64px; bottom: 34px; width: 640px; }
+  #personal .logo { position: absolute; left: 420px; top: 40px; width: 200px; }
+  #personal .tag { position: absolute; left: 420px; top: 136px; font-size: 44px; width: 1000px; }
+  #personal .meta { position: absolute; left: 422px; top: 252px; font-size: 21px; }
+  #personal .bank { right: 64px; bottom: 30px; width: 520px; }
   .sep { display: inline-block; width: 0.22em; height: 0.22em; border-radius: 50%; background: currentColor; vertical-align: 0.24em; margin: 0 0.5em; font-size: inherit; color: inherit; overflow: hidden; text-indent: -9em; }
 
   /* square logos, 400 x 400 */
@@ -40,13 +42,13 @@
 </head>
 <body>
   <div class="art" id="company">
-    <p class="tag">Better information for the people making the call.</p>
+    <p class="tag"><span class="setup">In a full ER waiting room,</span><span class="turn">getting worse can look just like waiting.</span></p>
     <p class="meta">priage.app</p>
     <div class="bank" data-chairs="14" data-red="9"></div>
   </div>
   <div class="art" id="personal">
     <img class="logo" src="../priage-logo.svg" alt="">
-    <p class="tag">Better information for the people making the call.</p>
+    <p class="tag"><span class="setup">In a full ER waiting room,</span><span class="turn">getting worse can look just like waiting.</span></p>
     <p class="meta">priage.app<span class="sep">·</span>hello@priage.app</p>
     <div class="bank" data-chairs="15" data-red="10"></div>
   </div>
@@ -75,6 +77,11 @@
       svg.append(g);
     }
     bank.append(svg);
+  }
+  if (location.hash) {
+    const only = document.querySelector(location.hash);
+    for (const el of document.querySelectorAll("body > div")) if (el !== only) el.remove();
+    document.body.style.background = "none";
   }
 </script>
 </body>
