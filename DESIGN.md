@@ -352,3 +352,7 @@ Owner's notes after round 3: make the blind spot more dramatic, feature the AI l
 - **AI plate.** A Seat Deep panel at the bottom of the hero: "PrIAge plans to use AI to help improve outcomes for people waiting in the ER." in Overpass 800 white, the dated stage line in On Seat Mist under it, and the light "Talk with us" button on the right (stacked on phones). It replaces the small PrIAge line and the separate hero button.
 - **Strip.** Titled "What happens while patients wait in the ER."; the subhead is only the no-blame line; the end card no longer refers to a missing count.
 
+## v15: no "blind spot" (2026-10-17)
+
+The owner dropped "blind spot": it implies nobody sees the problem or is trying to solve it. The headline now names why it is hard to see, not who fails to see it: "In a full ER waiting room," (setup, Soft Ink) / "getting worse can look just like waiting." (punchline, Chart Ink), up to 4.75rem so the hero still ends inside a 900px-tall screen. The AI plate reads "PrIAge plans to use AI to help improve outcomes for patients waiting in the ER and for the people who care for them." so the goal serves patients and providers alike.
+
