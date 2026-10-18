@@ -364,3 +364,7 @@ Under the AI line the plate now says "We'd love to hear your perspective. Share 
 
 The logo SVGs (docs/logo.svg and brand/priage-logo, -black, -white, -reversed) had a viewBox fitted to the letter fills, which cut the heartbeat's mitered spike below the baseline (the stroke's miter tip reaches y 302.5) and the right edge of the "e" (x 700). The viewBox is now `12 10 710.6 298.5`, matching the logo sheet. The header logo is 48px tall (40px on phones) so the letters keep their size. The AI line reads "PrIAge plans to use AI to help improve outcomes for patients and the professionals who care for them."
 
+## v18: the pulse runs out of "waiting." (2026-10-17)
+
+The headline ends in a live heartbeat: a bedside-monitor trace in Seat Blue starts a quarter em after "waiting." on the text's baseline and runs to the right edge. The trace holds still while a floor-colored gap sweeps across it; a dot rides the leading edge and a ring pulses from it on every R wave. 72 beats a minute, calm and regular, so it echoes the headline: the pulse looks normal. The sweep is always a whole number of beats, so the dot and the blink never drift apart. Sizes scale with the headline (height 0.95em, beat 1.5em, stroke 0.07em). When the last line leaves less than 1.6 beats of room, the pulse takes its own line under "waiting.". app.js measures and places it on load, on font load and on resize; it is aria-hidden. Reduced motion shows the trace still, with no gap or dot. Motion runs on the compositor (transform keyframes generated once per size).
+
