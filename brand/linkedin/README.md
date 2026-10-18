@@ -29,7 +29,7 @@ Alternative, the site's headline (68 characters):
 >
 > US emergency departments handled 155 million visits in 2022. Many patients wait just to be triaged, then wait again after it, sometimes for hours. While they wait, it is hard for anyone to see who is getting worse. In 21 California emergency departments, the five-level triage scale left about 1 in 3 patients who went on to need life-stabilizing treatment out of its two most urgent levels.
 >
-> None of this is for lack of effort. ER teams work inside a system stretched past its limits, with fewer staffed beds and fewer staff for about as many patients.
+> ER teams work inside a system stretched past its limits, with fewer staffed beds and fewer staff for about as many patients.
 >
 > PrIAge plans to use AI to help improve outcomes for patients and the professionals who care for them.
 >
