@@ -8,7 +8,7 @@ Everything needed to set up the PrIAge company page and to add PrIAge to a perso
 | --- | --- | --- |
 | `priage-linkedin-logo-400.png` | Company page logo | The IA heartbeat mark on seat blue. Reads at feed size, where the page name already sits beside it. |
 | `priage-linkedin-logo-wordmark-400.png` | Alternate company logo | Full wordmark on white. Small in the feed; use it only if the team prefers the name in the square. |
-| `priage-linkedin-company-cover-1128x191@2x.png` | Company page cover | 2256 x 382, twice LinkedIn's 1128 x 191 for sharpness. The headline sits top left, clear of the logo that overlaps the bottom left. |
+| `priage-linkedin-company-cover-1128x191@2x.png` | Company page cover | 2256 x 382, twice LinkedIn's 1128 x 191 for sharpness. The headline and chairs sit on the right half; the page logo covers the left side. |
 | `priage-linkedin-profile-banner-1584x396@2x.png` | Each teammate's personal profile background | 3168 x 792, twice LinkedIn's 1584 x 396. Everything sits right of the round profile photo. |
 
 Source: `brand/build/linkedin.html`. Render one image with headless Chrome at 2x, for example `linkedin.html#company` at 1128 x 191 (`#personal`, `#logo-icon`, `#logo-word` for the others).
