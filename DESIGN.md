@@ -356,3 +356,6 @@ Owner's notes after round 3: make the blind spot more dramatic, feature the AI l
 
 The owner dropped "blind spot": it implies nobody sees the problem or is trying to solve it. The headline now names why it is hard to see, not who fails to see it: "In a full ER waiting room," (setup, Soft Ink) / "getting worse can look just like waiting." (punchline, Chart Ink), up to 4.75rem so the hero still ends inside a 900px-tall screen. The AI plate reads "PrIAge plans to use AI to help improve outcomes for patients waiting in the ER and for the people who care for them." so the goal serves patients and providers alike.
 
+## v16: the plate invites, it does not report stage (2026-10-17)
+
+Under the AI line the plate now says "We'd love to hear your perspective. Share your stories and thoughts with us." in On Seat Mist, beside the light "Talk with us" button. The dated stage line ("We're early: in fall 2026...") was dropped at the owner's request: it read oddly and didn't explain being early. Hero stat numbers never wrap (`white-space: nowrap`, size from 2.25rem to 3.625rem), so "about 1 in 3" stays one line at laptop widths.
