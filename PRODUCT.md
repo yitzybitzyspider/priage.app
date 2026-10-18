@@ -31,7 +31,7 @@ After a one-time triage snapshot, patients can wait for hours while nobody sees 
 - Never imply reordering, ranking or skipping patients ("the changes ... and skipping people over has tons of implications").
 - Never blame nurses or hospitals; the system is overloaded.
 - Validate the people in the system (confirmed 2026-10-17): nurse fatigue and staffing, hospital capacity, and dollar costs are part of the story, told so that nurses and administrators feel seen, never blamed.
-- No sensational or scary tone, and no playful devices around a life-and-death topic.
+- No sensational or scary tone, and no playful devices around a life-and-death topic. The owner asked for a more dramatic headline (2026-10-17): "Every ER has a blind spot. It's the waiting room." Drama comes from structure and scale, never from gore, alarm colors or invented claims.
 - Focus on the US (confirmed 2026-10-17): lead with US data; strong non-US studies can appear as supporting numbers without highlighting the country, and the number always carries the emphasis over the study.
 - The ask (confirmed 2026-10-17): one simple invitation, no role picking; say what we're looking for (conversations, advice, introductions) and welcome general contact.
 - The page's jobs (confirmed 2026-10-17): land interviews; be the link in applications (accelerators, grants, programs); get into competitions; and tell people what PrIAge is working on. So readers include application reviewers and competition judges who skim for the problem, who is behind it, what the team is working toward, and how far along it is.

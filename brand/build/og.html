@@ -16,7 +16,9 @@
   }
   .left { display: flex; flex-direction: column; }
   .logo { height: 52px; width: auto; align-self: flex-start; }
-  h1 { margin: 44px 0 0; font: 800 74px/1.02 "Overpass", sans-serif; letter-spacing: -0.015em; text-wrap: balance; }
+  h1 { margin: 40px 0 0; font: 800 70px/1.0 "Overpass", sans-serif; letter-spacing: -0.02em; }
+  .setup, .turn { display: block; text-wrap: balance; }
+  .setup { color: #485056; }
   .url { margin-top: auto; font: 800 26px/1 "Overpass", sans-serif; color: #2b5d87; }
   .stats { align-self: center; border-top: 3px solid #1a1d1f; }
   .stat { padding: 18px 0 20px; }
@@ -36,7 +38,7 @@
 <body>
   <div class="left">
     <img class="logo" src="../../docs/logo.svg" alt="PrIAge">
-    <h1>The ER waiting room is a blind spot.</h1>
+    <h1><span class="setup">Every ER has a blind spot.</span> <span class="turn">It's the waiting room.</span></h1>
     <p class="url">priage.app</p>
   </div>
   <div class="stats">

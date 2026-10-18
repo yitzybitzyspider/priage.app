@@ -343,3 +343,12 @@ Round 3 scored v12 at 25 of 36 (design); the evidence pass found no P0 or P1 def
 - **Craft.** Red lockers get light vents so they differ by more than hue; Premi's photo is cropped toward the face; the cited-source highlight is a pale seat blue, not the red plate; the pager count is no longer announced on every snap; disabled-arrow outline darkened; Sources and the strip paragraph measure about 34em (roughly 75 characters).
 - **Share card.** Rebuilt with the stat sentences and a source line under each number.
 
+## v14: a more dramatic headline, the AI line featured (2026-10-17)
+
+Owner's notes after round 3: make the blind spot more dramatic, feature the AI line, say what the strip is about, drop the "no national count" line.
+
+- **Headline.** "Every ER has a blind spot. It's the waiting room." A setup in Soft Ink and a punchline in Chart Ink, each its own balanced block, set full width up to 5.75rem with -0.025em tracking. Still no red in a heading.
+- **Hero layout.** Headline across the top; the lede (34ch) beside the two stats, which sit side by side from 600px up on a subgrid so both numbers share a row; then the AI plate.
+- **AI plate.** A Seat Deep panel at the bottom of the hero: "PrIAge plans to use AI to help improve outcomes for people waiting in the ER." in Overpass 800 white, the dated stage line in On Seat Mist under it, and the light "Talk with us" button on the right (stacked on phones). It replaces the small PrIAge line and the separate hero button.
+- **Strip.** Titled "What happens while patients wait in the ER."; the subhead is only the no-blame line; the end card no longer refers to a missing count.
+

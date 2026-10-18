@@ -75,7 +75,7 @@ body {
 }
 
 ::selection { background: var(--seat); color: var(--on-seat); }
-.talk ::selection, .card-end ::selection { background: var(--on-seat); color: var(--seat-deep); }
+.talk ::selection, .card-end ::selection, .ai-plate ::selection { background: var(--on-seat); color: var(--seat-deep); }
 
 img, svg { display: block; }
 h1, h2, h3, p, ol, ul, figure, dl, dd { margin: 0; }
@@ -169,20 +169,31 @@ p { text-wrap: pretty; }
 .hero { padding-block: clamp(28px, 4vw, 60px) clamp(40px, 5vw, 64px); }
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-  grid-template-areas: "title stats" "lede stats" "about stats" "cta stats";
-  grid-template-rows: auto auto auto 1fr;
-  column-gap: clamp(40px, 6vw, 96px);
+  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+  grid-template-areas: "title title" "lede stats" "plate plate";
+  column-gap: clamp(32px, 5vw, 80px);
 }
-.hero h1 { grid-area: title; }
-.lede { grid-area: lede; }
-.hero-stats { grid-area: stats; align-self: center; }
-.about { grid-area: about; }
-.hero-grid > .btn { grid-area: cta; justify-self: start; align-self: start; margin-top: 26px; }
-.hero h1 { font-size: clamp(2.5rem, 1.4rem + 3.4vw, 4.375rem); line-height: 1.02; max-width: 15ch; }
-.lede { margin-top: 22px; max-width: 44ch; font-size: clamp(1.1875rem, 1.05rem + 0.45vw, 1.375rem); line-height: 1.5; }
-.about { margin-top: 16px; max-width: 50ch; font-size: 1.0625rem; }
-.about b { font-family: var(--sign); font-weight: 800; }
+/* a setup and a punchline: the second line lands darker */
+.hero h1 { grid-area: title; font-size: clamp(2.75rem, 1.1rem + 5.4vw, 5.75rem); line-height: 0.98; letter-spacing: -0.025em; }
+.h1-setup, .h1-turn { display: block; }
+.h1-setup { color: var(--ink-soft); }
+.lede { grid-area: lede; align-self: start; margin-top: 28px; max-width: 34ch; font-size: clamp(1.1875rem, 1.05rem + 0.45vw, 1.375rem); line-height: 1.5; }
+.hero-stats { grid-area: stats; margin-top: 28px; align-self: start; }
+
+/* PrIAge's line, featured: a dark plate that carries the ask */
+.ai-plate {
+  grid-area: plate;
+  margin-top: clamp(28px, 3.5vw, 44px);
+  display: flex; align-items: center; justify-content: space-between; gap: 20px 40px;
+  padding: clamp(22px, 2.6vw, 34px) clamp(22px, 3vw, 40px);
+  border-radius: 6px;
+  background: var(--seat-deep); color: var(--on-seat);
+  --focus: var(--on-seat);
+}
+.ai-line { max-width: 32ch; font-family: var(--sign); font-weight: 800; font-size: clamp(1.375rem, 1rem + 1.2vw, 2rem); line-height: 1.15; letter-spacing: -0.01em; text-wrap: balance; }
+.ai-line b { font-weight: 900; }
+.ai-stage { margin-top: 8px; font-size: 1rem; color: var(--on-seat-soft); }
+.ai-plate .btn { flex: none; }
 
 /* two numbers that state the problem before any scrolling */
 .hero-stats { border-top: 2px solid var(--ink); }
@@ -480,10 +491,11 @@ p { text-wrap: pretty; }
 }
 @media (max-width: 899px) {
   /* on narrow screens the numbers sit right under the sentence they prove */
-  .hero-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "title" "lede" "stats" "about" "cta"; grid-template-rows: none; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "title" "lede" "stats" "plate"; }
+  .lede { max-width: 44ch; margin-top: 20px; }
   .hero-stats { margin-top: 24px; }
 }
-@media (min-width: 600px) and (max-width: 899px) {
+@media (min-width: 600px) {
   .hero-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(4, auto); column-gap: 32px; }
   /* subgrid lines the two numbers up on one row however long each lead-in runs */
   .stat { display: grid; grid-row: span 4; grid-template-rows: subgrid; align-content: start; }
@@ -503,6 +515,7 @@ p { text-wrap: pretty; }
   .stat { padding-block: 16px 18px; }
   .stat-n { font-size: 2.375rem; }
   .room-sub { min-height: 2.9em; }
+  .ai-plate { flex-direction: column; align-items: flex-start; }
   .people { grid-template-columns: minmax(0, 1fr); }
   /* photo and name side by side, the bio full width beneath */
   .person { grid-template-columns: 72px minmax(0, 1fr); column-gap: 14px; }
