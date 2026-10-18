@@ -7,25 +7,25 @@
   <meta name="description" content="Patients can wait for hours in the ER, before triage and after it, and it is hard for anyone to see who is getting worse. The numbers, the strain on the people who work there, and what PrIAge is working on.">
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
   <meta name="theme-color" content="#2b5d87">
-  <link rel="icon" href="favicon.svg?v=18" type="image/svg+xml">
+  <link rel="icon" href="favicon.svg?v=19" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://priage.app/">
   <meta property="og:title" content="In a full ER waiting room, getting worse can look just like waiting.">
   <meta property="og:description" content="Patients can wait for hours in the ER, and it is hard for anyone to see who is getting worse. What happens while people wait, and what PrIAge is working on.">
-  <meta property="og:image" content="https://priage.app/og.png?v=18">
+  <meta property="og:image" content="https://priage.app/og.png?v=19">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="fonts/overpass.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/atkinson-next.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=18">
-  <script src="app.js?v=18" defer></script>
+  <link rel="stylesheet" href="styles.css?v=19">
+  <script src="app.js?v=19" defer></script>
 </head>
 <body>
   <a class="skip" href="#top">Skip to content</a>
 
   <header class="top">
     <div class="wrap nav">
-      <a class="wordmark" href="#top"><img src="logo.svg?v=18" alt="PrIAge" width="120" height="50"></a>
+      <a class="wordmark" href="#top"><img src="logo.svg?v=19" alt="PrIAge" width="120" height="50"></a>
       <nav aria-label="Main">
         <ul>
           <li class="nav-quiet"><a href="#story">The numbers</a></li>
@@ -39,22 +39,12 @@
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
       <div class="wrap hero-grid">
-        <h1 id="hero-title"><span class="h1-setup">In a full ER waiting room,</span> <span class="h1-turn">getting worse can look just like <span class="h1-end">waiting.<i class="pulse-anchor"></i></span></span><span class="pulse" aria-hidden="true"><svg class="ekg"></svg></span></h1>
+        <h1 id="hero-title"><span class="h1-setup">In a full ER waiting room,</span> <span class="h1-turn">getting worse can look just like waiting<span class="h1-dot">.</span></span></h1>
         <p class="lede">Patients can wait for hours, before triage and after it. While they wait, it is hard for anyone to see who is getting worse.</p>
-        <ul class="hero-stats">
-          <li class="stat">
-            <p class="stat-lead">US emergency departments handled</p>
-            <p class="stat-n">155 million</p>
-            <p class="stat-t">visits in 2022.</p>
-            <p class="stat-src">CDC, 2024<a class="ref" href="#src-1">[1]</a></p>
-          </li>
-          <li class="stat stat-hot">
-            <p class="stat-lead">Of patients who went on to need life-stabilizing treatment, the five-level triage scale left</p>
-            <p class="stat-n">about 1 in 3</p>
-            <p class="stat-t">out of its two most urgent levels.</p>
-            <p class="stat-src">21 emergency departments in one California health system, 2016 to 2020<a class="ref" href="#src-3">[3]</a></p>
-          </li>
-        </ul>
+        <div class="hero-stat">
+          <p class="stat-n">1 in 3</p>
+          <p class="stat-t">patients who needed the most urgent care were under-triaged.<a class="ref" href="#src-2">[2]</a></p>
+        </div>
         <div class="ai-plate">
           <div class="ai-copy">
             <p class="ai-line"><b>PrIAge</b> plans to use AI to help improve outcomes for patients and the professionals who care for them.</p>
@@ -94,7 +84,7 @@
               <p class="key-line" aria-hidden="true"><span><i class="k k-red"></i>Waited over 10 minutes</span><span><i class="k"></i>10 minutes or less</span><span><i class="k k-empty"></i>Empty seat</span></p>
             </div>
             <div class="answer"><b class="n" id="busy-pct">68%</b><p>waited more than 10 minutes to be triaged</p></div>
-            <figcaption class="src">One US emergency department<span class="sep">·</span><a href="#src-2">Houston et al., 2015 [2]</a></figcaption>
+            <figcaption class="src">One US emergency department<span class="sep">·</span><a href="#src-1">Houston et al., 2015 [1]</a></figcaption>
           </figure>
         </li>
 
@@ -104,8 +94,8 @@
             <p class="q">Triage sorts patients into five levels. Of 100 patients who went on to need life-stabilizing treatment, how many were not placed in the two most urgent levels?</p>
             <div class="stage seats-field" aria-hidden="true"></div>
             <noscript><p class="noscript">The chairs need JavaScript; the number is below.</p></noscript>
-            <div class="answer"><b class="n"><span id="triage-count">34</span> of 100</b><p>were not placed in the two most urgent levels. Each chair is one patient.</p></div>
-            <figcaption class="src">21 California emergency departments, 5.3 million adult visits, 2016 to 2020<span class="sep">·</span><a href="#src-3">Sax et al., 2023 [3]</a></figcaption>
+            <div class="answer"><b class="n"><span id="triage-count">34</span> of 100</b><p>were under-triaged: not placed in the two most urgent levels. Each chair is one patient.</p></div>
+            <figcaption class="src">21 California emergency departments, 5.3 million adult visits, 2016 to 2020<span class="sep">·</span><a href="#src-2">Sax et al., 2023 [2]</a></figcaption>
           </figure>
         </li>
 
@@ -118,7 +108,7 @@
               <div class="sign hot"><svg viewBox="0 0 24 24"><path d="M4 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg><span>Left without being seen</span></div>
             </div>
             <div class="answer"><b class="n">2.59 times</b><p>the odds of dying within 30 days for people who left without being seen, after adjusting for other factors</p></div>
-            <figcaption class="src">10 US emergency departments, 1.5 million adult visits<span class="sep">·</span><a href="#src-4">Joseph et al., 2025 [4]</a></figcaption>
+            <figcaption class="src">10 US emergency departments, 1.5 million adult visits<span class="sep">·</span><a href="#src-3">Joseph et al., 2025 [3]</a></figcaption>
           </figure>
         </li>
 
@@ -130,7 +120,7 @@
               <svg class="clock-svg" viewBox="-120 -120 240 240" aria-hidden="true"></svg>
             </div>
             <div class="answer"><b class="n" id="bed-pct">4.5%</b><p id="bed-text">died in the hospital after waiting 12 hours or more, compared with 2.5% for waits under 2 hours</p></div>
-            <figcaption class="src">One US hospital, 41,256 admissions<span class="sep">·</span><a href="#src-5">Singer et al., 2011 [5]</a></figcaption>
+            <figcaption class="src">One US hospital, 41,256 admissions<span class="sep">·</span><a href="#src-4">Singer et al., 2011 [4]</a></figcaption>
           </figure>
         </li>
 
@@ -151,7 +141,7 @@
               </div>
             </div>
             <div class="answer"><b class="n n-ink" id="ward-num">75.3%</b><p id="ward-text">of staffed beds in use on an average day after the pandemic, up from 63.9% before it, as staffed beds fell from 802,000 to 674,000</p></div>
-            <figcaption class="src">US national hospital data, 2009 to 2024<span class="sep">·</span><a href="#src-6">Leuchter et al., 2025 [6]</a></figcaption>
+            <figcaption class="src">US national hospital data, 2009 to 2024<span class="sep">·</span><a href="#src-5">Leuchter et al., 2025 [5]</a></figcaption>
           </figure>
         </li>
 
@@ -161,7 +151,7 @@
             <p class="q">Of 100 nurses who left a job because of burnout, how many said staffing was inadequate?</p>
             <div class="stage locker-field" aria-hidden="true"></div>
             <div class="answer"><b class="n"><span id="locker-count">63</span> of 100</b><p>said staffing was inadequate. Each locker is one nurse.</p></div>
-            <figcaption class="src">Survey of 50,273 US registered nurses<span class="sep">·</span><a href="#src-7">Shah et al., 2021 [7]</a></figcaption>
+            <figcaption class="src">Survey of 50,273 US registered nurses<span class="sep">·</span><a href="#src-6">Shah et al., 2021 [6]</a></figcaption>
           </figure>
         </li>
 
@@ -186,7 +176,7 @@
               </div>
             </div>
             <div class="answer"><b class="n n-ink">$863 more</b><p>a day per stroke patient waiting in the ER, with 20 fewer minutes of nursing time</p></div>
-            <figcaption class="src">One US stroke center<span class="sep">·</span><a href="#src-8">Canellas et al., 2024 [8]</a></figcaption>
+            <figcaption class="src">One US stroke center<span class="sep">·</span><a href="#src-7">Canellas et al., 2024 [7]</a></figcaption>
           </figure>
         </li>
 
@@ -268,28 +258,26 @@
   <footer class="sources" aria-labelledby="sources-title">
     <div class="wrap">
       <details class="src-box" id="sources">
-        <summary><h2 id="sources-title">Sources</h2><span class="src-box-note">Eight studies and reports, with the sentence behind each number</span></summary>
+        <summary><h2 id="sources-title">Sources</h2><span class="src-box-note">Seven studies and reports, with the sentence behind each number</span></summary>
         <p class="sources-note">Each number is quoted from these sentences or worked out from them, as shown. Study sizes, places and years come from the same papers.</p>
         <ol>
-          <li id="src-1">Cairns C, Ashman JJ, Kang K. Emergency Department Visit Rates by Selected Characteristics: United States, 2022. NCHS Data Brief No. 503. National Center for Health Statistics; 2024. <a href="https://www.cdc.gov/nchs/products/databriefs/db503.htm">cdc.gov</a>
-            <q>In 2022, 155 million emergency department (ED) visits occurred in the United States.</q></li>
-          <li id="src-2">Houston C, Sanchez LD, Fischer C, Volz K, Wolfe R. Waiting for triage: unmeasured time in patient flow. <i>Western Journal of Emergency Medicine</i>. 2015. <a href="https://doi.org/10.5811/westjem.2014.11.22824">doi:10.5811/westjem.2014.11.22824</a>
+          <li id="src-1">Houston C, Sanchez LD, Fischer C, Volz K, Wolfe R. Waiting for triage: unmeasured time in patient flow. <i>Western Journal of Emergency Medicine</i>. 2015. <a href="https://doi.org/10.5811/westjem.2014.11.22824">doi:10.5811/westjem.2014.11.22824</a>
             <q>When stratified by the number of new patients who arrived in the ED in the previous hour, the percentage of greeted patients who waited more than 10 minutes for triage was: 0-5 new patients - 12.4%; 6-10 new patients - 48.8%; 11-15 new patients - 64.4%; 16+ new patients - 68%.</q>
             <span class="gloss">The drawing uses the nearest whole seats: 1 of 8, 6 of 12, 11 of 17 and 15 of 22.</span></li>
-          <li id="src-3">Sax DR, Warton EM, Mark DG, et al. Evaluation of Version 4 of the Emergency Severity Index in US Emergency Departments for the Rate of Mistriage. <i>JAMA Network Open</i>. 2023;6(3):e233404. <a href="https://doi.org/10.1001/jamanetworkopen.2023.3404">doi:10.1001/jamanetworkopen.2023.3404</a>
+          <li id="src-2">Sax DR, Warton EM, Mark DG, et al. Evaluation of Version 4 of the Emergency Severity Index in US Emergency Departments for the Rate of Mistriage. <i>JAMA Network Open</i>. 2023;6(3):e233404. <a href="https://doi.org/10.1001/jamanetworkopen.2023.3404">doi:10.1001/jamanetworkopen.2023.3404</a>
             <q>The sensitivity of ESI to identify a patient with high-acuity illness (correctly assigning ESI I or II among patients who had a life-stabilizing intervention) was 65.9%.</q>
             <span class="gloss">ESI is the five-level triage scale; ESI I and II are its two most urgent levels. 100 minus 65.9 is 34.1, shown as 34 of 100 and about 1 in 3. Adult visits from January 2016 to December 2020 at 21 Kaiser Permanente Northern California emergency departments.</span></li>
-          <li id="src-4">Joseph JW, Bukhman AK, Baymon DE, et al. Mortality and Return Visit Frequency Among Emergency Department Patients Who Leave Without Being Seen at a Regional Health Care System. <i>Joint Commission Journal on Quality and Patient Safety</i>. 2025;51(7-8):466-473. <a href="https://doi.org/10.1016/j.jcjq.2025.02.008">doi:10.1016/j.jcjq.2025.02.008</a>
+          <li id="src-3">Joseph JW, Bukhman AK, Baymon DE, et al. Mortality and Return Visit Frequency Among Emergency Department Patients Who Leave Without Being Seen at a Regional Health Care System. <i>Joint Commission Journal on Quality and Patient Safety</i>. 2025;51(7-8):466-473. <a href="https://doi.org/10.1016/j.jcjq.2025.02.008">doi:10.1016/j.jcjq.2025.02.008</a>
             <q>Independent of other clinical and demographic variables, LWBS was associated with more frequent returns within 72 hours (adjusted odds ratio [AOR] 2.56, 95% CI 2.50-2.62, p &lt; 0.001), 30-day ICU admission (AOR 1.35, 95% CI 1.27-1.66, p &lt; 0.001), and mortality within 30 days (AOR 2.59, 95% CI 1.90-3.53, p &lt;0.001).</q>
             <span class="gloss">LWBS means left without being seen. The comparison group is patients who were seen and sent home.</span></li>
-          <li id="src-5">Singer AJ, Thode HC, Viccellio P, Pines JM. The association between length of emergency department boarding and mortality. <i>Academic Emergency Medicine</i>. 2011. <a href="https://doi.org/10.1111/j.1553-2712.2011.01236.x">doi:10.1111/j.1553-2712.2011.01236.x</a>
+          <li id="src-4">Singer AJ, Thode HC, Viccellio P, Pines JM. The association between length of emergency department boarding and mortality. <i>Academic Emergency Medicine</i>. 2011. <a href="https://doi.org/10.1111/j.1553-2712.2011.01236.x">doi:10.1111/j.1553-2712.2011.01236.x</a>
             <q>Mortality generally increased with increasing boarding time, from 2.5% in patients boarded less than 2 hours to 4.5% in patients boarding 12 hours or more.</q></li>
-          <li id="src-6">Leuchter RK, Delarmente BA, Vangala S, Tsugawa Y, Sarkisian CA. Health Care Staffing Shortages and Potential National Hospital Bed Shortage. <i>JAMA Network Open</i>. 2025;8(2):e2460645. <a href="https://doi.org/10.1001/jamanetworkopen.2024.60645">doi:10.1001/jamanetworkopen.2024.60645</a>
+          <li id="src-5">Leuchter RK, Delarmente BA, Vangala S, Tsugawa Y, Sarkisian CA. Health Care Staffing Shortages and Potential National Hospital Bed Shortage. <i>JAMA Network Open</i>. 2025;8(2):e2460645. <a href="https://doi.org/10.1001/jamanetworkopen.2024.60645">doi:10.1001/jamanetworkopen.2024.60645</a>
             <q>The number of staffed hospital beds declined from a prepandemic steady state of 802 000 (2009-2019 mean) to a post-PHE steady state of 674 000, whereas the mean daily census steady state remained at approximately 510 000</q>
             <q>The mean US hospital occupancy was 63.9% (range, 63%-66%) from 2009 to 2019 compared with 75.3% (range, 72%-79%) in the year following the end of the COVID-19 public health emergency (PHE; May 2023 to April 2024)</q></li>
-          <li id="src-7">Shah MK, Gandrakota N, Cimiotti JP, Ghose N, Moore M, Ali MK. Prevalence of and Factors Associated With Nurse Burnout in the US. <i>JAMA Network Open</i>. 2021;4(2):e2036469. <a href="https://doi.org/10.1001/jamanetworkopen.2020.36469">doi:10.1001/jamanetworkopen.2020.36469</a>
+          <li id="src-6">Shah MK, Gandrakota N, Cimiotti JP, Ghose N, Moore M, Ali MK. Prevalence of and Factors Associated With Nurse Burnout in the US. <i>JAMA Network Open</i>. 2021;4(2):e2036469. <a href="https://doi.org/10.1001/jamanetworkopen.2020.36469">doi:10.1001/jamanetworkopen.2020.36469</a>
             <q>Respondents who reported leaving or considering leaving their job owing to burnout reported a stressful work environment (68.6% and 59.5%, respectively) and inadequate staffing (63.0% and 60.9%, respectively).</q></li>
-          <li id="src-8">Canellas MM, Jewell M, Edwards JL, Olivier D, Jun-O'Connell AH, Reznek MA. Measurement of Cost of Boarding in the Emergency Department Using Time-Driven Activity-Based Costing. <i>Annals of Emergency Medicine</i>. 2024;84(4):376-385. <a href="https://doi.org/10.1016/j.annemergmed.2024.04.012">doi:10.1016/j.annemergmed.2024.04.012</a>
+          <li id="src-7">Canellas MM, Jewell M, Edwards JL, Olivier D, Jun-O'Connell AH, Reznek MA. Measurement of Cost of Boarding in the Emergency Department Using Time-Driven Activity-Based Costing. <i>Annals of Emergency Medicine</i>. 2024;84(4):376-385. <a href="https://doi.org/10.1016/j.annemergmed.2024.04.012">doi:10.1016/j.annemergmed.2024.04.012</a>
             <q>The total daily cost per patient with acute stroke was US$1856, for med/surg boarding versus US$993 for med/surg inpatient care</q>
             <q>ED nurses spent 293 min/d (mean) caring for each med/surg boarder; inpatient nurses spent 313 min/d for each med/surg inpatient.</q>
             <span class="gloss">$1,856 minus $993 is $863; 313 minus 293 is 20 minutes.</span></li>

@@ -176,23 +176,17 @@ p { text-wrap: pretty; }
 /* a setup and a punchline: the second line lands darker */
 .hero h1 { grid-area: title; font-size: clamp(2.5rem, 1.2rem + 4.2vw, 4.75rem); line-height: 1; letter-spacing: -0.022em; }
 .h1-setup, .h1-turn { display: block; }
-/* the pulse runs out of the last word, on the headline's baseline (placed by app.js) */
-.hero h1 { position: relative; }
-.pulse-anchor { display: inline-block; width: 0; height: 0; vertical-align: baseline; }
-.pulse { position: absolute; left: 0; top: 0; width: 0; height: 0; pointer-events: none; }
-.pulse svg { display: block; width: 100%; height: 100%; overflow: visible; }
-.ekg-line { fill: none; stroke: var(--seat); stroke-linejoin: round; stroke-linecap: round; }
-.ekg-gap { fill: var(--floor); }
-.ekg-dot { fill: var(--seat); }
-.ekg-ring { fill: none; stroke: var(--seat); opacity: 0; transform-box: fill-box; transform-origin: center; }
-@keyframes ekg-blink {
-  0%, 31% { opacity: 0; transform: scale(1); }
-  33% { opacity: 0.6; transform: scale(1); }
-  80%, 100% { opacity: 0; transform: scale(3.2); }
-}
 .h1-setup { color: var(--ink-soft); }
+/* the period of "waiting." is the page's pulse: 72 times a minute it flushes Seat Blue and
+   swells a little, then settles back to ink */
+.h1-dot { display: inline-block; transform-origin: 50% 80%; animation: period-beat 833.333ms linear infinite; }
+@keyframes period-beat {
+  0% { color: var(--ink); transform: scale(1); }
+  5% { color: var(--seat); transform: scale(1.25); animation-timing-function: cubic-bezier(0.33, 0, 0.2, 1); }
+  55%, 100% { color: var(--ink); transform: scale(1); }
+}
 .lede { grid-area: lede; align-self: start; margin-top: 28px; max-width: 34ch; font-size: clamp(1.1875rem, 1.05rem + 0.45vw, 1.375rem); line-height: 1.5; }
-.hero-stats { grid-area: stats; margin-top: 28px; align-self: start; }
+.hero-stat { grid-area: stats; margin-top: 28px; align-self: start; }
 
 /* PrIAge's line, featured: a dark plate that carries the ask */
 .ai-plate {
@@ -209,16 +203,10 @@ p { text-wrap: pretty; }
 .ai-stage { margin-top: 8px; font-size: 1rem; color: var(--on-seat-soft); }
 .ai-plate .btn { flex: none; }
 
-/* two numbers that state the problem before any scrolling */
-.hero-stats { border-top: 2px solid var(--ink); }
-.stat { padding-block: 20px 22px; }
-.stat + .stat { border-top: 1px solid var(--rule); }
-/* each stat reads as one sentence split around its number: who, how many, what happened */
-.stat-lead { max-width: 34ch; font-size: 1.0625rem; line-height: 1.4; }
-.stat-n { margin-top: 6px; white-space: nowrap; font-family: var(--sign); font-weight: 900; font-size: clamp(2.25rem, 1.2rem + 2.4vw, 3.625rem); line-height: 0.95; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
-.stat-hot .stat-n { color: var(--mark-ink); }
-.stat-t { margin-top: 6px; max-width: 32ch; font-size: 1.0625rem; line-height: 1.4; }
-.stat-src { margin-top: 6px; font-size: 0.8125rem; color: var(--ink-soft); }
+/* one number states the problem before any scrolling; the triage card gives its nuance */
+.hero-stat { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px; padding-block: 20px 22px; border-top: 2px solid var(--ink); }
+.stat-n { white-space: nowrap; font-family: var(--sign); font-weight: 900; font-size: clamp(3rem, 1.6rem + 3.4vw, 5rem); line-height: 0.95; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--mark-ink); }
+.stat-t { flex: 1 1 16ch; max-width: 30ch; font-size: clamp(1.1875rem, 1.05rem + 0.45vw, 1.375rem); line-height: 1.4; text-wrap: balance; }
 
 /* ---------- The story: a strip of scenes that scrolls sideways ---------- */
 
@@ -507,14 +495,7 @@ p { text-wrap: pretty; }
   /* on narrow screens the numbers sit right under the sentence they prove */
   .hero-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "title" "lede" "stats" "plate"; }
   .lede { max-width: 44ch; margin-top: 20px; }
-  .hero-stats { margin-top: 24px; }
-}
-@media (min-width: 600px) {
-  .hero-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(4, auto); column-gap: 32px; }
-  /* subgrid lines the two numbers up on one row however long each lead-in runs */
-  .stat { display: grid; grid-row: span 4; grid-template-rows: subgrid; align-content: start; }
-  .stat-n { align-self: end; }
-  .stat + .stat { border-top: 0; }
+  .hero-stat { margin-top: 24px; }
 }
 
 /* ---------- Phones ---------- */
@@ -526,8 +507,7 @@ p { text-wrap: pretty; }
   .nav .nav-quiet { display: none; }
   .nav .nav-talk { padding: 13px 14px; font-size: 0.9375rem; }
   .btn { font-size: 1.0625rem; }
-  .stat { padding-block: 16px 18px; }
-  .stat-n { font-size: 2.375rem; }
+  .hero-stat { padding-block: 16px 18px; }
   .room-sub { min-height: 2.9em; }
   .ai-plate { flex-direction: column; align-items: flex-start; }
   .people { grid-template-columns: minmax(0, 1fr); }
@@ -548,8 +528,8 @@ p { text-wrap: pretty; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0s !important; scroll-behavior: auto !important; }
-  /* the trace stays, still */
-  .ekg-gap, .ekg-head { display: none; }
+  /* the period holds still */
+  .h1-dot { animation: none; }
 }
 
 @media print {

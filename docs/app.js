@@ -88,68 +88,6 @@
     io.observe(node);
   }
 
-  // ---------- The pulse that runs out of "waiting." ----------
-  // A bedside-monitor trace on the headline's baseline: the line holds still, a gap sweeps
-  // across it, and a dot rides the leading edge and pulses on every beat. 72 beats a minute.
-  const title = document.getElementById("hero-title");
-  const pulse = title?.querySelector(".pulse");
-  if (pulse) {
-    const svg = pulse.querySelector("svg"), anchor = title.querySelector(".pulse-anchor");
-    const BEAT_MS = 60000 / 72;
-    const sheet = document.createElement("style");
-    document.head.append(sheet);
-    // one beat, u from 0 to 1: P wave, the QRS spike, T wave
-    const wave = (u) => {
-      const g = (c, w, a) => a * Math.exp(-((u - c) ** 2) / (2 * w * w));
-      return g(0.16, 0.028, 0.11) + g(0.3, 0.008, -0.1) + g(0.33, 0.009, 1) + g(0.36, 0.01, -0.26) + g(0.58, 0.05, 0.22);
-    };
-    let lastKey = "";
-    const place = () => {
-      title.style.paddingBottom = "";
-      const fs = parseFloat(getComputedStyle(title).fontSize);
-      const box = title.getBoundingClientRect(), a = anchor.getBoundingClientRect();
-      const h = Math.round(fs * 0.95), base = Math.round(h * 0.82), beatW = fs * 1.5, gap = fs * 0.22;
-      let left = a.left - box.left + gap, w = box.width - left, top = a.top - box.top - base;
-      if (w < beatW * 1.6) {
-        // too little room after the word: the pulse takes its own line, starting under "waiting."
-        const word = title.querySelector(".h1-end").getClientRects();
-        left = word[word.length - 1].left - box.left;
-        if (box.width - left < beatW * 1.6) left = 0;
-        w = box.width - left; top = a.top - box.top + fs * 0.32 - base + h;
-        title.style.paddingBottom = `${Math.round(h * 0.9)}px`;
-      }
-      w = Math.round(w);
-      Object.assign(pulse.style, { left: `${left}px`, top: `${top}px`, width: `${w}px`, height: `${h}px` });
-      const key = `${w}x${h}`;
-      if (key === lastKey) return;
-      lastKey = key;
-      // a whole number of beats per sweep keeps the dot and the blink in step forever
-      const beats = Math.max(1, Math.round(w / beatW)), period = w / beats, amp = h * 0.8;
-      const y = (x) => base - amp * wave((x / period) % 1);
-      let d = "";
-      for (let x = 0; x <= w; x++) d += `${x ? "L" : "M"}${x} ${y(x).toFixed(1)}`;
-      const sw = Math.max(2.5, fs * 0.07), r = Math.max(4, fs * 0.075);
-      svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
-      svg.innerHTML = `<path class="ekg-line" d="${d}" stroke-width="${sw.toFixed(1)}"/>`
-        + `<rect class="ekg-gap" x="0" y="${-h * 0.1}" width="${Math.round(period * 0.28)}" height="${h * 1.3}"/>`
-        + `<g class="ekg-head"><circle class="ekg-ring" r="${r.toFixed(1)}" stroke-width="${(sw * 0.6).toFixed(1)}"/><circle class="ekg-dot" r="${r.toFixed(1)}"/></g>`;
-      const sweep = beats * BEAT_MS, steps = Math.round(w / 1.5);
-      let k = "";
-      for (let i = 0; i <= steps; i++) {
-        const x = (w * i) / steps;
-        k += `${((100 * i) / steps).toFixed(3)}%{transform:translate(${x.toFixed(1)}px,${y(x).toFixed(1)}px)}`;
-      }
-      sheet.textContent = `@keyframes ekg-head{${k}}`
-        + `@keyframes ekg-gap{from{transform:translateX(0)}to{transform:translateX(${w}px)}}`
-        + `.ekg-head{animation:ekg-head ${sweep}ms linear infinite}`
-        + `.ekg-gap{animation:ekg-gap ${sweep}ms linear infinite}`
-        + `.ekg-ring{animation:ekg-blink ${BEAT_MS}ms linear infinite}`;
-    };
-    place();
-    addEventListener("resize", place);
-    document.fonts?.ready.then(place);
-  }
-
   // ---------- 1. The wait to be triaged: the room fills up ----------
   const room = document.querySelector('[data-scene="room"]');
   if (room) {
