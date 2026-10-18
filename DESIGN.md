@@ -359,3 +359,8 @@ The owner dropped "blind spot": it implies nobody sees the problem or is trying 
 ## v16: the plate invites, it does not report stage (2026-10-17)
 
 Under the AI line the plate now says "We'd love to hear your perspective. Share your stories and thoughts with us." in On Seat Mist, beside the light "Talk with us" button. The dated stage line ("We're early: in fall 2026...") was dropped at the owner's request: it read oddly and didn't explain being early. Hero stat numbers never wrap (`white-space: nowrap`, size from 2.25rem to 3.625rem), so "about 1 in 3" stays one line at laptop widths.
+
+## v17: the full logo (2026-10-17)
+
+The logo SVGs (docs/logo.svg and brand/priage-logo, -black, -white, -reversed) had a viewBox fitted to the letter fills, which cut the heartbeat's mitered spike below the baseline (the stroke's miter tip reaches y 302.5) and the right edge of the "e" (x 700). The viewBox is now `12 10 710.6 298.5`, matching the logo sheet. The header logo is 48px tall (40px on phones) so the letters keep their size. The AI line reads "PrIAge plans to use AI to help improve outcomes for patients and the professionals who care for them."
+

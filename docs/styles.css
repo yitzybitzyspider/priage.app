@@ -136,7 +136,7 @@ p { text-wrap: pretty; }
 }
 .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .wordmark { display: block; line-height: 0; }
-.wordmark img { height: 40px; width: auto; }
+.wordmark img { height: 48px; width: auto; }
 .nav ul { display: flex; align-items: center; gap: clamp(14px, 2.4vw, 32px); }
 .nav ul a { display: inline-block; padding-block: 12px; font-weight: 600; font-size: 1rem; text-decoration-color: transparent; }
 .nav ul a:hover { text-decoration-color: currentColor; }
@@ -507,7 +507,7 @@ p { text-wrap: pretty; }
 
 @media (max-width: 759px) {
   body { font-size: 1.0625rem; }
-  .wordmark img { height: 34px; }
+  .wordmark img { height: 40px; }
   .nav ul { gap: 14px; }
   .nav .nav-quiet { display: none; }
   .nav .nav-talk { padding: 13px 14px; font-size: 0.9375rem; }
