@@ -279,8 +279,8 @@ p { text-wrap: pretty; }
   padding-top: 16px;
   border-top: 1px solid var(--rule);
   display: flex;
-  align-items: baseline;
-  gap: 4px 14px;
+  align-items: center;
+  gap: 4px 16px;
   flex-wrap: wrap;
 }
 .scene .stage { margin-bottom: 20px; }
@@ -490,6 +490,12 @@ p { text-wrap: pretty; }
   .story-head { grid-template-columns: minmax(0, 1fr); grid-template-areas: "title" "text" "pager"; }
   .pager-wrap { justify-content: space-between; }
   .hint { text-align: left; max-width: none; }
+}
+@media (min-width: 900px) {
+  /* one rule under the headline spans the lede and the number, so they read as a pair */
+  .hero-grid::before { content: ""; grid-column: 1 / -1; grid-row: 2; align-self: start; margin-top: 28px; border-top: 2px solid var(--ink); }
+  .lede, .hero-stat { padding-top: 22px; }
+  .hero-stat { border-top: 0; padding-bottom: 0; }
 }
 @media (max-width: 899px) {
   /* on narrow screens the numbers sit right under the sentence they prove */

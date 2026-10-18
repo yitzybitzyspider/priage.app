@@ -33,7 +33,7 @@ Alternative, the site's headline (68 characters):
 >
 > PrIAge plans to use AI to help improve outcomes for patients and the professionals who care for them.
 >
-> We'd love to hear your perspective. If you've worked in an ER or waited in one, share your stories and thoughts with us. Calls take 20 to 30 minutes. We won't ask for patient details or anything confidential about your hospital. It isn't a sales call, and we'll share what we learn.
+> We'd love to hear your perspective. If you've worked in an ER or waited in one, share your stories and thoughts with us. Calls take 20 to 30 minutes. We won't ask for patient details or anything confidential about your hospital. It isn't a sales call, and we're happy to share our findings.
 >
 > We're four MBA students at UC Berkeley's Haas School of Business: a physician who led a frontline ER team, a hospital staffing product lead from Epic, a Y Combinator founder and a systems engineer.
 >

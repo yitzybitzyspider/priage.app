@@ -376,3 +376,11 @@ The hero says one number, plainly: "1 in 3 patients who needed the most urgent c
 The headline's heartbeat trace (v18) is gone at the owner's request. The period of "waiting." is now the page's pulse: 72 times a minute it flushes Seat Blue and swells to 1.25x, then settles back to ink over about 400ms. It is pure CSS on an inline-block span, so the headline's text is unchanged for screen readers. Under reduced motion the period holds still.
 
 Open: this number shows that triage misses some of the sickest patients, which supports "hard to see who is getting worse". It does not show that people get worse or die in the waiting room itself. Twenty searches found no study counting deaths or deterioration inside ER waiting rooms. The closest verified US figure is the left-without-being-seen card (2.59 times the odds of dying within 30 days).
+
+## v20: one rule, centered answers, softer ask (2026-10-18)
+
+On screens 900px and wider, one 2px ink rule runs under the headline across the full width, and the lede and the 1 in 3 sit side by side beneath it at the same height. Before, only the number column carried a rule, so the pair read as two loose pieces. Narrow screens keep the v19 layout (lede, then the rule, then the number), which the owner liked.
+
+Every card's answer now centers its sentence against the number (`align-items: center`) instead of hanging it from the number's baseline, so two- and three-line answers no longer drop below the figure. It is the same arrangement as the hero number.
+
+The talk band drops "We're early": it now reads "We're learning from the people who know this best". The promise line ends "and we're happy to share our findings" instead of "we'll share what we learn": an offer, not a commitment. The LinkedIn About text in brand/linkedin/README.md matches.
