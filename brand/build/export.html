@@ -8,7 +8,7 @@ svg { display: block; margin: 10px; }
 </style></head>
 <body>
 <svg id="logo" width="1000" height="300" data-ink="#1a1d1f" data-ia="#2b5d87"></svg>
-<svg id="tagline" width="1000" height="360" data-ink="#1a1d1f" data-ia="#2b5d87" data-tag="Better information for the people making the call" data-tagcolor="#485056"></svg>
+<svg id="tagline" width="1000" height="360" data-ink="#1a1d1f" data-ia="#2b5d87" data-tag="Helping ER teams notice change sooner" data-tagcolor="#485056"></svg>
 <script>
 const NS = "http://www.w3.org/2000/svg";
 const mk = (n, a) => { const el = document.createElementNS(NS, n); for (const k in a) el.setAttribute(k, a[k]); return el; };
@@ -44,7 +44,7 @@ document.fonts.ready.then(() => {
     const shapes = [...g.children].filter(e => e.tagName !== "text").map(e => e.outerHTML);
     const texts = [...g.querySelectorAll("text")].map(t => ({
       family: t.getAttribute("font-family"), weight: +t.getAttribute("font-weight"), size: +t.getAttribute("font-size"),
-      fill: t.getAttribute("fill"), y: +t.getAttribute("y"),
+      fill: t.getAttribute("fill"), y: +t.getAttribute("y"), width: t.getComputedTextLength(),
       glyphs: [...t.textContent].map((ch, i) => ({ ch, x: t.getStartPositionOfChar(i).x }))
     }));
     out[svg.id] = { bbox: { x: bb.x, y: bb.y, w: bb.width, h: bb.height }, shapes, texts };
