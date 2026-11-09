@@ -167,7 +167,7 @@ p { text-wrap: pretty; }
 .h1-setup { color: var(--ink-soft); }
 .er { color: var(--mark); }
 /* the period of "waiting." is the page's pulse: 72 times a minute it flares red and swells */
-.h1-dot { display: inline-block; color: var(--mark); transform-origin: 50% 80%; animation: period-beat 833.333ms linear infinite; }
+.h1-dot { display: inline-block; margin-left: 0.08em; color: var(--mark); transform-origin: 50% 80%; animation: period-beat 833.333ms linear infinite; }
 @keyframes period-beat {
   0% { color: var(--mark); transform: scale(1); }
   5% { color: var(--mark); transform: scale(1.9); animation-timing-function: cubic-bezier(0.33, 0, 0.2, 1); }
