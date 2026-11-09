@@ -1,29 +1,25 @@
 "use strict";
 (() => {
   // The period of "waiting." tells the story: a steady pulse that weakens, turns irregular,
-  // then goes flat for a few seconds before the page starts over. Reduced motion holds it still.
+  // then stops for a few seconds before the page starts over. Reduced motion holds it still.
   const dot = document.querySelector(".h1-dot");
   const still = matchMedia("(prefers-reduced-motion: reduce)");
   if (dot && !still.matches) {
     dot.style.animation = "none";
-    dot.style.transformOrigin = "50% 50%";
     const beat = (amp, ms) => dot.animate(
       [{ transform: "scale(1)" }, { transform: `scale(${amp})`, offset: 0.08 }, { transform: "scale(1)" }],
       { duration: ms, easing: "ease-out" });
-    const flat = () => {
-      const line = dot.animate([{ transform: "scale(1)" }, { transform: "scale(2.6, 0.28)" }],
-        { duration: 600, fill: "forwards", easing: "ease-in-out" });
-      setTimeout(() => { line.cancel(); dot.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 700 }); cycle(); }, 4200);
-    };
+    // then it simply stops, and the page holds its breath before the pulse returns
+    const stop = () => setTimeout(cycle, 4000);
     const cycle = () => {
       const n = 30; let i = 0;
       const next = () => {
         const p = i / n;                                   // 0 steady, 1 failing
-        const amp = 1.9 - 0.8 * p;                         // the swell shrinks
-        let gap = 833 * (1 - 0.3 * p);                     // the rhythm quickens
-        if (p > 0.55) gap *= 0.7 + Math.random() * 0.7;    // then loses its regularity
-        beat(amp, Math.min(gap, 700));
-        if (++i < n) setTimeout(next, gap); else setTimeout(flat, gap);
+        const amp = 1.9 - 0.5 * p;                         // the swell shrinks a little
+        let gap = 833 * (1 - 0.55 * p);                    // the rhythm races
+        if (p > 0.6) gap *= 0.75 + Math.random() * 0.5;    // and loses its regularity
+        beat(amp, Math.min(gap, 650));
+        if (++i < n) setTimeout(next, gap); else setTimeout(stop, gap);
       };
       next();
     };
