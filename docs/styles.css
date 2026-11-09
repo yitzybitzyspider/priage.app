@@ -195,7 +195,8 @@ p { text-wrap: pretty; }
 .person img.crop-left { transform: scale(1.18); transform-origin: 30% 40%; }
 .person h3 { font-size: clamp(1.25rem, 1.05rem + 0.6vw, 1.5rem); line-height: 1.15; }
 .person-tag { margin-top: 4px; font-family: var(--sign); font-weight: 800; font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--seat-deep); }
-.person p:not(.person-tag) { margin-top: 10px; font-size: 1rem; line-height: 1.55; max-width: 52ch; }
+.person p:not(.person-tag):not(.person-links) { margin-top: 10px; font-size: 1rem; line-height: 1.55; max-width: 52ch; }
+.person-links { display: flex; gap: 20px; }
 .person-link { display: inline-block; margin-top: 2px; padding-block: 10px; font-weight: 700; font-size: 0.9375rem; color: var(--seat-deep); }
 
 /* ---------- Sources and footer ---------- */
@@ -228,7 +229,7 @@ p { text-wrap: pretty; }
   .person .ph { grid-row: 1 / span 2; }
   .person h3 { grid-column: 2; align-self: end; }
   .person-tag { grid-column: 2; align-self: start; }
-  .person p:not(.person-tag), .person-link { grid-column: 1 / -1; justify-self: start; }
+  .person p:not(.person-tag), .person-links, .person-link { grid-column: 1 / -1; justify-self: start; }
 }
 
 @media (prefers-reduced-motion: reduce) {
