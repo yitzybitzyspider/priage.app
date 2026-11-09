@@ -10,13 +10,13 @@
       [{ transform: "scale(1)" }, { transform: `scale(${amp})`, offset: 0.08 }, { transform: "scale(1)" }],
       { duration: ms, easing: "ease-out" });
     // then it simply stops, and the page holds its breath before the pulse returns
-    const stop = () => setTimeout(cycle, 4000);
+    const stop = () => setTimeout(cycle, 3000);
     const cycle = () => {
-      const n = 30; let i = 0;
+      const n = 16; let i = 0;
       const next = () => {
         const p = i / n;                                   // 0 steady, 1 failing
         const amp = 1.9 - 0.5 * p;                         // the swell shrinks a little
-        let gap = 833 * (1 - 0.55 * p);                    // the rhythm races
+        let gap = 800 * (1 - 0.62 * p);                    // the rhythm races
         if (p > 0.6) gap *= 0.75 + Math.random() * 0.5;    // and loses its regularity
         beat(amp, Math.min(gap, 650));
         if (++i < n) setTimeout(next, gap); else setTimeout(stop, gap);
