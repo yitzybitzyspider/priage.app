@@ -170,7 +170,7 @@ p { text-wrap: pretty; }
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
-  grid-template-areas: "title title" "lede stats" "plate plate";
+  grid-template-areas: "title title" "lede lede" "plate plate";
   column-gap: clamp(32px, 5vw, 80px);
 }
 /* a setup and a punchline: the second line lands darker */
@@ -186,7 +186,6 @@ p { text-wrap: pretty; }
   55%, 100% { color: var(--ink); transform: scale(1); }
 }
 .lede { grid-area: lede; align-self: start; margin-top: 28px; max-width: 34ch; font-size: clamp(1.1875rem, 1.05rem + 0.45vw, 1.375rem); line-height: 1.5; }
-.hero-stat { grid-area: stats; margin-top: 28px; align-self: start; }
 
 /* PrIAge's line, featured: a dark plate that carries the ask */
 .ai-plate {
@@ -203,216 +202,6 @@ p { text-wrap: pretty; }
 .ai-stage { margin-top: 8px; font-size: 1rem; color: var(--on-seat-soft); }
 .ai-plate .btn { flex: none; }
 
-/* one number states the problem before any scrolling; the triage card gives its nuance */
-.hero-stat { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px; padding-block: 20px 22px; border-top: 2px solid var(--ink); }
-.stat-n { white-space: nowrap; font-family: var(--sign); font-weight: 900; font-size: clamp(3rem, 1.6rem + 3.4vw, 5rem); line-height: 0.95; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--mark-ink); }
-.stat-t { flex: 1 1 16ch; max-width: 30ch; font-size: clamp(1.1875rem, 1.05rem + 0.45vw, 1.375rem); line-height: 1.4; text-wrap: balance; }
-
-/* ---------- The story: a strip of scenes that scrolls sideways ---------- */
-
-.story { padding-bottom: clamp(64px, 8vw, 112px); }
-.story-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "title title" "text pager"; gap: 14px clamp(28px, 3.5vw, 56px); align-items: end; }
-.story-head h2 { grid-area: title; }
-.story-head > p { grid-area: text; }
-.pager-wrap { grid-area: pager; }
-.story-head h2 { font-size: clamp(2.125rem, 1.4rem + 2.6vw, 3.25rem); line-height: 1.04; }
-.story-head > p { max-width: 34em; }
-.pager-wrap { display: flex; align-items: center; justify-content: flex-end; gap: 14px; }
-
-.hint { font-size: 0.9375rem; color: var(--ink-soft); text-align: right; max-width: 14em; }
-.hint-mouse { display: none; }
-@media (hover: hover) and (pointer: fine) {
-  .hint-mouse { display: inline; }
-  .hint-touch { display: none; }
-}
-
-.pager { display: flex; align-items: center; gap: 10px; flex: none; }
-.pager-count { min-width: 3.4em; text-align: center; font-family: var(--sign); font-weight: 700; font-size: 1rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
-.pager-count b { color: var(--ink); font-weight: 900; }
-.pager-btn {
-  display: grid; place-items: center;
-  width: 46px; height: 46px; padding: 0;
-  border: 0; border-radius: 6px;
-  background: var(--seat); color: var(--on-seat);
-  cursor: pointer;
-  transition: background-color 160ms ease, opacity 160ms ease;
-}
-.pager-btn:hover { background: var(--seat-deep); }
-/* at an end the arrow stays focusable but reads as off: an outline, not a faded fill */
-.pager-btn[aria-disabled="true"] { background: transparent; color: #6b777e; box-shadow: inset 0 0 0 1.5px #6b777e; cursor: default; }
-
-.cards {
-  display: flex;
-  gap: clamp(14px, 1.6vw, 22px);
-  margin-top: clamp(20px, 2.4vw, 28px);
-  padding: 4px var(--edge) 20px;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;
-  scroll-padding-inline: var(--edge);
-  scrollbar-width: thin;
-  scrollbar-color: var(--seat) transparent;
-}
-.cards:focus-visible { outline-offset: -3px; }
-.cards::-webkit-scrollbar { height: 8px; }
-.cards::-webkit-scrollbar-thumb { background: var(--seat); border-radius: 4px; }
-.cards::-webkit-scrollbar-track { background: transparent; }
-
-.card {
-  flex: 0 0 min(560px, calc(100vw - 2 * var(--gutter) - 48px));
-  scroll-snap-align: start;
-  display: flex;
-  flex-direction: column;
-  padding: clamp(20px, 2.2vw, 30px);
-  background: var(--panel);
-  border-radius: 6px;
-  box-shadow: var(--lift);
-}
-.card h3 { font-size: clamp(1.375rem, 1.15rem + 0.7vw, 1.75rem); line-height: 1.12; max-width: 22ch; }
-
-.scene { flex: 1; display: flex; flex-direction: column; margin-top: 10px; }
-.q { font-size: 1rem; line-height: 1.45; color: var(--ink-soft); max-width: 46ch; }
-/* the scene takes the card's spare height and sits centered in it, so every answer lines up at the bottom */
-.stage { flex: 1 0 auto; display: flex; flex-direction: column; justify-content: center; margin-top: 20px; }
-.answer {
-  margin-top: auto;
-  padding-top: 16px;
-  border-top: 1px solid var(--rule);
-  display: flex;
-  align-items: center;
-  gap: 4px 16px;
-  flex-wrap: wrap;
-}
-.scene .stage { margin-bottom: 20px; }
-.answer .n {
-  font-family: var(--sign);
-  font-weight: 900;
-  font-size: clamp(2.125rem, 1.7rem + 1.5vw, 2.875rem);
-  line-height: 1;
-  letter-spacing: -0.02em;
-  color: var(--mark-ink);
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-.answer .n.n-ink { color: var(--ink); }
-.answer > * { transition: opacity 240ms ease; }
-.is-waiting .answer > * { opacity: 0; }
-.answer p { flex: 1 1 14em; font-size: 1rem; line-height: 1.4; }
-.src { margin-top: 10px; font-size: 0.8125rem; line-height: 1.45; color: var(--ink-soft); }
-.src a { display: inline-block; padding-block: 13px; margin-block: -13px; color: var(--seat-deep); font-weight: 700; text-decoration-thickness: 1px; }
-.noscript { font-size: 0.9375rem; color: var(--ink-soft); }
-
-/* the last card: the gap in the evidence, handed to the reader */
-.card-end { justify-content: center; align-items: flex-start; gap: 20px; background: var(--seat-deep); color: var(--on-seat); box-shadow: none; }
-.end-big { font-family: var(--sign); font-weight: 800; font-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem); line-height: 1.1; letter-spacing: -0.015em; text-wrap: balance; max-width: 15ch; }
-.end-small { font-size: 1.0625rem; color: var(--on-seat-soft); max-width: 38ch; }
-
-/* ---------- Scenes ---------- */
-
-/* chairs: one chair is one patient */
-.seat-svg { width: 100%; height: auto; overflow: visible; flex: none; }
-.chair rect { fill: var(--seat); stroke: transparent; stroke-width: 1.6; transition: fill 160ms steps(2, jump-none), stroke 160ms steps(2, jump-none); }
-.chair .leg { fill: var(--seat-deep); }
-.chair-missed rect { fill: var(--mark); }
-.chair-missed .leg { fill: var(--mark-ink); }
-.chair-empty rect { fill: transparent; stroke: #7f8a91; stroke-width: 1.6; }
-.chair-empty .leg { fill: #7f8a91; stroke: transparent; }
-.seat-plate { fill: var(--mark-plate); transition: opacity 160ms steps(2, jump-none); }
-.beam { fill: var(--beam); }
-.chair-missed.off rect { fill: var(--seat); }
-.chair-missed.off .leg { fill: var(--seat-deep); }
-.seat-plate.off { opacity: 0; }
-
-/* the waiting room that fills up */
-.room-title { font-family: var(--sign); font-weight: 800; font-size: 1.25rem; line-height: 1.1; }
-.room-sub { margin-top: 2px; font-size: 0.9375rem; color: var(--ink-soft); }
-.room-field { margin-top: 16px; }
-.room-field .seat-svg { max-width: 360px; }
-.key-line { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 14px; font-size: 0.8125rem; line-height: 1.3; color: var(--ink-soft); }
-.key-line span { display: inline-flex; align-items: center; gap: 6px; }
-.k { width: 12px; height: 12px; border-radius: 3px; flex: none; background: var(--seat); }
-.k-red { background: var(--mark); }
-.k-empty { background: transparent; box-shadow: inset 0 0 0 1.5px #7f8a91; }
-
-/* two ways out */
-.exits { display: grid; gap: 12px; align-content: center; }
-.sign {
-  display: flex; align-items: center; gap: 14px;
-  padding: 16px 20px; border-radius: 6px; background: var(--seat-deep); color: var(--on-seat);
-  box-shadow: inset 0 0 0 3px rgb(255 255 255 / 0.14);
-  font-family: var(--sign); font-weight: 800; font-size: clamp(1.0625rem, 0.95rem + 0.45vw, 1.3125rem); line-height: 1.15;
-}
-.sign svg { width: 28px; height: 28px; flex: none; }
-.sign.hot { background: var(--mark); }
-
-/* the wall clock */
-.clock-stage { display: grid; justify-items: center; align-content: center; }
-.clock-svg { width: min(100%, 230px); height: auto; overflow: visible; }
-.clock-svg .face { fill: #fff; stroke: var(--ink); stroke-width: 6; }
-.clock-svg .tick { stroke: var(--beam); stroke-width: 2; }
-.clock-svg .tick-h { stroke: var(--ink); stroke-width: 4; }
-.clock-svg .hours { font-family: var(--sign); font-weight: 800; font-size: 17px; fill: var(--ink-soft); }
-.clock-svg .band { fill: var(--mark); opacity: 0.92; }
-.clock-svg .hand { stroke: var(--ink); stroke-width: 6; stroke-linecap: round; }
-.clock-svg .pin { fill: var(--ink); }
-
-/* the hospital: one window per 10,000 beds */
-.ward-grid { display: grid; grid-template-columns: minmax(0, 270px) minmax(0, 1fr); gap: 20px; align-items: center; align-content: center; }
-.building-svg { width: 100%; height: auto; overflow: visible; }
-.b-body { fill: #fff; stroke: var(--ink); stroke-width: 3; }
-.b-ground { fill: var(--ink); }
-.b-sign { fill: var(--seat); }
-.b-sign-h { fill: var(--on-seat); font-family: var(--sign); font-weight: 900; font-size: 26px; }
-.b-pole { fill: var(--beam); }
-.b-plate { fill: var(--seat-deep); }
-.b-plate-t { fill: var(--on-seat); font-family: var(--sign); font-weight: 800; font-size: 11px; letter-spacing: 0.14em; }
-.b-door { fill: #d3dbe0; stroke: var(--ink); stroke-width: 2; }
-.w rect, .w circle, .w line { transition: fill 200ms steps(2, jump-none), stroke 200ms steps(2, jump-none), opacity 200ms steps(2, jump-none); }
-.w-frame { fill: var(--floor); stroke: #79848b; stroke-width: 1.5; }
-.w-bed { fill: var(--beam); }
-.w-head, .w-blanket { fill: var(--on-seat); opacity: 0; }
-.w-x { stroke: var(--mark); stroke-width: 2.2; opacity: 0; }
-.w-full .w-frame { fill: var(--seat); stroke: var(--seat-deep); }
-.w-full .w-bed { fill: var(--on-seat-soft); }
-.w-full .w-head, .w-full .w-blanket { opacity: 1; }
-.w-closed .w-frame { fill: var(--mark-plate); stroke: var(--mark); stroke-width: 2.2; }
-.w-closed .w-bed { opacity: 0; }
-.w-closed .w-x { opacity: 1; }
-.ward-key { display: grid; gap: 8px; margin-top: 12px; font-size: 0.875rem; line-height: 1.3; color: var(--ink-soft); }
-.ward-key li { display: flex; align-items: center; gap: 10px; }
-.ward-unit { margin-top: 10px; font-size: 0.875rem; color: var(--ink-soft); }
-.win { width: 22px; height: 16px; border-radius: 3px; flex: none; background: var(--floor); box-shadow: inset 0 0 0 1.5px #79848b; }
-.win-full { background: var(--seat); box-shadow: none; }
-.win-closed { background: linear-gradient(to top right, transparent calc(50% - 1.2px), var(--mark) calc(50% - 1.2px), var(--mark) calc(50% + 1.2px), transparent calc(50% + 1.2px)), var(--mark-plate); box-shadow: inset 0 0 0 2px var(--mark); }
-
-/* staff lockers */
-.locker rect { transition: fill 140ms steps(2, jump-none); }
-.l-door { fill: var(--seat); }
-.l-vent { fill: var(--seat-deep); }
-.l-marked .l-door { fill: var(--mark); }
-.l-marked .l-vent { fill: var(--mark-plate); }  /* light vents: a cue beyond hue */
-
-/* two bills for one day of care */
-.receipts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-content: center; }
-.receipt {
-  padding: 16px 16px 28px;
-  background: #fff;
-  box-shadow: inset 0 0 0 1px var(--rule);
-  --zig: 10px;
-  -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / var(--zig) 100%;
-          mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / var(--zig) 100%;
-}
-.receipt-tag {
-  display: inline-block; margin-bottom: 8px; padding: 5px 9px 4px; border-radius: 4px;
-  background: var(--seat-deep); color: var(--on-seat);
-  font-family: var(--sign); font-weight: 800; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
-}
-.receipt.hot .receipt-tag { background: var(--ink); }
-.receipt dl { display: grid; gap: 4px; }
-.receipt dl div { display: flex; flex-direction: column; padding-top: 8px; border-top: 1px dashed var(--rule); }
-.receipt dt { font-size: 0.8125rem; color: var(--ink-soft); }
-.receipt dd { font-family: var(--sign); font-weight: 900; font-size: clamp(1.375rem, 1.1rem + 0.9vw, 1.875rem); line-height: 1.1; font-variant-numeric: tabular-nums; }
-.receipt dl div + div dd { font-size: clamp(1.0625rem, 0.95rem + 0.4vw, 1.25rem); }
 
 /* ---------- Talk with us: the blue band ---------- */
 
@@ -455,27 +244,9 @@ p { text-wrap: pretty; }
 
 /* ---------- Sources and footer ---------- */
 
-.sources { padding-block: clamp(40px, 5vw, 64px) 40px; border-top: 1px solid var(--rule); }
-.src-box summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; cursor: pointer; list-style: none; padding-block: 6px; }
-.src-box summary::-webkit-details-marker { display: none; }
-.src-box summary h2 { font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); }
-/* a drawn plus that loses its upright when the list is open */
-.src-box summary h2::after {
-  content: ""; display: inline-block; width: 0.5em; height: 0.5em; margin-left: 0.4em; vertical-align: 0.08em;
-  background: linear-gradient(currentColor, currentColor) center / 100% 3px no-repeat, linear-gradient(currentColor, currentColor) center / 3px 100% no-repeat;
-}
-.src-box[open] summary h2::after { background: linear-gradient(currentColor, currentColor) center / 100% 3px no-repeat; }
-.src-box-note { font-size: 0.9375rem; color: var(--ink-soft); }
-.src-box summary:hover .src-box-note { color: var(--ink); text-decoration: underline; }
-.sources-note { margin-top: 14px; max-width: 40em; font-size: 0.9375rem; color: var(--ink-soft); }
-.sources ol { margin-top: 22px; list-style: decimal; padding-left: 1.4em; display: grid; gap: 14px; font-size: 0.875rem; line-height: 1.5; max-width: 34em; }
-.sources li { color: var(--ink-soft); padding-left: 4px; }
-.sources li::marker { font-family: var(--sign); font-weight: 800; color: var(--ink); }
-.sources li:target { color: var(--ink); background: #e8f0f7; box-shadow: 0 0 0 6px #e8f0f7; border-radius: 3px; }
-.sources q { display: block; margin-top: 4px; font-style: italic; color: var(--ink); }
-.sources .gloss { display: block; margin-top: 4px; }
+.sources { padding-block: 0 40px; border-top: 1px solid var(--rule); }
 .foot {
-  margin-top: 44px; padding-top: 20px; border-top: 1px solid var(--rule);
+  padding-top: 20px;
   display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px;
   font-size: 0.9375rem; color: var(--ink-soft);
 }
@@ -485,23 +256,17 @@ p { text-wrap: pretty; }
 
 @media (max-width: 1023px) {
   .hero { padding-bottom: 28px; }
-  .story-head { row-gap: 10px; }
   .talk-grid, .team-head { grid-template-columns: minmax(0, 1fr); align-items: start; }
-  .story-head { grid-template-columns: minmax(0, 1fr); grid-template-areas: "title" "text" "pager"; }
-  .pager-wrap { justify-content: space-between; }
-  .hint { text-align: left; max-width: none; }
 }
 @media (min-width: 900px) {
-  /* one rule under the headline spans the lede and the number, so they read as a pair */
+  /* one rule under the headline, over the lede */
   .hero-grid::before { content: ""; grid-column: 1 / -1; grid-row: 2; align-self: start; margin-top: 28px; border-top: 2px solid var(--ink); }
-  .lede, .hero-stat { padding-top: 22px; }
-  .hero-stat { border-top: 0; padding-bottom: 0; }
+  .lede { padding-top: 22px; }
 }
 @media (max-width: 899px) {
   /* on narrow screens the numbers sit right under the sentence they prove */
-  .hero-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "title" "lede" "stats" "plate"; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "title" "lede" "plate"; }
   .lede { max-width: 44ch; margin-top: 20px; }
-  .hero-stat { margin-top: 24px; }
 }
 
 /* ---------- Phones ---------- */
@@ -513,8 +278,6 @@ p { text-wrap: pretty; }
   .nav .nav-quiet { display: none; }
   .nav .nav-talk { padding: 13px 14px; font-size: 0.9375rem; }
   .btn { font-size: 1.0625rem; }
-  .hero-stat { padding-block: 16px 18px; }
-  .room-sub { min-height: 2.9em; }
   .ai-plate { flex-direction: column; align-items: flex-start; }
   .people { grid-template-columns: minmax(0, 1fr); }
   /* photo and name side by side, the bio full width beneath */
@@ -524,12 +287,6 @@ p { text-wrap: pretty; }
   .person h3 { grid-column: 2; align-self: end; }
   .person-tag { grid-column: 2; align-self: start; }
   .person p:not(.person-tag), .person-link { grid-column: 1 / -1; justify-self: start; }
-  .ward-grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
-  .building { max-width: 270px; }
-  .ward-key { grid-template-columns: repeat(2, auto); justify-content: start; gap: 6px 16px; font-size: 0.8125rem; }
-  .sign { padding: 14px 16px; gap: 12px; }
-  .sign svg { width: 24px; height: 24px; }
-  .receipt { padding: 12px 12px 24px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -539,10 +296,7 @@ p { text-wrap: pretty; }
 }
 
 @media print {
-  .top, .skip, .pager-wrap, .copy { display: none !important; }
-  .src-box > * { display: block !important; }
-  .cards { display: grid; overflow: visible; padding: 0 var(--gutter); }
-  .card { break-inside: avoid; box-shadow: none; border: 1px solid var(--rule); }
+  .top, .skip, .copy { display: none !important; }
   .talk { background: none; color: var(--ink); }
 }
 
